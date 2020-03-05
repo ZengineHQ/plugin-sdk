@@ -6,20 +6,14 @@
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
     "start": "npm run sass -- --watch",
-    "sass": "sass scss/style.scss lib/style.css",
-    "build": "npm run sass; sass scss/style.scss lib/style.min.css --style compressed"
+    "sass": "sass scss/style.scss style.css",
+    "build": "npm run sass; sass scss/style.scss style.min.css --style compressed"
   },
   "license": "MIT",
-  "main": "lib/style.css",
+  "main": "style.css",
   "keywords": [
     "zengine",
     "zengine-ui"
-  ],
-  "directories": {
-    "lib": "lib"
-  },
-  "files": [
-    "lib"
   ],
   "repository": {
     "type": "git",
