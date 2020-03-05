@@ -5,7 +5,8 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "start": "npm run sass -- --watch",
+    "sass": "sass scss/style.scss lib/style.css"
   },
   "license": "MIT",
   "main": "lib/style.css",
@@ -24,6 +25,7 @@
     "url": "git+https://github.com/ZengineHQ/plugin-sdk.git"
   },
   "devDependencies": {
-    "bootstrap": "^4.4.1"
+    "bootstrap": "^4.4.1",
+    "sass": "^1.26.2"
   }
 }
