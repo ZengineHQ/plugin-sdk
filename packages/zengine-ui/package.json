@@ -6,12 +6,13 @@
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
     "start": "npm run sass -- --watch",
-    "sass": "sass scss/style.scss style.css",
-    "build": "npm run sass; sass scss/style.scss style.min.css --style compressed",
+    "sass": "sass scss/style.scss lib/style.css",
+    "sass:min": "sass scss/style.scss lib/style.min.css --style compressed",
+    "build": "rimraf lib; npm run sass; npm run sass:min; cpy scss lib --parents",
     "prepublish": "npm run build"
   },
   "license": "MIT",
-  "main": "style.css",
+  "main": "lib/style.css",
   "keywords": [
     "zengine",
     "zengine-ui"
@@ -22,10 +23,13 @@
   },
   "devDependencies": {
     "bootstrap": "^4.4.1",
+    "cpy-cli": "^3.1.0",
+    "rimraf": "^3.0.2",
     "sass": "^1.26.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "lib"
   },
   "gitHead": "31b0ef64f9ab74c5d6a69eb81a40255419d9ea92"
 }
