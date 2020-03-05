@@ -39,6 +39,7 @@
     "url": "git+https://github.com/ZengineHQ/plugin-sdk.git"
   },
   "devDependencies": {
+    "install-peers-cli": "^2.2.0",
     "standard-version": "^7.1.0"
   }
 }
