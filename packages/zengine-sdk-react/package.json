@@ -1,0 +1,29 @@
+{
+  "name": "zengine-sdk-react",
+  "version": "1.0.0",
+  "description": "asd",
+  "keywords": [
+    "asd"
+  ],
+  "author": "Alex Weber <alexweber@mailfence.com>",
+  "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
+  "license": "ISC",
+  "main": "lib/zengine-sdk-react.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZengineHQ/plugin-sdk.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/ZengineHQ/plugin-sdk/issues"
+  }
+}
