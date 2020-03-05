@@ -19,9 +19,9 @@ import 'style.min.css' from '@zenginehq/zengine-ui';
 
 Rolling your own:
 ```
-@import "~zenginehq/zengine-ui/scss/variables";
-@import "~zenginehq/zengine-ui/scss/vendor/variables";
-@import "~zenginehq/zengine-ui/scss/vendor/bootstrap";
-@import "~zenginehq/zengine-ui/scss/vendor/bootswatch";
-@import "~zenginehq/zengine-ui/scss/custom";
+@import "~@zenginehq/zengine-ui/scss/variables";
+@import "~@zenginehq/zengine-ui/scss/vendor/variables";
+@import "~@zenginehq/zengine-ui/scss/vendor/bootstrap";
+@import "~@zenginehq/zengine-ui/scss/vendor/bootswatch";
+@import "~@zenginehq/zengine-ui/scss/custom";
 ```
