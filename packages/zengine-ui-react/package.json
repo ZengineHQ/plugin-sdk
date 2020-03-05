@@ -40,7 +40,6 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.5.0",
-    "bootstrap": "^4.4.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "standard-version": "^7.1.0"
