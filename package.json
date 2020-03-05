@@ -1,7 +1,18 @@
 {
-  "name": "root",
+  "name": "@zenginehq/plugin-sdk",
   "private": true,
+  "scripts": {
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "husky": "^4.2.3",
     "lerna": "^3.20.2"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
