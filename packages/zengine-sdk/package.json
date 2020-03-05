@@ -2,6 +2,7 @@
   "name": "@zenginehq/zengine-sdk",
   "version": "1.0.0",
   "description": "sdk",
+  "private": true,
   "keywords": [
     "foo"
   ],
