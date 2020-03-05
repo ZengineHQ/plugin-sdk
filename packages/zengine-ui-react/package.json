@@ -5,7 +5,8 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "install-peers": "install-peers"
   },
   "license": "MIT",
   "main": "lib/index.js",
