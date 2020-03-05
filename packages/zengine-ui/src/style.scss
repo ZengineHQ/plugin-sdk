@@ -1,0 +1,22 @@
+//
+// Component Styles
+//
+
+// First import our Bootstrap/Bootswatch variable overrides.
+@import "variables";
+
+// Then import the Bootswatch theme variables.
+// This is done as a separate step so we can switch/update the Bootswatch theme independently.
+@import "vendor/variables";
+
+// The import actual Bootstrap styles, we use a separate include for this to customize which components we want.
+@import "vendor/bootstrap";
+
+// Then import Bootswatch variables.
+// Again, this is done as a separate step so we can switch/update the Bootswatch theme independently.
+// These 3 bootstrap imports have to go in this order: theme vars -> bootstrap -> theme styles.
+@import "vendor/bootswatch";
+
+// Finally add our own custom styles.
+// These are additional styles for our atomic design elements that are not covered by Bootstrap.
+@import "custom";

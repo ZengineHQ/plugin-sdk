@@ -1,0 +1,12 @@
+.table.table-borderless {
+
+  thead th {
+    color: $gray-500;
+    font-weight: 700;
+    border-bottom: $table-border-width solid $table-border-color;
+  }
+
+  tbody td {
+    border-bottom: $table-border-width solid $table-border-color;
+  }
+}

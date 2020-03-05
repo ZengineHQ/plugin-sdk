@@ -1,0 +1,19 @@
+// Styles for the KPI organism.
+
+.org-kpi {
+  //@extend .d-flex;
+  //@extend .flex-row;
+  //@extend .justify-content-around;
+  //@extend .border;
+  //@extend .pt-3;
+  //@extend .pb-3;
+
+  .mol-counter-labeled {
+    //@extend .border-right;
+    //@extend .flex-grow-1;
+
+    &:last-child {
+      border-right: 0 none !important;
+    }
+  }
+}
