@@ -22,5 +22,9 @@
   "devDependencies": {
     "bootstrap": "^4.4.1",
     "sass": "^1.26.2"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "31b0ef64f9ab74c5d6a69eb81a40255419d9ea92"
 }
