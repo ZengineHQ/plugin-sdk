@@ -2,16 +2,22 @@
   "name": "@zenginehq/zengine-ui-react",
   "version": "0.1.4",
   "description": "Zengine UI React",
-  "keywords": [
-    "foo"
-  ],
-  "author": "Alex Weber <alexweber@mailfence.com>",
+  "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
   "license": "MIT",
-  "main": "lib/zengine-ui-react.js",
+  "main": "lib/index.js",
+  "sideEffects": false,
+  "keywords": [
+    "zengine",
+    "plugin",
+    "react"
+  ],
   "directories": {
     "lib": "lib",
-    "test": "__tests__"
+    "test": "test"
   },
   "files": [
     "lib"
@@ -19,11 +25,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZengineHQ/plugin-sdk.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/ZengineHQ/plugin-sdk/issues"
   }
 }
