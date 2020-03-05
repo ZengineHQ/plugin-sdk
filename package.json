@@ -2,7 +2,8 @@
   "name": "@zenginehq/plugin-sdk",
   "private": true,
   "scripts": {
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "build": ""
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -14,5 +15,10 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
