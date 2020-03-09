@@ -18,6 +18,7 @@
     "style.min.css",
     "scss"
   ],
+  "sideEffects": false,
   "keywords": [
     "zengine",
     "zengine-ui"

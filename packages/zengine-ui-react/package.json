@@ -7,7 +7,8 @@
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "rimraf lib; tsc"
+    "build": "rimraf lib; tsc",
+    "prepublishOnly": "npm run build"
   },
   "license": "MIT",
   "main": "lib/index.js",
