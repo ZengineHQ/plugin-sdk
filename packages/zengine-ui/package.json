@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/zengine-ui",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Zengine UI Styles",
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
@@ -8,11 +8,17 @@
     "start": "npm run sass -- --watch",
     "sass": "sass scss/style.scss lib/style.css",
     "sass:min": "sass scss/style.scss lib/style.min.css --style compressed",
-    "build": "rimraf lib; npm run sass; npm run sass:min; cpy scss lib --parents",
+    "build": "rimraf lib; npm run sass; npm run sass:min; cpy scss lib --parents; cpy package.json README.md CHANGELOG.md lib",
     "prepublishOnly": "npm run build"
   },
   "license": "MIT",
-  "main": "lib/style.css",
+  "main": "style.css",
+  "files": [
+    "style.css",
+    "style.min.css",
+    "scss"
+  ],
+  "sideEffects": false,
   "keywords": [
     "zengine",
     "zengine-ui"
@@ -31,5 +37,5 @@
     "access": "public",
     "directory": "lib"
   },
-  "gitHead": "31b0ef64f9ab74c5d6a69eb81a40255419d9ea92"
+  "gitHead": "fa063d893a275e1c69294529106d9677a2a885ef"
 }

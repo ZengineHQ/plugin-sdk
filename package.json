@@ -2,8 +2,7 @@
   "name": "@zenginehq/plugin-sdk",
   "private": true,
   "scripts": {
-    "commitmsg": "commitlint -e $GIT_PARAMS",
-    "build": ""
+    "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
