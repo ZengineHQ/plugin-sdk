@@ -12,9 +12,9 @@ npm i @zenginehq/zengine-ui
 
 Including precompiled styles:
 ```
-import 'style.css' from '@zenginehq/zengine-ui';
+import '@zenginehq/zengine-ui/style.css';
 // or
-import 'style.min.css' from '@zenginehq/zengine-ui';
+import '@zenginehq/zengine-ui/style.min.css';
 ```
 
 Rolling your own:
