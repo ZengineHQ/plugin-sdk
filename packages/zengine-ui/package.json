@@ -13,6 +13,10 @@
   },
   "license": "MIT",
   "main": "lib/style.css",
+  "files": [
+    "lib/style.css",
+    "lib/scss"
+  ],
   "keywords": [
     "zengine",
     "zengine-ui"
@@ -28,8 +32,7 @@
     "sass": "^1.26.2"
   },
   "publishConfig": {
-    "access": "public",
-    "directory": "lib"
+    "access": "public"
   },
-  "gitHead": "31b0ef64f9ab74c5d6a69eb81a40255419d9ea92"
+  "gitHead": "fa063d893a275e1c69294529106d9677a2a885ef"
 }
