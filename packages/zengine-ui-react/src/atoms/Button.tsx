@@ -1,12 +1,10 @@
-import React, { MouseEvent, ReactElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-type onClickHandler = (event: MouseEvent<HTMLButtonElement>) => void
-
 interface ButtonProps {
   type: 'button' | 'reset' | 'submit'
-  onClick?: onClickHandler
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   theme: string
   classes?: string
   disabled?: boolean
@@ -19,7 +17,7 @@ interface ButtonProps {
  * Use it to trigger an action from users.
  */
 
-function Button (props: ButtonProps): ReactElement {
+function Button (props: ButtonProps): React.ReactElement {
   return (
     <button
       type={props.type}
