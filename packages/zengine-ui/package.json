@@ -8,14 +8,15 @@
     "start": "npm run sass -- --watch",
     "sass": "sass scss/style.scss lib/style.css",
     "sass:min": "sass scss/style.scss lib/style.min.css --style compressed",
-    "build": "rimraf lib; npm run sass; npm run sass:min; cpy scss lib --parents",
+    "build": "rimraf lib; npm run sass; npm run sass:min; cpy scss lib --parents; cpy package.json lib",
     "prepublishOnly": "npm run build"
   },
   "license": "MIT",
-  "main": "lib/style.css",
+  "main": "style.css",
   "files": [
-    "lib/style.css",
-    "lib/scss"
+    "style.css",
+    "style.min.css",
+    "scss"
   ],
   "keywords": [
     "zengine",
@@ -32,7 +33,8 @@
     "sass": "^1.26.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "lib"
   },
   "gitHead": "fa063d893a275e1c69294529106d9677a2a885ef"
 }
