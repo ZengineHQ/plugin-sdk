@@ -6,7 +6,8 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint src/**/*",
     "build": "rimraf lib; tsc",
     "prepublishOnly": "npm run build"
@@ -77,52 +78,14 @@
     "eslint-plugin-react-hooks": "^2.5.0",
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^25.1.0",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "jest-resolve": "^25.1.0",
+    "jest-watch-typeahead": "^0.4.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "rimraf": "^3.0.2",
     "standard-version": "^7.1.0",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/test/setupTests.ts"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "modulePaths": [],
-    "moduleNameMapper": {
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "json"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
   }
 }

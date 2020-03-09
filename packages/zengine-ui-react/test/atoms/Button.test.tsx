@@ -5,7 +5,8 @@ import Button from '../../src/atoms/Button';
 
 test('Renders a button HTML tag', () => {
   const { container } = render(<Button>sup</Button>);
-  expect(container.getElementsByTagName('button')).toHaveProperty('length', 1);
+  const buttons = container.getElementsByTagName('button');
+  expect(buttons).toHaveProperty('length', 1);
 });
 
 test('Renders with specified text', () => {
@@ -29,12 +30,12 @@ test('Sets theme attribute when specified', () => {
 });
 
 test('Disables button when specified', () => {
-  const { container } = render(<Button disabled={ true }>Hello</Button>);
+  const { container } = render(<Button disabled={true}>Hello</Button>);
   expect(container.firstChild).toHaveAttribute('disabled');
 });
 
 test('Displays aria-disabled attribute when disabled', () => {
-  const { container } = render(<Button disabled={ true }>Hello</Button>);
+  const { container } = render(<Button disabled={true}>Hello</Button>);
   expect(container.firstChild).toHaveAttribute('aria-disabled', 'true');
 });
 
@@ -45,7 +46,7 @@ test('Adds custom classes when specified', () => {
 
 test('Executes on-click handler when triggered', () => {
   const mock = jest.fn();
-  const { getByText } = render(<Button onClick={ mock }>Hello</Button>);
+  const { getByText } = render(<Button onClick={mock}>Hello</Button>);
   fireEvent.click(getByText('Hello'));
   expect(mock).toBeCalled();
 });
