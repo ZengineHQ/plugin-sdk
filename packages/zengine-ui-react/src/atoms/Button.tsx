@@ -1,22 +1,33 @@
-import React from 'react';
+import React, {MouseEvent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+type onClickHandler = (event: MouseEvent<HTMLButtonElement>) => void;
+
+interface ButtonProps {
+  type: 'button' | 'reset' | 'submit',
+  onClick?: onClickHandler,
+  theme?: string,
+  classes?: string,
+  disabled?: boolean,
+  children: string | Function
+}
 
 /**
  * A Button is one of the simplest components available, it will render an HTML `<button>` element.
  *
  * Use it to trigger an action from users.
  */
-function Button(props) {
+function Button(props: ButtonProps) {
   return (
     <button
-      type={ props.type }
-      onClick={ props.onClick && props.onClick }
-      className={ classNames([`btn btn-${ props.theme }`, props.classes]) }
-      disabled={ props.disabled }
-      aria-disabled={ props.disabled === true ? true : null }
+      type={props.type}
+      onClick={props.onClick}
+      className={classNames([`btn btn-${props.theme}`, props.classes])}
+      disabled={props.disabled}
+      aria-disabled={props.disabled === true ? true : undefined}
     >
-      { props.children }
+      {props.children}
     </button>
   );
 }
@@ -25,7 +36,7 @@ Button.propTypes = {
   /**
    * Only text may be passed as a child to be used as the button label.
    **/
-  children: PropTypes.string,
+  children: PropTypes.string.isRequired,
   /**
    * Disables the button.
    **/
@@ -63,6 +74,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  onClick: () => null,
   disabled: false,
   theme: 'primary',
   type: 'button',

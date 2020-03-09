@@ -6,7 +6,8 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "rimraf lib; tsc"
   },
   "license": "MIT",
   "main": "lib/index.js",
@@ -20,7 +21,8 @@
     "formik": "^2.1.4",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
-    "react-bootstrap": "^1.0.0-beta.17"
+    "react-bootstrap": "^1.0.0-beta.17",
+    "tslib": "^1.11.1"
   },
   "keywords": [
     "zengine",
@@ -41,8 +43,13 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.5.0",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "standard-version": "^7.1.0"
+    "rimraf": "^3.0.2",
+    "standard-version": "^7.1.0",
+    "typescript": "^3.8.3"
   }
 }
