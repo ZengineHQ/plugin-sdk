@@ -7,6 +7,7 @@
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
+    "lint": "eslint src/**/*",
     "build": "rimraf lib; tsc",
     "prepublishOnly": "npm run build"
   },
@@ -47,6 +48,15 @@
     "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard-with-typescript": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-standard": "^4.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "rimraf": "^3.0.2",

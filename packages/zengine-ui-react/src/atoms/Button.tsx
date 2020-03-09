@@ -1,24 +1,25 @@
-import React, {MouseEvent} from 'react';
+import React, { MouseEvent, ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-type onClickHandler = (event: MouseEvent<HTMLButtonElement>) => void;
+type onClickHandler = (event: MouseEvent<HTMLButtonElement>) => void
 
 interface ButtonProps {
-  type: 'button' | 'reset' | 'submit',
-  onClick?: onClickHandler,
-  theme?: string,
-  classes?: string,
-  disabled?: boolean,
+  type: 'button' | 'reset' | 'submit'
+  onClick?: onClickHandler
+  theme: string
+  classes?: string
+  disabled?: boolean
   children: string | Function
-}
+};
 
 /**
  * A Button is one of the simplest components available, it will render an HTML `<button>` element.
  *
  * Use it to trigger an action from users.
  */
-function Button(props: ButtonProps) {
+
+function Button (props: ButtonProps): ReactElement {
   return (
     <button
       type={props.type}
@@ -30,7 +31,7 @@ function Button(props: ButtonProps) {
       {props.children}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   /**
