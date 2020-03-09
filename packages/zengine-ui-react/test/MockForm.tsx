@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 
-export const MockForm = props => {
+function MockForm (props): ReactElement {
   return (
     <Formik
-      initialValues={ {} }
-      onSubmit={ props.onSubmit }
-      validateOnBlur={ true }
-      validateOnMount={ false }
-      validateOnChange={ true }
+      initialValues={{}}
+      onSubmit={props.onSubmit}
+      validateOnBlur={true}
+      validateOnMount={false}
+      validateOnChange={true}
     >
       <Form noValidate>
-        { props.children }
+        {props.children}
       </Form>
     </Formik>
   );
-};
+}
 
 MockForm.propTypes = {
   onSubmit: PropTypes.func,

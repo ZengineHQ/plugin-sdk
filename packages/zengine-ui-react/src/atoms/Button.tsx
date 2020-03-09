@@ -11,7 +11,7 @@ interface ButtonProps {
   classes?: string
   disabled?: boolean
   children: string | Function
-};
+}
 
 /**
  * A Button is one of the simplest components available, it will render an HTML `<button>` element.
@@ -31,7 +31,7 @@ function Button (props: ButtonProps): ReactElement {
       {props.children}
     </button>
   );
-};
+}
 
 Button.propTypes = {
   /**
