@@ -33,7 +33,7 @@ export default function withInputProps (Component: React.FC): (props: NonInputPr
 
     const inputProps: InputProps = { ...passProps };
 
-    if (readonly !== undefined) {
+    if (readonly === true) {
       // React DOM requires it to be camelCased like this.
       inputProps.readOnly = true;
     }

@@ -14,11 +14,11 @@ module.exports = {
     '@testing-library/jest-dom/extend-expect'
   ],
   testMatch: [
-    "<rootDir>/test/**/*.test.{ts,tsx}"
+    '<rootDir>/test/**/*.test.{ts,tsx}'
   ],
   testEnvironment: 'jest-environment-jsdom-fourteen',
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    '^.+\\.tsx?$': 'ts-jest',
     // '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
     // '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js'
   },
@@ -40,5 +40,10 @@ module.exports = {
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname'
-  ]
+  ],
+  globals: {
+    'ts-jest': {
+      diagnostics: false
+    }
+  }
 };
