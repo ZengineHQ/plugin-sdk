@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "start": "start-storybook",
+    "build-storybook": "npm run test:save && build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "author": "Alex Weber <alexweber@mailfence.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
