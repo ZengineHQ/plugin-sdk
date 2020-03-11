@@ -28,10 +28,13 @@
     "@storybook/storybook-deployer": "^2.8.3",
     "@storybook/theming": "^5.3.14",
     "babel-loader": "^8.0.6",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-is": "^16.13.0",
     "react-syntax-highlighter": "^12.2.1"
   },
   "dependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "@zenginehq/zengine-ui": "latest",
+    "@zenginehq/zengine-ui-react": "latest"
   }
 }
