@@ -7,7 +7,7 @@ import React, { forwardRef } from 'react';
  * actual input element itself from outside of the component.
  */
 export default function withForwardRef (Component: React.FC): React.ForwardRefExoticComponent<React.PropsWithoutRef<{}> & React.RefAttributes<unknown>> {
-  function component (props, ref): React.ReactElement {
+  function component (props: any, ref: any): React.ReactElement {
     return <Component innerRef={ref} {...props} />;
   }
 

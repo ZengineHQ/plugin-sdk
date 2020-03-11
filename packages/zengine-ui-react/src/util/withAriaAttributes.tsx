@@ -1,13 +1,13 @@
 import React from 'react';
 
-interface AriaProps {
+export interface AriaProps {
   'aria-describedby'?: string
   'aria-readonly'?: boolean
   'aria-disabled'?: boolean
   'aria-required'?: boolean
 }
 
-interface NonAriaProps {
+export interface NonAriaProps {
   describedby?: string
   readonly: boolean
   disabled: boolean

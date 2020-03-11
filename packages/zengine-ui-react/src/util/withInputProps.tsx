@@ -1,25 +1,28 @@
 import React from 'react';
 
-type eventHandler = (event: React.MouseEvent<HTMLButtonElement>) => void
+type changeHandler = (event: React.ChangeEvent) => void
+type focusHandler = (event: React.FocusEvent) => void
 
-interface InputProps {
+export interface InputProps {
   className?: string
   readOnly?: boolean
-  onChange?: eventHandler
-  onBlur?: eventHandler
+  onChange?: changeHandler
+  onBlur?: focusHandler
   value?: any
   defaultValue?: any
   multiple?: boolean
+  children?: React.ReactNode
 }
 
-interface NonInputProps {
+export interface NonInputProps {
   classes?: string
   readonly?: boolean
-  onChange?: eventHandler
-  onBlur?: eventHandler
+  onChange?: changeHandler
+  onBlur?: focusHandler
   value?: any
   defaultValue?: any
   multiple?: boolean
+  children?: React.ReactNode
 }
 
 /**

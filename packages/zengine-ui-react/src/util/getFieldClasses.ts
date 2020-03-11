@@ -11,8 +11,8 @@ import isEmpty from 'lodash/isEmpty';
 const getFieldClasses = (meta: object, extra: string): string => {
   let classes = ['form-control'];
 
-  if (meta.touched === true) {
-    classes.push(isEmpty(meta.error) ? 'is-valid' : 'is-invalid');
+  if ((meta as any).touched === true) {
+    classes.push(isEmpty((meta as any).error) ? 'is-valid' : 'is-invalid');
   }
 
   if (extra !== undefined) {

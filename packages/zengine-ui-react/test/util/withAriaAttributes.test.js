@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 
 import withAriaAttributes from '../../src/util/withAriaAttributes';
 
-function TestComponent (props: any) {
+function TestComponent(props) {
   // React doesn't like us adding "readonly" sans camelCase, we don't care about the actual attribute here only the
   // aria-equivalent as the actual readonly attribute is being tested in `withInputProps()`.
   const { readonly, ...passProps } = props;

@@ -1,4 +1,5 @@
 import isObject from 'lodash/isObject';
+import { SelectOption } from '../atoms/Select';
 
 /**
  * Return `option` elements for the select.
@@ -8,7 +9,10 @@ import isObject from 'lodash/isObject';
  *
  * @returns {array}
  */
-const extractOptions = (options: Array<string | object>): object[] => {
+const extractOptions = (options: Array<SelectOption | string> | undefined): Array<SelectOption> => {
+  if (options === undefined) {
+    return [];
+  }
   return options.map(opt => isObject(opt) ? opt : { key: `${opt}`, value: `${opt}` });
 };
 

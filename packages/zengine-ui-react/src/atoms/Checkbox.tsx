@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import withInputProps from '../util/withInputProps';
+import withInputProps, { InputProps } from '../util/withInputProps';
 import withAriaAttributes from '../util/withAriaAttributes';
 
-interface CheckedProps {
+interface CheckedProps extends InputProps {
   checked?: boolean
   defaultChecked?: boolean
 }
@@ -20,7 +20,7 @@ interface CheckedProps {
  * Unless you are building custom Checkbox/Toggle molecules or something along those lines you will probably never use
  * this directly.
  */
-function Checkbox (props): React.ReactElement {
+function Checkbox (props: CheckedProps): React.ReactElement {
   const checked = ('checked' in props && props.checked !== undefined) ? props.checked : props.value ?? false;
   const checkedProp: CheckedProps = {};
 
