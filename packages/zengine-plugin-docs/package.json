@@ -1,0 +1,16 @@
+{
+  "name": "zengine-plugin-docs",
+  "description": "Storybook documentation for Zengine Plugin SDK packages",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "author": "Alex Weber <alexweber@mailfence.com>",
+  "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZengineHQ/plugin-sdk.git"
+  }
+}
