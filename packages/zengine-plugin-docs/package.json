@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "start-storybook",
+    "start": "start-storybook -p 9009 -s public",
     "build-storybook": "npm run test:save && build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages"
   },
@@ -27,7 +27,8 @@
     "@storybook/react": "^5.3.14",
     "@storybook/storybook-deployer": "^2.8.3",
     "@storybook/theming": "^5.3.14",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "react-syntax-highlighter": "^12.2.1"
   },
   "dependencies": {
     "react": "^16.13.0",
