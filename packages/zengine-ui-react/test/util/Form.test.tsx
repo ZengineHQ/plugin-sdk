@@ -27,7 +27,7 @@ test('Form changes submit button label when specified', () => {
 
 test('Form has a reset button by default', async () => {
   const { container } = render(
-    <Form onSubmit={() => null} showSubmit={false} showReset={true}>
+    <Form onSubmit={() => null} showSubmit={false} showReset={true} initialValues={{ name: '' }}>
       <Field label="Name" name="name" required />
     </Form>
   );
@@ -49,7 +49,13 @@ test('Form has a reset button by default', async () => {
 
 test('Form changes reset button label when specified', async () => {
   const { container } = render(
-    <Form onSubmit={() => null} showSubmit={false} showReset={true} labelReset="Baz">
+    <Form
+      onSubmit={() => null}
+      showSubmit={false}
+      showReset={true}
+      labelReset="Baz"
+      initialValues={{ name: '' }}
+    >
       <Field label="Name" name="name" required />
     </Form>
   );
@@ -73,7 +79,7 @@ test('Form reset button doesn\'t appear when form is untouched', async () => {
   // Not really sure at all why but this one won't run unless wrapped.
   await act(async () => {
     const { container } = render(
-      <Form onSubmit={() => null} showSubmit={false} showReset={true}>
+      <Form onSubmit={() => null} showSubmit={false} showReset={true} initialValues={{ name: '' }}>
         <Field label="Name" name="name" required />
       </Form>
     );
@@ -90,14 +96,14 @@ test('Adds form classes when specified', () => {
 
 test('Performs custom validation when specified', async () => {
   const mock = jest.fn();
-  const { container } = render(<Form onSubmit={() => null} validate={mock} />);
+  render(<Form onSubmit={() => null} validate={mock} />);
   expect(mock).toBeCalled();
 });
 
 test('Calls submit handler with proper value when submitted', async () => {
   const mock = jest.fn();
   const { container } = render(
-    <Form onSubmit={mock}>
+    <Form onSubmit={mock} initialValues={{ name: '', age: 0 }}>
       <Field label="Name" name="name" required />
       <Field label="Age" type="number" name="age" required />
     </Form>
