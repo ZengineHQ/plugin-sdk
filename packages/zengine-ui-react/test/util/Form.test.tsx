@@ -1,8 +1,9 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import { Field } from "formik";
 
-import { TextField, Form, NumberField } from '../../src/index';
+import { Form } from '../../src/index';
 
 test('Renders a form', () => {
   const { container } = render(<Form onSubmit={() => null} />);
@@ -27,7 +28,7 @@ test('Form changes submit button label when specified', () => {
 test('Form has a reset button by default', async () => {
   const { container } = render(
     <Form onSubmit={() => null} showSubmit={false} showReset={true}>
-      <TextField label="Name" name="name" required />
+      <Field label="Name" name="name" required />
     </Form>
   );
   const input = container.getElementsByTagName('input')[0];
@@ -49,7 +50,7 @@ test('Form has a reset button by default', async () => {
 test('Form changes reset button label when specified', async () => {
   const { container } = render(
     <Form onSubmit={() => null} showSubmit={false} showReset={true} labelReset="Baz">
-      <TextField label="Name" name="name" required />
+      <Field label="Name" name="name" required />
     </Form>
   );
   const input = container.getElementsByTagName('input')[0];
@@ -73,7 +74,7 @@ test('Form reset button doesn\'t appear when form is untouched', async () => {
   await act(async () => {
     const { container } = render(
       <Form onSubmit={() => null} showSubmit={false} showReset={true}>
-        <TextField label="Name" name="name" required />
+        <Field label="Name" name="name" required />
       </Form>
     );
 
@@ -97,8 +98,8 @@ test('Calls submit handler with proper value when submitted', async () => {
   const mock = jest.fn();
   const { container } = render(
     <Form onSubmit={mock}>
-      <TextField label="Name" name="name" required />
-      <NumberField label="Age" name="age" required />
+      <Field label="Name" name="name" required />
+      <Field label="Age" type="number" name="age" required />
     </Form>
   );
   const form = container.getElementsByTagName('form')[0];

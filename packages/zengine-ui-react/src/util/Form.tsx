@@ -9,16 +9,16 @@ interface FormProps {
   enableReinitialize?: boolean
   initialValues?: object
   onSubmit?: Function
-  labelReset: string
-  labelSubmit: string
-  showReset: boolean
-  showSubmit: boolean
+  labelReset?: string
+  labelSubmit?: string
+  showReset?: boolean
+  showSubmit?: boolean
   validate?: Function
   validateOnMount?: boolean
   validateOnBlur?: boolean
   validateOnChange?: boolean
   classes?: string
-  children: any
+  children?: any
 }
 
 interface FormikProperties {
@@ -80,12 +80,12 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             </div>) : null}
 
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
-            {(showSubmit ?? showReset) ? (<div className="form-actions">
-              {showSubmit ? (<Button
+            {(showSubmit === true || showReset === true) ? (<div className="form-actions">
+              {showSubmit === true ? (<Button
                 type="submit"
                 theme="primary"
-                aria-label={labelSubmit} // eslint-disable-next-line
-                disabled={!touched || isSubmitting || !isValid}
+                aria-label={labelSubmit}
+                disabled={touched === false || isSubmitting || isValid}
               >
                 {labelSubmit}
               </Button>
