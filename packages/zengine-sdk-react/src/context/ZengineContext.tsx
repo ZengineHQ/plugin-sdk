@@ -40,7 +40,7 @@ export const ZnContextProvider: FunctionComponent<ZnContextProviderProps> = ({ c
 
     return context.workspace.forms.reduce((map, form) => ({
       ...map,
-      ...form.fields.reduce((fMap, field) => ({ ...fMap, [field.id]: { ...field, form } }))
+      ...form.fields.reduce((fMap, field) => ({ ...fMap, [field.id]: { ...field, form } }), {})
     }), {})
   }, [context])
 
