@@ -9,7 +9,7 @@ import { SelectOption } from '../atoms/Select';
  *
  * @returns {array}
  */
-const extractOptions = (options: Array<SelectOption | string> | undefined): Array<SelectOption> => {
+const extractOptions = (options: Array<SelectOption | string> | undefined): SelectOption[] => {
   if (options === undefined) {
     return [];
   }

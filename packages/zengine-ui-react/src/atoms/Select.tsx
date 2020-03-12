@@ -25,11 +25,11 @@ interface SelectProps extends InputProps {
  * Unless you are building custom Select molecules or something along those lines you will probably never use this
  * directly.
  */
-function Select(props: SelectProps) {
+function Select (props: SelectProps): React.ReactElement {
   const { placeholder, ...passProps } = props;
   return (
     <select { ...passProps }>
-      { placeholder && (<option value="">{ placeholder }</option>) }
+      { placeholder !== undefined ? (<option value="">{ placeholder }</option>) : null }
 
       { extractOptions(props.options).map((opt, i) => (
         <option key={ i } value={ opt.key }>{ opt.value }</option>

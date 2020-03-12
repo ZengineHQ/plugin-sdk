@@ -1,7 +1,7 @@
 import React from 'react';
 
-type changeHandler = (event: React.ChangeEvent) => void
-type focusHandler = (event: React.FocusEvent) => void
+export type changeHandler = (event: React.ChangeEvent) => void
+export type focusHandler = (event: React.FocusEvent) => void
 
 export interface InputProps {
   className?: string
