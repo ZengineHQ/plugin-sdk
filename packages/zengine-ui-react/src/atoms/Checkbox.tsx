@@ -2,11 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import withInputProps, { InputProps } from '../util/withInputProps';
-import withAriaAttributes from '../util/withAriaAttributes';
+import withAriaAttributes, { AriaProps } from '../util/withAriaAttributes';
 
-interface CheckedProps extends InputProps {
+interface CheckedProps extends AriaProps, InputProps {
   checked?: boolean
   defaultChecked?: boolean
+  onChange?: (event: React.ChangeEvent) => void
+  onBlur?: (event: React.FocusEvent) => void
+  value?: any
+  id?: string
+  ref?: any
 }
 
 /**
@@ -37,7 +42,7 @@ function Checkbox (props: CheckedProps): React.ReactElement {
       // These are specific to checkboxes.
       { ...checkedProp }
       aria-checked={props.onChange !== undefined && checked === true}
-      value={props.value ?? true}
+      value={props.value !== undefined ? props.value : true}
     />
   );
 }
@@ -86,7 +91,7 @@ Checkbox.propTypes = {
   /**
    * The checkbox's value, only applicable when used as part of a checkbox group.
    **/
-  value: PropTypes.bool,
+  // value: PropTypes.bool,
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

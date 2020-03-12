@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import extractOptions from '../util/extractOptions';
-import withAriaAttributes from '../util/withAriaAttributes';
+import withAriaAttributes, { AriaProps } from '../util/withAriaAttributes';
 import withInputProps, { InputProps } from '../util/withInputProps';
 
 export interface SelectOption {
@@ -10,9 +10,11 @@ export interface SelectOption {
   value: string
 }
 
-interface SelectProps extends InputProps {
+interface SelectProps extends InputProps, AriaProps {
   placeholder?: string
   options?: Array<SelectOption | string>
+  id?: string
+  ref?: any
 }
 
 /**
@@ -50,10 +52,10 @@ Select.propTypes = {
   /**
    * Select options; an array of objects with a "key" and "value" properties.
    **/
-  options: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.shape({ key: PropTypes.string, value: PropTypes.string }),
-    PropTypes.string,
-  ])),
+  // options: PropTypes.arrayOf(PropTypes.oneOfType([
+  //   PropTypes.shape({ key: PropTypes.string, value: PropTypes.string }),
+  //   PropTypes.string,
+  // ])),
   /**
    * Marks the select as required.
    **/

@@ -8,7 +8,7 @@ import isEmpty from 'lodash/isEmpty';
  *
  * @returns {string}
  */
-const getFieldClasses = (meta: object, extra: string): string => {
+const getFieldClasses = (meta: object, extra: string | undefined): string => {
   let classes = ['form-control'];
 
   if ((meta as any).touched === true) {

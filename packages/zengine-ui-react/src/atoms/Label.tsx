@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 interface LabelProps {
-  for: string
+  for?: string
   classes?: string
   required?: boolean
   children: string | Function
