@@ -35,7 +35,7 @@
   "dependencies": {
     "@types/react": "^16.9.22",
     "@types/react-dom": "^16.9.5",
-    "@zenginehq/zengine-sdk": "github:ZengineHQ/zengine-sdk",
+    "@zenginehq/zengine-sdk": "0.0.3",
     "tslib": "^1.10.0"
   },
   "peerDependencies": {
