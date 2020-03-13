@@ -35,12 +35,12 @@ export interface SelectFieldProps {
  *
  * Use it to have users pick one or more items from a pre-defined list.
  */
-function SelectField(props: SelectFieldProps) {
+function SelectField (props: SelectFieldProps): React.ReactElement {
   const validate = (value: any): any => {
-    if (props.required && isEmpty(value)) {
+    if (props.required === true && isEmpty(value)) {
       return 'Required';
     }
-    if (props.validate && typeof props.validate === 'function') {
+    if (props.validate !== undefined && typeof props.validate === 'function') {
       return props.validate(value);
     }
   };
@@ -48,24 +48,24 @@ function SelectField(props: SelectFieldProps) {
   const [field, meta] = useField({ name: props.name, validate });
 
   const id = props.id ?? `select-${props.name}`;
-  const helpId = props.help ? `${id}-help` : undefined;
+  const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
 
-  const onChangeHelper = (e: React.ChangeEvent) => {
+  const onChangeHelper = (e: React.ChangeEvent): void => {
     // Call custom callback.
-    props.onChange && props.onChange(e);
+    props?.onChange?.(e);
     // Now delegate back to Formik to keep things working.
     return field.onChange(e);
   };
-  const onBlurHelper = (e: React.FocusEvent) => {
-    props.onBlur && props.onBlur(e);
+  const onBlurHelper = (e: React.FocusEvent): void => {
+    props?.onBlur?.(e);
     return field.onBlur(e);
   };
 
   return (
     <div className="form-group">
-      {props.label && (
+      {!isEmpty(props.label) ? (
         <Label required={props.required} for={id} classes={props.labelClasses}>{props.label}</Label>
-      )}
+      ) : undefined}
       <Select
         id={id}
         disabled={props.disabled}
@@ -84,7 +84,7 @@ function SelectField(props: SelectFieldProps) {
         onBlur={onBlurHelper}
       />
 
-      {props.help && <small id={helpId} className="form-text text-muted">{props.help}</small>}
+      {!isEmpty(props.help) ? <small id={helpId} className="form-text text-muted">{props.help}</small> : undefined}
 
       <ErrorMessage meta={meta} />
     </div>

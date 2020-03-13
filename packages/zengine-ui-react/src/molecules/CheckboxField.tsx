@@ -7,6 +7,7 @@ import Label from '../atoms/Label';
 import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import withForwardRef from '../util/withForwardRef';
+import { isEmpty } from '../../src/util/validation';
 import Checkbox from '../atoms/Checkbox';
 
 export interface CheckboxFieldProps {
@@ -34,24 +35,24 @@ export interface CheckboxFieldProps {
  */
 function CheckboxField (props: CheckboxFieldProps): React.ReactElement {
   const validate = (value: any): any => {
-    if (props.required && !value) {
+    if (props.required === true && value !== true) {
       return 'Required';
     }
-    if (props.validate) {
+    if (props.validate !== undefined) {
       return props.validate(value);
     }
   };
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });
 
-  const onChangeHelper = (e: React.ChangeEvent) => {
+  const onChangeHelper = (e: React.ChangeEvent): void => {
     // Call custom callback.
-    props.onChange && props.onChange(e);
+    props?.onChange?.(e);
     // Now delegate back to Formik to keep things working.
     return field.onChange(e);
   };
-  const onBlurHelper = (e: React.FocusEvent) => {
-    props.onBlur && props.onBlur(e);
+  const onBlurHelper = (e: React.FocusEvent): void => {
+    props?.onBlur?.(e);
     return field.onBlur(e);
   };
 
@@ -60,15 +61,15 @@ function CheckboxField (props: CheckboxFieldProps): React.ReactElement {
    * checkbox itself is clicked, despite being touched.
    */
   useEffect(() => {
-    if (meta.value && meta.value !== meta.initialValue) {
+    if (meta?.value !== meta.initialValue) {
       if (!meta.touched) {
         setTouched(true);
       }
     }
   }, [meta, setTouched]);
 
-  const id = props.id || `checkbox-${props.name}`;
-  const helpId = props.help ? `${id}-help` : undefined;
+  const id = props.id ?? `checkbox-${props.name}`;
+  const helpId = props.help !== undefined && id !== undefined ? `${id}-help` : undefined;
 
   return (
     <div className="form-group">
@@ -86,12 +87,12 @@ function CheckboxField (props: CheckboxFieldProps): React.ReactElement {
           onBlur={onBlurHelper}
         />
 
-        {props.label && (
+        {!isEmpty(props.label) ? (
           <Label required={props.required} for={id}
             classes={classNames(['form-check-label', props.labelClasses])}>{props.label}</Label>
-        )}
+        ) : undefined}
 
-        {props.help && <small id={helpId} className="form-text text-muted">{props.help}</small>}
+        {props.help !== undefined ? <small id={helpId} className="form-text text-muted">{props.help}</small> : undefined}
 
         <ErrorMessage meta={meta} />
       </div>

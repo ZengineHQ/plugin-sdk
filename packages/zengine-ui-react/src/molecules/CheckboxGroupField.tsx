@@ -7,6 +7,7 @@ import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import Checkbox from '../atoms/Checkbox';
 import extractOptions from '../util/extractOptions';
+import { isEmpty } from '../../src/util/validation';
 import { SelectOption } from '../atoms/Select';
 
 export interface CheckboxGroupFieldProps {
@@ -34,38 +35,38 @@ export interface CheckboxGroupFieldProps {
  *
  * Use it to have users select one or more items from a list.
  */
-function CheckboxGroupField(props: CheckboxGroupFieldProps) {
+function CheckboxGroupField (props: CheckboxGroupFieldProps): React.ReactElement {
   const validate = (value: any): any => {
-    if (props.required && value === undefined) {
+    if (props.required === true && value === undefined) {
       return 'Required';
     }
-    if (props.validate && typeof props.validate === 'function') {
+    if (props.validate !== undefined) {
       return props.validate(value);
     }
   };
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });
 
-  const onChangeHelper = (e: React.ChangeEvent) => {
+  const onChangeHelper = (e: React.ChangeEvent): void => {
     // Call custom callback.
-    props.onChange && props.onChange(e);
+    props?.onChange?.(e);
     // Now delegate back to Formik to keep things working.
     return field.onChange(e);
   };
-  const onBlurHelper = (e: React.FocusEvent) => {
-    props.onBlur && props.onBlur(e);
+  const onBlurHelper = (e: React.FocusEvent): void => {
+    props?.onBlur?.(e);
     return field.onBlur(e);
   };
 
-  const fieldId = props.id || `checkboxgroup-${props.name}`;
-  const helpId = props.help ? `${fieldId}-help` : undefined;
+  const fieldId = props.id ?? `checkboxgroup-${props.name}`;
+  const helpId = !isEmpty(props.help) && !isEmpty(fieldId) ? `${fieldId}-help` : undefined;
 
   /**
    * This is a workaround for the fact that checkboxes don't seem to get marked as "touched" when the label or
    * checkbox itself is clicked, despite being touched.
    */
   useEffect(() => {
-    if (meta.value && meta.value !== meta.initialValue) {
+    if (meta?.value !== meta.initialValue) {
       if (!meta.touched) {
         setTouched(true);
       }
@@ -74,9 +75,9 @@ function CheckboxGroupField(props: CheckboxGroupFieldProps) {
 
   return (
     <div className="form-group">
-      {props.label && (
+      {!isEmpty(props.label) ? (
         <Label for="" required={props.required} classes={props.labelClasses}>{props.label}</Label>
-      )}
+      ) : undefined}
 
       {extractOptions(props.options).map((opt, i) => {
         const id = `${fieldId}-${opt.value}`;
@@ -100,7 +101,7 @@ function CheckboxGroupField(props: CheckboxGroupFieldProps) {
         )
       })}
 
-      {props.help && <small id={helpId} className="form-text text-muted">{props.help}</small>}
+      {!isEmpty(props.help) ? <small id={helpId} className="form-text text-muted">{props.help}</small> : undefined}
 
       <ErrorMessage meta={meta} />
     </div>

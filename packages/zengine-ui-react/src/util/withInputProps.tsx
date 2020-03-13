@@ -31,8 +31,7 @@ export interface InputProps {
 // export default function withInputProps (Component: React.FC): (props: NonInputProps) => React.ReactElement {
 const withInputProps = <P extends object>(
   Component: React.ComponentType<P>
-): React.FC<P & InputProps> =>
-{
+): React.FC<P & InputProps> => {
   function component (props: InputProps): React.ReactElement {
     const { readonly, classes, value, defaultValue, ...passProps } = props;
 

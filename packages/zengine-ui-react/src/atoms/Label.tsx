@@ -5,7 +5,7 @@ interface LabelProps {
   for?: string
   classes?: string
   required?: boolean
-  children: string | Function
+  children: string | Function | undefined
 }
 
 /**
