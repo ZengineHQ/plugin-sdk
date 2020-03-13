@@ -22,7 +22,7 @@ function CounterLabeled (props: CounterLabeledProps): React.ReactElement {
 
   return (
     <article
-      className={classNames(['mol-counter-labeled d-flex flex-column align-items-center text-dark', props.classes])}
+      className={classNames(['mol-counter-labeled d-flex flex-column align-items-center', props.classes])}
       title={`${props.count} ${props.label}`}
     >
       <span>{formattedCount}{props.suffix}</span>
