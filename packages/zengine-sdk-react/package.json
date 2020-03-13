@@ -5,11 +5,11 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prepare": "npm run build",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "echo 'passing!'",
-    "lint": "tslint src/**/*.ts --project tsconfig.json --fix -q"
+    "lint": "tslint src/**/*.ts --project tsconfig.json --fix -q",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
