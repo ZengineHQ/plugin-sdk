@@ -1,12 +1,6 @@
 // Styles for the Counter Labeled molecule.
 
 .mol-counter-labeled {
-  color: $gray-800;
-
-  //@extend .d-flex;
-  //@extend .flex-column;
-  //@extend .align-items-center;
-
   span {
     font-size: 2.5rem;
     font-weight: $headings-font-weight;
