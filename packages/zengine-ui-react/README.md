@@ -65,5 +65,5 @@ For more information see the Storybook
 - `.storybook` contains Storybook configuration
 - `lib` is where the generated package code goes when `npm run build` is executed; this directory won't exist unless you've run the command
 - `public` contains static assets to be served with the Storybook
-- `src` contains the actual Zengie UI React source code
+- `src` contains the actual Zengine UI React source code
 - `storybook-static` is where the generated Storybook code when `npm run build-storybook` is executed; this directory won't exist unless you've run the command
