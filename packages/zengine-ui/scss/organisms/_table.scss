@@ -6,7 +6,13 @@
     border-bottom: $table-border-width solid $table-border-color;
   }
 
-  tbody td {
-    border-bottom: $table-border-width solid $table-border-color;
+  tbody  {
+    td {
+      border-bottom: $table-border-width solid $table-border-color;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
   }
 }
