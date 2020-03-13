@@ -58,7 +58,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
   return (
     <Formik
       enableReinitialize={enableReinitialize}
-      initialValues={initialValues}
+      initialValues={initialValues ?? {}}
       validateOnMount={validateOnMount}
       validateOnBlur={validateOnBlur}
       validateOnChange={validateOnChange}
@@ -69,7 +69,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
       }}
       validate={validateForm}
     >
-      {({ dirty, isValid, isSubmitting, errors, touched }): FormikProperties => {
+      {({ dirty, isValid, isSubmitting, errors, touched }: FormikProperties) => {
         return (
           <Form noValidate className={classes}>
             {props.children}
@@ -85,15 +85,15 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                 type="submit"
                 theme="primary"
                 aria-label={labelSubmit}
-                disabled={touched === false || isSubmitting || isValid}
+                disabled={!touched || isSubmitting || isValid}
               >
-                {labelSubmit}
+                {labelSubmit !== undefined ? labelSubmit : ''}
               </Button>
               ) : null}
 
               {(Boolean(showReset) && Boolean(dirty)) ? (
                 <Button type="reset" theme="link" aria-label={labelReset} disabled={isSubmitting}>
-                  {labelReset}
+                  {labelReset !== undefined ? labelReset : ''}
                 </Button>
               ) : null}
             </div>

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 
-function MockForm (props): ReactElement {
+export function MockForm (props: any): ReactElement {
   return (
     <Formik
       initialValues={{}}
@@ -25,3 +25,5 @@ MockForm.propTypes = {
 MockForm.defaultProps = {
   onSubmit: () => null,
 };
+
+export default MockForm;

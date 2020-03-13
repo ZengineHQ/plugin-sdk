@@ -1,4 +1,4 @@
-import isEmpty from 'lodash/isEmpty';
+import { FieldMetaProps } from 'formik';
 
 /**
  * Returns CSS classes to add to form inputs.
@@ -8,11 +8,11 @@ import isEmpty from 'lodash/isEmpty';
  *
  * @returns {string}
  */
-const getFieldClasses = (meta: object, extra: string): string => {
+const getFieldClasses = (meta: FieldMetaProps<any>, extra: string | undefined): string => {
   let classes = ['form-control'];
 
-  if (meta.touched === true) {
-    classes.push(isEmpty(meta.error) ? 'is-valid' : 'is-invalid');
+  if (meta.touched) {
+    classes.push(meta.error === undefined ? 'is-valid' : 'is-invalid');
   }
 
   if (extra !== undefined) {

@@ -1,25 +1,26 @@
 import React from 'react';
+import omit from 'lodash/omit';
 
-type eventHandler = (event: React.MouseEvent<HTMLButtonElement>) => void
-
-interface InputProps {
+export interface TransformedInputProps {
   className?: string
   readOnly?: boolean
-  onChange?: eventHandler
-  onBlur?: eventHandler
+  onChange?: (event: React.ChangeEvent) => void
+  onBlur?: (event: React.FocusEvent) => void
   value?: any
   defaultValue?: any
   multiple?: boolean
+  children?: React.ReactNode
 }
 
-interface NonInputProps {
+export interface InputProps {
   classes?: string
   readonly?: boolean
-  onChange?: eventHandler
-  onBlur?: eventHandler
+  onChange?: (event: React.ChangeEvent) => void
+  onBlur?: (event: React.FocusEvent) => void
   value?: any
   defaultValue?: any
   multiple?: boolean
+  children?: React.ReactNode
 }
 
 /**
@@ -27,11 +28,14 @@ interface NonInputProps {
  *
  * It also omits them if blank so we don't clutter out elements with empty attributes unless they mean something.
  */
-export default function withInputProps (Component: React.FC): (props: NonInputProps) => React.ReactElement {
-  function component (props: NonInputProps): React.ReactElement {
+// export default function withInputProps (Component: React.FC): (props: NonInputProps) => React.ReactElement {
+const withInputProps = <P extends object>(
+  Component: React.ComponentType<P>
+): React.FC<P & InputProps> => {
+  function component (props: InputProps): React.ReactElement {
     const { readonly, classes, value, defaultValue, ...passProps } = props;
 
-    const inputProps: InputProps = { ...passProps };
+    const inputProps: TransformedInputProps = { ...passProps };
 
     if (readonly === true) {
       // React DOM requires it to be camelCased like this.
@@ -57,26 +61,29 @@ export default function withInputProps (Component: React.FC): (props: NonInputPr
       } else if (defaultValue !== undefined) {
         inputProps.value = defaultValue;
       } else {
-        inputProps.value = props.multiple !== undefined ? [] : '';
+        inputProps.value = props.multiple === true ? [] : '';
       }
     } else if (defaultValue !== undefined) {
       inputProps.defaultValue = defaultValue;
     }
 
-    return <Component {...inputProps} />;
+    const newProps = omit(props, 'readonly', 'classes', 'value', 'defaultValue', 'onBlur', 'onChange');
+    return <Component {...newProps as P} {...inputProps} />;
   }
 
   const name = Component.displayName ?? Component.name;
   component.displayName = `withInputProps(${name})`;
 
-  component.defaultProps = {
-    ...Component.defaultProps,
-    ...{
-      disabled: false,
-      required: false,
-      readonly: false,
-    }
-  };
+  // component.defaultProps = {
+  //   ...Component.defaultProps,
+  //   ...{
+  //     disabled: false,
+  //     required: false,
+  //     readonly: false,
+  //   }
+  // };
 
   return component;
 };
+
+export default withInputProps;

@@ -14,10 +14,11 @@ module.exports = {
     '@testing-library/jest-dom/extend-expect'
   ],
   testMatch: [
-    '<rootDir>/test/**/*.test.{ts,tsx}'
+    '<rootDir>/test/**/*.test.{js,jsx,ts,tsx}'
   ],
   testEnvironment: 'jest-environment-jsdom-fourteen',
   transform: {
+    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest',
     // '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
     // '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js'
@@ -32,6 +33,7 @@ module.exports = {
   // },
   moduleFileExtensions: [
     'js',
+    'jsx',
     'node',
     'ts',
     'tsx',
@@ -43,7 +45,7 @@ module.exports = {
   ],
   globals: {
     'ts-jest': {
-      diagnostics: false
+      diagnostics: true
     }
   }
 };
