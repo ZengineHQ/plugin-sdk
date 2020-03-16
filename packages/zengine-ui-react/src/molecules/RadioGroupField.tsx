@@ -6,7 +6,7 @@ import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import Radio from '../atoms/Radio';
 import { SelectOption } from '../atoms/Select';
-import { isEmpty } from '../../src/util/validation';
+import { isEmpty } from '../util/validation';
 import extractOptions from '../util/extractOptions';
 
 export interface RadioGroupFieldProps {

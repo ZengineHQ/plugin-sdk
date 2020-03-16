@@ -1,12 +1,12 @@
 import React from 'react';
 import { useField } from 'formik';
 
-import Label from '../../src/atoms/Label';
+import Label from '../atoms/Label';
 import Select, { SelectOption } from '../atoms/Select';
-import withForwardRef from '../../src/util/withForwardRef';
-import getFieldClasses from '../../src/util/getFieldClasses';
-import { isEmpty } from '../../src/util/validation';
-import ErrorMessage from '../../src/util/ErrorMessage';
+import withForwardRef from '../util/withForwardRef';
+import getFieldClasses from '../util/getFieldClasses';
+import { isEmpty } from '../util/validation';
+import ErrorMessage from '../util/ErrorMessage';
 
 export interface SelectFieldProps {
   required?: boolean
