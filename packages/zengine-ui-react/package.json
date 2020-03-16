@@ -5,6 +5,7 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
+    "watch": "tsc -w",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src/**/*",

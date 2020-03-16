@@ -6,6 +6,7 @@
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
     "start": "npm run sass -- --watch",
+    "watch": "npm run sass -- --watch",
     "sass": "sass scss/style.scss lib/style.css",
     "sass:min": "sass scss/style.scss lib/style.min.css --style compressed",
     "build": "rimraf lib; npm run sass; npm run sass:min; cpy scss lib --parents; cpy package.json README.md CHANGELOG.md lib",
