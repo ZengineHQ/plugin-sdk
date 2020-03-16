@@ -26,6 +26,7 @@
     "@storybook/addon-links": "^5.3.17",
     "@storybook/addon-viewport": "^5.3.17",
     "@storybook/addons": "^5.3.17",
+    "@storybook/preset-typescript": "^2.1.0",
     "@storybook/react": "^5.3.17",
     "@storybook/storybook-deployer": "^2.8.3",
     "@storybook/theming": "^5.3.17",
@@ -33,7 +34,8 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-is": "^16.13.0",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "ts-loader": "^6.2.1"
   },
   "dependencies": {
     "@zenginehq/zengine-ui": "^0.2.3",
