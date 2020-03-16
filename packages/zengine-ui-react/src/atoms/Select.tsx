@@ -11,6 +11,7 @@ export interface SelectOption {
 }
 
 interface SelectProps extends InputProps, AriaProps {
+  name?: string
   placeholder?: string
   options?: Array<SelectOption | string>
   id?: string

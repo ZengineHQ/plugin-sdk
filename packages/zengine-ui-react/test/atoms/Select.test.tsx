@@ -60,7 +60,7 @@ test('Adds custom classes when specified', () => {
 
 test('Adds a default value when specified', () => {
   const { container } = render(<Select options={opts} defaultValue="optionTwo" />);
-  expect(container.firstChild.value).toEqual('optionTwo');
+  expect((container.firstChild as any).value).toEqual('optionTwo');
 });
 
 test('Adds array of options when specified', () => {

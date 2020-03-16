@@ -20,7 +20,7 @@ export interface AriaProps {
  * This checks for the presence of certain HTML attributes in the props and adds the corresponding ARIA attribute
  * to the list of attributes to be rendered with the element.
  */
-const withAriaAttributes = <P extends object>(
+const withAriaAttributes = <P extends {}>(
   Component: React.ComponentType<P>
 ): React.FC<P & AriaProps> => {
   function component (props: AriaProps): React.ReactElement {

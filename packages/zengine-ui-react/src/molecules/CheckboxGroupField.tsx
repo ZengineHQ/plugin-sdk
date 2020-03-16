@@ -24,7 +24,7 @@ export interface CheckboxGroupFieldProps {
   innerRef?: string
   help?: string
   children?: React.ReactNode
-  options: SelectOption[]
+  options: Array<SelectOption | string>
 }
 
 /**
@@ -87,7 +87,7 @@ function CheckboxGroupField (props: CheckboxGroupFieldProps): React.ReactElement
               id={id}
               disabled={props.disabled}
               required={props.required}
-              classes={getFieldClasses(meta, props.classes).replace('form-control', 'form-check-input')}
+              classes={getFieldClasses(meta, (props.classes ?? '')).replace('form-control', 'form-check-input')}
               describedby={helpId}
               {...field}
               onBlur={onBlurHelper}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withForwardRef from '../util/withForwardRef';
 
-export type TableRowCell = Array<string | React.ReactElement>;
+export type TableRowCell = string | React.ReactElement;
 export type TableRow = TableRowCell[];
 
 export interface TableProps {

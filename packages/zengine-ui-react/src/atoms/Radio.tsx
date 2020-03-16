@@ -6,6 +6,7 @@ import withAriaAttributes from '../util/withAriaAttributes';
 
 export interface RadioProps extends InputProps {
   checked?: boolean
+  name?: string
   id?: string
 }
 

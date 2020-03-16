@@ -14,7 +14,7 @@ export interface CheckboxFieldProps {
   required?: boolean
   validate?: Function
   id?: string
-  name: string
+  name?: string
   onChange?: (event: React.ChangeEvent) => void
   onBlur?: (event: React.FocusEvent) => void
   disabled?: boolean
@@ -43,7 +43,7 @@ function CheckboxField (props: CheckboxFieldProps): React.ReactElement {
     }
   };
 
-  const [field, meta, { setTouched }] = useField({ name: props.name, validate });
+  const [field, meta, { setTouched }] = useField({ name: (props.name ?? ''), validate });
 
   const onChangeHelper = (e: React.ChangeEvent): void => {
     // Call custom callback.
@@ -78,7 +78,7 @@ function CheckboxField (props: CheckboxFieldProps): React.ReactElement {
           id={id}
           disabled={props.disabled !== undefined ? props.disabled : false}
           required={props.required !== undefined ? props.required : false}
-          classes={getFieldClasses(meta, props.classes).replace('form-control', 'form-check-input')}
+          classes={getFieldClasses(meta, (props.classes ?? '')).replace('form-control', 'form-check-input')}
           ref={props.innerRef}
           describedby={helpId}
           {...field}

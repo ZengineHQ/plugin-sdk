@@ -22,7 +22,7 @@ export interface SelectFieldProps {
   disabled?: boolean
   classes?: string
   multiple?: boolean
-  options: SelectOption[]
+  options: Array<SelectOption | string>
   placeholder?: string
   defaultValue?: any
   innerRef?: any
@@ -74,7 +74,7 @@ function SelectField (props: SelectFieldProps): React.ReactElement {
         options={props.options}
         placeholder={props.placeholder}
         defaultValue={props.defaultValue}
-        classes={getFieldClasses(meta, props.classes)}
+        classes={getFieldClasses(meta, (props.classes ?? ''))}
         ref={props.innerRef}
         describedby={helpId}
         // value, onChange and onBlur are being added here directly from `useField()`.

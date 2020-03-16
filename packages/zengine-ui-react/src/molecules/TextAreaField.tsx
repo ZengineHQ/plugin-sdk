@@ -69,7 +69,7 @@ function TextAreaField (props: TextAreaFieldProps): React.ReactElement {
         disabled={ props.disabled }
         required={ props.required }
         placeholder={ props.placeholder }
-        classes={ getFieldClasses(meta, props.classes) }
+        classes={ getFieldClasses(meta, (props.classes ?? '')) }
         ref={ props.innerRef }
         describedby={ helpId }
         resizable={ props.resizable }

@@ -7,7 +7,7 @@ import React, { forwardRef } from 'react';
  * This is useful for components that wrap HTML elements such as inputs where you might want a reference to the
  * actual input element itself from outside of the component.
  */
-export default function withForwardRef <P extends object> (
+export default function withForwardRef <P> (
   Component: React.ComponentType<P>
 ) {
   function component (props: any, ref: any): React.ReactElement {
