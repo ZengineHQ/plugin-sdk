@@ -13,6 +13,9 @@ export interface TransformedInputProps {
 }
 
 export interface InputProps {
+  disabled?: boolean
+  required?: boolean
+  name?: string
   classes?: string
   readonly?: boolean
   onChange?: (event: React.ChangeEvent) => void
