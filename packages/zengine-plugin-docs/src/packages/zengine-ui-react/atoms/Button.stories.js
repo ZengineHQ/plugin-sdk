@@ -6,7 +6,7 @@ import { Button } from '@zenginehq/zengine-ui-react';
 import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
-  title: 'ZengineUIReact|Components/Button',
+  title: 'ZengineUIReact|Components/Atoms/Button',
   component: Button,
   parameters: {
     jest: ['Button.test.js'],

@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "storybook": "cd packages/zengine-plugin-docs; npm run storybook-to-ghpages;"
+    "docs:build": "cd packages/zengine-plugin-docs; npm run build",
+    "docs:deploy": "cd packages/zengine-plugin-docs; npm run deploy",
+    "docs:publish": "cd packages/zengine-plugin-docs; npm run publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
