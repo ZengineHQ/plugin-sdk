@@ -7,6 +7,7 @@ import withInputProps, { InputProps } from '../util/withInputProps';
 export interface TextareaProps extends InputProps {
   resizable?: boolean
   placeholder?: string
+  name?: string
   id?: string
   ref?: any
 }

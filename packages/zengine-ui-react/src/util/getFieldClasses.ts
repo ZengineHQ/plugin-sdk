@@ -8,10 +8,10 @@ import { FieldMetaProps } from 'formik';
  *
  * @returns {string}
  */
-const getFieldClasses = (meta: FieldMetaProps<any>, extra: string | undefined): string => {
+const getFieldClasses = (meta: any, extra?: string): string => {
   let classes = ['form-control'];
 
-  if (meta.touched) {
+  if (meta.touched === true) {
     classes.push(meta.error === undefined ? 'is-valid' : 'is-invalid');
   }
 

@@ -37,7 +37,7 @@ test('isString() correctly determines whether a value is a string', () => {
 });
 
 test('matchesRegex() returns false if value is not a string', () => {
-  expect(matchesRegex(true, /regex/)).toBe(false);
+  expect(matchesRegex(123 as any, /regex/)).toBe(false);
 });
 
 test('matchesRegex() correctly determines whether values match a regular expression', () => {
@@ -52,7 +52,7 @@ test('matchesRegex() accepts a RegExp object as the regex param', () => {
 });
 
 test('isEmail() correctly determines whether a value is an email address', () => {
-  expect(isEmail(123)).toBe(false);
+  expect(isEmail(123 as any)).toBe(false);
   expect(isEmail('')).toBe(false);
   expect(isEmail('not an email')).toBe(false);
   expect(isEmail('without@domain')).toBe(false);

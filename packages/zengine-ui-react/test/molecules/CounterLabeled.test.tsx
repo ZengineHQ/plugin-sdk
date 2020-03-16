@@ -8,7 +8,7 @@ test('Renders an article HTML tag', () => {
   expect(container.getElementsByTagName('article')).toHaveProperty('length', 1);
 });
 
-const defaultClasses = 'mol-counter-labeled d-flex flex-column align-items-center text-dark';
+const defaultClasses = 'mol-counter-labeled d-flex flex-column align-items-center';
 
 test('Adds default classes', () => {
   const { container } = render(<CounterLabeled />);
@@ -35,6 +35,6 @@ test('Formats long numbers', () => {
 });
 
 test('Adds a suffix if specified', () => {
-  const { container } = render(<CounterLabeled count="99" suffix="%" />);
+  const { container } = render(<CounterLabeled count={99} suffix="%" />);
   expect(container.firstChild).toHaveTextContent('99%');
 });

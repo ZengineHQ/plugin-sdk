@@ -148,7 +148,7 @@ test('Calls custom validation handler', async () => {
 });
 
 test('Performs custom validation correctly when specified', async () => {
-  const validate = value => {
+  const validate = (value: any) => {
     if (value) {
       return 'Say yes again emeffer';
     }

@@ -14,12 +14,12 @@ test('Renders with specified alt text', () => {
 });
 
 test('Sets height when specified', () => {
-  const { container } = render(<Image alt="test image" src="sample-image.jpg" height="40" />);
+  const { container } = render(<Image alt="test image" src="sample-image.jpg" height={40} />);
   expect(container.firstChild).toHaveAttribute('height', '40');
 });
 
 test('Sets width when specified', () => {
-  const { container } = render(<Image alt="test image" src="sample-image.jpg" width="20" />);
+  const { container } = render(<Image alt="test image" src="sample-image.jpg" width={20} />);
   expect(container.firstChild).toHaveAttribute('width', '20');
 });
 

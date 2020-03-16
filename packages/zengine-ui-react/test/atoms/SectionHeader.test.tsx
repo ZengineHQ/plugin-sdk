@@ -15,7 +15,7 @@ test('Renders with specified text', () => {
 
 test('Adds no default classes', () => {
   const { container } = render(<SectionHeader>Sup</SectionHeader>);
-  const h2 = container.firstChild;
+  const h2 = container.firstChild as any;
   expect(h2.className).toEqual('');
 });
 

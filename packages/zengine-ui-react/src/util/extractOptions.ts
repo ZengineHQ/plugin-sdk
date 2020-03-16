@@ -11,7 +11,7 @@ import { SelectOption } from '../atoms/Select';
  */
 const extractOptions = (options: Array<SelectOption | string> | undefined): SelectOption[] => {
   if (options === undefined) {
-    return [];
+    return [] as SelectOption[];
   }
   return options.map(opt => isObject(opt) ? opt : { key: `${opt}`, value: `${opt}` });
 };

@@ -5,9 +5,9 @@ import isEmpty from 'lodash/isEmpty';
 
 export interface WidgetProps {
   classes?: string
-  header?: string
-  body: string
-  footer?: string
+  header?: string | React.ReactElement
+  body?: string | React.ReactElement
+  footer?: string | React.ReactElement
 }
 
 /**
@@ -24,9 +24,11 @@ function Widget (props: WidgetProps): React.ReactElement {
         </div>
       ) : undefined}
 
-      <div className="card-body">
-        { props.body }
-      </div>
+      { !isEmpty(props.body) ? (
+        <div className="card-body">
+          { props.body }
+        </div>
+      ) : undefined}
 
       { !isEmpty(props.footer) ? (
         <div className="card-footer">

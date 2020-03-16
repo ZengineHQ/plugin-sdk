@@ -22,7 +22,7 @@ export interface RadioGroupFieldProps {
   labelClasses?: string
   disabled?: boolean
   classes?: string
-  options: SelectOption[]
+  options: Array<SelectOption | string>
 }
 
 /**
@@ -85,7 +85,7 @@ function RadioGroupField (props: RadioGroupFieldProps): React.ReactElement {
               id={id}
               disabled={props.disabled}
               required={props.required}
-              classes={getFieldClasses(meta, props.classes).replace('form-control', 'form-check-input')}
+              classes={getFieldClasses(meta, (props.classes ?? '')).replace('form-control', 'form-check-input')}
               describedby={helpId}
               {...field}
               onBlur={onBlurHelper}

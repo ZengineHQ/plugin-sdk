@@ -67,7 +67,7 @@ function NumberField (props: NumberFieldProps): React.ReactElement {
       disabled={props.disabled}
       required={props.required}
       placeholder={props.placeholder}
-      classes={getFieldClasses(meta, props.classes)}
+      classes={getFieldClasses(meta, (props.classes ?? ''))}
       ref={props.innerRef}
       describedby={helpId}
       {...field}
