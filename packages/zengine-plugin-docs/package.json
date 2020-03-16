@@ -35,7 +35,7 @@
     "react-syntax-highlighter": "^12.2.1"
   },
   "dependencies": {
-    "@zenginehq/zengine-ui": "latest",
-    "@zenginehq/zengine-ui-react": "latest"
+    "@zenginehq/zengine-ui": "0.2.2",
+    "@zenginehq/zengine-ui-react": "0.1.4"
   }
 }
