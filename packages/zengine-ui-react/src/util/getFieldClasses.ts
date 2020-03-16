@@ -1,5 +1,3 @@
-import { FieldMetaProps } from 'formik';
-
 /**
  * Returns CSS classes to add to form inputs.
  *
