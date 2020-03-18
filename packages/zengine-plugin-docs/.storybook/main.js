@@ -1,4 +1,4 @@
-const path = require('path');
+// const path = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.(js|jsx|ts|tsx|mdx)'],
@@ -12,7 +12,7 @@ module.exports = {
       name: '@storybook/preset-typescript',
       options: {
         tsLoaderOptions: {
-          configFile: path.resolve(__dirname, '../../../../tsconfig.json'),
+          // configFile: path.resolve(__dirname, '../../../../tsconfig.json'),
           ignoreDiagnostics: [7005],
         },
       },
