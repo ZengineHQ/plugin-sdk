@@ -89,11 +89,12 @@ const CheckboxField: React.FC<CheckboxFieldProps> = (props) => {
 
         {!isEmpty(props.label) ? (
           <Label required={props.required} for={id}
-                 classes={classNames(['form-check-label', props.labelClasses])}>{props.label}</Label>
+            classes={classNames(['form-check-label', props.labelClasses])}>{props.label}</Label>
         ) : undefined}
 
-        {props.help !== undefined ?
-          <small id={helpId} className="form-text text-muted">{props.help}</small> : undefined}
+        {props.help !== undefined
+          ? <small id={helpId} className="form-text text-muted">{props.help}</small>
+          : undefined}
 
         <ErrorMessage meta={meta} />
       </div>
