@@ -23,7 +23,7 @@ export interface RadioProps extends InputProps {
  * Unless you are building custom Radio molecules or something along those lines you will probably never use this
  * directly.
  */
-function Radio (props: RadioProps): React.ReactElement {
+const Radio: React.FC<RadioProps> = (props) => {
   const checked = ('checked' in props && props.checked !== undefined) ? props.checked : false;
   return (
     <input
@@ -61,7 +61,7 @@ Radio.propTypes = {
   /**
    * The element id of any associated help text, used for accessibility.
    **/
-  describedby: PropTypes.string,
+  // describedby: PropTypes.string,
   /**
    * HTML classes to be added as-is to the radio.
    **/

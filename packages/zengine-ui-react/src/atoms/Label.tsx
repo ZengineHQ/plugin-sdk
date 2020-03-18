@@ -15,7 +15,7 @@ interface LabelProps {
  *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */
-function Label (props: LabelProps): React.ReactElement {
+const Label: React.FC<LabelProps> = (props) => {
   return (
     <label htmlFor={ props.for } className={ props.classes }>
       { props.required === true ? <span className="text-danger">*</span> : undefined }

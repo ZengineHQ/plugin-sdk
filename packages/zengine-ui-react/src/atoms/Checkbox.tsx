@@ -25,7 +25,7 @@ interface CheckedProps extends AriaProps, InputProps {
  * Unless you are building custom Checkbox/Toggle molecules or something along those lines you will probably never use
  * this directly.
  */
-function Checkbox (props: CheckedProps): React.ReactElement {
+const Checkbox: React.FC<CheckedProps> = (props) => {
   const checked = ('checked' in props && props.checked !== undefined) ? props.checked : props.value ?? false;
   const checkedProp: CheckedProps = {};
 

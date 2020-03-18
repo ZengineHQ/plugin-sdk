@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 export interface ImageProps {
   src?: string
   alt?: string
-  height?: number
-  width?: number
+  height?: number | string
+  width?: number | string
   classes?: string
 }
 
@@ -20,7 +20,7 @@ export interface ImageProps {
  * - `img-thumbnail`: give the image a subtle framed border appearance
  * - `rounded`: make the images borders slightly rounded
  */
-function Image (props: ImageProps): React.ReactElement {
+const Image: React.FC<ImageProps> = (props) => {
   return (
     <img
       src={ props.src }

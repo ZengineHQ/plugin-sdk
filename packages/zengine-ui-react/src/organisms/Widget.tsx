@@ -15,7 +15,7 @@ export interface WidgetProps {
  *
  * The content for each of these 3 sections may be either a string or a React component.
  */
-function Widget (props: WidgetProps): React.ReactElement {
+const Widget: React.FC<WidgetProps> = (props) => {
   return (
     <div className={classNames(['card', props.classes])}>
       { !isEmpty(props.header) ? (
@@ -43,15 +43,18 @@ Widget.propTypes = {
   /**
    * Widget header.
    **/
-  header: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  // header: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  header: PropTypes.any,
   /**
    * Widget body.
    **/
-  body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  // body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  body: PropTypes.any,
   /**
    * Widget footer.
    **/
-  footer: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  // footer: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  footer: PropTypes.any,
   /**
    * HTML classes to be added as-is to the HTML element.
    **/

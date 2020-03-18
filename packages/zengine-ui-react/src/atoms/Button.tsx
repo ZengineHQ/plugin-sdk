@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 interface ButtonProps {
-  type: 'button' | 'reset' | 'submit'
+  type?: 'button' | 'reset' | 'submit'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  theme: string
+  theme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
   classes?: string
   disabled?: boolean
   children: string | Function
@@ -17,7 +17,7 @@ interface ButtonProps {
  * Use it to trigger an action from users.
  */
 
-function Button (props: ButtonProps): React.ReactElement {
+const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       type={props.type}

@@ -18,6 +18,7 @@ export interface TextFieldProps {
   name: string
   help?: string
   disabled?: boolean
+  readonly?: boolean
   placeholder?: string
   classes?: string
   innerRef?: any
@@ -34,7 +35,7 @@ export interface TextFieldProps {
  *
  * Use it to collect short textual data from users.
  */
-function TextField (props: TextFieldProps): React.ReactElement {
+const TextField: React.FC<TextFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
       return 'Required';

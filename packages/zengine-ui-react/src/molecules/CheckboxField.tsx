@@ -18,6 +18,7 @@ export interface CheckboxFieldProps {
   onChange?: (event: React.ChangeEvent) => void
   onBlur?: (event: React.FocusEvent) => void
   disabled?: boolean
+  readonly?: boolean
   classes?: string
   labelClasses?: string
   label?: string
@@ -33,7 +34,7 @@ export interface CheckboxFieldProps {
  *
  * Use it to collect binary information from users.
  */
-function CheckboxField (props: CheckboxFieldProps): React.ReactElement {
+const CheckboxField: React.FC<CheckboxFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && value !== true) {
       return 'Required';

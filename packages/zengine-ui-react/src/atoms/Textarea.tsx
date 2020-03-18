@@ -21,7 +21,7 @@ export interface TextareaProps extends InputProps {
  *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */
-function Textarea (props: TextareaProps): React.ReactElement {
+const Textarea: React.FC<TextareaProps> = (props) => {
   const { resizable, ...passProps } = props;
   return (
     <textarea
@@ -60,7 +60,7 @@ Textarea.propTypes = {
   /**
    * The element id of any associated help text, used for accessibility.
    **/
-  describedby: PropTypes.string,
+  // describedby: PropTypes.string,
   /**
    * HTML classes to be added as-is to the textarea.
    **/

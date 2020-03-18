@@ -13,7 +13,7 @@ import withInputProps from '../util/withInputProps';
  *
  * Unless you are building custom Input molecules or something along those lines you will probably never use this directly.
  */
-function Input (props: any): React.ReactElement {
+const Input: React.FC<any> = (props) => {
   return (
     <input { ...props } />
   );

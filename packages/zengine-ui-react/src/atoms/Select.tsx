@@ -28,7 +28,7 @@ interface SelectProps extends InputProps, AriaProps {
  * Unless you are building custom Select molecules or something along those lines you will probably never use this
  * directly.
  */
-function Select (props: SelectProps): React.ReactElement {
+const Select: React.FC<SelectProps> = (props) => {
   const { placeholder, ...passProps } = props;
   return (
     <select { ...passProps }>

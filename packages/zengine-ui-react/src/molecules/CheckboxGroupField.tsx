@@ -18,13 +18,14 @@ export interface CheckboxGroupFieldProps {
   onChange?: (event: React.ChangeEvent) => void
   onBlur?: (event: React.FocusEvent) => void
   disabled?: boolean
+  readonly?: boolean
   classes?: string
   labelClasses?: string
   label?: string
   innerRef?: string
   help?: string
   children?: React.ReactNode
-  options: Array<SelectOption | string>
+  options?: Array<SelectOption | string>
 }
 
 /**
@@ -35,7 +36,7 @@ export interface CheckboxGroupFieldProps {
  *
  * Use it to have users select one or more items from a list.
  */
-function CheckboxGroupField (props: CheckboxGroupFieldProps): React.ReactElement {
+const CheckboxGroupField: React.FC<CheckboxGroupFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && value === undefined) {
       return 'Required';
@@ -156,7 +157,8 @@ CheckboxGroupField.propTypes = {
   /**
    * Checkbox group options; either an object keyed by values or an array of strings.
    **/
-  options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  // options: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  options: PropTypes.array.isRequired,
   /**
    * Custom validation callback. Only "required" is handled automatically. Should return a string.
    **/

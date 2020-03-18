@@ -18,6 +18,7 @@ export interface NumberFieldProps {
   onChange?: (event: React.ChangeEvent) => void
   onBlur?: (event: React.FocusEvent) => void
   disabled?: boolean
+  readonly?: boolean
   placeholder?: string
   classes?: string
   innerRef?: any
@@ -34,7 +35,7 @@ export interface NumberFieldProps {
  *
  * Use it to collect numeric data from users.
  */
-function NumberField (props: NumberFieldProps): React.ReactElement {
+const NumberField: React.FC<NumberFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
       return 'Required';

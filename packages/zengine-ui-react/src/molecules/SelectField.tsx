@@ -35,7 +35,7 @@ export interface SelectFieldProps {
  *
  * Use it to have users pick one or more items from a pre-defined list.
  */
-function SelectField (props: SelectFieldProps): React.ReactElement {
+const SelectField: React.FC<SelectFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
       return 'Required';
@@ -108,6 +108,7 @@ SelectField.propTypes = {
    * Select options; either an object keyed by values or an array of strings.
    **/
   // options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  options: PropTypes.array.isRequired,
   /**
    * Marks the select as required.
    **/

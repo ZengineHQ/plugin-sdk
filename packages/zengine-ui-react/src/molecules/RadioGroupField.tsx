@@ -21,6 +21,7 @@ export interface RadioGroupFieldProps {
   label?: string
   labelClasses?: string
   disabled?: boolean
+  readonly?: boolean
   classes?: string
   options: Array<SelectOption | string>
 }
@@ -33,7 +34,7 @@ export interface RadioGroupFieldProps {
  *
  * Use it to have users select an item from a list.
  */
-function RadioGroupField (props: RadioGroupFieldProps): React.ReactElement {
+const RadioGroupField: React.FC<RadioGroupFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && value === undefined) {
       return 'Required';
@@ -154,7 +155,8 @@ RadioGroupField.propTypes = {
   /**
    * Radio group options; either an object keyed by values or an array of strings.
    **/
-  options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  // options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+  options: PropTypes.array.isRequired,
   /**
    * Custom validation callback. Only "required" is handled automatically. Should return a string.
    **/

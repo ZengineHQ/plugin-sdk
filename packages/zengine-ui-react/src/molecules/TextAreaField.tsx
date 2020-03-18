@@ -33,7 +33,7 @@ export interface TextAreaFieldProps {
  *
  * Use it to collect long-form textual data from users.
  */
-function TextAreaField (props: TextAreaFieldProps): React.ReactElement {
+const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
       return 'Required';

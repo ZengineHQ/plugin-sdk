@@ -30,7 +30,7 @@ export interface TableProps {
  *  ]} />.
  * ```
  */
-function Table (props: TableProps): React.ReactElement {
+const Table: React.FC<TableProps> = (props) => {
   return (
     <div className="table-responsive" ref={ props.innerRef }>
       <table className={ classNames(['table', props.classes]) }>
@@ -64,6 +64,7 @@ Table.propTypes = {
    * Table contents; an array of rows where each row is an array of columns containing either a string or a React component.
    **/
   // rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node]))),
+  rows: PropTypes.arrayOf(PropTypes.any),
   /**
    * HTML classes to be added as-is to the table.
    **/
