@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export interface CounterLabeledProps {
@@ -30,13 +29,6 @@ const CounterLabeled: React.FC<CounterLabeledProps> = (props) => {
     </article>
   );
 }
-
-CounterLabeled.propTypes = {
-  count: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  label: PropTypes.string,
-  classes: PropTypes.string,
-  suffix: PropTypes.string,
-};
 
 CounterLabeled.defaultProps = {
   count: 0,

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
 import CounterLabeled from '../molecules/CounterLabeled';
@@ -25,10 +24,6 @@ const KPI: React.FC<KPIProps> = (props) => {
     </section>
   );
 }
-
-KPI.propTypes = {
-  items: PropTypes.array,
-};
 
 KPI.defaultProps = {
   items: []

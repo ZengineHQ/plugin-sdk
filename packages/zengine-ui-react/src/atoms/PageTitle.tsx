@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export interface PageTitleProps {
   classes?: string
@@ -18,17 +17,6 @@ const PageTitle: React.FC<PageTitleProps> = (props) => {
     <h1 className={ props.classes }>{ props.children }</h1>
   );
 }
-
-PageTitle.propTypes = {
-  /**
-   * Plain text or a component may be passed as a child to be used as the page title.
-   **/
-  // children: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /**
-   * HTML classes to be added as-is to the HTML element.
-   **/
-  classes: PropTypes.string,
-};
 
 PageTitle.defaultProps = {
   classes: ''

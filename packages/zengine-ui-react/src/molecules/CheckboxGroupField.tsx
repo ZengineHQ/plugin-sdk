@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
 import Label from '../atoms/Label';
@@ -108,62 +107,6 @@ const CheckboxGroupField: React.FC<CheckboxGroupFieldProps> = (props) => {
     </div>
   );
 }
-
-CheckboxGroupField.propTypes = {
-  /**
-   * HTML element name.
-   **/
-  name: PropTypes.string.isRequired,
-  /**
-   * HTML element id, used to build the ids for each individual checkbox input.
-   **/
-  id: PropTypes.string,
-  /**
-   * Checkbox Group field label.
-   **/
-  label: PropTypes.string,
-  /**
-   * Marks the checkboxes as required.
-   **/
-  required: PropTypes.bool,
-  /**
-   * Marks the checkboxes as disabled.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Marks the checkboxes as read-only.
-   **/
-  readonly: PropTypes.bool,
-  /**
-   * HTML classes to be added as-is to the checkboxes.
-   **/
-  classes: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the label.
-   **/
-  labelClasses: PropTypes.string,
-  /**
-   * Optional help text to display below the checkboxes.
-   **/
-  help: PropTypes.string,
-  /**
-   * Callback for when the checkbox group's value changes.
-   **/
-  onChange: PropTypes.func,
-  /**
-   * Callback for when the checkbox group loses focus.
-   **/
-  onBlur: PropTypes.func,
-  /**
-   * Checkbox group options; either an object keyed by values or an array of strings.
-   **/
-  // options: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.arrayOf(PropTypes.string)]).isRequired,
-  options: PropTypes.array.isRequired,
-  /**
-   * Custom validation callback. Only "required" is handled automatically. Should return a string.
-   **/
-  validate: PropTypes.func,
-};
 
 CheckboxGroupField.defaultProps = {
   disabled: false,

@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import { StringChain } from 'lodash';
 
 export interface ImageProps {
   src?: string
@@ -31,29 +29,6 @@ const Image: React.FC<ImageProps> = (props) => {
     />
   );
 }
-
-Image.propTypes = {
-  /**
-   * Image source url or inline data.
-   **/
-  src: PropTypes.string.isRequired,
-  /**
-   * Image alternate text; required for accessibility.
-   **/
-  alt: PropTypes.string.isRequired,
-  /**
-   * Image height.
-   **/
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /**
-   * Image width.
-   **/
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /**
-   * HTML classes to be added as-is to the button.
-   **/
-  classes: PropTypes.string,
-};
 
 Image.defaultProps = {
   classes: '',

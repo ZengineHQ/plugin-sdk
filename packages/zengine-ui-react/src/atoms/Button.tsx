@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 interface ButtonProps {
@@ -30,47 +29,6 @@ const Button: React.FC<ButtonProps> = (props) => {
     </button>
   );
 }
-
-Button.propTypes = {
-  /**
-   * Only text may be passed as a child to be used as the button label.
-   **/
-  children: PropTypes.string.isRequired,
-  /**
-   * Disables the button.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Click handler.
-   **/
-  onClick: PropTypes.func,
-  /**
-   * Button theme.
-   **/
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'link',
-  ]),
-  /**
-   * HTML classes to be added as-is to the button.
-   **/
-  classes: PropTypes.string,
-  /**
-   * HTML button type.
-   **/
-  type: PropTypes.oneOf([
-    'button',
-    'reset',
-    'submit'
-  ]),
-};
 
 Button.defaultProps = {
   onClick: () => null,

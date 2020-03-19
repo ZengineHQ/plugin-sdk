@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export interface SectionHeaderProps {
   classes?: string
@@ -16,17 +15,6 @@ const SectionHeader: React.FC<SectionHeaderProps> = (props) => {
     <h2 className={ props.classes }>{ props.children }</h2>
   );
 }
-
-SectionHeader.propTypes = {
-  /**
-   * Plain text or a component may be passed as a child to be used as the section header text.
-   **/
-  // children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * HTML classes to be added as-is to the HTML element.
-   **/
-  classes: PropTypes.string,
-};
 
 SectionHeader.defaultProps = {
   classes: ''

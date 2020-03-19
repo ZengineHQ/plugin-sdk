@@ -18,8 +18,7 @@ module.exports = {
   ],
   testEnvironment: 'jest-environment-jsdom-fourteen',
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.[tj]sx?$': 'babel-jest',
     // '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
     // '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js'
   },
@@ -44,7 +43,7 @@ module.exports = {
     'jest-watch-typeahead/testname'
   ],
   globals: {
-    'ts-jest': {
+    'babel-jest': {
       diagnostics: true
     }
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
 import Label from '../../src/atoms/Label';
@@ -90,70 +89,6 @@ const SelectField: React.FC<SelectFieldProps> = (props) => {
     </div>
   );
 }
-
-SelectField.propTypes = {
-  /**
-   * HTML element name.
-   **/
-  name: PropTypes.string.isRequired,
-  /**
-   * HTML element id.
-   **/
-  id: PropTypes.string,
-  /**
-   * Field label.
-   **/
-  label: PropTypes.string,
-  /**
-   * Select options; either an object keyed by values or an array of strings.
-   **/
-  // options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
-  options: PropTypes.array.isRequired,
-  /**
-   * Marks the select as required.
-   **/
-  required: PropTypes.bool,
-  /**
-   * Marks the select as disabled.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Marks the select as accepting multiple choices.
-   **/
-  multiple: PropTypes.bool,
-  /**
-   * String to be used as the empty option.
-   **/
-  placeholder: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the select.
-   **/
-  classes: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the label.
-   **/
-  labelClasses: PropTypes.string,
-  /**
-   * Optional help text to display below the select.
-   **/
-  help: PropTypes.string,
-  /**
-   * Callback for when the select's value changes.
-   **/
-  onChange: PropTypes.func,
-  /**
-   * Callback for when the select loses focus.
-   **/
-  onBlur: PropTypes.func,
-  /**
-   * A value to be used as the starting value if none already exists.
-   **/
-  defaultValue: PropTypes.string,
-  /**
-   * Custom validation callback. Only "required" is handled automatically. Should return a string.
-   **/
-  validate: PropTypes.func,
-};
 
 SelectField.defaultProps = {
   disabled: false,

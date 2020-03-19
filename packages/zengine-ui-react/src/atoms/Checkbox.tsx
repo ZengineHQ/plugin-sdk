@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import withInputProps, { InputProps } from '../util/withInputProps';
 import withAriaAttributes, { AriaProps } from '../util/withAriaAttributes';
@@ -46,53 +45,6 @@ const Checkbox: React.FC<CheckedProps> = (props) => {
     />
   );
 }
-
-Checkbox.propTypes = {
-  /**
-   * HTML element name.
-   **/
-  name: PropTypes.string,
-  /**
-   * HTML element id.
-   **/
-  id: PropTypes.string,
-  /**
-   * Marks the checkbox as required.
-   **/
-  required: PropTypes.bool,
-  /**
-   * Marks the checkbox as disabled.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Marks the checkbox as read-only.
-   **/
-  readonly: PropTypes.bool,
-  /**
-   * The element id of any associated help text, used for accessibility.
-   **/
-  describedby: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the checkbox.
-   **/
-  classes: PropTypes.string,
-  /**
-   * Callback for when the checkbox's value changes.
-   **/
-  onChange: PropTypes.func,
-  /**
-   * Callback for when the checkbox loses focus.
-   **/
-  onBlur: PropTypes.func,
-  /**
-   * Whether or not the checkbox is, well, checked.
-   **/
-  checked: PropTypes.bool,
-  /**
-   * The checkbox's value, only applicable when used as part of a checkbox group.
-   **/
-  // value: PropTypes.bool,
-};
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
 export { Checkbox };

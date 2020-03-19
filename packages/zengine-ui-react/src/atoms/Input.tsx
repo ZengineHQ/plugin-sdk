@@ -19,53 +19,6 @@ const Input: React.FC<any> = (props) => {
   );
 }
 
-Input.propTypes = {
-  /**
-   * HTML input type.
-   **/
-  type: PropTypes.string.isRequired,
-  /**
-   * HTML element name.
-   **/
-  name: PropTypes.string,
-  /**
-   * HTML element id.
-   **/
-  id: PropTypes.string,
-  /**
-   * Marks the input as required.
-   **/
-  required: PropTypes.bool,
-  /**
-   * Marks the input as disabled.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Marks the input as read-only.
-   **/
-  readonly: PropTypes.bool,
-  /**
-   * HTML placeholder.
-   **/
-  placeholder: PropTypes.string,
-  /**
-   * The element id of any associated help text, used for accessibility.
-   **/
-  describedby: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the input.
-   **/
-  classes: PropTypes.string,
-  /**
-   * Callback for when the input's value changes.
-   **/
-  onChange: PropTypes.func,
-  /**
-   * Callback for when the input loses focus.
-   **/
-  onBlur: PropTypes.func,
-};
-
 Input.defaultProps = {
   type: 'text',
 };

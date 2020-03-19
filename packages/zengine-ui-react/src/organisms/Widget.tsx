@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 
@@ -38,28 +37,6 @@ const Widget: React.FC<WidgetProps> = (props) => {
     </div>
   );
 }
-
-Widget.propTypes = {
-  /**
-   * Widget header.
-   **/
-  // header: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  header: PropTypes.any,
-  /**
-   * Widget body.
-   **/
-  // body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  body: PropTypes.any,
-  /**
-   * Widget footer.
-   **/
-  // footer: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  footer: PropTypes.any,
-  /**
-   * HTML classes to be added as-is to the HTML element.
-   **/
-  classes: PropTypes.string,
-};
 
 Widget.defaultProps = {
   classes: ''

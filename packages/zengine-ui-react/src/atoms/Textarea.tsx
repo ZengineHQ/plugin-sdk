@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import withAriaAttributes from '../util/withAriaAttributes';
 import withInputProps, { InputProps } from '../util/withInputProps';
@@ -31,53 +30,6 @@ const Textarea: React.FC<TextareaProps> = (props) => {
     />
   );
 }
-
-Textarea.propTypes = {
-  /**
-   * HTML element name.
-   **/
-  name: PropTypes.string,
-  /**
-   * HTML element id.
-   **/
-  id: PropTypes.string,
-  /**
-   * Marks the textarea as required.
-   **/
-  required: PropTypes.bool,
-  /**
-   * Marks the textarea as disabled.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Marks the textarea as read-only.
-   **/
-  readonly: PropTypes.bool,
-  /**
-   * HTML placeholder.
-   **/
-  placeholder: PropTypes.string,
-  /**
-   * The element id of any associated help text, used for accessibility.
-   **/
-  // describedby: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the textarea.
-   **/
-  classes: PropTypes.string,
-  /**
-   * Callback for when the textarea's value changes.
-   **/
-  onChange: PropTypes.func,
-  /**
-   * Callback for when the textarea loses focus.
-   **/
-  onBlur: PropTypes.func,
-  /**
-   * Whether the textarea should be resizable; uses native HTML functionality.
-   **/
-  resizable: PropTypes.bool,
-};
 
 Textarea.defaultProps = {
   resizable: true,
