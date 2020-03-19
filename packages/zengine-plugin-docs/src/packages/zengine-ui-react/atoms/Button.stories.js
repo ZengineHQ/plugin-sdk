@@ -3,8 +3,8 @@ import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 // import Button from '@zenginehq/zengine-ui-react/lib/atoms/Button';
-import Button from '@zenginehq/zengine-ui-react/src/atoms/Button';
-// import Button from '@zenginehq/zengine-ui-react/src/atoms/Button.tsx';
+// import Button from '@zenginehq/zengine-ui-react/src/atoms/Button';
+import Button from '@zenginehq/zengine-ui-react/src/atoms/Button.tsx';
 import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
