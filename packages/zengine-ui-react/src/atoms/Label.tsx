@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface LabelProps {
+export interface LabelProps {
   for?: string
   classes?: string
   required?: boolean

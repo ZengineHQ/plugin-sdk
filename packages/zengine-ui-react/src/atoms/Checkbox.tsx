@@ -3,7 +3,7 @@ import React from 'react';
 import withInputProps, { InputProps } from '../util/withInputProps';
 import withAriaAttributes, { AriaProps } from '../util/withAriaAttributes';
 
-interface CheckedProps extends AriaProps, InputProps {
+export interface CheckedProps extends AriaProps, InputProps {
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (event: React.ChangeEvent) => void

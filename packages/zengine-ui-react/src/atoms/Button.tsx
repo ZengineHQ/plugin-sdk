@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-interface ButtonProps {
+export interface ButtonProps {
   type?: 'button' | 'reset' | 'submit'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   theme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
