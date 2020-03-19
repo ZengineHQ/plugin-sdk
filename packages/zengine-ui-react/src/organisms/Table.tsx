@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withForwardRef from '../util/withForwardRef';
 
@@ -30,7 +29,7 @@ export interface TableProps {
  *  ]} />.
  * ```
  */
-function Table (props: TableProps): React.ReactElement {
+const Table: React.FC<TableProps> = (props) => {
   return (
     <div className="table-responsive" ref={ props.innerRef }>
       <table className={ classNames(['table', props.classes]) }>
@@ -54,21 +53,6 @@ function Table (props: TableProps): React.ReactElement {
     </div>
   );
 }
-
-Table.propTypes = {
-  /**
-   * Table headers.
-   **/
-  headers: PropTypes.arrayOf(PropTypes.any),
-  /**
-   * Table contents; an array of rows where each row is an array of columns containing either a string or a React component.
-   **/
-  // rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node]))),
-  /**
-   * HTML classes to be added as-is to the table.
-   **/
-  classes: PropTypes.string,
-};
 
 Table.defaultProps = {
   headers: [],

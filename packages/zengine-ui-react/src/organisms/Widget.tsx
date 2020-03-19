@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 
@@ -15,7 +14,7 @@ export interface WidgetProps {
  *
  * The content for each of these 3 sections may be either a string or a React component.
  */
-function Widget (props: WidgetProps): React.ReactElement {
+const Widget: React.FC<WidgetProps> = (props) => {
   return (
     <div className={classNames(['card', props.classes])}>
       { !isEmpty(props.header) ? (
@@ -38,25 +37,6 @@ function Widget (props: WidgetProps): React.ReactElement {
     </div>
   );
 }
-
-Widget.propTypes = {
-  /**
-   * Widget header.
-   **/
-  header: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Widget body.
-   **/
-  body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * Widget footer.
-   **/
-  footer: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /**
-   * HTML classes to be added as-is to the HTML element.
-   **/
-  classes: PropTypes.string,
-};
 
 Widget.defaultProps = {
   classes: ''

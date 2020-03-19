@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export interface CounterLabeledProps {
-  count?: number
+  count?: number | string
   label?: string
   suffix?: string
   classes?: string
@@ -14,7 +13,7 @@ export interface CounterLabeledProps {
  *
  * Use this to display summary info such as KPIs.
  */
-function CounterLabeled (props: CounterLabeledProps): React.ReactElement {
+const CounterLabeled: React.FC<CounterLabeledProps> = (props) => {
   // Intl.NumberFormat is safe: https://caniuse.com/#search=NumberFormat
   const formattedCount = typeof props.count === 'number' ? new Intl.NumberFormat('en-US', {
     style: 'decimal',
@@ -30,13 +29,6 @@ function CounterLabeled (props: CounterLabeledProps): React.ReactElement {
     </article>
   );
 }
-
-CounterLabeled.propTypes = {
-  count: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  label: PropTypes.string,
-  classes: PropTypes.string,
-  suffix: PropTypes.string,
-};
 
 CounterLabeled.defaultProps = {
   count: 0,

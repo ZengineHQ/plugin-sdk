@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-interface ButtonProps {
-  type: 'button' | 'reset' | 'submit'
+export interface ButtonProps {
+  type?: 'button' | 'reset' | 'submit'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  theme: string
+  theme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
   classes?: string
   disabled?: boolean
   children: string | Function
@@ -17,7 +16,7 @@ interface ButtonProps {
  * Use it to trigger an action from users.
  */
 
-function Button (props: ButtonProps): React.ReactElement {
+const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       type={props.type}
@@ -30,47 +29,6 @@ function Button (props: ButtonProps): React.ReactElement {
     </button>
   );
 }
-
-Button.propTypes = {
-  /**
-   * Only text may be passed as a child to be used as the button label.
-   **/
-  children: PropTypes.string.isRequired,
-  /**
-   * Disables the button.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Click handler.
-   **/
-  onClick: PropTypes.func,
-  /**
-   * Button theme.
-   **/
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'link',
-  ]),
-  /**
-   * HTML classes to be added as-is to the button.
-   **/
-  classes: PropTypes.string,
-  /**
-   * HTML button type.
-   **/
-  type: PropTypes.oneOf([
-    'button',
-    'reset',
-    'submit'
-  ]),
-};
 
 Button.defaultProps = {
   onClick: () => null,

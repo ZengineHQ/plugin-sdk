@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import { StringChain } from 'lodash';
 
 export interface ImageProps {
   src?: string
   alt?: string
-  height?: number
-  width?: number
+  height?: number | string
+  width?: number | string
   classes?: string
 }
 
@@ -20,7 +18,7 @@ export interface ImageProps {
  * - `img-thumbnail`: give the image a subtle framed border appearance
  * - `rounded`: make the images borders slightly rounded
  */
-function Image (props: ImageProps): React.ReactElement {
+const Image: React.FC<ImageProps> = (props) => {
   return (
     <img
       src={ props.src }
@@ -31,29 +29,6 @@ function Image (props: ImageProps): React.ReactElement {
     />
   );
 }
-
-Image.propTypes = {
-  /**
-   * Image source url or inline data.
-   **/
-  src: PropTypes.string.isRequired,
-  /**
-   * Image alternate text; required for accessibility.
-   **/
-  alt: PropTypes.string.isRequired,
-  /**
-   * Image height.
-   **/
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /**
-   * Image width.
-   **/
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /**
-   * HTML classes to be added as-is to the button.
-   **/
-  classes: PropTypes.string,
-};
 
 Image.defaultProps = {
   classes: '',

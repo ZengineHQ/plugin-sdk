@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
 import Label from '../atoms/Label';
@@ -21,6 +20,7 @@ export interface RadioGroupFieldProps {
   label?: string
   labelClasses?: string
   disabled?: boolean
+  readonly?: boolean
   classes?: string
   options: Array<SelectOption | string>
 }
@@ -33,7 +33,7 @@ export interface RadioGroupFieldProps {
  *
  * Use it to have users select an item from a list.
  */
-function RadioGroupField (props: RadioGroupFieldProps): React.ReactElement {
+const RadioGroupField: React.FC<RadioGroupFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && value === undefined) {
       return 'Required';
@@ -105,61 +105,6 @@ function RadioGroupField (props: RadioGroupFieldProps): React.ReactElement {
     </div>
   );
 }
-
-RadioGroupField.propTypes = {
-  /**
-   * HTML element name.
-   **/
-  name: PropTypes.string.isRequired,
-  /**
-   * HTML element id, used to build the ids for each individual radio input.
-   **/
-  id: PropTypes.string,
-  /**
-   * Radio Group field label.
-   **/
-  label: PropTypes.string,
-  /**
-   * Marks the radios as required.
-   **/
-  required: PropTypes.bool,
-  /**
-   * Marks the radios as disabled.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * Marks the radios as read-only.
-   **/
-  readonly: PropTypes.bool,
-  /**
-   * HTML classes to be added as-is to the radios.
-   **/
-  classes: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the label.
-   **/
-  labelClasses: PropTypes.string,
-  /**
-   * Optional help text to display below the radios.
-   **/
-  help: PropTypes.string,
-  /**
-   * Callback for when the radio group's value changes.
-   **/
-  onChange: PropTypes.func,
-  /**
-   * Callback for when the radio group loses focus.
-   **/
-  onBlur: PropTypes.func,
-  /**
-   * Radio group options; either an object keyed by values or an array of strings.
-   **/
-  options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.string)]).isRequired,
-  /**
-   * Custom validation callback. Only "required" is handled automatically. Should return a string.
-   **/
-  validate: PropTypes.func,
-};
 
 RadioGroupField.defaultProps = {
   disabled: false,

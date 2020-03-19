@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useField } from 'formik';
 
 import { isEmpty } from '../../src/util/validation';
@@ -33,7 +32,7 @@ export interface TextAreaFieldProps {
  *
  * Use it to collect long-form textual data from users.
  */
-function TextAreaField (props: TextAreaFieldProps): React.ReactElement {
+const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
       return 'Required';
@@ -85,61 +84,6 @@ function TextAreaField (props: TextAreaFieldProps): React.ReactElement {
     </div>
   );
 }
-
-TextAreaField.propTypes = {
-  /**
-   * HTML element name.
-   **/
-  name: PropTypes.string.isRequired,
-  /**
-   * HTML element id.
-   **/
-  id: PropTypes.string,
-  /**
-   * Field label.
-   **/
-  label: PropTypes.string,
-  /**
-   * Marks the input as required.
-   **/
-  required: PropTypes.bool,
-  /**
-   * Marks the input as disabled.
-   **/
-  disabled: PropTypes.bool,
-  /**
-   * HTML placeholder.
-   **/
-  placeholder: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the input.
-   **/
-  classes: PropTypes.string,
-  /**
-   * HTML classes to be added as-is to the label.
-   **/
-  labelClasses: PropTypes.string,
-  /**
-   * Optional help text to display below the input.
-   **/
-  help: PropTypes.string,
-  /**
-   * Whether the textarea should be resizable; uses native HTML functionality.
-   **/
-  resizable: PropTypes.bool,
-  /**
-   * Callback for when the select's value changes.
-   **/
-  onChange: PropTypes.func,
-  /**
-   * Callback for when the select loses focus.
-   **/
-  onBlur: PropTypes.func,
-  /**
-   * Custom validation callback. Only "required" is handled automatically. Should return a string.
-   **/
-  validate: PropTypes.func,
-};
 
 TextAreaField.defaultProps = {
   disabled: false,
