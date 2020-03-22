@@ -154,38 +154,68 @@ export async function znFetch (param1: string | Request, param2?: Request | { he
     })
   }
 
+  const fetchStatus = { complete: false }
+
   // send over postMessage to the actual fetcher
+  // use Promise.race to prevent AbortSignal Listener from impacting performance of request
+  const result: {
+    body: string,
+    headers: { [key: string]: string },
+    fetchSignalAborted?: boolean
+  } = await Promise.race([
+    rpcClient.call({
+      method: 'znFetch',
+      args: {
+        options: {
+          apiVersion: '1'
+        },
+        url,
+        fetchOptions: { headers: sendingHeaders, ...sendingMeta }
+      }
+    }),
+    listenForAbortSignalOrCompletion(signal, fetchStatus)
+  ])
+
+  // update fetchStatus to cause Abort Signal listener to exit
+  fetchStatus.complete = true
+
+  if (result.fetchSignalAborted) {
+    // if aborted, throw error according to AbortController specification
+    // https://developers.google.com/web/updates/2017/09/abortable-fetch#reacting_to_an_aborted_fetch
+    throw new DOMException(`Aborted Request: ${url}`, 'AbortError')
+  }
+
   const {
     body,
     headers,
     ...receivingMeta
-  }: {
-    body: string,
-    headers: { [key: string]: string }
-  } = await rpcClient.call({
-    method: 'znFetch',
-    args: {
-      options: {
-        apiVersion: '1'
-      },
-      url,
-      fetchOptions: { headers: sendingHeaders, ...sendingMeta }
-    }
-  })
-
-  // if aborted, throw error according to AbortController specification
-  // https://developers.google.com/web/updates/2017/09/abortable-fetch#reacting_to_an_aborted_fetch
-  if (signal?.aborted) {
-    const error = new DOMException(`Aborted Request: ${url}`, 'AbortError')
-
-    throw error
-  }
+  } = result
 
   // create a new Response object to get all of the methods and types
   // needed for the rest of the fetch implementation (e.g. res.json(), res.ok, etc...)
   const response = new Response(body, { ...receivingMeta, headers: new Headers(headers) })
 
   return response
+}
+
+function sleep (ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function listenForAbortSignalOrCompletion (signal: AbortSignal | undefined, fetchStatus: { complete: boolean }): Promise<{ fetchSignalAborted: boolean }> {
+  if (fetchStatus.complete) {
+    await sleep(10) // go out of our way to lose the race, knowing the fetch succeeded
+
+    return { fetchSignalAborted: false }
+  }
+
+  if (signal?.aborted) {
+    return { fetchSignalAborted: true }
+  }
+
+  await sleep(50)
+
+  return listenForAbortSignalOrCompletion(signal, fetchStatus)
 }
 
 /**
