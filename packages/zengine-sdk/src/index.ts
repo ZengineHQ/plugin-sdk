@@ -125,6 +125,67 @@ export function znHttp (request: ZengineAPIRequestOptions, callback?: (err: Erro
 }
 
 /**
+ * Make a Fetch request to ZenQL graphql servers
+ * This is useful as a fetch implementation that can be passed
+ * to a graphql library (like Apollo or Relay)
+ */
+export async function znFetch (url: string, init?: Request): Promise<Response>
+export async function znFetch (init: Request): Promise<Response>
+
+export async function znFetch (param1: string | Request, param2?: Request | { headers: { [key: string]: string }, signal: AbortSignal }): Promise<Response> {
+  const fetchOptions = typeof param1 === 'string' ? param2 : param1
+  const url = typeof param1 === 'string' ? param1 : param1.url
+
+  // pull out non-postMessage-friendly properties
+  const { signal, headers: givenHeaders, ...sendingMeta } = fetchOptions || {}
+
+  // ensure headers are a postMessage-friendly key/value object
+  const sendingHeaders = givenHeaders instanceof Headers
+    ? {}
+    : givenHeaders || {}
+
+  if (givenHeaders instanceof Headers) {
+    givenHeaders.forEach((value: string, key: string) => {
+      if (sendingHeaders[key]) {
+        sendingHeaders[key] = `${sendingHeaders[key]}, ${value}`
+      } else {
+        sendingHeaders[key] = value
+      }
+    })
+  }
+
+  const {
+    body,
+    headers,
+    ...receivingMeta
+  }: {
+    body: string,
+    headers: { [key: string]: string }
+  } = await rpcClient.call({
+    method: 'znFetch',
+    args: {
+      options: {
+        apiVersion: '1'
+      },
+      url,
+      fetchOptions: { headers: sendingHeaders, ...sendingMeta }
+    }
+  })
+
+  // if aborted, throw error according to AbortController specification
+  if (signal?.aborted) {
+    const error = new Error(`Aborted Request: ${url}`)
+    error.name = 'AbortError'
+
+    throw error
+  }
+
+  const response = new Response(body, { ...receivingMeta, headers: new Headers(headers) })
+
+  return response
+}
+
+/**
  * Make a call to a backend service directly
  */
 export function znPluginData (options: ZenginePluginDataCallOptions, callback: (err: Error, resp: ZengineHTTPResponse) => void): null
