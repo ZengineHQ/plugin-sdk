@@ -154,6 +154,7 @@ export async function znFetch (param1: string | Request, param2?: Request | { he
     })
   }
 
+  // send over postMessage to the actual fetcher
   const {
     body,
     headers,
@@ -173,13 +174,15 @@ export async function znFetch (param1: string | Request, param2?: Request | { he
   })
 
   // if aborted, throw error according to AbortController specification
+  // https://developers.google.com/web/updates/2017/09/abortable-fetch#reacting_to_an_aborted_fetch
   if (signal?.aborted) {
-    const error = new Error(`Aborted Request: ${url}`)
-    error.name = 'AbortError'
+    const error = new DOMException(`Aborted Request: ${url}`, 'AbortError')
 
     throw error
   }
 
+  // create a new Response object to get all of the methods and types
+  // needed for the rest of the fetch implementation (e.g. res.json(), res.ok, etc...)
   const response = new Response(body, { ...receivingMeta, headers: new Headers(headers) })
 
   return response
