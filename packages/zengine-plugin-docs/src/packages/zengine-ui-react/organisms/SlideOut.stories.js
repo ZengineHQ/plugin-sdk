@@ -14,7 +14,7 @@ export default {
   },
 };
 
-export const Default = () => {
+const SampleComponent = () => {
   const slideOut = useSlideOut();
 
   const handleClick = () => {
@@ -22,8 +22,14 @@ export const Default = () => {
   };
 
   return (
+    <Button onClick={ handleClick }>Toggle SlideOut</Button>
+  );
+};
+
+export const Default = () => {
+  return (
     <SlideOutProvider>
-      <Button onClick={ handleClick }>Toggle SlideOut</Button>
+      <SampleComponent />
     </SlideOutProvider>
   );
 };

@@ -15,15 +15,12 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
   const [contents, setContents] = useState<string | React.ReactElement | null>(null);
 
   const open = (title: string, contents: string | React.ReactElement) => {
-    console.warn('title', title);
-    console.warn('contents', contents);
     setTitle(title);
     setContents(contents);
     setShow(true);
   };
 
   const close = () => {
-    console.warn('close');
     setShow(false);
     setContents(null);
     setTitle(null);
@@ -37,9 +34,13 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
       {children}
 
       <Modal
+        backdrop={true}
+        // backdrop="static"
         show={show}
-        centered
-        backdrop="static"
+        centered={false}
+        dialogClassName="custom-modal"
+        onHide={close}
+        scrollable={true}
       >
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
