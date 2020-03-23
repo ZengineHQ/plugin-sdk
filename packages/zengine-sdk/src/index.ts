@@ -125,6 +125,100 @@ export function znHttp (request: ZengineAPIRequestOptions, callback?: (err: Erro
 }
 
 /**
+ * Make a Fetch request to ZenQL graphql servers
+ * This is useful as a fetch implementation that can be passed
+ * to a graphql library (like Apollo or Relay)
+ */
+export async function znFetch (url: string, init?: Request): Promise<Response>
+export async function znFetch (init: Request): Promise<Response>
+
+export async function znFetch (param1: string | Request, param2?: Request | { headers: { [key: string]: string }, signal: AbortSignal }): Promise<Response> {
+  const fetchOptions = typeof param1 === 'string' ? param2 : param1
+  const url = typeof param1 === 'string' ? param1 : param1.url
+
+  // pull out non-postMessage-friendly properties
+  const { signal, headers: givenHeaders, ...sendingMeta } = fetchOptions || {}
+
+  // ensure headers are a postMessage-friendly key/value object
+  const sendingHeaders = givenHeaders instanceof Headers
+    ? {}
+    : givenHeaders || {}
+
+  if (givenHeaders instanceof Headers) {
+    givenHeaders.forEach((value: string, key: string) => {
+      if (sendingHeaders[key]) {
+        sendingHeaders[key] = `${sendingHeaders[key]}, ${value}`
+      } else {
+        sendingHeaders[key] = value
+      }
+    })
+  }
+
+  const fetchStatus = { complete: false }
+
+  // send over postMessage to the actual fetcher
+  // use Promise.race to prevent AbortSignal Listener from impacting performance of request
+  const result: {
+    body: string,
+    headers: { [key: string]: string },
+    fetchSignalAborted?: boolean
+  } = await Promise.race([
+    rpcClient.call({
+      method: 'znFetch',
+      args: {
+        options: {
+          apiVersion: '1'
+        },
+        url,
+        fetchOptions: { headers: sendingHeaders, ...sendingMeta }
+      }
+    }),
+    listenForAbortSignalOrCompletion(signal, fetchStatus)
+  ])
+
+  // update fetchStatus to cause Abort Signal listener to exit
+  fetchStatus.complete = true
+
+  if (result.fetchSignalAborted) {
+    // if aborted, throw error according to AbortController specification
+    // https://developers.google.com/web/updates/2017/09/abortable-fetch#reacting_to_an_aborted_fetch
+    throw new DOMException(`Aborted Request: ${url}`, 'AbortError')
+  }
+
+  const {
+    body,
+    headers,
+    ...receivingMeta
+  } = result
+
+  // create a new Response object to get all of the methods and types
+  // needed for the rest of the fetch implementation (e.g. res.json(), res.ok, etc...)
+  const response = new Response(body, { ...receivingMeta, headers: new Headers(headers) })
+
+  return response
+}
+
+function sleep (ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function listenForAbortSignalOrCompletion (signal: AbortSignal | undefined, fetchStatus: { complete: boolean }): Promise<{ fetchSignalAborted: boolean }> {
+  if (fetchStatus.complete) {
+    await sleep(10) // go out of our way to lose the race, knowing the fetch succeeded
+
+    return { fetchSignalAborted: false }
+  }
+
+  if (signal?.aborted) {
+    return { fetchSignalAborted: true }
+  }
+
+  await sleep(50)
+
+  return listenForAbortSignalOrCompletion(signal, fetchStatus)
+}
+
+/**
  * Make a call to a backend service directly
  */
 export function znPluginData (options: ZenginePluginDataCallOptions, callback: (err: Error, resp: ZengineHTTPResponse) => void): null

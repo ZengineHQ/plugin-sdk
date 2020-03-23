@@ -138,7 +138,7 @@ export interface ZengineDropdownOptions {
   /**
    * Any seedData to be received by the dropdown when it loads
    */
-  context: { [key: string]: any }
+  context?: { [key: string]: any }
   /**
    * url pathname to open in the dropdown
    *
@@ -521,7 +521,7 @@ export interface ZengineField {
   name: string | null
   order: number
   purpose: string | null
-  rules: ZengineRule[] | null
+  rules: ZengineFieldRule[] | null
   settings: {
     properties: {
       aggregation: null
@@ -570,7 +570,7 @@ export interface ZengineField {
   type: ZengineFieldType
 }
 
-export interface ZengineRule {
+export interface ZengineFieldRule {
   show: {
     filter: ZengineFilter
   }
@@ -648,7 +648,6 @@ export interface ZengineRecordMetadata {
 }
 
 export interface ZengineRecordFields {
-
   [key: string]: ZengineFieldValue
 }
 
