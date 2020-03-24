@@ -12,7 +12,7 @@ This is a monorepo containing various Zengine Plugin development related librari
 | PostRPC Generator  | [![npm version](https://img.shields.io/npm/v/@zenginehq/post-rpc-generator.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/post-rpc-generator)  |
 | PostRPC Server  | [![npm version](https://img.shields.io/npm/v/@zenginehq/post-rpc-server.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/post-rpc-server)  |
 | Zengine SDK  | [![npm version](https://img.shields.io/npm/v/@zenginehq/zengine-sdk.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/zengine-sdk)  |
-| Zengine SDK React  | [![npm version](https://img.shields.io/npm/v/@zenginehq/zengine-sdk-react.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/zengine-sdk-react) |
+| Zengine SDK React  | [![npm version](https://img.shields.io/npm/v/@zenginehq/react-sdk.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/react-sdk) |
 | Zengine UI | [![npm version](https://img.shields.io/npm/v/@zenginehq/zengine-ui.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/zengine-ui) |
 | Zengine UI React | [![npm version](https://img.shields.io/npm/v/@zenginehq/zengine-ui-react.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/zengine-ui-react) |
 
