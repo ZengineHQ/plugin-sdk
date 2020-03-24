@@ -658,6 +658,7 @@ export interface ZengineContextData {
     apiUrl: string
     serviceUrl: string
     supportUrl: string
+    zenQLUrl: string
   },
   plugin: {
     id: number
