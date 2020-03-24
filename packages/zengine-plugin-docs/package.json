@@ -6,7 +6,7 @@
   "scripts": {
     "start": "start-storybook -p 9009 -s public",
     "watch": "start-storybook -p 9009 -s public",
-    "build": "npm run test:save && build-storybook -s public",
+    "build": "build-storybook -s public",
     "deploy": "storybook-to-ghpages",
     "release": "standard-version -t ''; npm run deploy-storybook"
   },
