@@ -1,7 +1,7 @@
 {
   "name": "zengine-plugin-docs",
   "description": "Storybook documentation for Zengine Plugin SDK packages",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 9009 -s public",
@@ -39,7 +39,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@zenginehq/zengine-ui": "^0.2.3",
-    "@zenginehq/zengine-ui-react": "^0.2.1"
+    "@zenginehq/zengine-ui": "^0.2.4",
+    "@zenginehq/zengine-ui-react": "^0.2.2"
   }
 }
