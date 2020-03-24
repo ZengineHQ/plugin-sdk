@@ -6,7 +6,7 @@ import Label from '../atoms/Label';
 import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import withForwardRef from '../util/withForwardRef';
-import { isEmpty } from '../../src/util/validation';
+import { isEmpty } from '../util/validation';
 import Checkbox from '../atoms/Checkbox';
 
 export interface CheckboxFieldProps {
@@ -92,7 +92,9 @@ const CheckboxField: React.FC<CheckboxFieldProps> = (props) => {
             classes={classNames(['form-check-label', props.labelClasses])}>{props.label}</Label>
         ) : undefined}
 
-        {props.help !== undefined ? <small id={helpId} className="form-text text-muted">{props.help}</small> : undefined}
+        {props.help !== undefined
+          ? <small id={helpId} className="form-text text-muted">{props.help}</small>
+          : undefined}
 
         <ErrorMessage meta={meta} />
       </div>

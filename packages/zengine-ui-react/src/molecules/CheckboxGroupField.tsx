@@ -6,7 +6,7 @@ import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import Checkbox from '../atoms/Checkbox';
 import extractOptions from '../util/extractOptions';
-import { isEmpty } from '../../src/util/validation';
+import { isEmpty } from '../util/validation';
 import { SelectOption } from '../atoms/Select';
 
 export interface CheckboxGroupFieldProps {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from "../atoms/Button";
 
 export interface SlideoutProps {
   foo: number
@@ -9,8 +10,16 @@ export interface SlideoutProps {
  * KPI displays a group of Counter Labeled elements in containing box.
  */
 function SlideOut (props: SlideoutProps): React.ReactElement {
+  const handleClick = () => {
+    alert('VICTOR');
+  };
   return (
-    <em>placeholder</em>
+    <>
+    <h1>OI VICTOR</h1>
+      <Button onClick={handleClick}>
+        ❤️
+      </Button>
+    </>
   );
 }
 

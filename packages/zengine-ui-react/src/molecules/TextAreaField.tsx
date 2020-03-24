@@ -1,12 +1,12 @@
 import React from 'react';
 import { useField } from 'formik';
 
-import { isEmpty } from '../../src/util/validation';
-import Label from '../../src/atoms/Label';
-import getFieldClasses from '../../src/util/getFieldClasses';
-import ErrorMessage from '../../src/util/ErrorMessage';
-import Textarea from '../../src/atoms/Textarea';
-import withForwardRef from '../../src/util/withForwardRef';
+import { isEmpty } from '../util/validation';
+import Label from '../atoms/Label';
+import getFieldClasses from '../util/getFieldClasses';
+import ErrorMessage from '../util/ErrorMessage';
+import Textarea from '../atoms/Textarea';
+import withForwardRef from '../util/withForwardRef';
 
 export interface TextAreaFieldProps {
   required?: boolean

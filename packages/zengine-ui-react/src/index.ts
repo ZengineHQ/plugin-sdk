@@ -22,7 +22,7 @@ export { default as TextField } from './molecules/TextField';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI';
-// export { default as SlideOut } from './organisms/SlideOut';
+export { default as SlideOut } from './organisms/SlideOut';
 export { default as Table } from './organisms/Table';
 export { default as Widget } from './organisms/Widget';
 
