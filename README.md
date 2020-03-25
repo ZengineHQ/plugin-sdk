@@ -18,20 +18,18 @@ This is a monorepo containing various Zengine Plugin development related librari
 
 ## Development
 
-Install [Lerna](https://lerna.js.org/):
-
-`npm i -g lerna`
-
+- Install [Lerna](https://lerna.js.org/): `npm i -g lerna`
+- Run dev script: `lerna run watch --parallel`
 
 ## Publishing packages
 
 - First build all packages: `lerna run build`
-- Publish! `lerna publish --message "chore: release v0.1.5"`
+- Publish! `lerna publish --message "chore: release"`
 - Publish documentation: `npm run docs:publish`
 
 _Notes_
 - Due to our [commitlint](https://github.com/conventional-changelog/commitlint) rules the default 
-commit message for publishing fails so we gotta override it... PRs welcome to overcome!
+commit message for publishing fails, so we gotta override it... PRs welcome to overcome!
 - Since the docs are a private package not on npm `lerna publish` ignores it so we do it ourselves
 
 
