@@ -4,9 +4,9 @@
   "version": "0.1.8",
   "private": true,
   "scripts": {
-    "start": "start-storybook -p 9009 -s public",
+    "start": "start-storybook -p 9009 -s public --quiet",
     "watch": "start-storybook -p 9009 -s public --quiet",
-    "build": "build-storybook -s public",
+    "build": "build-storybook -s public --quiet",
     "deploy": "storybook-to-ghpages",
     "release": "standard-version -t ''; npm run deploy-storybook"
   },

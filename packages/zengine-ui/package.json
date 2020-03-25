@@ -7,9 +7,9 @@
   "scripts": {
     "start": "npm run sass -- --watch",
     "watch": "npm run sass -- --watch",
-    "sass": "sass scss/style.scss lib/style.css",
-    "sass:min": "sass scss/style.scss lib/style.min.css --style compressed",
-    "build": "rimraf lib; npm run sass; npm run sass:min; cpy scss lib --parents; cpy package.json README.md CHANGELOG.md lib",
+    "sass": "sass scss/style.scss style.css",
+    "sass:min": "sass scss/style.scss style.min.css --style compressed",
+    "build": "npm run sass; npm run sass:min",
     "prepublishOnly": "npm run build"
   },
   "license": "MIT",
@@ -17,6 +17,8 @@
   "files": [
     "style.css",
     "style.min.css",
+    "style.css.map",
+    "style.min.css.map",
     "scss"
   ],
   "sideEffects": false,
@@ -30,13 +32,10 @@
   },
   "devDependencies": {
     "bootstrap": "^4.4.1",
-    "cpy-cli": "^3.1.0",
-    "rimraf": "^3.0.2",
     "sass": "^1.26.3"
   },
   "publishConfig": {
-    "access": "public",
-    "directory": "lib"
+    "access": "public"
   },
   "gitHead": "fa063d893a275e1c69294529106d9677a2a885ef"
 }
