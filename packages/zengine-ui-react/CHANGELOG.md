@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.2.2...@zenginehq/zengine-ui-react@0.2.3) (2020-03-25)
+
+
+### Bug Fixes
+
+* add libs ([c6a77b1](https://github.com/ZengineHQ/plugin-sdk/commit/c6a77b1256372489d4c9573a9e8286e0e54e0deb))
+* name property doesn't exist on Component ([db5cb4f](https://github.com/ZengineHQ/plugin-sdk/commit/db5cb4fb0f8b30945ea102a4b3aba362ae46c42b))
+
+
+
+
+
 ## [0.2.2](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.2.1...@zenginehq/zengine-ui-react@0.2.2) (2020-03-24)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui-react
