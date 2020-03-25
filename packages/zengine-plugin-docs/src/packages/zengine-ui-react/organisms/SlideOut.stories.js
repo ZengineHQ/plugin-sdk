@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '@zenginehq/zengine-ui-react/lib/atoms/Button';
 
-import SlideOut from '@zenginehq/zengine-ui-react/src/organisms/SlideOut';
-import SlideOutProvider from '@zenginehq/zengine-ui-react/src/organisms/SlideOutProvider';
-import useSlideOut from '@zenginehq/zengine-ui-react/src/organisms/useSlideOut';
+import SlideOut from '@zenginehq/zengine-ui-react/lib/organisms/SlideOut';
+import SlideOutProvider from '@zenginehq/zengine-ui-react/lib/organisms/SlideOutProvider';
+import useSlideOut from '@zenginehq/zengine-ui-react/lib/organisms/useSlideOut';
 // import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
