@@ -1,8 +1,8 @@
 import { addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withTests } from '@storybook/addon-jest';
+// import { withTests } from '@storybook/addon-jest';
 
-import '@zenginehq/zengine-ui/lib/style.min.css';
+import '@zenginehq/zengine-ui/style.min.css';
 
 try {
   // @TODO figure out how to handle tests from different packages.
