@@ -32,7 +32,7 @@ export interface InputProps {
  * It also omits them if blank so we don't clutter out elements with empty attributes unless they mean something.
  */
 // export default function withInputProps (Component: React.FC): (props: NonInputProps) => React.ReactElement {
-const withInputProps = <P extends {}>(
+const withInputProps = <P extends {}> (
   Component: React.ComponentType<P>
 ): React.FC<P & InputProps> => {
   function component (props: InputProps): React.ReactElement {
@@ -74,7 +74,7 @@ const withInputProps = <P extends {}>(
     return <Component {...newProps as P} {...inputProps} />;
   }
 
-  const name = Component.displayName ?? Component.name;
+  const name = Component.displayName ?? 'Component';
   component.displayName = `withInputProps(${name})`;
 
   // component.defaultProps = {
