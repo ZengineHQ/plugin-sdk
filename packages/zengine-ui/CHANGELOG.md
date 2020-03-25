@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.2.5...@zenginehq/zengine-ui@0.2.6) (2020-03-25)
+
+**Note:** Version bump only for package @zenginehq/zengine-ui
+
+
+
+
+
 ## [0.2.5](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.2.4...@zenginehq/zengine-ui@0.2.5) (2020-03-25)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui
