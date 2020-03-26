@@ -9,7 +9,6 @@ This is a monorepo containing various Zengine Plugin development related librari
 | Name  | Version |
 | ------------- | ------------- |
 | PostRPC Client  | [![npm version](https://img.shields.io/npm/v/@zenginehq/post-rpc-client.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/post-rpc-client)  |
-| PostRPC Generator  | [![npm version](https://img.shields.io/npm/v/@zenginehq/post-rpc-generator.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/post-rpc-generator)  |
 | PostRPC Server  | [![npm version](https://img.shields.io/npm/v/@zenginehq/post-rpc-server.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/post-rpc-server)  |
 | Zengine SDK  | [![npm version](https://img.shields.io/npm/v/@zenginehq/zengine-sdk.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/zengine-sdk)  |
 | Zengine SDK React  | [![npm version](https://img.shields.io/npm/v/@zenginehq/react-sdk.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/react-sdk) |
@@ -21,16 +20,16 @@ This is a monorepo containing various Zengine Plugin development related librari
 - Install [Lerna](https://lerna.js.org/): `npm i -g lerna`
 - Run dev script: `lerna run watch --parallel`
 
-## Publishing packages
+## Publishing
+
+After any code or docs change has been made, publish to npm and/or the documentation site with these commands. Lerna will take care of intelligently determining what changed and where to publish it. You need only occasionally determine the semver bump (Lerna usually gets that right too though).
 
 - First build all packages: `lerna run build`
-- Publish! `lerna publish --message "chore: release"`
-- Publish documentation: `lerna run docs:publish`
+- Publish! `lerna publish --message "chore: release"` (see note)
 
 _Notes_
 - Due to our [commitlint](https://github.com/conventional-changelog/commitlint) rules the default 
-commit message for publishing fails, so we gotta override it... PRs welcome to overcome!
-- Since the docs are a private package not on npm `lerna publish` ignores it so we do it ourselves
+commit message for publishing fails, so this valid message argument is required.
 
 
 ## Wishlist
