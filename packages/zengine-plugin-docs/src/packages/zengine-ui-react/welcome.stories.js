@@ -79,7 +79,7 @@ export const Introduction = () => (
 
 export const Usage = () => {
   const code1 = `
-npm i @zenginehq/zengine-ui-react
+npm i @zenginehq/zengine-ui @zenginehq/zengine-ui-react
 `;
 
   const code2 = `
@@ -87,7 +87,7 @@ npm i @zenginehq/zengine-ui-react
 `;
   const code3 = `
 // Add styles. In the future this might be available on a CDN, for now include it locally.
-import '@zenginehq/zengine-ui-react/dist/style.css';
+import '@zenginehq/zengine-ui/style.min.css';
 
 // Use components.
 import { Button, TextField, NumberField, Form, KPI } from '@zenginehq/zengine-ui-react';
