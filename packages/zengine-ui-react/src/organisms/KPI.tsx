@@ -3,12 +3,12 @@ import get from 'lodash/get';
 
 import CounterLabeled from '../molecules/CounterLabeled';
 
-export type KPIPropItem = {
+export interface KPIPropItem {
   count: number
   label: string
 }
 
-export type KPIProps = {
+export interface KPIProps {
   items?: KPIPropItem[]
 }
 

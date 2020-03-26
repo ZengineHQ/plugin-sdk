@@ -1,8 +1,13 @@
 import React from 'react';
 
-const SlideOutContext = React.createContext({
-  open: (title: string, contents: string | React.ReactElement): void => undefined,
-  close: (): void => undefined,
+export interface SlideOutContextProps {
+  open?: (title: string, contents: string | React.ReactElement) => void
+  close?: () => void
+};
+
+const SlideOutContext = React.createContext<SlideOutContextProps>({
+  open: undefined,
+  close: undefined,
 });
 
 export default SlideOutContext;

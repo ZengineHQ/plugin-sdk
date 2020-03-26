@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import SlideOutContext from './SlideOutContext';
+import SlideOutContext, { SlideOutContextProps } from './SlideOutContext';
 
-const useSlideOut = () => {
+const useSlideOut = (): SlideOutContextProps => {
   return useContext(SlideOutContext);
 };
 

@@ -103,5 +103,5 @@ test('Falls back to an empty string if the input is controlled with not no defau
 });
 
 test('it sets displayName to indicate input props are being added', () => {
-  expect(PropTestComponent.displayName).toEqual('withInputProps(TestComponent)');
+  expect(PropTestComponent.displayName).toEqual('withInputProps(Component)');
 });

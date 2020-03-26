@@ -39,7 +39,7 @@
     "tslib": "^1.11.1"
   },
   "peerDependencies": {
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

@@ -14,13 +14,13 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
   const [title, setTitle] = useState<string | null>(null);
   const [contents, setContents] = useState<string | React.ReactElement | null>(null);
 
-  const open = (title: string, contents: string | React.ReactElement) => {
+  const open = (title: string, contents: string | React.ReactElement): void => {
     setTitle(title);
     setContents(contents);
     setShow(true);
   };
 
-  const close = () => {
+  const close = (): void => {
     setShow(false);
     setContents(null);
     setTitle(null);
@@ -49,9 +49,6 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
         <Modal.Body>
           {contents}
         </Modal.Body>
-
-        {/*<Modal.Footer>*/}
-        {/*</Modal.Footer>*/}
       </Modal>
     </SlideOutContext.Provider>
   );

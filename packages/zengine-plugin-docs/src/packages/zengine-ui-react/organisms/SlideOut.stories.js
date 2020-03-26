@@ -1,14 +1,12 @@
 import React from 'react';
 import Button from '@zenginehq/zengine-ui-react/lib/atoms/Button';
 
-import SlideOut from '@zenginehq/zengine-ui-react/lib/organisms/SlideOut';
 import SlideOutProvider from '@zenginehq/zengine-ui-react/lib/organisms/SlideOutProvider';
 import useSlideOut from '@zenginehq/zengine-ui-react/lib/organisms/useSlideOut';
-// import useDefaultPanel from '../../../util/useDefaultPanel';
 
 export default {
-  title: 'ZengineUIReact|Components/Organisms/SlideOut',
-  component: SlideOut,
+  title: 'ZengineUIReact|Components/Organisms/SlideOutProvider',
+  component: SlideOutProvider,
   parameters: {
     jest: ['Slideout.test.js'],
   },
@@ -22,7 +20,7 @@ const SampleComponent = () => {
   };
 
   return (
-    <Button onClick={ handleClick }>Toggle SlideOut</Button>
+    <Button onClick={handleClick}>Toggle SlideOut</Button>
   );
 };
 
