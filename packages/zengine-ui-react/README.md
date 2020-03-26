@@ -2,12 +2,10 @@
 
 > Atomic design Components for Zengine Plugins built in React.
 
-[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://zenginehq.github.io/zengine-ui-react)
-
 ## Installation
 
 ```
-npm i @zenginehq/zengine-ui-react
+npm i @zenginehq/zengine-ui @zenginehq/zengine-ui-react
 ```
 
 ## Usage
@@ -22,10 +20,12 @@ In index.html or equivalent:
 In your component.js file:
 ```
 // Add styles. In the future this might be available on a CDN, for now include it locally.
-import '@zenginehq/zengine-ui-react/dist/style.css';
+import '@zenginehq/zengine-ui/style.css';
 
 // Use components.
 import { Button, TextField, NumberField, Form } from '@zenginehq/zengine-ui-react';
+// Tree-shaking friendly imports also available.
+import Button from '@zenginehq/zengine-ui-react/lib/atoms/Button';
 
 function MyComponent() {
     const myCallback = values => {
@@ -41,7 +41,7 @@ function MyComponent() {
 }
 ```
 
-For more information see the Storybook
+For more information see the Storybook.
 
 ## Explanation of NPM scripts
 
