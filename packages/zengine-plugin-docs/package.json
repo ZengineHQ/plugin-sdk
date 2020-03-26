@@ -7,8 +7,7 @@
     "start": "start-storybook -p 9009 -s public --quiet",
     "watch": "start-storybook -p 9009 -s public --quiet",
     "build": "build-storybook -s public --quiet",
-    "deploy": "storybook-to-ghpages",
-    "release": "standard-version -t ''; npm run deploy-storybook"
+    "postpublish": "npm run build && storybook-to-ghpages"
   },
   "author": "Alex Weber <alexweber@mailfence.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",

@@ -25,7 +25,7 @@ This is a monorepo containing various Zengine Plugin development related librari
 
 - First build all packages: `lerna run build`
 - Publish! `lerna publish --message "chore: release"`
-- Publish documentation: `npm run docs:publish`
+- Publish documentation: `lerna run docs:publish`
 
 _Notes_
 - Due to our [commitlint](https://github.com/conventional-changelog/commitlint) rules the default 
