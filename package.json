@@ -3,9 +3,7 @@
   "private": true,
   "scripts": {
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "docs:build": "cd packages/zengine-plugin-docs; npm run build",
-    "docs:deploy": "cd packages/zengine-plugin-docs; npm run deploy",
-    "docs:publish": "cd packages/zengine-plugin-docs; npm run publish"
+    "postpublish": "lerna run docs:publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

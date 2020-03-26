@@ -27,17 +27,16 @@ export const Introduction = () => (
 
     <dl>
       <dt><Button theme="link" classes="p-0" onClick={ linkTo('ZengineSDK|Welcome') }>Zengine SDK</Button></dt>
-      <dd>A cohesive set of libraries for interacting with the Zengine API</dd>
+      <dd>Fundamental JavaScript libraries for interacting with the Zengine API and hooking into Zengine Admin App behaviors</dd>
 
-      <dt><Button theme="link" classes="p-0" onClick={ linkTo('ZengineSDKReact|Welcome') }>Zengine SDK React</Button></dt>
-      <dd>React wrappers and components for working with Zengine SDK</dd>
+      <dt><Button theme="link" classes="p-0" onClick={ linkTo('ZengineSDKReact|Welcome') }>Zengine SDK for React</Button></dt>
+      <dd>React-specific components and hooks for working with the Zengine SDK</dd>
 
       <dt><Button theme="link" classes="p-0" onClick={ linkTo('ZengineUI|Welcome') }>Zengine UI</Button></dt>
       <dd>Beautiful, responsive styles using a custom Bootstrap theme for use with Zengine Plugins</dd>
 
-      <dt><Button theme="link" classes="p-0" onClick={ linkTo('ZengineUIReact|Welcome') }>Zengine UI React</Button></dt>
-      <dd>Robust React atomic design components for Zengine Plugins, used with Zengine UI</dd>
-
+      <dt><Button theme="link" classes="p-0" onClick={ linkTo('ZengineUIReact|Welcome') }>Zengine UI for React</Button></dt>
+      <dd>Robust React components for Zengine Plugins based on Zengine UI</dd>
     </dl>
   </>
 );
