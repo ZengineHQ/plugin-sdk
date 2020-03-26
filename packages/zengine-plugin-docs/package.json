@@ -1,7 +1,7 @@
 {
   "name": "zengine-plugin-docs",
   "description": "Storybook documentation for Zengine Plugin SDK packages",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 9009 -s public --quiet",
