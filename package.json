@@ -2,7 +2,8 @@
   "name": "@zenginehq/plugin-sdk",
   "private": true,
   "scripts": {
-    "commitmsg": "commitlint -e $GIT_PARAMS"
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "postpublish": "lerna run docs:publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
