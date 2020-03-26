@@ -15,6 +15,10 @@ This is a monorepo containing various Zengine Plugin development related librari
 | Zengine UI | [![npm version](https://img.shields.io/npm/v/@zenginehq/zengine-ui.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/zengine-ui) |
 | Zengine UI React | [![npm version](https://img.shields.io/npm/v/@zenginehq/zengine-ui-react.svg?color=brightgreen)](https://www.npmjs.com/package/@zenginehq/zengine-ui-react) |
 
+## Documentation
+
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://zenginehq.github.io/plugin-sdk)
+
 ## Development
 
 - Install [Lerna](https://lerna.js.org/): `npm i -g lerna`
