@@ -9,6 +9,7 @@ module.exports = {
   rules: {
     'comma-dangle': 0,
     'semi': 0,
+    'react/prop-types': 0,
     '@typescript-eslint/restrict-template-expressions': 0,
     "@typescript-eslint/explicit-function-return-type": [
       "error",

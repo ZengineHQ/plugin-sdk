@@ -22,9 +22,11 @@ export { default as TextField } from './molecules/TextField';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI';
-export { default as SlideOut } from './organisms/SlideOut';
+export { default as SlideOutContext } from './organisms/SlideOutContext';
+export { default as SlideOutProvider } from './organisms/SlideOutProvider';
 export { default as Table } from './organisms/Table';
 export { default as Widget } from './organisms/Widget';
+export { default as useSlideOut } from './organisms/useSlideOut';
 
 // Utility.
 export { default as Form } from './util/Form';

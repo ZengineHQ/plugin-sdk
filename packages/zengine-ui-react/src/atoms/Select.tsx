@@ -31,7 +31,7 @@ const Select: React.FC<SelectProps> = (props) => {
   const { placeholder, ...passProps } = props;
   return (
     <select { ...passProps }>
-      { placeholder !== undefined ? (<option value="">{ placeholder }</option>) : null }
+      { placeholder !== undefined && placeholder !== null ? (<option value="">{ placeholder }</option>) : null }
 
       { extractOptions(props.options).map((opt, i) => (
         <option key={ i } value={ opt.key }>{ opt.value }</option>

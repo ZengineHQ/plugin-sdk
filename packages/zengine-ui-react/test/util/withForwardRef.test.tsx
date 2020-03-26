@@ -20,5 +20,5 @@ test('it passes refs to the container component', () => {
 });
 
 test('it sets displayName to indicate refs are being forwarded', () => {
-  expect(RefTestComponent.render.displayName).toEqual('withForwardRef(TestComponent)');
+  expect(RefTestComponent.render.displayName).toEqual('withForwardRef(Component)');
 });
