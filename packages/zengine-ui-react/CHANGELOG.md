@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.2.4...@zenginehq/zengine-ui-react@0.3.0) (2020-03-27)
+
+
+### Features
+
+* save message on form ([2858a99](https://github.com/ZengineHQ/plugin-sdk/commit/2858a9965dace749a54d10d9480932e3ed5bb385))
+
+
+
+
+
 ## [0.2.4](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.2.3...@zenginehq/zengine-ui-react@0.2.4) (2020-03-27)
 
 
