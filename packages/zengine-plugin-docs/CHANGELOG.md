@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.13](https://github.com/ZengineHQ/plugin-sdk/compare/zengine-plugin-docs@0.1.12...zengine-plugin-docs@0.1.13) (2020-03-27)
+
+
+### Bug Fixes
+
+* multiple fixes ([b4667c5](https://github.com/ZengineHQ/plugin-sdk/commit/b4667c5e6def4abd57a7f46111d493a087f7d574))
+
+
+
+
+
 ## [0.1.12](https://github.com/ZengineHQ/plugin-sdk/compare/zengine-plugin-docs@0.1.11...zengine-plugin-docs@0.1.12) (2020-03-26)
 
 **Note:** Version bump only for package zengine-plugin-docs

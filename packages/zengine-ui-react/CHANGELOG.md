@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.2.3...@zenginehq/zengine-ui-react@0.2.4) (2020-03-27)
+
+
+### Bug Fixes
+
+* align types with React children types ([96a4834](https://github.com/ZengineHQ/plugin-sdk/commit/96a4834ec4394c94a539a36fbc124d19c9ca2df8))
+* multiple fixes ([b4667c5](https://github.com/ZengineHQ/plugin-sdk/commit/b4667c5e6def4abd57a7f46111d493a087f7d574))
+
+
+
+
+
 ## [0.2.3](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.2.2...@zenginehq/zengine-ui-react@0.2.3) (2020-03-25)
 
 
