@@ -17,6 +17,7 @@ interface FormProps {
   validateOnMount?: boolean
   validateOnBlur?: boolean
   validateOnChange?: boolean
+  saveMessage?: string
   classes?: string
   children?: ReactChildren | ReactChild
 }
@@ -45,6 +46,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     validateOnMount,
     validateOnBlur,
     validateOnChange,
+    saveMessage = 'Saving...',
     classes
   } = props;
 
@@ -62,10 +64,11 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
       validateOnMount={validateOnMount}
       validateOnBlur={validateOnBlur}
       validateOnChange={validateOnChange}
-      onSubmit={(values, actions) => {
-        actions.setSubmitting(false);
-        onSubmit?.(values);
+      onSubmit={async (values, actions) => {
+        actions.setSubmitting(true);
+        await onSubmit?.(values);
         actions.resetForm();
+        actions.setSubmitting(false);
       }}
       validate={validateForm}
     >
@@ -80,24 +83,34 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             </div>) : null}
 
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
-            {(showSubmit === true || showReset === true) ? (<div className="form-actions">
-              {showSubmit === true ? (<Button
-                type="submit"
-                theme="primary"
-                aria-label={labelSubmit}
-                disabled={!touched || isSubmitting || isValid}
-              >
-                {labelSubmit !== undefined ? labelSubmit : ''}
-              </Button>
-              ) : null}
+            {(showSubmit || showReset) && (
+              <div className="form-actions d-flex align-items-center">
+                {showSubmit && (
+                  <Button
+                    type="submit"
+                    theme="primary"
+                    aria-label={labelSubmit}
+                    disabled={!touched || isSubmitting || !isValid}
+                    classes='mr-2'
+                  >
+                    {labelSubmit !== undefined ? labelSubmit : ''}
+                  </Button>
+                )}
 
-              {(Boolean(showReset) && Boolean(dirty)) ? (
-                <Button type="reset" theme="link" aria-label={labelReset} disabled={isSubmitting}>
-                  {labelReset !== undefined ? labelReset : ''}
-                </Button>
-              ) : null}
-            </div>
-            ) : null}
+                {showReset && dirty && (
+                  <Button
+                    type="reset"
+                    theme="link"
+                    aria-label={labelReset}
+                    disabled={isSubmitting}
+                    classes='mr-2'
+                  >
+                    {labelReset !== undefined ? labelReset : ''}
+                  </Button>
+                )}
+                {isSubmitting && <p className='mb-0 text-info'>{saveMessage}</p>}
+              </div>
+            )}
           </Form>
         )
       }}
