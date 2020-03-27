@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChild, ReactChildren } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import isEmpty from 'lodash/isEmpty';
@@ -18,7 +18,7 @@ interface FormProps {
   validateOnBlur?: boolean
   validateOnChange?: boolean
   classes?: string
-  children?: any
+  children?: ReactChildren | ReactChild
 }
 
 interface FormikProperties {
