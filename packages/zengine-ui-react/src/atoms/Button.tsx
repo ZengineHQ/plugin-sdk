@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChildren, ReactChild } from 'react';
 import classNames from 'classnames';
 
 export interface ButtonProps {
@@ -7,7 +7,7 @@ export interface ButtonProps {
   theme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
   classes?: string
   disabled?: boolean
-  children: string | Function
+  children: ReactChildren | ReactChild
 }
 
 /**

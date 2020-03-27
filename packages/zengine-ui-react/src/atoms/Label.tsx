@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactChild, ReactChildren } from 'react';
 
 export interface LabelProps {
   for?: string
   classes?: string
   required?: boolean
-  children: string | Function | undefined
+  children?: ReactChildren | ReactChild
 }
 
 /**
@@ -16,9 +16,9 @@ export interface LabelProps {
  */
 const Label: React.FC<LabelProps> = (props) => {
   return (
-    <label htmlFor={ props.for } className={ props.classes }>
-      { props.required === true ? <span className="text-danger">*</span> : undefined }
-      { props.children }
+    <label htmlFor={props.for} className={props.classes}>
+      {props.required === true ? <span className="text-danger">*</span> : undefined}
+      {props.children}
     </label>
   );
 }

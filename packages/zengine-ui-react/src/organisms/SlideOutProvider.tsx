@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactChild, ReactChildren } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-bootstrap/Modal';
 
@@ -6,7 +6,7 @@ import SlideOutContext from './SlideOutContext';
 
 export interface SlideOutProps {
   // children?: string | React.ReactElement
-  children?: any
+  children?: ReactChildren | ReactChild
 }
 
 const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {

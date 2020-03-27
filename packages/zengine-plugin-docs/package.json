@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@zenginehq/zengine-ui": "^0.2.6",
-    "@zenginehq/zengine-ui-react": "^0.2.3"
+    "@zenginehq/zengine-ui-react": "^0.2.3",
+    "formik": "^2.1.4"
   }
 }
