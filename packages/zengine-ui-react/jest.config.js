@@ -27,9 +27,10 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$'
   ],
   modulePaths: [],
-  // moduleNameMapper: {
-  //   '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy'
-  // },
+  moduleNameMapper: {
+    '^react$': '<rootdir>/../../node_modules/react',
+    '^react-dom$': '<rootdir>/../../node_modules/react-dom'
+  },
   moduleFileExtensions: [
     'js',
     'jsx',
