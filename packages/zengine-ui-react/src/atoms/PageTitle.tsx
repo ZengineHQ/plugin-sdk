@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactChild, ReactChildren } from 'react';
 
 export interface PageTitleProps {
   classes?: string
-  children: string | Function
+  children: ReactChildren | ReactChild
 }
 
 /**
@@ -14,7 +14,7 @@ export interface PageTitleProps {
  */
 const PageTitle: React.FC<PageTitleProps> = (props) => {
   return (
-    <h1 className={ props.classes }>{ props.children }</h1>
+    <h1 className={props.classes}>{props.children}</h1>
   );
 }
 

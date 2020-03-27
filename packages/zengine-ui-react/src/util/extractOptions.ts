@@ -13,7 +13,9 @@ const extractOptions = (options: Array<SelectOption | string> | undefined): Sele
   if (options === undefined) {
     return [] as SelectOption[];
   }
-  return options.map(opt => isObject(opt) ? opt : { key: `${opt}`, value: `${opt}` });
+  return options.map(opt => isObject(opt)
+    ? { key: `${opt.key}`, value: `${opt.value}` }
+    : { key: `${opt}`, value: `${opt}` });
 };
 
 export default extractOptions;

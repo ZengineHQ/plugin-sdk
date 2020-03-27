@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactChildren, ReactChild } from 'react';
 
 export interface SectionHeaderProps {
   classes?: string
-  children: string | Function
+  children: ReactChildren | ReactChild
 }
 
 /**
@@ -12,7 +12,7 @@ export interface SectionHeaderProps {
  */
 const SectionHeader: React.FC<SectionHeaderProps> = (props) => {
   return (
-    <h2 className={ props.classes }>{ props.children }</h2>
+    <h2 className={props.classes}>{props.children}</h2>
   );
 }
 

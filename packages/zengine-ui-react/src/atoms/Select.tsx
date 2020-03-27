@@ -5,8 +5,8 @@ import withAriaAttributes, { AriaProps } from '../util/withAriaAttributes';
 import withInputProps, { InputProps } from '../util/withInputProps';
 
 export interface SelectOption {
-  key: string
-  value: string
+  key: string | number
+  value: string | number
 }
 
 export interface SelectProps extends InputProps, AriaProps {
@@ -30,12 +30,12 @@ export interface SelectProps extends InputProps, AriaProps {
 const Select: React.FC<SelectProps> = (props) => {
   const { placeholder, ...passProps } = props;
   return (
-    <select { ...passProps }>
-      { placeholder !== undefined && placeholder !== null ? (<option value="">{ placeholder }</option>) : null }
+    <select {...passProps}>
+      {placeholder !== undefined && placeholder !== null ? (<option value="">{placeholder}</option>) : null}
 
-      { extractOptions(props.options).map((opt, i) => (
-        <option key={ i } value={ opt.key }>{ opt.value }</option>
-      )) }
+      {extractOptions(props.options).map((opt, i) => (
+        <option key={i} value={opt.key}>{opt.value}</option>
+      ))}
     </select>
   );
 }
