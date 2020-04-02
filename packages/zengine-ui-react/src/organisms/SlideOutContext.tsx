@@ -1,7 +1,8 @@
 import React from 'react';
+import { SlideOutOpenOptions } from './SlideOutProvider';
 
 export interface SlideOutContextProps {
-  open?: (title: string, contents: string | React.ReactElement) => void
+  open?: (title: string, contents: string | React.ReactElement, options?: SlideOutOpenOptions) => void
   close?: () => void
 };
 
