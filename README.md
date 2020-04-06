@@ -22,7 +22,7 @@ This is a monorepo containing various Zengine Plugin development related librari
 ## Development
 
 - Install [Lerna](https://lerna.js.org/): `npm i -g lerna`
-- Bootstrap the repo: `lerna bootstrap && lerna run build`
+- Bootstrap the repo: `npm i && lerna bootstrap && lerna run build`
 - Run dev script: `lerna run watch --parallel`
 
 ## Publishing
