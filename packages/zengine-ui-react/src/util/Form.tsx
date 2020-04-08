@@ -11,8 +11,8 @@ interface FormProps {
   onSubmit?: Function
   labelReset?: string
   labelSubmit?: string
-  showReset?: boolean
-  showSubmit?: boolean
+  showReset: boolean
+  showSubmit: boolean
   validate?: Function
   validateOnMount?: boolean
   validateOnBlur?: boolean
