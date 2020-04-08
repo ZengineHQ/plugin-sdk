@@ -11,12 +11,18 @@ module.exports = {
     'semi': 0,
     'react/prop-types': 0,
     '@typescript-eslint/restrict-template-expressions': 0,
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
+    '@typescript-eslint/explicit-function-return-type': [
+      'error',
       {
-        "allowExpressions": true,
+        'allowExpressions': true,
       }
     ],
+    '@typescript-eslint/strict-boolean-expressions': [
+      'error',
+      {
+        ignoreRhs: true
+      }
+    ]
   },
   parserOptions: {
     project: './tsconfig.json'
