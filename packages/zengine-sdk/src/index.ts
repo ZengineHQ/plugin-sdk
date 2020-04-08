@@ -285,7 +285,19 @@ export const znLocation = {
   })
 }
 
-const znNumberWithCommas = (x: number) =>x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+const znNumberWithCommas = (amount:number, decimalCount: number) => {
+  try {
+    let decimal = ".", thousands = ",";
+    decimalCount = Math.abs(decimalCount);
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+    let j = (i.length > 3) ? i.length % 3 : 0;
+    return (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+  } catch (e) {
+    console.log(e)
+    return "NaN"
+  }
+};
 
 const znCurrencySymbol = (code: string) => {
     let symbol = ''
@@ -304,7 +316,7 @@ export const znNumericValue = (amount: string | number, field: ZengineField) =>{
     // add decimal places
     result = result.toFixed(decimal)
     // add commas as thousands separator
-    result = znNumberWithCommas(result)
+    result = znNumberWithCommas(result,decimal)
     let symbol = (properties?.currency) ? znCurrencySymbol(properties.currency):false;
     // Prepend Currency Symbol
     if (symbol) {
