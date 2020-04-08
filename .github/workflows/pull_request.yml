@@ -19,6 +19,8 @@ jobs:
     - run: npm i
     - run: npm i -g lerna
     - run: lerna bootstrap
+    - run: lerna run lint
     - run: lerna run test
+    - run: lerna run build --ignore zengine-plugin-docs
       env:
         CI: true
