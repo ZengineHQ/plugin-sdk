@@ -290,12 +290,18 @@ const znNumberWithCommas = (amount: string, decimalCount: number) => {
     const thousands = ','
     decimalCount = Math.abs(decimalCount)
     decimalCount = isNaN(decimalCount) ? 2 : decimalCount
-    const i = parseInt(Math.abs(Number(amount) || 0).toFixed(decimalCount),10).toString(10)
-    const j = (i.length > 3) ? i.length % 3 : 0
-    const firstPart = j ? i.substr(0, j) + thousands : ''
-    const secondPart = i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + thousands)
-    const thirdPart = decimalCount ? (decimal + Math.abs(Number(amount) - Number(i)).toFixed(decimalCount).slice(2)) : ''
-    const formattedStr = firstPart + secondPart + thirdPart
+    //get the integer part of the number (without decimals) as a String
+    const integerPart = parseInt(Math.abs(Number(amount) || 0).toFixed(decimalCount),10).toString(10)
+    /** 
+     * [digitsToBeRemoved] is the module of 3 of the length of integerPart or 0. If higher than 0 this will be number 
+     * of digits to be removed from the beginning of the integerPart string to get a number of digits divisible by 3
+     * @type number
+     */
+    const digitsToBeRemoved = (integerPart.length > 3) ? integerPart.length % 3 : 0
+    const firstIntPart = digitsToBeRemoved ? integerPart.substr(0, digitsToBeRemoved) + thousands : ''
+    const secondIntPart = integerPart.substr(digitsToBeRemoved).replace(/(\d{3})(?=\d)/g, '$1' + thousands)
+    const decimalPart = decimalCount ? (decimal + Math.abs(Number(amount) - Number(integerPart)).toFixed(decimalCount).slice(2)) : ''
+    const formattedStr = firstIntPart + secondIntPart + decimalPart
     return formattedStr
   } catch (e) {
     console.log(e)
@@ -303,13 +309,7 @@ const znNumberWithCommas = (amount: string, decimalCount: number) => {
   }
 }
 
-const znCurrencySymbol = (code: string) => {
-  const result = currencies.filter(currency => currency.id === code)
-  if (result.length > 0) {
-    return result[0].symbol
-  }
-  return ''
-}
+const znCurrencySymbol = (code: string) => currencies[code]?.symbol ?? ''
 
 export const znNumericValue = (amount: number, field: ZengineField) => {
   const isNegative = amount < 0 ? '-' : ''
