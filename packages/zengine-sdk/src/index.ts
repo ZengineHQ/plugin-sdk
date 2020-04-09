@@ -290,10 +290,10 @@ const znNumberWithCommas = (amount: string, decimalCount: number) => {
     const thousands = ','
     decimalCount = Math.abs(decimalCount)
     decimalCount = isNaN(decimalCount) ? 2 : decimalCount
-    //get the integer part of the number (without decimals) as a String
+    // get the integer part of the number (without decimals) as a String
     const integerPart = parseInt(Math.abs(Number(amount) || 0).toFixed(decimalCount),10).toString(10)
-    /** 
-     * [digitsToBeRemoved] is the module of 3 of the length of integerPart or 0. If higher than 0 this will be number 
+    /**
+     * [digitsToBeRemoved] is the module of 3 of the length of integerPart or 0. If higher than 0 this will be number
      * of digits to be removed from the beginning of the integerPart string to get a number of digits divisible by 3
      * @type number
      */
