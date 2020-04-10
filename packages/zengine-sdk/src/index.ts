@@ -1,7 +1,8 @@
 import Client from '@zenginehq/post-rpc-client'
 import Sizer from 'content-sizer'
 import { PostRPCClient, ContentSizer, Dimensions } from './external.types'
-import { ZengineContextData, ZengineFilter, ZengineFiltersPanelOptions, ZengineHTTPResponse, ZenginePluginDataCallOptions, ZengineAPIRequestOptions, ZengineDropdownOptions } from './zengine.types'
+import { currencies } from './data-utilities'
+import { ZengineField, ZengineContextData, ZengineFilter, ZengineFiltersPanelOptions, ZengineHTTPResponse, ZenginePluginDataCallOptions, ZengineAPIRequestOptions, ZengineDropdownOptions } from './zengine.types'
 
 const parentOrigin = (document.location.ancestorOrigins && document.location.ancestorOrigins[0]) || getReferrerOrigin() || 'https://platform.zenginehq.com'
 
@@ -281,4 +282,43 @@ export const znLocation = {
       args: [query, value]
     }
   })
+}
+
+const znNumberWithCommas = (amount: string, decimalCount: number) => {
+  try {
+    const decimal = '.'
+    const thousands = ','
+    decimalCount = Math.abs(decimalCount)
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount
+    // get the integer part of the number (without decimals) as a String
+    const integerPart = parseInt(Math.abs(Number(amount) || 0).toFixed(decimalCount),10).toString(10)
+    /**
+     * [digitsToBeRemoved] is the module of 3 of the length of integerPart or 0. If higher than 0 this will be number
+     * of digits to be removed from the beginning of the integerPart string to get a number of digits divisible by 3
+     * @type number
+     */
+    const digitsToBeRemoved = (integerPart.length > 3) ? integerPart.length % 3 : 0
+    const firstIntPart = digitsToBeRemoved ? integerPart.substr(0, digitsToBeRemoved) + thousands : ''
+    const secondIntPart = integerPart.substr(digitsToBeRemoved).replace(/(\d{3})(?=\d)/g, '$1' + thousands)
+    const decimalPart = decimalCount ? (decimal + Math.abs(Number(amount) - Number(integerPart)).toFixed(decimalCount).slice(2)) : ''
+    const formattedStr = firstIntPart + secondIntPart + decimalPart
+    return formattedStr
+  } catch (e) {
+    console.log(e)
+    return 'NaN'
+  }
+}
+
+const znCurrencySymbol = (code: string) => currencies[code]?.symbol ?? ''
+
+export const znNumericValue = (amount: number, field: ZengineField) => {
+  const isNegative = amount < 0 ? '-' : ''
+  const value = Math.abs(amount)
+  const properties = field?.settings?.properties
+  const decimal = properties?.decimal ? properties.decimal : 0
+  // add commas as thousands separator
+  const formattedValue = znNumberWithCommas(value.toFixed(decimal), decimal)
+  const symbol = properties?.currency ? znCurrencySymbol(properties.currency || '') : ''
+  const result = isNegative + symbol + formattedValue
+  return result
 }
