@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.1.1...@zenginehq/zengine-sdk@0.2.0) (2020-04-10)
+
+
+### Features
+
+* **zengine-sdk:** add znNumericValue and related filters ([7c1af13](https://github.com/ZengineHQ/zengine-sdk/commit/7c1af134ddffd41faff1a31b429d9b69d543601e))
+
+
+
+
+
 ## [0.1.1](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.1.0...@zenginehq/zengine-sdk@0.1.1) (2020-03-25)
 
 **Note:** Version bump only for package @zenginehq/zengine-sdk

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/react-sdk@0.0.8...@zenginehq/react-sdk@0.0.9) (2020-04-10)
+
+**Note:** Version bump only for package @zenginehq/react-sdk
+
+
+
+
+
 ## [0.0.8](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/react-sdk@0.0.7...@zenginehq/react-sdk@0.0.8) (2020-03-27)
 
 

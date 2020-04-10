@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.2.7...@zenginehq/zengine-ui@0.3.0) (2020-04-10)
+
+
+### Features
+
+* working slideout css, add onClose handler ([f1ed7a6](https://github.com/ZengineHQ/plugin-sdk/commit/f1ed7a6e31a2dbdf5bee95be9aebb3bdd8f88044))
+
+
+
+
+
 ## [0.2.7](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.2.6...@zenginehq/zengine-ui@0.2.7) (2020-03-27)
 
 
