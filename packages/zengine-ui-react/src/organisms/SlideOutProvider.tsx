@@ -66,8 +66,8 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
       >
         <Modal.Header>
           <Modal.Title>{title}</Modal.Title>
-          {closeLabel &&
-            <a href="#" onClick={close} style={{paddingTop: '.5em', paddingRight: '.5em'}}>{closeLabel}</a>
+          {closeLabel !== undefined &&
+            <button className="btn btn-link" onClick={close} style={{ paddingTop: '.5em', paddingRight: '.5em' }}>{closeLabel}</button>
           }
         </Modal.Header>
 
