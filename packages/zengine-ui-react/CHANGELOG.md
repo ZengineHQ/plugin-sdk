@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.4.0...@zenginehq/zengine-ui-react@0.5.0) (2020-04-16)
+
+
+### Features
+
+* added close label text to slideout ([5c488e9](https://github.com/ZengineHQ/plugin-sdk/commit/5c488e9dc299b1e0c0845e550d8cf1956455b8fd))
+
+
+
+
+
 # [0.4.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.3.0...@zenginehq/zengine-ui-react@0.4.0) (2020-04-10)
 
 
