@@ -10,6 +10,7 @@ export interface SlideOutProps {
 
 export interface SlideOutOpenOptions {
   onClose?: Function
+  closeLabel?: string
 }
 
 const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
@@ -17,6 +18,7 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
   const [title, setTitle] = useState<string | null>(null);
   const [contents, setContents] = useState<string | React.ReactElement | null>(null);
   const [onClose, setOnClose] = useState<Function>();
+  const [closeLabel, setCloseLabel] = useState<string | undefined>();
 
   const open = (title: string, contents: string | React.ReactElement, options?: SlideOutOpenOptions): void => {
     setTitle(title);
@@ -24,6 +26,9 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
     setShow(true);
 
     if (options !== undefined) {
+      if (options.closeLabel !== undefined) {
+        setCloseLabel(options.closeLabel);
+      }
       if (options.onClose !== undefined) {
         // If a setter gets a function argument, it calls it
         // immediately.  So, we wrap in a dummy function
@@ -61,6 +66,9 @@ const SlideOutProvider = ({ children }: SlideOutProps): React.ReactElement => {
       >
         <Modal.Header>
           <Modal.Title>{title}</Modal.Title>
+          {closeLabel !== undefined &&
+            <button className="btn btn-link" onClick={close} style={{ paddingTop: '.5em', paddingRight: '.5em' }}>{closeLabel}</button>
+          }
         </Modal.Header>
 
         <Modal.Body>
