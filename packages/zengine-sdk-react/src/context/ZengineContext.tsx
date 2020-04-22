@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState, useCallback, useMemo, FunctionComponent, Context } from 'react'
 import { znContext } from '@zenginehq/zengine-sdk'
-import { ZengineContextData, ZengineField, ZengineForm, ZengineFieldType } from '@zenginehq/zengine-sdk/lib/zengine.types'
+import { ZengineContextData, ZengineField, ZengineForm, ZengineFieldType, ZengineFolder } from '@zenginehq/zengine-sdk/lib/zengine.types'
 
 type ZengineContext = {
   context?: ZengineContextData
@@ -8,13 +8,18 @@ type ZengineContext = {
     getFieldLabel: (id: number) => string
     getFieldType: (id: number) => ZengineFieldType
     getFormName: (id: number) => string
+    getForm: (id: number) => ZengineForm
     isFieldType: (id: number, type: ZengineFieldType) => boolean
     isDatePicker: (id: number) => boolean
     isLinkedField: (id: number) => boolean
     isRadio: (id: number) => boolean
+    isNumeric: (id: number) => boolean
     isCheckbox: (id: number) => boolean
+    isDropdown: (id: number) => boolean
+    isMultiSelect: (id: number) => boolean
     formHasField: (formId: number, fieldId: number) => boolean
     getFormFields: (id: number, dataFieldsOnly?: boolean) => ZengineField[] | undefined
+    getFormFolders: (id: number) => ZengineFolder[] | undefined
     getFieldById: (id: number) => ZengineField | undefined
   }
   /**
@@ -53,17 +58,20 @@ export const ZnContextProvider: FunctionComponent<ZnContextProviderProps> = ({ c
     return context.workspace.forms.reduce((map, form) => ({ ...map, [form.id]: form }), {})
   }, [context])
 
-  const getFormName = useCallback(id => formMap[id]?.name, [context])
-  const getFieldLabel = useCallback(id => fieldMap[id]?.label, [context])
-  const getFieldType = useCallback(id => fieldMap[id]?.type, [context])
-  const getFieldById = useCallback(id => fieldMap[id], [context])
-  const isFieldType = useCallback((id, type: ZengineFieldType) => getFieldType(id) === type, [context])
-  const isDatePicker = useCallback(id => isFieldType(id, 'date-picker'), [context])
-  const isLinkedField = useCallback(id => isFieldType(id, 'linked'), [context])
-  const isRadio = useCallback(id => isFieldType(id, 'radio'), [context])
-  const isCheckbox = useCallback(id => isFieldType(id, 'checkbox'), [context])
-  const formHasField = useCallback((formId, fieldId) => fieldMap[fieldId]?.form?.id === formId, [context])
-  const getFormFields = useCallback((id, dataFieldsOnly) => {
+  const getForm = useCallback((id: number) => formMap[id], [context])
+  const getFormName = useCallback((id: number) => formMap[id]?.name, [context])
+  const getFieldLabel = useCallback((id: number) => fieldMap[id]?.label, [context])
+  const getFieldType = useCallback((id: number) => fieldMap[id]?.type, [context])
+  const getFieldById = useCallback((id: number) => fieldMap[id], [context])
+  const isFieldType = useCallback((id: number, type: ZengineFieldType) => getFieldType(id) === type, [context])
+  const isDatePicker = useCallback((id: number) => isFieldType(id, 'date-picker'), [context])
+  const isLinkedField = useCallback((id: number) => isFieldType(id, 'linked'), [context])
+  const isRadio = useCallback((id: number) => isFieldType(id, 'radio'), [context])
+  const isNumeric = useCallback((id: number) => isFieldType(id, 'numeric'), [context])
+  const isCheckbox = useCallback((id: number) => isFieldType(id, 'checkbox'), [context])
+  const isDropdown = useCallback((id: number) => isFieldType(id, 'dropdown'), [context])
+  const formHasField = useCallback((formId: number, fieldId: number) => fieldMap[fieldId]?.form?.id === formId, [context])
+  const getFormFields = useCallback((id: number, dataFieldsOnly?: boolean) => {
     const form = formMap[id]
 
     if (!form) return form
@@ -91,6 +99,14 @@ export const ZnContextProvider: FunctionComponent<ZnContextProviderProps> = ({ c
 
     return form.fields
   }, [context])
+  const getFormFolders = useCallback((id: number) => formMap[id]?.folders, [context])
+  const isMultiSelect = useCallback((id: number) => {
+    if (isCheckbox(id)) {
+      return true
+    }
+
+    return !!getFieldById(id)?.settings?.properties?.multiple
+  }, [context])
 
   const helpers = {
     getFieldLabel,
@@ -101,9 +117,14 @@ export const ZnContextProvider: FunctionComponent<ZnContextProviderProps> = ({ c
     isLinkedField,
     isRadio,
     isCheckbox,
+    isDropdown,
     formHasField,
+    getForm,
+    isNumeric,
     getFormFields,
-    getFieldById
+    getFormFolders,
+    getFieldById,
+    isMultiSelect
   }
 
   const triggerContextRefresh = async () => {
