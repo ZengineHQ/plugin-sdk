@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/react-sdk@0.0.9...@zenginehq/react-sdk@0.1.0) (2020-04-23)
+
+
+### Features
+
+* new helper methods in react-sdk ([6ce724d](https://github.com/ZengineHQ/zengine-sdk/commit/6ce724d16f760601e76f12ec69568553bdf51882))
+
+
+
+
+
 ## [0.0.9](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/react-sdk@0.0.8...@zenginehq/react-sdk@0.0.9) (2020-04-10)
 
 **Note:** Version bump only for package @zenginehq/react-sdk
