@@ -25,6 +25,7 @@ export interface TextFieldProps {
   labelClasses?: string
   prefix?: string
   suffix?: string
+  type?: string
 }
 
 /**
@@ -62,7 +63,7 @@ const TextField: React.FC<TextFieldProps> = (props) => {
 
   const input = (
     <Input
-      type="text"
+      type={ props.type }
       id={ id }
       disabled={ props.disabled }
       required={ props.required }
@@ -111,6 +112,7 @@ TextField.defaultProps = {
   required: false,
   readonly: false,
   classes: '',
+  type: 'text',
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
