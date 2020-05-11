@@ -180,8 +180,8 @@ ZengineUIForm.defaultProps = {
   showReset: true,
   showSubmit: true,
   classes: '',
-  validateOnMount: true,
-  validateOnBlur: true,
+  validateOnMount: false,
+  validateOnBlur: false,
   validateOnChange: true,
   saveMessage: 'Saving...',
 };
