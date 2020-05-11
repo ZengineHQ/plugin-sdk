@@ -90,7 +90,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                     theme="primary"
                     aria-label={labelSubmit}
                     disabled={!touched || isSubmitting || !isValid}
-                    classes='mr-2'
+                    classes="mr-2"
                   >
                     {labelSubmit !== undefined ? labelSubmit : ''}
                   </Button>
@@ -102,12 +102,12 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                     theme="link"
                     aria-label={labelReset}
                     disabled={isSubmitting}
-                    classes='mr-2'
+                    classes="mr-2"
                   >
                     {labelReset !== undefined ? labelReset : ''}
                   </Button>
                 )}
-                {isSubmitting && <p className='mb-0 text-info'>{saveMessage}</p>}
+                {isSubmitting && <p className="mb-0 text-info">{saveMessage}</p>}
               </div>
             )}
           </Form>
