@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.5.0...@zenginehq/zengine-ui-react@0.6.0) (2020-05-11)
+
+
+### Bug Fixes
+
+* defer form validation till we have changes ([4bcf55b](https://github.com/ZengineHQ/plugin-sdk/commit/4bcf55b094ef6caa478b58ab90d5ebc7101442c5))
+
+
+### Features
+
+* support changing input type in textfield component ([f8df5f5](https://github.com/ZengineHQ/plugin-sdk/commit/f8df5f50a5e8eeed1a5be89e1035f1b340de5c8e))
+
+
+
+
+
 # [0.5.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.4.0...@zenginehq/zengine-ui-react@0.5.0) (2020-04-16)
 
 
