@@ -8,6 +8,7 @@ interface FormProps {
   enableReinitialize?: boolean
   initialValues?: object
   onSubmit?: Function
+  afterSubmit?: Function
   labelReset?: string
   labelSubmit?: string
   showReset: boolean
@@ -37,6 +38,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     enableReinitialize,
     initialValues,
     onSubmit,
+    afterSubmit,
     labelReset,
     labelSubmit,
     showReset,
@@ -68,6 +70,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
         await onSubmit?.(values);
         actions.resetForm();
         actions.setSubmitting(false);
+        afterSubmit?.(values);
       }}
       validate={validateForm}
     >
