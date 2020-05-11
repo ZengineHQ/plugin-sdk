@@ -46,7 +46,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     validateOnMount,
     validateOnBlur,
     validateOnChange,
-    saveMessage = 'Saving...',
+    saveMessage,
     classes
   } = props;
 
@@ -183,6 +183,7 @@ ZengineUIForm.defaultProps = {
   validateOnMount: true,
   validateOnBlur: true,
   validateOnChange: true,
+  saveMessage: 'Saving...',
 };
 
 export default ZengineUIForm;
