@@ -153,3 +153,21 @@ test('Calls submit handler with proper value when submitted', async () => {
   expect(mock.mock.calls[0][0].name).toEqual('Still testing');
   expect(mock.mock.calls[0][0].age).toEqual(15);
 });
+
+test('Calls after submit handler with proper values after submitted', async () => {
+  const mock = jest.fn();
+
+  const { container } = render(
+    <Form onSubmit={() => null} afterSubmit={mock} initialValues={{ name: 'hello' }}>
+      <Field label="Name" name="name" />
+    </Form>
+  );
+  const form = container.getElementsByTagName('form')[0];
+
+  await act(async () => {
+    fireEvent.submit(form);
+  });
+
+  expect(mock).toBeCalled();
+  expect(mock.mock.calls[0][0].name).toEqual('hello');
+});
