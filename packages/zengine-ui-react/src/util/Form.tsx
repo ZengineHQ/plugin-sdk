@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactChildren } from 'react';
+import React, { ReactChild } from 'react';
 import { Formik, Form } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 
@@ -18,7 +18,7 @@ interface FormProps {
   validateOnChange?: boolean
   saveMessage?: string
   classes?: string
-  children?: ReactChildren | ReactChild
+  children?: ReactChild | ReactChild[]
 }
 
 interface FormikProperties {
