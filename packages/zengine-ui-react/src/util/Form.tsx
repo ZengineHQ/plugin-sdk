@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactChildren } from 'react';
+import React, { ReactChild } from 'react';
 import { Formik, Form } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 
@@ -8,17 +8,18 @@ interface FormProps {
   enableReinitialize?: boolean
   initialValues?: object
   onSubmit?: Function
+  afterSubmit?: Function
   labelReset?: string
   labelSubmit?: string
-  showReset: boolean
-  showSubmit: boolean
+  showReset?: boolean
+  showSubmit?: boolean
   validate?: Function
   validateOnMount?: boolean
   validateOnBlur?: boolean
   validateOnChange?: boolean
   saveMessage?: string
   classes?: string
-  children?: ReactChildren | ReactChild
+  children?: ReactChild | ReactChild[]
 }
 
 interface FormikProperties {
@@ -37,6 +38,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     enableReinitialize,
     initialValues,
     onSubmit,
+    afterSubmit,
     labelReset,
     labelSubmit,
     showReset,
@@ -68,6 +70,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
         await onSubmit?.(values);
         actions.resetForm();
         actions.setSubmitting(false);
+        afterSubmit?.(values);
       }}
       validate={validateForm}
     >
@@ -82,32 +85,32 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             </div>) : null}
 
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
-            {(showSubmit || showReset) && (
+            {(showSubmit === true || showReset === true) && (
               <div className="form-actions d-flex align-items-center">
-                {showSubmit && (
+                {showSubmit === true && (
                   <Button
                     type="submit"
                     theme="primary"
                     aria-label={labelSubmit}
-                    disabled={!touched || isSubmitting || !isValid}
-                    classes='mr-2'
+                    disabled={isSubmitting || !isValid || isEmpty(touched)}
+                    classes="mr-2"
                   >
                     {labelSubmit !== undefined ? labelSubmit : ''}
                   </Button>
                 )}
 
-                {showReset && dirty && (
+                {showReset === true && dirty && (
                   <Button
                     type="reset"
                     theme="link"
                     aria-label={labelReset}
                     disabled={isSubmitting}
-                    classes='mr-2'
+                    classes="mr-2"
                   >
                     {labelReset !== undefined ? labelReset : ''}
                   </Button>
                 )}
-                {isSubmitting && <p className='mb-0 text-info'>{saveMessage}</p>}
+                {isSubmitting && <p className="mb-0 text-info">{saveMessage}</p>}
               </div>
             )}
           </Form>
