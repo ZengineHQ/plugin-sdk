@@ -89,7 +89,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                     type="submit"
                     theme="primary"
                     aria-label={labelSubmit}
-                    disabled={!touched || isSubmitting || !isValid}
+                    disabled={isSubmitting || !isValid || isEmpty(touched)}
                     classes="mr-2"
                   >
                     {labelSubmit !== undefined ? labelSubmit : ''}
