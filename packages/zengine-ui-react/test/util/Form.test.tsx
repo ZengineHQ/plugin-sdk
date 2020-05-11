@@ -94,9 +94,29 @@ test('Adds form classes when specified', () => {
   expect(container.firstChild).toHaveClass('foo bar');
 });
 
-test('Performs custom validation when specified', async () => {
+test('Validation does not occur on initial mount', async () => {
   const mock = jest.fn();
   render(<Form onSubmit={() => null} validate={mock} />);
+  expect(mock).not.toBeCalled();
+});
+
+test('Performs custom validation when specified', async () => {
+  const mock = jest.fn();
+  const { container } = render(
+    <Form onSubmit={() => null} validate={mock}>
+      <Field label="Name" name="name" required />
+    </Form>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'Still testing',
+      },
+    });
+  });
+
   expect(mock).toBeCalled();
 });
 
