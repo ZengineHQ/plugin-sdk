@@ -1,5 +1,4 @@
 import React, { ReactChild, ReactChildren } from 'react';
-import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 
