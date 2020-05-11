@@ -118,61 +118,6 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
   );
 }
 
-ZengineUIForm.propTypes = {
-  /**
-   * Pass elements to be rendered into the form.
-   **/
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-  /**
-   * Callback that will receive valid, submitted form values.
-   **/
-  onSubmit: PropTypes.func.isRequired,
-  /**
-   * Initial data, if any, to populate the form with.
-   **/
-  initialValues: PropTypes.object,
-  /**
-   * Customize the label for the "Reset Form" button.
-   **/
-  labelReset: PropTypes.string,
-  /**
-   * Customize the label for the "Save Form" button.
-   **/
-  labelSubmit: PropTypes.string,
-  /**
-   * Whether or not to display the reset button.
-   **/
-  showReset: PropTypes.bool,
-  /**
-   * Whether or not to display the submit button.
-   **/
-  showSubmit: PropTypes.bool,
-  /**
-   * Additional custom form-level validation function.
-   **/
-  validate: PropTypes.func,
-  /**
-   * Whether to validate the Form on first mount.
-   **/
-  validateOnMount: PropTypes.bool,
-  /**
-   * Whether to validate the Form on blur.
-   **/
-  validateOnBlur: PropTypes.bool,
-  /**
-   * Whether to validate the Form every time values change.
-   **/
-  validateOnChange: PropTypes.bool,
-  /**
-   * Whether to enable reinitializing the Form.
-   **/
-  enableReinitialize: PropTypes.bool,
-  /**
-   * HTML classes to be added as-is to the form.
-   **/
-  classes: PropTypes.string,
-};
-
 ZengineUIForm.defaultProps = {
   initialValues: {},
   labelReset: 'Reset',
