@@ -85,9 +85,9 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             </div>) : null}
 
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
-            {(showSubmit || showReset) && (
+            {(showSubmit === true || showReset === true) && (
               <div className="form-actions d-flex align-items-center">
-                {showSubmit && (
+                {showSubmit === true && (
                   <Button
                     type="submit"
                     theme="primary"
@@ -99,7 +99,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                   </Button>
                 )}
 
-                {showReset && dirty && (
+                {showReset === true && dirty && (
                   <Button
                     type="reset"
                     theme="link"
