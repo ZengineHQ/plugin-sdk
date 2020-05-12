@@ -5,7 +5,7 @@ import Input from '../atoms/Input';
 import Label from '../atoms/Label';
 import withForwardRef from '../util/withForwardRef';
 import getFieldClasses from '../util/getFieldClasses';
-import { isEmpty } from '../util/validation';
+import { useFieldValidation, isEmpty } from '../util/validation';
 import ErrorMessage from '../util/ErrorMessage';
 
 export interface TextFieldProps {
@@ -35,18 +35,9 @@ export interface TextFieldProps {
  *
  * Use it to collect short textual data from users.
  */
-const TextField: React.FC<TextFieldProps> = (props) => {
-  const validate = (value: any): any => {
-    if (props.required === true && isEmpty(value)) {
-      return 'Required';
-    }
-      return props.validate(value);
-    if (typeof props.validate === 'function') {
-    }
-  };
-
+const TextField: React.FC<TextFieldProps> = props => {
+  const validate = useFieldValidation(props.required, props.validate);
   const [field, meta] = useField({ name: props.name, validate });
-
   const id = props.id ?? `text-${props.name}`;
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
 
