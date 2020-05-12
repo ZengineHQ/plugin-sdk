@@ -41,11 +41,8 @@ export const isString = (value: any): boolean => typeof value === 'string';
  * @returns {boolean}
  */
 export const matchesRegex = (str: string, regex: RegExp | string): boolean => {
-  if (!isString(str)) {
-    return false;
-  }
   const validationRegex = (regex instanceof RegExp ? regex : (new RegExp(regex)));
-  return (isEmpty(str) || validationRegex.test(str));
+  return validationRegex.test(str.toString());
 };
 
 /**
