@@ -40,8 +40,8 @@ const TextField: React.FC<TextFieldProps> = (props) => {
     if (props.required === true && isEmpty(value)) {
       return 'Required';
     }
-    if (props.validate !== undefined) {
       return props.validate(value);
+    if (typeof props.validate === 'function') {
     }
   };
 
