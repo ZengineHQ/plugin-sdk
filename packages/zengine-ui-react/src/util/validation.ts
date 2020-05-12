@@ -1,4 +1,4 @@
-import isObject from 'lodash/isObject';
+import _isObject from 'lodash/isObject';
 import _isEmpty from 'lodash/isEmpty';
 
 /**
@@ -19,7 +19,7 @@ export const isEmpty = (value: any): boolean => {
   if (Array.isArray(value)) {
     return value.length === 0;
   }
-  if (isObject(value)) {
+  if (_isObject(value)) {
     return _isEmpty(value);
   }
   return value === '' || !exists(value);
