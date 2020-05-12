@@ -97,5 +97,6 @@
     "rimraf": "^3.0.2",
     "standard-version": "^7.1.0",
     "typescript": "^3.8.3"
-  }
+  },
+  "gitHead": "c02c46ecb8c91d76dcd4637e697cc96679677937"
 }
