@@ -19,6 +19,7 @@ export { default as RadioGroupField } from './molecules/RadioGroupField';
 export { default as SelectField } from './molecules/SelectField';
 export { default as TextAreaField } from './molecules/TextAreaField';
 export { default as TextField } from './molecules/TextField';
+export { default as CountryField } from './molecules/CountryField';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI';
