@@ -127,6 +127,7 @@ ZengineUIForm.defaultProps = {
   showReset: true,
   showSubmit: true,
   classes: '',
+  enableReinitialize: true,
   validateOnMount: false,
   validateOnBlur: false,
   validateOnChange: true,
