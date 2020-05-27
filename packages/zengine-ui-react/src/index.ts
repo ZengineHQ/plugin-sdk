@@ -21,6 +21,7 @@ export { default as TextAreaField } from './molecules/TextAreaField';
 export { default as TextField } from './molecules/TextField';
 export { default as CountryField } from './molecules/CountryField';
 export { default as StateField } from './molecules/StateField';
+export { default as YearField } from './molecules/YearField';
 
 // Organisms.
 export { default as KPI } from './organisms/KPI';
