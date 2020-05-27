@@ -31,7 +31,6 @@ const Button: React.FC<ButtonProps> = (props) => {
 }
 
 Button.defaultProps = {
-  onClick: () => null,
   disabled: false,
   theme: 'primary',
   type: 'button',
