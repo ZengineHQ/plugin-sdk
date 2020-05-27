@@ -8,3 +8,4 @@ npm-debug.log
 
 # vendor
 node_modules
+/packages/zengine-ui-react/coverage
