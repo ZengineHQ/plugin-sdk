@@ -3,8 +3,6 @@ import range from 'lodash/range';
 
 import { SelectField } from './SelectField';
 import withForwardRef from '../util/withForwardRef';
-import getFieldClasses from '../util/getFieldClasses';
-import Select from '../atoms/Select';
 
 export interface YearFieldProps {
   required?: boolean
