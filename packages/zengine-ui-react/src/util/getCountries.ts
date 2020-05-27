@@ -1,4 +1,4 @@
-import { SelectOption } from "../atoms/Select";
+import { SelectOption } from '../atoms/Select';
 
 const getCountries = (): SelectOption[] => {
   return [
@@ -995,8 +995,8 @@ const getCountries = (): SelectOption[] => {
       value: 'Zambia'
     },
     {
-      key: "ZW",
-      value: "Zimbabwe"
+      key: 'ZW',
+      value: 'Zimbabwe'
     }
   ];
 };

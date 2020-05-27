@@ -1,4 +1,4 @@
-import { SelectOption } from "../atoms/Select";
+import { SelectOption } from '../atoms/Select';
 
 const getStates = (): SelectOption[] => {
   return [

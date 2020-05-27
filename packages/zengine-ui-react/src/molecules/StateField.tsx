@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { SelectField } from "./SelectField";
-import withForwardRef from "../util/withForwardRef";
-import getFieldClasses from "../util/getFieldClasses";
-import Select from "../atoms/Select";
-import getStates from "../util/getStates";
+import { SelectField } from './SelectField';
+import withForwardRef from '../util/withForwardRef';
+import getFieldClasses from '../util/getFieldClasses';
+import Select from '../atoms/Select';
+import getStates from '../util/getStates';
 
 export interface StateFieldProps {
   required?: boolean
