@@ -8,19 +8,25 @@ module.exports = {
   ],
   rules: {
     'comma-dangle': 0,
-    'semi': 0,
+    '@typescript-eslint/semi': 0,
     'react/prop-types': 0,
     '@typescript-eslint/restrict-template-expressions': 0,
     '@typescript-eslint/explicit-function-return-type': [
       'error',
       {
-        'allowExpressions': true,
+        allowExpressions: true,
       }
     ],
-    '@typescript-eslint/strict-boolean-expressions': [
+    '@typescript-eslint/strict-boolean-expressions': 'error',
+    '@typescript-eslint/naming-convention': [
       'error',
       {
-        ignoreRhs: true
+        selector: 'variable',
+        format: [
+          'UPPER_CASE',
+          'camelCase',
+          'PascalCase',
+        ]
       }
     ]
   },
