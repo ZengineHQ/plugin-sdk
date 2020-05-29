@@ -5,7 +5,7 @@ import ErrorMessage from '../../src/util/ErrorMessage';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
 
 export default {
-  title: 'Utility/ErrorMessage',
+  title: 'Components/Utility/ErrorMessage',
   component: ErrorMessage,
   parameters: {
     jest: ['ErrorMessage.test.js'],

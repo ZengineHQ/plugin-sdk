@@ -15,7 +15,7 @@ module.exports = {
       }
     }
   ],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.tsx?$/,
       include: path.resolve(__dirname, "../src"),

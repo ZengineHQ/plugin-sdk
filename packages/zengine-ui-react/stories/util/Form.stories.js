@@ -8,7 +8,7 @@ import TextField from '../../src/molecules/TextField';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
 
 export default {
-  title: 'Utility/Form',
+  title: 'Components/Utility/Form',
   component: Form,
   parameters: {
     jest: ['Form.test.js'],
