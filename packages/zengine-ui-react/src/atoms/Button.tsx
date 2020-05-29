@@ -2,7 +2,9 @@ import React, { ReactChildren, ReactChild } from 'react';
 import classNames from 'classnames';
 
 export interface ButtonProps {
+  /** The Button type */
   type?: 'button' | 'reset' | 'submit'
+  /** Click handler */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   theme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
   classes?: string

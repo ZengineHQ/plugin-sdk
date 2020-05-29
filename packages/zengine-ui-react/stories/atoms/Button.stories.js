@@ -4,12 +4,14 @@ import { boolean, select, text } from '@storybook/addon-knobs';
 
 import Button from '../../src/atoms/Button';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
-import ButtonWithProps from '../../lib/atoms/Button.js';
 
 export default {
   title: 'Components/Atoms/Button',
-  component: ButtonWithProps,
+  component: Button,
   parameters: {
+    options: {
+      showPanel: true,
+    },
     jest: ['Button.test.js'],
   },
 };
