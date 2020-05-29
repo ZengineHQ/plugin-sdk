@@ -5,7 +5,7 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
-    "watch": "rimraf lib; npm run build:js -- --watch",
+    "watch": "rimraf lib; concurrently \"npm run build:js -- --watch\" \"tsc --emitDeclarationOnly -w\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src/**/*",
@@ -96,6 +96,7 @@
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-typescript-to-proptypes": "^1.3.2",
+    "concurrently": "^5.2.0",
     "eslint": "^7.1.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-config-standard-with-typescript": "^18.0.2",
