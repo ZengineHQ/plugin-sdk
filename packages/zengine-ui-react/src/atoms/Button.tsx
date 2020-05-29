@@ -2,13 +2,17 @@ import React, { ReactChildren, ReactChild } from 'react';
 import classNames from 'classnames';
 
 export interface ButtonProps {
-  /** The Button type */
+  /** The HTML button type */
   type?: 'button' | 'reset' | 'submit'
   /** Click handler */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  /** The Bootstrap theme */
   theme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link'
+  /** Any additional classes to add to the button */
   classes?: string
+  /** Whether the button should be disabled */
   disabled?: boolean
+  /** The button's contents */
   children: ReactChildren | ReactChild
 }
 
