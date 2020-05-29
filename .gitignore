@@ -10,3 +10,4 @@ npm-debug.log
 node_modules
 /packages/zengine-ui-react/coverage
 /packages/zengine-ui-react/.storybook/test-results.json
+/packages/zengine-ui-react/storybook-static
