@@ -9,12 +9,14 @@
     "storybook": "start-storybook -p 9009 -s public",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:cover": "CI=true npm test -- --collect-coverage",
+    "test:save": "CI=true npm run test -- --json --outputFile=./.storybook/test-results.json",
     "lint": "eslint src/**/*",
-    "build": "rimraf lib; npm run build:types && npm run build:js",
+    "build": "rimraf lib; npm run build:types; npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "prepublishOnly": "npm run build",
-    "postpublish": "build-storybook -s public --quiet && storybook-to-ghpages"
+    "postpublish": "npm run test:save; build-storybook -s public --quiet; storybook-to-ghpages"
   },
   "license": "MIT",
   "main": "lib/index.js",
