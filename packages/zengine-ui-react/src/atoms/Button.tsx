@@ -15,7 +15,6 @@ export interface ButtonProps {
  *
  * Use it to trigger an action from users.
  */
-
 const Button: React.FC<ButtonProps> = (props) => {
   const theme = props.theme === 'secondary' ? 'outline-secondary' : props.theme;
 
