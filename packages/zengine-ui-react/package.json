@@ -16,7 +16,9 @@
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "prepublishOnly": "npm run build",
-    "postpublish": "npm run test:save; build-storybook -s public --quiet; storybook-to-ghpages"
+    "storybook:build": "build-storybook -s public --quiet;",
+    "storybook:publish": "storybook-to-ghpages",
+    "postpublish": "npm run test:save; npm run storybook:build; npm run storybook:publish"
   },
   "license": "MIT",
   "main": "lib/index.js",
