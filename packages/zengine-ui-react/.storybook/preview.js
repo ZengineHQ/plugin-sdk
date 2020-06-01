@@ -5,7 +5,7 @@ import { withTests } from '@storybook/addon-jest';
 import '@zenginehq/zengine-ui/style.css';
 
 try {
-  const results = require('./test-results.json');
+  const results = require('../public/test-results.json');
   addDecorator(withTests({ results }));
 } catch (e) {
   // It's all good, just don't display test results.
