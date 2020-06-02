@@ -13,7 +13,7 @@ export interface DateFieldProps {
   validate?: Function
   id?: string
   name?: string
-  onChange?: (event: React.ChangeEvent) => void
+  onChange?: (event: React.ChangeEvent | any) => void
   onBlur?: (event: React.FocusEvent) => void
   disabled?: boolean
   readonly?: boolean
@@ -34,23 +34,28 @@ const DateField: React.FC<DateFieldProps> = (props) => {
     }
   };
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [field, meta, { setTouched, setValue }] = useField({ name: (props.name ?? ''), validate });
 
-  const [field, meta, { setTouched }] = useField({ name: (props.name ?? ''), validate });
+  const onChangeHelper = (date: Date): any => {
+    setValue(date);
+    setTouched(true);
 
-  const onChangeHelper = (e: React.ChangeEvent): void => {
     // Call custom callback.
-    props?.onChange?.(e);
+    // const evt = new CustomEvent('date-change', { detail: date });
+    const evt = { currentTarget: { value: date } };
+    props?.onChange?.(evt);
+
     // Now delegate back to Formik to keep things working.
-    return field.onChange(e);
+    return field.onChange(evt);
   };
+
   const onBlurHelper = (e: React.FocusEvent): void => {
     props?.onBlur?.(e);
     return field.onBlur(e);
   };
 
   const id = props.id ?? `date-${props.name}`;
-  const helpId = props.help !== undefined && id !== undefined ? `${id}-help` : undefined;
+  const helpId = props.help !== undefined ? `${id}-help` : undefined;
 
   return (
     <div className="form-group">
@@ -60,10 +65,11 @@ const DateField: React.FC<DateFieldProps> = (props) => {
 
       <div>
         <DatePicker
-          selected={startDate}
-          onChange={(date: Date) => setStartDate(date)}
+          selected={field.value}
+          onChange={onChangeHelper}
           placeholderText={props.placeholder}
           className={getFieldClasses(meta, props.classes)}
+          onBlur={onBlurHelper}
         />
       </div>
 
