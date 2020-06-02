@@ -52,8 +52,11 @@ export const CustomValidation = () => {
   );
 };
 
-export const Placeholder = () => <MockForm>(
-  <TextField label="Placeholder Text Input" placeholder="placeholder text" name="text" /></MockForm>;
+export const Placeholder = () => (
+  <MockForm>
+    <TextField label="Placeholder Text Input" placeholder="placeholder text" name="text" />
+  </MockForm>
+);
 
 export const Playground = () => {
   useDefaultPanel('Knobs');
