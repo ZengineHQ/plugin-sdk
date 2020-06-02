@@ -33,6 +33,7 @@
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react-bootstrap": "^1.0.1",
+    "react-datepicker": "^2.16.0",
     "tslib": "^2.0.0"
   },
   "keywords": [
@@ -91,6 +92,7 @@
     "@types/jest": "^25.2.3",
     "@types/lodash": "^4.14.153",
     "@types/react": "^16.9.35",
+    "@types/react-datepicker": "^2.11.0",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.0.2",
     "@typescript-eslint/parser": "^3.0.2",
