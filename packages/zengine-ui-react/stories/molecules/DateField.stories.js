@@ -1,0 +1,35 @@
+import React from 'react';
+import { boolean, text } from '@storybook/addon-knobs';
+
+import DateField from '../../src/molecules/DateField';
+import MockForm from '../../test/MockForm';
+import useDefaultPanel from '../../.storybook/useDefaultPanel';
+
+export default {
+  title: 'Components/Molecules/DateField',
+  component: DateField,
+  parameters: {
+    jest: ['DateField.test.js'],
+  },
+};
+
+export const Default = () => (
+  <MockForm><DateField label="Date Input" name="date" /></MockForm>
+);
+
+export const Playground = () => {
+  useDefaultPanel('Knobs');
+
+  return (
+    <MockForm>
+      <DateField
+        name="foo"
+        label={ text('Label', 'Input Label') }
+        help={ text('Help Text', 'Follow these instructions wisely') }
+        disabled={ boolean('Disabled', false) }
+        required={ boolean('Required', false) }
+        placeholder={ text('Placeholder', 'placeholder') }
+      />
+    </MockForm>
+  );
+};
