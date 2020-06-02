@@ -26,7 +26,7 @@ export interface DateFieldProps {
 
 const DateField: React.FC<DateFieldProps> = (props) => {
   const validate = (value: any): any => {
-    if (props.required === true && isEmpty(value)) {
+    if (props.required === true && value === null) {
       return 'Required';
     }
     if (props.validate !== undefined) {
@@ -42,7 +42,7 @@ const DateField: React.FC<DateFieldProps> = (props) => {
 
     // Call custom callback.
     // const evt = new CustomEvent('date-change', { detail: date });
-    const evt = { currentTarget: { value: date } };
+    const evt = { currentTarget: { value: date, name: field.name } };
     props?.onChange?.(evt);
 
     // Now delegate back to Formik to keep things working.
@@ -70,6 +70,8 @@ const DateField: React.FC<DateFieldProps> = (props) => {
           placeholderText={props.placeholder}
           className={getFieldClasses(meta, props.classes)}
           onBlur={onBlurHelper}
+          disabled={props.disabled}
+          name={props.name}
         />
       </div>
 

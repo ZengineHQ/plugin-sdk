@@ -17,6 +17,32 @@ export const Default = () => (
   <MockForm><DateField label="Date Input" name="date" /></MockForm>
 );
 
+export const Required = () => (
+  <MockForm><DateField label="Required Date Input" required={ true } name="date" /></MockForm>
+);
+
+export const Disabled = () => (
+  <MockForm><DateField label="Disabled Date Input" disabled={ true } name="date" /></MockForm>
+);
+
+export const HelpText = () => (
+  <MockForm><DateField label="Date Input" name="date" help="Custom Help Text" /></MockForm>
+);
+
+export const CustomValidation = () => {
+  const validate = value => {
+    return 'Always invalid';
+  };
+
+  return (
+    <MockForm><DateField label="Date Input" name="date" validate={ validate } /></MockForm>
+  );
+}
+
+export const Placeholder = () => (
+  <MockForm><DateField label="Date Input" name="date" placeholder="Custom Placeholder" /></MockForm>
+);
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 
