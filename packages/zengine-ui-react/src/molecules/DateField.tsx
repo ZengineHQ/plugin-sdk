@@ -26,7 +26,7 @@ export interface DateFieldProps {
 
 const DateField: React.FC<DateFieldProps> = (props) => {
   const validate = (value: any): any => {
-    if (props.required === true && value === null) {
+    if (props.required === true && (value === null || value === '' || value === undefined)) {
       return 'Required';
     }
     if (props.validate !== undefined) {
