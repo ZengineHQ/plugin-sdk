@@ -35,7 +35,9 @@ export const CustomValidation = () => {
   };
 
   return (
-    <MockForm><DateField label="Date Input" name="date" validate={ validate } /></MockForm>
+    <MockForm>
+      <DateField label="Date Input" name="date" validate={ validate } help="This field will always be invalid but you can use the custom callback to check whatever"/>
+    </MockForm>
   );
 }
 
