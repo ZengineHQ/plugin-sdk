@@ -19,13 +19,14 @@ export interface StateFieldProps {
   placeholder?: string
   defaultValue?: any
   innerRef?: any
+  includeCanada?: boolean
 }
 
 /**
  * The StateField is a customized SelectField that only allows selecting US States.
  */
 const StateField: React.FC<StateFieldProps> = (props) => {
-  const stateOptions = getStates();
+  const stateOptions = getStates(props.includeCanada);
   return (
     <SelectField
       required={props.required}
@@ -52,7 +53,8 @@ StateField.defaultProps = {
   required: false,
   classes: '',
   multiple: false,
-  placeholder: '-Select-'
+  placeholder: '-Select-',
+  includeCanada: false
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

@@ -1,212 +1,301 @@
 import { SelectOption } from '../atoms/Select';
 
-const getStates = (): SelectOption[] => {
-  return [
+const getStates = (includeCanada: boolean = false): SelectOption[] => {
+  const us = [
     {
-      key: 'AL',
+      key: 'US-AL',
       value: 'Alabama',
     },
     {
-      key: 'AK',
+      key: 'US-AK',
       value: 'Alaska',
     },
     {
-      key: 'AZ',
+      key: 'US-AZ',
       value: 'Arizona',
     },
     {
-      key: 'AR',
+      key: 'US-AR',
       value: 'Arkansas',
     },
     {
-      key: 'CA',
+      key: 'US-CA',
       value: 'California',
     },
     {
-      key: 'CO',
+      key: 'US-CO',
       value: 'Colorado',
     },
     {
-      key: 'CT',
+      key: 'US-CT',
       value: 'Connecticut',
     },
     {
-      key: 'DC',
+      key: 'US-DC',
       value: 'District of Columbia',
     },
     {
-      key: 'DE',
+      key: 'US-DE',
       value: 'Delaware',
     },
     {
-      key: 'FL',
+      key: 'US-FL',
       value: 'Florida',
     },
     {
-      key: 'GA',
+      key: 'US-GA',
       value: 'Georgia',
     },
     {
-      key: 'HI',
+      key: 'US-HI',
       value: 'Hawaii',
     },
     {
-      key: 'ID',
+      key: 'US-ID',
       value: 'Idaho',
     },
     {
-      key: 'IL',
+      key: 'US-IL',
       value: 'Illinois',
     },
     {
-      key: 'IN',
+      key: 'US-IN',
       value: 'Indiana',
     },
     {
-      key: 'IA',
+      key: 'US-IA',
       value: 'Iowa',
     },
     {
-      key: 'KS',
+      key: 'US-KS',
       value: 'Kansas',
     },
     {
-      key: 'KY',
+      key: 'US-KY',
       value: 'Kentucky',
     },
     {
-      key: 'LA',
+      key: 'US-LA',
       value: 'Louisiana',
     },
     {
-      key: 'ME',
+      key: 'US-ME',
       value: 'Maine',
     },
     {
-      key: 'MD',
+      key: 'US-MD',
       value: 'Maryland',
     },
     {
-      key: 'MA',
+      key: 'US-MA',
       value: 'Massachusetts',
     },
     {
-      key: 'MI',
+      key: 'US-MI',
       value: 'Michigan',
     },
     {
-      key: 'MN',
+      key: 'US-MN',
       value: 'Minnesota',
     },
     {
-      key: 'MS',
+      key: 'US-MS',
       value: 'Mississippi',
     },
     {
-      key: 'MO',
+      key: 'US-MO',
       value: 'Missouri',
     },
     {
-      key: 'MT',
+      key: 'US-MT',
       value: 'Montana',
     },
     {
-      key: 'NE',
+      key: 'US-NE',
       value: 'Nebraska',
     },
     {
-      key: 'NV',
+      key: 'US-NV',
       value: 'Nevada',
     },
     {
-      key: 'NH',
+      key: 'US-NH',
       value: 'New Hampshire',
     },
     {
-      key: 'NJ',
+      key: 'US-NJ',
       value: 'New Jersey',
     },
     {
-      key: 'NM',
+      key: 'US-NM',
       value: 'New Mexico',
     },
     {
-      key: 'NY',
+      key: 'US-NY',
       value: 'New York',
     },
     {
-      key: 'NC',
+      key: 'US-NC',
       value: 'North Carolina',
     },
     {
-      key: 'ND',
+      key: 'US-ND',
       value: 'North Dakota',
     },
     {
-      key: 'OH',
+      key: 'US-OH',
       value: 'Ohio',
     },
     {
-      key: 'OK',
+      key: 'US-OK',
       value: 'Oklahoma',
     },
     {
-      key: 'OR',
+      key: 'US-OR',
       value: 'Oregon',
     },
     {
-      key: 'PA',
+      key: 'US-PA',
       value: 'Pennsylvania',
     },
     {
-      key: 'RI',
+      key: 'US-RI',
       value: 'Rhode Island',
     },
     {
-      key: 'SC',
+      key: 'US-SC',
       value: 'South Carolina',
     },
     {
-      key: 'SD',
+      key: 'US-SD',
       value: 'South Dakota',
     },
     {
-      key: 'TN',
+      key: 'US-TN',
       value: 'Tennessee',
     },
     {
-      key: 'TX',
+      key: 'US-TX',
       value: 'Texas',
     },
     {
-      key: 'UT',
+      key: 'US-UT',
       value: 'Utah',
     },
     {
-      key: 'VT',
+      key: 'US-VT',
       value: 'Vermont',
     },
     {
-      key: 'VA',
+      key: 'US-VA',
       value: 'Virginia',
     },
     {
-      key: 'WA',
+      key: 'US-WA',
       value: 'Washington',
     },
     {
-      key: 'WV',
+      key: 'US-WV',
       value: 'West Virginia',
     },
     {
-      key: 'WI',
+      key: 'US-WI',
       value: 'Wisconsin',
     },
     {
-      key: 'WY',
+      key: 'US-WY',
       value: 'Wyoming',
     },
   ];
+
+  const ca = [
+    {
+      key: 'CA-AA',
+      value: 'AA',
+    },
+    {
+      key: 'CA-AE',
+      value: 'AE',
+    },
+    {
+      key: 'CA-AP',
+      value: 'AP',
+    },
+    {
+      key: 'CA-AB',
+      value: 'Alberta',
+    },
+    {
+      key: 'CA-AS',
+      value: 'American Samoa',
+    },
+    {
+      key: 'CA-BC',
+      value: 'British Columbia',
+    },
+    {
+      key: 'CA-GU',
+      value: 'Guam',
+    },
+    {
+      key: 'CA-MB',
+      value: 'Manitoba',
+    },
+    {
+      key: 'CA-NT',
+      value: 'N.W.T.',
+    },
+    {
+      key: 'CA-NB',
+      value: 'New Brunswick',
+    },
+    {
+      key: 'CA-NL',
+      value: 'Newfoundland',
+    },
+    {
+      key: 'CA-MP',
+      value: 'Northern Mariana Islands',
+    },
+    {
+      key: 'CA-NS',
+      value: 'Nova Scotia',
+    },
+    {
+      key: 'CA-NU',
+      value: 'Nunavut',
+    },
+    {
+      key: 'CA-ON',
+      value: 'Ontario',
+    },
+    {
+      key: 'CA-PW',
+      value: 'Palau',
+    },
+    {
+      key: 'CA-PE',
+      value: 'Prince Edward Island',
+    },
+    {
+      key: 'CA-PQ',
+      value: 'Quebec',
+    },
+    {
+      key: 'CA-SK',
+      value: 'Saskatchewan',
+    },
+    {
+      key: 'CA-VI',
+      value: 'Virgin Island',
+    },
+    {
+      key: 'CA-YT',
+      value: 'Yukon',
+    },
+  ];
+
+  return includeCanada ? us.concat(ca) : us;
 };
 
 export default getStates;

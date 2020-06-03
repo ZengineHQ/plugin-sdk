@@ -15,3 +15,7 @@ export default {
 export const Default = () => (
   <MockForm><StateField label="StateField" name="state" /></MockForm>
 );
+
+export const IncludeCanada = () => (
+  <MockForm><StateField label="StateFieldCanada" name="state" includeCanada={true}/></MockForm>
+);
