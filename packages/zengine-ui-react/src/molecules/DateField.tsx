@@ -50,6 +50,7 @@ const DateField: React.FC<DateFieldProps> = (props) => {
   };
 
   const onBlurHelper = (e: React.FocusEvent): void => {
+    setTouched(true);
     props?.onBlur?.(e);
     return field.onBlur(e);
   };
