@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.7.0...@zenginehq/zengine-ui-react@0.8.0) (2020-06-03)
+
+
+### Features
+
+* first pass countryfield ([b485717](https://github.com/ZengineHQ/plugin-sdk/commit/b485717a21ebdec1798535d372434749b9cc8328))
+* state field implementation ([d8923fc](https://github.com/ZengineHQ/plugin-sdk/commit/d8923fc6673ae3f985f647059f8969a40d9dc5b1))
+* tweak secondary button theme appearance ([6a0787b](https://github.com/ZengineHQ/plugin-sdk/commit/6a0787b83e94ba30681018498fcd423bdeda3337))
+* year field implementation ([83e3509](https://github.com/ZengineHQ/plugin-sdk/commit/83e35098f99351f8593aa21d3b430d02d3c27894))
+
+
+### Reverts
+
+* Revert "chore: add storybook directly in zengine-ui-react package" ([994ccdc](https://github.com/ZengineHQ/plugin-sdk/commit/994ccdc9e82ad24c34e9cc061fe116e7a45d8fa9))
+* Revert "chore: validation progress" ([4de29df](https://github.com/ZengineHQ/plugin-sdk/commit/4de29df9449eff5a579b423774cadfb48be5ca31))
+
+
+
+
+
 # [0.7.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.6.0...@zenginehq/zengine-ui-react@0.7.0) (2020-05-11)
 
 
