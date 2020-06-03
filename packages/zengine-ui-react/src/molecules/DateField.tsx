@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import { isEmpty } from "../util/validation";
-import { useField } from "formik";
-import Label from "../atoms/Label";
-import ErrorMessage from "../util/ErrorMessage";
-import getFieldClasses from "../util/getFieldClasses";
+import { isEmpty } from '../util/validation';
+import { useField } from 'formik';
+import Label from '../atoms/Label';
+import ErrorMessage from '../util/ErrorMessage';
+import getFieldClasses from '../util/getFieldClasses';
 
 export interface DateFieldProps {
   required?: boolean
