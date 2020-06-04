@@ -117,6 +117,7 @@
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "jest-resolve": "^26.0.1",
     "jest-watch-typeahead": "^0.6.0",
+    "node-fetch": "^2.6.0",
     "react-docgen-typescript-loader": "^3.7.2",
     "rimraf": "^3.0.2",
     "standard-version": "^8.0.0",
