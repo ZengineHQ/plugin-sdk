@@ -17,36 +17,36 @@ export default {
 
 export const Default = () => (
   <Form onSubmit={ action('Form submitted') }>
-    <TextField label="Name" name="name" required/>
-    <NumberField label="Age" name="age" required/>
+    <TextField label="Name" name="name" required />
+    <NumberField label="Age" name="age" required />
   </Form>
 );
 
 export const HideReset = () => (
   <Form onSubmit={ action('Form submitted') } showReset={ false }>
-    <TextField label="Name" name="name" required/>
-    <NumberField label="Age" name="age" required/>
+    <TextField label="Name" name="name" required />
+    <NumberField label="Age" name="age" required />
   </Form>
 );
 
 export const ResetLabel = () => (
   <Form onSubmit={ action('Form submitted') } labelReset="Nuke it!">
-    <TextField label="Name" name="name" required/>
-    <NumberField label="Age" name="age" required/>
+    <TextField label="Name" name="name" required />
+    <NumberField label="Age" name="age" required />
   </Form>
 );
 
 export const HideSubmit = () => (
   <Form onSubmit={ action('Form submitted') } showSubmit={ false }>
-    <TextField label="Name" name="name" required/>
-    <NumberField label="Age" name="age" required/>
+    <TextField label="Name" name="name" required />
+    <NumberField label="Age" name="age" required />
   </Form>
 );
 
 export const SubmitLabel = () => (
   <Form onSubmit={ action('Form submitted') } labelSubmit="Perform exciting action!">
-    <TextField label="Name" name="name" required/>
-    <NumberField label="Age" name="age" required/>
+    <TextField label="Name" name="name" required />
+    <NumberField label="Age" name="age" required />
   </Form>
 );
 
@@ -58,11 +58,11 @@ export const Playground = () => {
       showReset={ boolean('Show Reset', true) }
       showSubmit={ boolean('Show Submit', true) }
       onSubmit={ action('Form submitted') }
-      labelReset={ text('Reset Label', 'Reset')}
-      labelSubmit={ text('Submit Label', 'Save')}
+      labelReset={ text('Reset Label', 'Reset') }
+      labelSubmit={ text('Submit Label', 'Save') }
     >
-      <TextField label="Name" name="name" required/>
-      <NumberField label="Age" name="age" required/>
+      <TextField label="Name" name="name" required />
+      <NumberField label="Age" name="age" required />
     </Form>
   );
 };
