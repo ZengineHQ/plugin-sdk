@@ -8,11 +8,14 @@ interface FormProps {
   enableReinitialize?: boolean
   initialValues?: object
   onSubmit?: Function
+  onExtra?: Function
   afterSubmit?: Function
   labelReset?: string
   labelSubmit?: string
+  labelExtra?: string
   showReset?: boolean
   showSubmit?: boolean
+  showExtra?: boolean
   validate?: Function
   validateOnMount?: boolean
   validateOnBlur?: boolean
@@ -38,11 +41,14 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     enableReinitialize,
     initialValues,
     onSubmit,
+    onExtra,
     afterSubmit,
     labelReset,
     labelSubmit,
+    labelExtra,
     showReset,
     showSubmit,
+    showExtra,
     validate,
     validateOnMount,
     validateOnBlur,
@@ -56,6 +62,10 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
       return validate(values);
     }
     return {};
+  };
+
+  const onExtraHelper = () => {
+    console.warn('here');
   };
 
   return (
@@ -87,6 +97,19 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
             {(showSubmit === true || showReset === true) && (
               <div className="form-actions d-flex align-items-center">
+                {showExtra === true && (
+                  <Button
+                    type="button"
+                    theme="secondary"
+                    aria-label={labelExtra}
+                    disabled={isSubmitting}
+                    classes="mr-2"
+                    onClick={onExtraHelper}
+                  >
+                    {labelExtra !== undefined ? labelExtra : ''}
+                  </Button>
+                )}
+
                 {showSubmit === true && (
                   <Button
                     type="submit"
@@ -110,6 +133,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                     {labelReset !== undefined ? labelReset : ''}
                   </Button>
                 )}
+
                 {isSubmitting && <p className="mb-0 text-info">{saveMessage}</p>}
               </div>
             )}

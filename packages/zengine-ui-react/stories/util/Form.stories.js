@@ -50,6 +50,25 @@ export const SubmitLabel = () => (
   </Form>
 );
 
+export const ExtraButton = () => {
+  const myCallback = values => {
+    console.warn('values', values);
+  };
+
+  return (
+    <Form
+      onSubmit={ action('Form submitted') }
+      labelSubmit="Submit"
+      showExtra={ true }
+      labelExtra="Save Draft"
+      onExtra={ myCallback }
+    >
+      <TextField label="Name" name="name" required />
+      <NumberField label="Age" name="age" required />
+    </Form>
+  );
+};
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 
