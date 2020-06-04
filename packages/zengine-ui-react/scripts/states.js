@@ -8,6 +8,6 @@ const endpoint = `https://api.zenginehq.com/v1/states?client_id=${ CLIENT_ID }`;
   const response = await fetch(endpoint);
   const json = await response.json();
   if (json.status === 200) {
-    fs.writeFileSync('./scripts/states.json', JSON.stringify(json.data));
+    fs.writeFileSync('./src/data/states.json', JSON.stringify(json.data));
   }
 })();
