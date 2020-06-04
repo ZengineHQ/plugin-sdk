@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.8.0...@zenginehq/zengine-ui-react@0.9.0) (2020-06-04)
+
+
+### Features
+
+* scripts to load countries data from zengine ([7d2ee7a](https://github.com/ZengineHQ/plugin-sdk/commit/7d2ee7a378c60675c323398bc4440aa9763b82a3))
+
+
+
+
+
 # [0.8.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.7.0...@zenginehq/zengine-ui-react@0.8.0) (2020-06-03)
 
 

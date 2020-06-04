@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.3.1...@zenginehq/zengine-ui@0.4.0) (2020-06-04)
+
+
+### Features
+
+* use primary color for datepicker selected date ([248a4a7](https://github.com/ZengineHQ/plugin-sdk/commit/248a4a78ef161d46f90d988991cd0a153fe71bbe))
+
+
+
+
+
 ## [0.3.1](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.3.0...@zenginehq/zengine-ui@0.3.1) (2020-06-03)
 
 
