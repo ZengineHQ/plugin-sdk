@@ -11,4 +11,5 @@ node_modules
 /packages/zengine-ui-react/coverage
 /packages/zengine-ui-react/public/test-results.json
 /packages/zengine-ui-react/storybook-static
-/packages/zengine-ui-react/countries.json
+/packages/zengine-ui-react/scripts/countries.json
+/packages/zengine-ui-react/scripts/states.json
