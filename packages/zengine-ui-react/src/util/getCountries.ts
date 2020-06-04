@@ -1,5 +1,6 @@
 import { SelectOption } from '../atoms/Select';
-import data from '../data/countries.json';
+
+const data = require('../data/countries.json');
 
 export interface CountryData {
   id: string
