@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react';
+import React, { useRef, ReactChild } from 'react';
 import { Formik, Form } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 
@@ -8,14 +8,14 @@ interface FormProps {
   enableReinitialize?: boolean
   initialValues?: object
   onSubmit?: Function
-  onExtra?: Function
+  onSecondary?: Function
   afterSubmit?: Function
   labelReset?: string
   labelSubmit?: string
-  labelExtra?: string
+  labelSecondary?: string
   showReset?: boolean
   showSubmit?: boolean
-  showExtra?: boolean
+  showSecondary?: boolean
   validate?: Function
   validateOnMount?: boolean
   validateOnBlur?: boolean
@@ -31,6 +31,7 @@ interface FormikProperties {
   isSubmitting: boolean
   errors: object
   touched: boolean
+  values: object
 }
 
 /**
@@ -41,14 +42,14 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     enableReinitialize,
     initialValues,
     onSubmit,
-    onExtra,
+    onSecondary,
     afterSubmit,
     labelReset,
     labelSubmit,
-    labelExtra,
+    labelSecondary,
     showReset,
     showSubmit,
-    showExtra,
+    showSecondary,
     validate,
     validateOnMount,
     validateOnBlur,
@@ -57,6 +58,8 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     classes
   } = props;
 
+  const valuesRef = useRef({});
+
   const validateForm = (values: object): object => {
     if (typeof validate === 'function') {
       return validate(values);
@@ -64,8 +67,10 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     return {};
   };
 
-  const onExtraHelper = () => {
-    console.warn('here');
+  const onSecondaryHelper = (): void => {
+    if (typeof onSecondary === 'function') {
+      onSecondary(valuesRef.current);
+    }
   };
 
   return (
@@ -84,7 +89,8 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
       }}
       validate={validateForm}
     >
-      {({ dirty, isValid, isSubmitting, errors, touched }: FormikProperties) => {
+      {({ dirty, isValid, isSubmitting, errors, touched, values }: FormikProperties) => {
+        valuesRef.current = values;
         return (
           <Form noValidate className={classes}>
             {props.children}
@@ -97,16 +103,16 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
             {(showSubmit === true || showReset === true) && (
               <div className="form-actions d-flex align-items-center">
-                {showExtra === true && (
+                {showSecondary === true && (
                   <Button
                     type="button"
                     theme="secondary"
-                    aria-label={labelExtra}
+                    aria-label={labelSecondary}
                     disabled={isSubmitting}
                     classes="mr-2"
-                    onClick={onExtraHelper}
+                    onClick={onSecondaryHelper}
                   >
-                    {labelExtra !== undefined ? labelExtra : ''}
+                    {labelSecondary !== undefined ? labelSecondary : ''}
                   </Button>
                 )}
 
@@ -148,8 +154,10 @@ ZengineUIForm.defaultProps = {
   initialValues: {},
   labelReset: 'Reset',
   labelSubmit: 'Save',
+  labelSecondary: 'Save Draft',
   showReset: true,
   showSubmit: true,
+  showSecondary: false,
   classes: '',
   enableReinitialize: true,
   validateOnMount: false,

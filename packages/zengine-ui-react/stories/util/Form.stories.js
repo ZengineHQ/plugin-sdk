@@ -59,9 +59,9 @@ export const ExtraButton = () => {
     <Form
       onSubmit={ action('Form submitted') }
       labelSubmit="Submit"
-      showExtra={ true }
-      labelExtra="Save Draft"
-      onExtra={ myCallback }
+      showSecondary={ true }
+      labelSecondary="Save Draft"
+      onSecondary={ myCallback }
     >
       <TextField label="Name" name="name" required />
       <NumberField label="Age" name="age" required />
