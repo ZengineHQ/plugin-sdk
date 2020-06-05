@@ -161,7 +161,7 @@ ZengineUIForm.defaultProps = {
   classes: '',
   enableReinitialize: true,
   validateOnMount: false,
-  validateOnBlur: false,
+  validateOnBlur: true,
   validateOnChange: true,
   saveMessage: 'Saving...',
 };
