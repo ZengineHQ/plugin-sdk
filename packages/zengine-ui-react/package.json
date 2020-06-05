@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "test:cover": "CI=true npm test -- --collect-coverage",
     "test:save": "CI=true npm run test -- --json --outputFile=./public/test-results.json",
-    "lint": "eslint src/**/*",
+    "lint": "eslint src --ext .ts,.tsx",
     "build": "rimraf lib; npm run build:types; npm run build:js; npm run copyjson",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",

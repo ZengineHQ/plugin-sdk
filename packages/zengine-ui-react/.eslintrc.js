@@ -28,7 +28,8 @@ module.exports = {
           'PascalCase',
         ]
       }
-    ]
+    ],
+    '@typescript-eslint/no-var-requires': 0
   },
   parserOptions: {
     project: './tsconfig.json'
