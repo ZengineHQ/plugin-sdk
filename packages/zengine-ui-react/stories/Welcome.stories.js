@@ -29,7 +29,7 @@ export const Introduction = () => (
     <p>
       Atoms are the base building blocks and tend to be underwhelmingly simple, however you can combine multiple atoms
       together and sprinkle in some custom markup to get useful Molecules. Repeat analogy for Organisms and Templates.
-      <em>Note</em>: Templates are not "drop-in" components like the rest; they are merely usage guides and living
+      &nbsp; <em>Note</em>: Templates are not "drop-in" components like the rest; they are merely usage guides and living
       examples which you can replicate in your own code.
     </p>
 
