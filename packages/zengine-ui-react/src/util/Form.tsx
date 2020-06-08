@@ -111,7 +111,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
 
             {/* If the form has errors, display a message above buttons. */}
             {!isEmpty(errors) && allFieldsTouched(touched) ? (
-              <div className="invalid-feedback d-block">
+              <div className="invalid-feedback d-block mb-2">
                 Please fix the above errors and try again.
               </div>
             ) : null}
