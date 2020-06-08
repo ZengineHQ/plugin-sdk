@@ -58,6 +58,15 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     classes
   } = props;
 
+  // Make sure all child fields are initialized with at least an empty value.
+  let initVals = Object.assign(initialValues ?? {});
+  React.Children.forEach(props.children as ReactChild[], (c: any) => {
+    const name = c.props.name;
+    if (!(name in initVals)) {
+      initVals[name] = '';
+    }
+  });
+
   const valuesRef = useRef({});
 
   const validateForm = (values: object): object => {
@@ -76,7 +85,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
   return (
     <Formik
       enableReinitialize={enableReinitialize}
-      initialValues={initialValues ?? {}}
+      initialValues={initVals}
       validateOnMount={validateOnMount}
       validateOnBlur={validateOnBlur}
       validateOnChange={validateOnChange}
