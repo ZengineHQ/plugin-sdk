@@ -91,7 +91,7 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
 
           {input}
 
-          {!isEmpty(props.prefix) ? (
+          {!isEmpty(props.suffix) ? (
             <div className="input-group-prepend"><span className="input-group-text">{props.suffix}</span></div>
           ) : undefined}
         </div>
