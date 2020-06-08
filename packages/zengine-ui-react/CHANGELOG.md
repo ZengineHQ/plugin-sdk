@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.11.0...@zenginehq/zengine-ui-react@0.12.0) (2020-06-08)
+
+
+### Features
+
+* add prefix and suffix to date field ([94cc235](https://github.com/ZengineHQ/plugin-sdk/commit/94cc235649933d76d0eb5485fdd7f38d218c14cd))
+* expose year/month dropdown options in date picker, enable by default ([b045902](https://github.com/ZengineHQ/plugin-sdk/commit/b04590264a30ae1ef93bf501fe8a8c54ba4e6b4d))
+* form-level errors + make submit errors saner by requiring the promise to be rejected ([e384cef](https://github.com/ZengineHQ/plugin-sdk/commit/e384cef78eb09c6757b8e600daf924d8f5bbd1e5))
+
+
+
+
+
 # [0.11.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.9.1...@zenginehq/zengine-ui-react@0.11.0) (2020-06-08)
 
 
