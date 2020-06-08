@@ -165,7 +165,7 @@ test('Calls submit handler with proper value when submitted', async () => {
 });
 
 test('Displays async form errors when submit fails', async () => {
-  const onSubmit = () => Promise.resolve({name: 'foo err'});
+  const onSubmit = () => Promise.reject({name: 'foo err'});
 
   const { container, getByText } = render(
     <Form onSubmit={onSubmit} initialValues={{ name: '' }}>

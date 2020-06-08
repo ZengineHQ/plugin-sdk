@@ -30,7 +30,7 @@ interface FormikProperties {
   dirty: boolean
   isValid: boolean
   isSubmitting: boolean
-  errors: object
+  errors: { [key: string]: string }
   touched: { [key: string]: boolean }
   values: object
 }
@@ -96,13 +96,16 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
       validateOnChange={validateOnChange}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(true);
-        const res = await onSubmit?.(values);
-        // React to submit callback return value.
-        if (isObject(res)) {
-          actions.setErrors(res);
-        } else {
+        try {
+          await onSubmit?.(values);
           actions.resetForm();
           afterSubmit?.(values);
+        } catch (err) {
+          if (isObject(err)) {
+            actions.setErrors(err);
+          } else {
+            actions.setErrors({ _form: err })
+          }
         }
 
         actions.setSubmitting(false);
@@ -116,8 +119,12 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             {props.children}
 
             {/* If the form has errors, display a message above buttons. */}
-            {!isEmpty(errors) && allFieldsTouched(touched) ? (
+            {!isEmpty(errors) && (allFieldsTouched(touched) || errors['_form']) ? (
               <div className="invalid-feedback d-block mb-2">
+                {errors['_form'] ? (
+                  <><span>{errors['_form']}</span><br /></>
+                ) : null}
+
                 Please fix the above errors and try again.
               </div>
             ) : null}

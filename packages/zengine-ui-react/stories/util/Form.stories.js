@@ -71,7 +71,7 @@ export const ExtraButton = () => {
 
 export const SubmitError = () => {
   const myCallback = values => {
-    return Promise.resolve({ name: 'Invalid name lol' });
+    return Promise.reject({ name: 'Invalid name lol' });
   };
 
   return (
@@ -79,7 +79,26 @@ export const SubmitError = () => {
       onSubmit={ myCallback }
       labelSubmit="Submit"
     >
-      <p>In order to display an error message you must <em>resolve</em> a Promise with an object containing errors.</p>
+      <p>In order to display an error message you must <em>reject</em> a Promise with either an object containing errors
+        or a string for a global form-level error.</p>
+      <TextField label="Name" name="name" required />
+      <NumberField label="Age" name="age" required />
+    </Form>
+  );
+};
+
+export const SubmitErrorGlobal = () => {
+  const myCallback = values => {
+    return Promise.reject('This is a form-level error');
+  };
+
+  return (
+    <Form
+      onSubmit={ myCallback }
+      labelSubmit="Submit"
+    >
+      <p>In order to display an error message you must <em>reject</em> a Promise with either an object containing errors
+        or a string for a global form-level error.</p>
       <TextField label="Name" name="name" required />
       <NumberField label="Age" name="age" required />
     </Form>
