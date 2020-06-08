@@ -41,7 +41,6 @@ interface FormikProperties {
 function ZengineUIForm (props: FormProps): React.ReactElement {
   const {
     enableReinitialize,
-    initialValues,
     onSubmit,
     onSecondary,
     afterSubmit,
@@ -60,11 +59,11 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
   } = props;
 
   // Make sure all child fields are initialized with at least an empty value.
-  let initVals = Object.assign(initialValues ?? {});
+  const initialValues = Object.assign(props.initialValues ?? {});
   React.Children.forEach(props.children as ReactChild[], (c: any) => {
     const name = c.props.name;
-    if (!(name in initVals)) {
-      initVals[name] = '';
+    if (!(name in initialValues)) {
+      initialValues[name] = '';
     }
   });
 
@@ -85,13 +84,13 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
 
   const allFieldsTouched = (touched: { [key: string]: boolean }): boolean => {
     const touchedCount = Object.keys(touched).filter((key: string) => touched[key]).length;
-    return Object.keys(initVals).length <= touchedCount;
+    return Object.keys(initialValues).length <= touchedCount;
   };
 
   return (
     <Formik
       enableReinitialize={enableReinitialize}
-      initialValues={initVals}
+      initialValues={initialValues}
       validateOnMount={validateOnMount}
       validateOnBlur={validateOnBlur}
       validateOnChange={validateOnChange}
