@@ -69,6 +69,23 @@ export const ExtraButton = () => {
   );
 };
 
+export const SubmitError = () => {
+  const myCallback = values => {
+    return Promise.resolve({ name: 'Invalid name lol' });
+  };
+
+  return (
+    <Form
+      onSubmit={ myCallback }
+      labelSubmit="Submit"
+    >
+      <p>In order to display an error message you must <em>resolve</em> a Promise with an object containing errors.</p>
+      <TextField label="Name" name="name" required />
+      <NumberField label="Age" name="age" required />
+    </Form>
+  );
+};
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 

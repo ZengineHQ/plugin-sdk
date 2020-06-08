@@ -1,6 +1,7 @@
 import React, { useRef, ReactChild } from 'react';
 import { Formik, Form } from 'formik';
 import isEmpty from 'lodash/isEmpty';
+import isObject from 'lodash/isObject';
 
 import Button from '../atoms/Button';
 
@@ -98,11 +99,11 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
         actions.setSubmitting(true);
         const res = await onSubmit?.(values);
         // React to submit callback return value.
-        if (res === true) {
+        if (isObject(res)) {
+          actions.setErrors(res);
+        } else {
           actions.resetForm();
           afterSubmit?.(values);
-        } else {
-          actions.setErrors(res);
         }
 
         actions.setSubmitting(false);
