@@ -4,6 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { Field } from "formik";
 
 import { Form } from '../../src/index';
+import { TextField } from "../../src/molecules/TextField";
 
 test('Renders a form', () => {
   const { container } = render(<Form onSubmit={() => null} />);
@@ -163,6 +164,32 @@ test('Calls submit handler with proper value when submitted', async () => {
   expect(mock.mock.calls[0][0].age).toEqual(15);
 });
 
+test('Displays async form errors when submit fails', async () => {
+  const onSubmit = () => Promise.resolve({name: 'foo err'});
+
+  const { container, getByText } = render(
+    <Form onSubmit={onSubmit} initialValues={{ name: '' }}>
+      <TextField label="Name" name="name" required />
+    </Form>
+  );
+  const form = container.getElementsByTagName('form')[0];
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'Hello',
+      },
+    });
+    fireEvent.blur(input);
+  });
+
+  await act(async () => {
+    fireEvent.submit(form);
+  });
+
+  expect(getByText('foo err')).toBeInTheDocument();
+});
 
 test('Calls secondary submit handler with proper values', async () => {
   const mock = jest.fn();
