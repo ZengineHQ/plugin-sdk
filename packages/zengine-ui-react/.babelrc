@@ -9,7 +9,7 @@
       "babel-plugin-typescript-to-proptypes",
       {
         "comments": true,
-        "typeCheck": true
+        "typeCheck": false
       }
     ],
     [
@@ -17,6 +17,7 @@
       {
         "regenerator": true
       }
-    ]
+    ],
+    "@babel/plugin-proposal-class-properties"
   ]
 }

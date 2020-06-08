@@ -11,7 +11,7 @@ test('it displays a select field with country options', () => {
   const otherOption = container.getElementsByTagName('option')[10];
 
   expect(firstOption).toHaveAttribute('value', 'AF');
-  expect(otherOption).toHaveAttribute('value', 'AG');
+  expect(otherOption).toHaveAttribute('value', 'AR');
   expect(getByText('Afghanistan')).toBeInTheDocument();
   expect(getByText('Brazil')).toBeInTheDocument();
 });

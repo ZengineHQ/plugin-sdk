@@ -4,6 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { Field } from "formik";
 
 import { Form } from '../../src/index';
+import { TextField } from "../../src/molecules/TextField";
 
 test('Renders a form', () => {
   const { container } = render(<Form onSubmit={() => null} />);
@@ -16,6 +17,15 @@ test('Form has a submit button by default', () => {
   const button = container.getElementsByTagName('button')[0];
   expect(button).toHaveAttribute('type', 'submit');
   expect(button).toHaveTextContent('Save');
+});
+
+test('Form adds a secondary button when specified', () => {
+  const { container } = render(
+    <Form onSubmit={() => null} showSecondary={true} labelSecondary="Secondary" />
+  );
+  const button = container.getElementsByTagName('button')[0];
+  expect(button).toHaveAttribute('type', 'button');
+  expect(button).toHaveTextContent('Secondary');
 });
 
 test('Form changes submit button label when specified', () => {
@@ -103,7 +113,7 @@ test('Validation does not occur on initial mount', async () => {
 test('Performs custom validation when specified', async () => {
   const mock = jest.fn();
   const { container } = render(
-    <Form onSubmit={() => null} validate={mock} initialValues={{name: ''}}>
+    <Form onSubmit={() => null} validate={mock} initialValues={{ name: '' }}>
       <Field label="Name" name="name" required />
     </Form>
   );
@@ -151,6 +161,73 @@ test('Calls submit handler with proper value when submitted', async () => {
 
   expect(mock).toBeCalled();
   expect(mock.mock.calls[0][0].name).toEqual('Still testing');
+  expect(mock.mock.calls[0][0].age).toEqual(15);
+});
+
+test('Displays async form errors when submit fails', async () => {
+  const onSubmit = () => Promise.resolve({name: 'foo err'});
+
+  const { container, getByText } = render(
+    <Form onSubmit={onSubmit} initialValues={{ name: '' }}>
+      <TextField label="Name" name="name" required />
+    </Form>
+  );
+  const form = container.getElementsByTagName('form')[0];
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'Hello',
+      },
+    });
+    fireEvent.blur(input);
+  });
+
+  await act(async () => {
+    fireEvent.submit(form);
+  });
+
+  expect(getByText('foo err')).toBeInTheDocument();
+});
+
+test('Calls secondary submit handler with proper values', async () => {
+  const mock = jest.fn();
+  const { container } = render(
+    <Form
+      onSubmit={() => null}
+      initialValues={{ name: '', age: 0 }}
+      showSecondary={true}
+      labelSecondary="Save Draft"
+      onSecondary={mock}
+    >
+      <Field label="Name" name="name" required />
+      <Field label="Age" type="number" name="age" required />
+    </Form>
+  );
+  const input = container.getElementsByTagName('input')[0];
+  const otherInput = container.getElementsByTagName('input')[1];
+  const button = container.getElementsByTagName('button')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'Foo testing',
+      },
+    });
+    fireEvent.change(otherInput, {
+      target: {
+        value: 15,
+      },
+    });
+  });
+
+  await act(async () => {
+    fireEvent.click(button);
+  });
+
+  expect(mock).toBeCalled();
+  expect(mock.mock.calls[0][0].name).toEqual('Foo testing');
   expect(mock.mock.calls[0][0].age).toEqual(15);
 });
 

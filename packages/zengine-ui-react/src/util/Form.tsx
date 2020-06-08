@@ -1,6 +1,7 @@
-import React, { ReactChild } from 'react';
+import React, { useRef, ReactChild } from 'react';
 import { Formik, Form } from 'formik';
 import isEmpty from 'lodash/isEmpty';
+import isObject from 'lodash/isObject';
 
 import Button from '../atoms/Button';
 
@@ -8,11 +9,14 @@ interface FormProps {
   enableReinitialize?: boolean
   initialValues?: object
   onSubmit?: Function
+  onSecondary?: Function
   afterSubmit?: Function
   labelReset?: string
   labelSubmit?: string
+  labelSecondary?: string
   showReset?: boolean
   showSubmit?: boolean
+  showSecondary?: boolean
   validate?: Function
   validateOnMount?: boolean
   validateOnBlur?: boolean
@@ -27,7 +31,8 @@ interface FormikProperties {
   isValid: boolean
   isSubmitting: boolean
   errors: object
-  touched: boolean
+  touched: { [key: string]: boolean }
+  values: object
 }
 
 /**
@@ -36,13 +41,15 @@ interface FormikProperties {
 function ZengineUIForm (props: FormProps): React.ReactElement {
   const {
     enableReinitialize,
-    initialValues,
     onSubmit,
+    onSecondary,
     afterSubmit,
     labelReset,
     labelSubmit,
+    labelSecondary,
     showReset,
     showSubmit,
+    showSecondary,
     validate,
     validateOnMount,
     validateOnBlur,
@@ -51,6 +58,17 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     classes
   } = props;
 
+  // Make sure all child fields are initialized with at least an empty value.
+  const initialValues = Object.assign(props.initialValues ?? {});
+  React.Children.forEach(props.children as ReactChild[], (c: any) => {
+    const name = c.props.name;
+    if (!(name in initialValues)) {
+      initialValues[name] = '';
+    }
+  });
+
+  const valuesRef = useRef({});
+
   const validateForm = (values: object): object => {
     if (typeof validate === 'function') {
       return validate(values);
@@ -58,41 +76,74 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     return {};
   };
 
+  const onSecondaryHelper = (): void => {
+    if (typeof onSecondary === 'function') {
+      onSecondary(valuesRef.current);
+    }
+  };
+
+  const allFieldsTouched = (touched: { [key: string]: boolean }): boolean => {
+    const touchedCount = Object.keys(touched).filter((key: string) => touched[key]).length;
+    return Object.keys(initialValues).length <= touchedCount;
+  };
+
   return (
     <Formik
       enableReinitialize={enableReinitialize}
-      initialValues={initialValues ?? {}}
+      initialValues={initialValues}
       validateOnMount={validateOnMount}
       validateOnBlur={validateOnBlur}
       validateOnChange={validateOnChange}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(true);
-        await onSubmit?.(values);
-        actions.resetForm();
+        const res = await onSubmit?.(values);
+        // React to submit callback return value.
+        if (isObject(res)) {
+          actions.setErrors(res);
+        } else {
+          actions.resetForm();
+          afterSubmit?.(values);
+        }
+
         actions.setSubmitting(false);
-        afterSubmit?.(values);
       }}
       validate={validateForm}
     >
-      {({ dirty, isValid, isSubmitting, errors, touched }: FormikProperties) => {
+      {({ dirty, isSubmitting, errors, touched, values }: FormikProperties) => {
+        valuesRef.current = values;
         return (
           <Form noValidate className={classes}>
             {props.children}
 
-            {/* If the form has been touched and we have errors, display a message above buttons. */}
-            {!isEmpty(errors) && !isEmpty(touched) ? (<div className="invalid-feedback d-block">
-              Please fix the above errors and try again.
-            </div>) : null}
+            {/* If the form has errors, display a message above buttons. */}
+            {!isEmpty(errors) && allFieldsTouched(touched) ? (
+              <div className="invalid-feedback d-block mb-2">
+                Please fix the above errors and try again.
+              </div>
+            ) : null}
 
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
             {(showSubmit === true || showReset === true) && (
               <div className="form-actions d-flex align-items-center">
+                {showSecondary === true && (
+                  <Button
+                    type="button"
+                    theme="secondary"
+                    aria-label={labelSecondary}
+                    disabled={isSubmitting}
+                    classes="mr-2"
+                    onClick={onSecondaryHelper}
+                  >
+                    {labelSecondary !== undefined ? labelSecondary : ''}
+                  </Button>
+                )}
+
                 {showSubmit === true && (
                   <Button
                     type="submit"
                     theme="primary"
                     aria-label={labelSubmit}
-                    disabled={isSubmitting || !isValid || isEmpty(touched)}
+                    disabled={isSubmitting}
                     classes="mr-2"
                   >
                     {labelSubmit !== undefined ? labelSubmit : ''}
@@ -110,6 +161,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                     {labelReset !== undefined ? labelReset : ''}
                   </Button>
                 )}
+
                 {isSubmitting && <p className="mb-0 text-info">{saveMessage}</p>}
               </div>
             )}
@@ -124,12 +176,14 @@ ZengineUIForm.defaultProps = {
   initialValues: {},
   labelReset: 'Reset',
   labelSubmit: 'Save',
+  labelSecondary: 'Save Draft',
   showReset: true,
   showSubmit: true,
+  showSecondary: false,
   classes: '',
   enableReinitialize: true,
   validateOnMount: false,
-  validateOnBlur: false,
+  validateOnBlur: true,
   validateOnChange: true,
   saveMessage: 'Saving...',
 };
