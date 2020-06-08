@@ -96,10 +96,16 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
       validateOnChange={validateOnChange}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(true);
-        await onSubmit?.(values);
-        actions.resetForm();
+        const res = await onSubmit?.(values);
+        // React to submit callback return value.
+        if (res === true) {
+          actions.resetForm();
+          afterSubmit?.(values);
+        } else {
+          actions.setErrors(res);
+        }
+
         actions.setSubmitting(false);
-        afterSubmit?.(values);
       }}
       validate={validateForm}
     >
