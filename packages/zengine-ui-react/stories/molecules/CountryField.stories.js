@@ -13,5 +13,10 @@ export default {
 };
 
 export const Default = () => (
-  <MockForm><CountryField label="CountryField" name="country" /></MockForm>
+  <MockForm>
+    <p>
+      This is a <em>SelectField</em> with custom, unchangeable options. All other SelectField props work here.
+    </p>
+    <CountryField label="CountryField" name="country" />
+  </MockForm>
 );
