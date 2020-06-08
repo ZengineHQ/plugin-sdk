@@ -24,6 +24,8 @@ export interface DateFieldProps {
   suffix?: string
   label?: string
   help?: string
+  showYearDropdown?: boolean
+  showMonthDropdown?: boolean
 }
 
 const DateField: React.FC<DateFieldProps> = (props) => {
@@ -70,6 +72,8 @@ const DateField: React.FC<DateFieldProps> = (props) => {
         onBlur={onBlurHelper}
         disabled={props.disabled}
         name={props.name}
+        showYearDropdown={props.showYearDropdown}
+        showMonthDropdown={props.showMonthDropdown}
       />
     </div>
   );
@@ -107,7 +111,9 @@ DateField.defaultProps = {
   required: false,
   readonly: false,
   classes: '',
-  placeholder: ''
+  placeholder: '',
+  showYearDropdown: true,
+  showMonthDropdown: true
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
