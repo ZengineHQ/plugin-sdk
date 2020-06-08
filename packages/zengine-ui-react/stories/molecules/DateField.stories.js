@@ -45,6 +45,17 @@ export const Placeholder = () => (
   <MockForm><DateField label="Date Input" name="date" placeholder="Custom Placeholder" /></MockForm>
 );
 
+export const PrefixAndSuffix = () => (
+  <MockForm>
+    <DateField
+      label="Date Input"
+      name="date"
+      prefix="prefix"
+      suffix="suffix"
+    />
+  </MockForm>
+);
+
 export const Playground = () => {
   useDefaultPanel('Knobs');
 
