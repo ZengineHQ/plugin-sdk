@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.6.0...@zenginehq/zengine-ui-react@0.7.0) (2020-05-11)
+
+
+### Features
+
+* add an afterSubmit callback for Form ([599f210](https://github.com/ZengineHQ/plugin-sdk/commit/599f210186c555abe385a7d32279e735a362f9dc))
+
+
+
+
+
 # [0.6.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.5.0...@zenginehq/zengine-ui-react@0.6.0) (2020-05-11)
 
 

@@ -103,7 +103,7 @@ test('Validation does not occur on initial mount', async () => {
 test('Performs custom validation when specified', async () => {
   const mock = jest.fn();
   const { container } = render(
-    <Form onSubmit={() => null} validate={mock}>
+    <Form onSubmit={() => null} validate={mock} initialValues={{name: ''}}>
       <Field label="Name" name="name" required />
     </Form>
   );

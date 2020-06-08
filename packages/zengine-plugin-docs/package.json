@@ -1,7 +1,7 @@
 {
   "name": "zengine-plugin-docs",
   "description": "Storybook documentation for Zengine Plugin SDK packages",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 9009 -s public --quiet",
@@ -17,29 +17,29 @@
     "url": "git+https://github.com/ZengineHQ/plugin-sdk.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@storybook/addon-actions": "^5.3.17",
-    "@storybook/addon-docs": "^5.3.17",
-    "@storybook/addon-jest": "^5.3.17",
-    "@storybook/addon-knobs": "^5.3.17",
-    "@storybook/addon-links": "^5.3.17",
-    "@storybook/addon-viewport": "^5.3.17",
-    "@storybook/addons": "^5.3.17",
-    "@storybook/preset-typescript": "^2.1.0",
-    "@storybook/react": "^5.3.17",
-    "@storybook/storybook-deployer": "^2.8.3",
-    "@storybook/theming": "^5.3.17",
+    "@babel/core": "^7.9.6",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-jest": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.19",
+    "@storybook/storybook-deployer": "^2.8.6",
+    "@storybook/theming": "^5.3.19",
     "babel-loader": "^8.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "react-syntax-highlighter": "^12.2.1",
-    "ts-loader": "^6.2.2",
-    "typescript": "^3.8.3"
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3"
   },
   "dependencies": {
     "@zenginehq/zengine-ui": "^0.3.0",
-    "@zenginehq/zengine-ui-react": "^0.6.0",
+    "@zenginehq/zengine-ui-react": "^0.7.0",
     "formik": "^2.1.4"
   }
 }

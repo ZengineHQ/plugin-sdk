@@ -17,11 +17,13 @@ export interface ButtonProps {
  */
 
 const Button: React.FC<ButtonProps> = (props) => {
+  const theme = props.theme === 'secondary' ? 'outline-secondary' : props.theme;
+
   return (
     <button
       type={props.type}
       onClick={props.onClick}
-      className={classNames([`btn btn-${props.theme}`, props.classes])}
+      className={classNames([`btn btn-${theme}`, props.classes])}
       disabled={props.disabled}
       aria-disabled={props.disabled === true ? true : undefined}
     >
@@ -31,7 +33,6 @@ const Button: React.FC<ButtonProps> = (props) => {
 }
 
 Button.defaultProps = {
-  onClick: () => null,
   disabled: false,
   theme: 'primary',
   type: 'button',

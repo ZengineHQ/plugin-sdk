@@ -5,7 +5,6 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
-    "start": "npm run sass -- --watch",
     "watch": "npm run sass -- --watch",
     "sass": "sass scss/style.scss style.css",
     "sass:min": "sass scss/style.scss style.min.css --style compressed",

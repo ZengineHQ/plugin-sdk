@@ -1,25 +1,19 @@
-import isObject from 'lodash/isObject';
+import _isObject from 'lodash/isObject';
 import _isEmpty from 'lodash/isEmpty';
 
 /**
  * Validates whether a value exists.
- *
- * @param {*} value
- * @returns {boolean}
  */
 export const exists = (value: any): boolean => value !== null && value !== undefined;
 
 /**
  * Validates whether a value is empty.
- *
- * @param {*} value
- * @returns {boolean}
  */
 export const isEmpty = (value: any): boolean => {
   if (Array.isArray(value)) {
     return value.length === 0;
   }
-  if (isObject(value)) {
+  if (_isObject(value)) {
     return _isEmpty(value);
   }
   return value === '' || !exists(value);
@@ -27,32 +21,19 @@ export const isEmpty = (value: any): boolean => {
 
 /**
  * Validates whether a value is a string.
- *
- * @param {*} value
- * @returns {boolean}
  */
 export const isString = (value: any): boolean => typeof value === 'string';
 
 /**
  * Validates whether a value matches a regex.
- *
- * @param {string} str
- * @param {RegExp|string} regex
- * @returns {boolean}
  */
 export const matchesRegex = (str: string, regex: RegExp | string): boolean => {
-  if (!isString(str)) {
-    return false;
-  }
   const validationRegex = (regex instanceof RegExp ? regex : (new RegExp(regex)));
-  return (isEmpty(str) || validationRegex.test(str));
+  return validationRegex.test(str.toString());
 };
 
 /**
  * Validates whether a value is an email address.
- *
- * @param {string} string
- * @returns {boolean}
  */
 export const isEmail = (string: string): boolean => {
   if (string.length === 0) {
