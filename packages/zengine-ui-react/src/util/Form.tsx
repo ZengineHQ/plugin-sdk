@@ -30,7 +30,7 @@ interface FormikProperties {
   isValid: boolean
   isSubmitting: boolean
   errors: object
-  touched: boolean
+  touched: { [key: string]: boolean }
   values: object
 }
 
@@ -82,6 +82,11 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
     }
   };
 
+  const allFieldsTouched = (touched: { [key: string]: boolean }): boolean => {
+    const touchedCount = Object.keys(touched).filter((key: string) => touched[key]).length;
+    return Object.keys(initVals).length <= touchedCount;
+  };
+
   return (
     <Formik
       enableReinitialize={enableReinitialize}
@@ -98,16 +103,18 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
       }}
       validate={validateForm}
     >
-      {({ dirty, isValid, isSubmitting, errors, touched, values }: FormikProperties) => {
+      {({ dirty, isSubmitting, errors, touched, values }: FormikProperties) => {
         valuesRef.current = values;
         return (
           <Form noValidate className={classes}>
             {props.children}
 
-            {/* If the form has been touched and we have errors, display a message above buttons. */}
-            {!isEmpty(errors) && !isEmpty(touched) ? (<div className="invalid-feedback d-block">
-              Please fix the above errors and try again.
-            </div>) : null}
+            {/* If the form has errors, display a message above buttons. */}
+            {!isEmpty(errors) && allFieldsTouched(touched) ? (
+              <div className="invalid-feedback d-block">
+                Please fix the above errors and try again.
+              </div>
+            ) : null}
 
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
             {(showSubmit === true || showReset === true) && (
