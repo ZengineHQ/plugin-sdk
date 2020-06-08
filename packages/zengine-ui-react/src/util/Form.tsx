@@ -119,10 +119,10 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             {props.children}
 
             {/* If the form has errors, display a message above buttons. */}
-            {!isEmpty(errors) && (allFieldsTouched(touched) || errors['_form']) ? (
+            {!isEmpty(errors) && (allFieldsTouched(touched) || !isEmpty(errors._form)) ? (
               <div className="invalid-feedback d-block mb-2">
-                {errors['_form'] ? (
-                  <><span>{errors['_form']}</span><br /></>
+                {!isEmpty(errors._form) ? (
+                  <><span>{errors._form}</span><br /></>
                 ) : null}
 
                 Please fix the above errors and try again.
