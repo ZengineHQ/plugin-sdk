@@ -4,6 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import isObject from 'lodash/isObject';
 
 import Button from '../atoms/Button';
+import FocusFormErrors from "./FocusFormErrors";
 
 interface FormProps {
   enableReinitialize?: boolean
@@ -172,6 +173,7 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                 {isSubmitting && <p className="mb-0 text-info">{saveMessage}</p>}
               </div>
             )}
+            <FocusFormErrors />
           </Form>
         )
       }}
