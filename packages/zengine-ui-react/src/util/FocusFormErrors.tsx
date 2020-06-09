@@ -17,7 +17,6 @@ const FocusFormErrors = (): null => {
               behavior: 'smooth'
             });
           }
-          errorElement.focus();
         }
       }
     }
