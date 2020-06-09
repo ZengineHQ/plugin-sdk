@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.12.0...@zenginehq/zengine-ui-react@0.13.0) (2020-06-09)
+
+
+### Features
+
+* scroll to and focus first form error ([183a09b](https://github.com/ZengineHQ/plugin-sdk/commit/183a09bbd4f3e01f8b67f882dc1571eadd60da7c))
+* support generic js errors in form submit ([b3c18dc](https://github.com/ZengineHQ/plugin-sdk/commit/b3c18dca565a957492f979762f9580e2b00acb1b))
+
+
+
+
+
 # [0.12.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.11.0...@zenginehq/zengine-ui-react@0.12.0) (2020-06-08)
 
 
