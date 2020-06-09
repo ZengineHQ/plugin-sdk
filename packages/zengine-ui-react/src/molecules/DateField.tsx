@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -20,8 +20,8 @@ export interface DateFieldProps {
   classes?: string
   placeholder?: string
   labelClasses?: string
-  prefix?: string
-  suffix?: string
+  prefix?: string | ReactElement
+  suffix?: string | ReactElement
   label?: string
   help?: string
   showYearDropdown?: boolean

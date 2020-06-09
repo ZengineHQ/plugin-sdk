@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useField } from 'formik';
 
 import Input from '../atoms/Input';
@@ -23,8 +23,8 @@ export interface TextFieldProps {
   innerRef?: any
   label?: string
   labelClasses?: string
-  prefix?: string
-  suffix?: string
+  prefix?: string | ReactElement
+  suffix?: string | ReactElement
   type?: string
 }
 

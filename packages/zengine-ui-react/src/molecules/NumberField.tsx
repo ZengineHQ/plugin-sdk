@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useField } from 'formik';
 
 import Input from '../atoms/Input';
@@ -21,8 +21,8 @@ export interface NumberFieldProps {
   placeholder?: string
   classes?: string
   innerRef?: any
-  prefix?: string
-  suffix?: string
+  prefix?: string | ReactElement
+  suffix?: string | ReactElement
   label?: string
   labelClasses?: string
 }
