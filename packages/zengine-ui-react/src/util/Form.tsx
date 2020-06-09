@@ -103,7 +103,11 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
           afterSubmit?.(values);
         } catch (err) {
           if (isObject(err)) {
-            actions.setErrors(err);
+            if (err instanceof Error) {
+              actions.setErrors({ _form: err.message })
+            } else {
+              actions.setErrors(err);
+            }
           } else {
             actions.setErrors({ _form: err })
           }
