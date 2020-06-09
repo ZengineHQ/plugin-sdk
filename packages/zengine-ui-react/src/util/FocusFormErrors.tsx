@@ -11,10 +11,12 @@ const FocusFormErrors = (): null => {
         const selector = `[name=${keys[0]}]`;
         const errorElement = document.querySelector(selector) as HTMLElement;
         if (errorElement !== null) {
-          window.scrollTo({
-            top: errorElement.offsetTop,
-            behavior: 'smooth'
-          })
+          if (window) {
+            window.scrollTo({
+              top: errorElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
           errorElement.focus();
         }
       }
