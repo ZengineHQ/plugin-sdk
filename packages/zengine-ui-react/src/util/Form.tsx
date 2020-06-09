@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import isObject from 'lodash/isObject';
 
 import Button from '../atoms/Button';
-import FocusFormErrors from "./FocusFormErrors";
+import FocusFormErrors from './FocusFormErrors';
 
 interface FormProps {
   enableReinitialize?: boolean
