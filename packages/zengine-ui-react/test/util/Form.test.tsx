@@ -191,34 +191,34 @@ test('Displays async form errors when submit fails', async () => {
   expect(getByText('foo err')).toBeInTheDocument();
 });
 
-// test('Handles generic form errors when submit fails', async () => {
-//   const onSubmit = () => {
-//     throw new Error('foo bar err')
-//   };
-//
-//   const { container, getByText } = render(
-//     <Form onSubmit={onSubmit} initialValues={{ name: '' }}>
-//       <TextField label="Name" name="name" required />
-//     </Form>
-//   );
-//   const form = container.getElementsByTagName('form')[0];
-//   const input = container.getElementsByTagName('input')[0];
-//
-//   await act(async () => {
-//     fireEvent.change(input, {
-//       target: {
-//         value: 'Hello',
-//       },
-//     });
-//     fireEvent.blur(input);
-//   });
-//
-//   await act(async () => {
-//     fireEvent.submit(form);
-//   });
-//
-//   expect(getByText('foo bar err')).toBeInTheDocument();
-// });
+test('Handles generic form errors when submit fails', async () => {
+  const onSubmit = () => {
+    throw new Error('foo bar err')
+  };
+
+  const { container, getByText } = render(
+    <Form onSubmit={onSubmit} initialValues={{ name: '' }}>
+       <TextField label="Name" name="name" required />
+     </Form>
+   );
+  const form = container.getElementsByTagName('form')[0];
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: 'Hello',
+      },
+    });
+    fireEvent.blur(input);
+  });
+
+  await act(async () => {
+    fireEvent.submit(form);
+  });
+
+  expect(getByText('foo bar err')).toBeInTheDocument();
+});
 
 test('Calls secondary submit handler with proper values', async () => {
   const mock = jest.fn();
