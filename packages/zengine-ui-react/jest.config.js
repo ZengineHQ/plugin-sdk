@@ -11,7 +11,8 @@ module.exports = {
   //   'react-app-polyfill/jsdom'
   // ],
   setupFilesAfterEnv: [
-    '@testing-library/jest-dom/extend-expect'
+    '@testing-library/jest-dom/extend-expect',
+    '<rootDir>/test/setup.ts'
   ],
   testMatch: [
     '<rootDir>/test/**/*.test.{js,jsx,ts,tsx}'
