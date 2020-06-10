@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { Field } from "formik";
+import { Field } from 'formik';
 
 import { Form } from '../../src/index';
 import { TextField } from "../../src/molecules/TextField";
@@ -165,9 +165,7 @@ test('Calls submit handler with proper value when submitted', async () => {
 });
 
 test('Displays async form errors when submit fails', async () => {
-  const onSubmit = () => {
-    Promise.reject({ name: 'foo err' });
-  };
+  const onSubmit = () => Promise.reject({ name: 'foo err' });
 
   const { container, getByText } = render(
     <Form onSubmit={onSubmit}>
