@@ -246,15 +246,14 @@ export const Numeric = () => {
   
   numeric('123') // true
   numeric('123 456') // false
+  numeric('123.456') // true
   numeric('hello123') // false
-  
-  numeric('123 456', true) // true
 `;
 
   return (
     <>
       <SectionHeader><code>numeric()</code></SectionHeader>
-      <p>Checks whether a string contains only numeric characters and, optionally, spaces.</p>
+      <p>Checks whether a string contains only numeric characters.</p>
 
       { useSyntaxHighlighter(code) }
     </>

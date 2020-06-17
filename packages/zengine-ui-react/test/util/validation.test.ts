@@ -129,9 +129,6 @@ test('numeric() correctly determines whether a string only contains numeric char
   expect(numeric('hello 123 there')).toBe(false);
   expect(numeric('123')).toBe(true);
   expect(numeric('123 456')).toBe(false);
+  expect(numeric('123.456')).toBe(true);
   expect(numeric('123!')).toBe(false);
-});
-
-test('numeric() optionally allows spaces', () => {
-  expect(numeric('123 456', true)).toBe(true);
 });

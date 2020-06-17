@@ -88,9 +88,8 @@ export const alphaNumeric = (str: string, allowSpaces: boolean = false): boolean
 };
 
 /**
- * Validates whether a string contains only numeric characters and, optionally, spaces.
+ * Validates whether a string contains only numeric characters.
  */
-export const numeric = (str: string, allowSpaces: boolean = false): boolean => {
-  const regex = allowSpaces ? /^[0-9 ]+$/i : /^[0-9]+$/i;
-  return isString(str) && matchesRegex(str, regex);
+export const numeric = (str: string): boolean => {
+  return isString(str) && matchesRegex(str, /^[-+]?([0-9]*\.[0-9]+|[0-9]+)$/);
 };
