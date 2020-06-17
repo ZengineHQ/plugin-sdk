@@ -68,7 +68,7 @@ test('isEmail() correctly determines whether a value is an email address', () =>
   expect(isEmail('not an email')).toBe(false);
   expect(isEmail('without@domain')).toBe(false);
   expect(isEmail('withoutat.com')).toBe(false);
-  expect(isEmail('test@trivial.net')).toBe(true);
+  expect(isEmail('test@contrived.net')).toBe(true);
   expect(isEmail('test.foo.bar@trivial.net')).toBe(true);
 });
 
