@@ -74,7 +74,7 @@ export const minWordCount = (str: string, min: number): boolean => {
 /**
  * Validates whether a string contains only alphabetic characters and, optionally, spaces.
  */
-export const alpha = (str: string, allowSpaces: boolean = true): boolean => {
+export const alpha = (str: string, allowSpaces: boolean = false): boolean => {
   const regex = allowSpaces ? /^[a-z ]+$/i : /^[a-z]+$/i;
   return isString(str) && matchesRegex(str, regex);
 };
@@ -82,7 +82,7 @@ export const alpha = (str: string, allowSpaces: boolean = true): boolean => {
 /**
  * Validates whether a string contains only alphabetic and numeric characters and, optionally, spaces.
  */
-export const alphaNumeric = (str: string, allowSpaces: boolean = true): boolean => {
+export const alphaNumeric = (str: string, allowSpaces: boolean = false): boolean => {
   const regex = allowSpaces ? /^[a-z0-9 ]+$/i : /^[a-z0-9]+$/i;
   return isString(str) && matchesRegex(str, regex);
 };
@@ -90,7 +90,7 @@ export const alphaNumeric = (str: string, allowSpaces: boolean = true): boolean 
 /**
  * Validates whether a string contains only numeric characters and, optionally, spaces.
  */
-export const numeric = (str: string, allowSpaces: boolean = true): boolean => {
+export const numeric = (str: string, allowSpaces: boolean = false): boolean => {
   const regex = allowSpaces ? /^[0-9 ]+$/i : /^[0-9]+$/i;
   return isString(str) && matchesRegex(str, regex);
 };

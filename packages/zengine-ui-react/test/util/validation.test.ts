@@ -102,37 +102,36 @@ test('minWordCount() correctly determines whether a string adheres to a maximum 
 
 test('alpha() correctly determines whether a string only contains alphabetic characters', () => {
   expect(alpha('hello 123 there')).toBe(false);
-  expect(alpha('hello there')).toBe(true);
-  expect(alpha('HELLO there')).toBe(true);
+  expect(alpha('hellothere')).toBe(true);
+  expect(alpha('hello123')).toBe(false);
+  expect(alpha('HELLOthere')).toBe(true);
+  expect(alpha('HELLO there')).toBe(false);
 });
 
-test('alpha() optionally disallows spaces', () => {
-  expect(alpha('hello123', false)).toBe(false);
-  expect(alpha('hellothere', false)).toBe(true);
-  expect(alpha('hello there', false)).toBe(false);
+test('alpha() optionally allows spaces', () => {
+  expect(alpha('hello 123', true)).toBe(false);
+  expect(alpha('hello there', true)).toBe(true);
 });
 
 test('alphaNumeric() correctly determines whether a string only contains alphabetic and numeric characters', () => {
-  expect(alphaNumeric('hello 123 there')).toBe(true);
-  expect(alphaNumeric('HELLO there 1')).toBe(true);
-  expect(alphaNumeric('hellO there')).toBe(true);
-  expect(alphaNumeric('hello there 23 {}')).toBe(false);
-  expect(alphaNumeric('hello there!')).toBe(false);
+  expect(alphaNumeric('hello123there')).toBe(true);
+  expect(alphaNumeric('HELLOthere1')).toBe(true);
+  expect(alphaNumeric('hellOthere')).toBe(true);
+  expect(alphaNumeric('hellothere23{}')).toBe(false);
+  expect(alphaNumeric('hellothere!')).toBe(false);
 });
 
-test('alphaNumeric() optionally disallows spaces', () => {
-  expect(alphaNumeric('hello 123 there', false)).toBe(false);
-  expect(alphaNumeric('hello123there', false)).toBe(true);
+test('alphaNumeric() optionally allows spaces', () => {
+  expect(alphaNumeric('hello 123 there', true)).toBe(true);
 });
 
 test('numeric() correctly determines whether a string only contains numeric characters', () => {
   expect(numeric('hello 123 there')).toBe(false);
   expect(numeric('123')).toBe(true);
-  expect(numeric('123 456')).toBe(true);
+  expect(numeric('123 456')).toBe(false);
   expect(numeric('123!')).toBe(false);
 });
 
-test('numeric() optionally disallows spaces', () => {
-  expect(numeric('123', false)).toBe(true);
-  expect(numeric('123 456', false)).toBe(false);
+test('numeric() optionally allows spaces', () => {
+  expect(numeric('123 456', true)).toBe(true);
 });
