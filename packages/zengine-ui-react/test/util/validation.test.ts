@@ -1,4 +1,12 @@
-import { exists, isEmpty, isString, matchesRegex, isEmail } from '../../src/util/validation';
+import {
+  exists,
+  isEmpty,
+  isString,
+  matchesRegex,
+  isEmail,
+  maxLength,
+  minLength,
+} from '../../src/util/validation';
 
 test('exists() correctly determines whether a value exists', () => {
   expect(exists(null)).toBe(false);
@@ -59,4 +67,17 @@ test('isEmail() correctly determines whether a value is an email address', () =>
   expect(isEmail('withoutat.com')).toBe(false);
   expect(isEmail('test@trivial.net')).toBe(true);
   expect(isEmail('test.foo.bar@trivial.net')).toBe(true);
+});
+
+test('maxLength() correctly determines whether a string adheres to a maximum length', () => {
+  expect(maxLength(123 as any, 123)).toBe(false);
+  expect(maxLength('hello', 3)).toBe(false);
+  expect(maxLength('hello', 5)).toBe(true);
+});
+
+test('minLength() correctly determines whether a string adheres to a maximum length', () => {
+  expect(minLength(123 as any, 123)).toBe(false);
+  expect(minLength('oi', 3)).toBe(false);
+  expect(minLength('oi', 2)).toBe(true);
+  expect(minLength('hello', 5)).toBe(true);
 });
