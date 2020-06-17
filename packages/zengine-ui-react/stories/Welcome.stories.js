@@ -170,7 +170,7 @@ export const Development = () => (
       <ul>
         <li>A first "Default" story with minimum or no parameters</li>
         <li>If applicable, a "Style Guide" story displaying different configurations side by side</li>
-        <li>If applicable, a last "Playground" story using _Knobs_ to customize as many props as possible</li>
+        <li>If applicable, a last "Playground" story using <em>Knobs</em> to customize as many props as possible</li>
         <li>As many different stories as necessary to cover demonstrating key configurations of a component</li>
       </ul>
     </ul>
