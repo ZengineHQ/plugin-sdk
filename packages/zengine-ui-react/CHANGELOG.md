@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.14.0...@zenginehq/zengine-ui-react@0.15.0) (2020-06-17)
+
+
+### Features
+
+* extra validators and tests ([1eff025](https://github.com/ZengineHQ/plugin-sdk/commit/1eff025d5c36f9a34da541dc15562480a1b22e78))
+* max/min word count validation, tests and stories ([3012c75](https://github.com/ZengineHQ/plugin-sdk/commit/3012c7517819848b09a87ba833bccbfee4a800f7))
+* string max/min length validation + tests ([75b5dbc](https://github.com/ZengineHQ/plugin-sdk/commit/75b5dbcfaaa13c11dc5d986619580a1ae12fc996))
+* utils and tests for currencies ([dd16200](https://github.com/ZengineHQ/plugin-sdk/commit/dd162004428981b2ee48588e7b68a84ca01fc5ed))
+* zipcode validation, tests, stories ([9242b89](https://github.com/ZengineHQ/plugin-sdk/commit/9242b896d611053c6b861332c3d476574785c650))
+
+
+
+
+
 # [0.14.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.13.1...@zenginehq/zengine-ui-react@0.14.0) (2020-06-17)
 
 
