@@ -15,7 +15,7 @@
     "build": "rimraf lib; npm run build:types; npm run build:js; npm run copyjson",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-    "copyjson": "cpy src/data/*.json lib/data",
+    "copyjson": "node scripts/updateJson.js && cpy src/data/*.json lib/data",
     "prepublishOnly": "npm run build",
     "storybook:build": "build-storybook -s public --quiet;",
     "storybook:publish": "storybook-to-ghpages",
