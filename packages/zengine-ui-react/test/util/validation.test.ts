@@ -14,6 +14,8 @@ test('exists() correctly determines whether a value exists', () => {
   expect(exists(false)).toBe(true);
   expect(exists(0)).toBe(true);
   expect(exists('')).toBe(true);
+  expect(exists({})).toBe(true);
+  expect(exists([])).toBe(true);
 });
 
 test('isEmpty() correctly determines whether an array is empty', () => {
@@ -23,6 +25,7 @@ test('isEmpty() correctly determines whether an array is empty', () => {
 
 test('isEmpty() correctly determines whether an object is empty', () => {
   expect(isEmpty({})).toBe(true);
+  expect(isEmpty({ a: undefined })).toBe(false);
   expect(isEmpty({ a: 1 })).toBe(false);
 });
 
