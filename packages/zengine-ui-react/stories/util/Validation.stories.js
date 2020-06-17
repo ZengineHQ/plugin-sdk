@@ -198,3 +198,65 @@ export const MinWordCount = () => {
     </>
   );
 };
+
+export const Alpha = () => {
+  const code = `
+  import { alpha } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  alpha('hellothere') // true
+  alpha('hello there') // false
+  alpha('hello123') // false
+  
+  alpha('hello there', true) // true
+`;
+
+  return (
+    <>
+      <SectionHeader><code>alpha()</code></SectionHeader>
+      <p>Checks whether a string contains only alphabetic characters and, optionally, spaces.</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
+
+export const AlphaNumeric = () => {
+  const code = `
+  import { alphaNumeric } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  alphaNumeric('hello123') // true
+  alphaNumeric('hello 123') // false
+  
+  alphaNumeric('hello 123', true) // true
+`;
+
+  return (
+    <>
+      <SectionHeader><code>alphaNumeric()</code></SectionHeader>
+      <p>Checks whether a string contains only alphabetic and numeric characters and, optionally, spaces.</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
+
+export const Numeric = () => {
+  const code = `
+  import { numeric } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  numeric('123') // true
+  numeric('123 456') // false
+  numeric('hello123') // false
+  
+  numeric('123 456', true) // true
+`;
+
+  return (
+    <>
+      <SectionHeader><code>numeric()</code></SectionHeader>
+      <p>Checks whether a string contains only numeric characters and, optionally, spaces.</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
