@@ -145,8 +145,8 @@ function MyComponent() {
 export const Development = () => (
   <article>
     <PageTitle>Developing Components</PageTitle>
-    <p>Be sure to run <code>npm run scss</code> at least once so you have the generated stylesheet for the Storybook
-      preview</p>
+    <p>Be sure to use the non-minified stylesheet so you have the generated stylesheet for the Storybook
+      preview. Optionally, run <code>npm run watch</code> in the <code>zengine-ui</code> package to get live reload for theming.</p>
 
     <p>There's 3 mandatory parts for every component: code, stories and tests.</p>
 
