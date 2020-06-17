@@ -9,6 +9,7 @@ export { default as Radio } from './atoms/Radio';
 export { default as SectionHeader } from './atoms/SectionHeader';
 export { default as Select } from './atoms/Select';
 export { default as Textarea } from './atoms/Textarea';
+export { default as Markdown } from './atoms/Markdown';
 
 // Molecules.
 export { default as CheckboxField } from './molecules/CheckboxField';

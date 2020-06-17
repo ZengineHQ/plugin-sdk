@@ -2,7 +2,7 @@ import React from 'react';
 import MarkdownView from 'react-showdown';
 
 export interface MarkdownProps {
-  options: object
+  options?: object
   children: string
 }
 
