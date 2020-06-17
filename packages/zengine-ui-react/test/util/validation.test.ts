@@ -11,6 +11,7 @@ import {
   alpha,
   alphaNumeric,
   numeric,
+  zipCode,
 } from '../../src/util/validation';
 
 test('exists() correctly determines whether a value exists', () => {
@@ -131,4 +132,11 @@ test('numeric() correctly determines whether a string only contains numeric char
   expect(numeric('123 456')).toBe(false);
   expect(numeric('123.456')).toBe(true);
   expect(numeric('123!')).toBe(false);
+});
+
+test('zipCode() correctly determines whether a string is a valid US zip code', () => {
+  expect(zipCode('hello 123 there')).toBe(false);
+  expect(zipCode('9021')).toBe(false);
+  expect(zipCode('90210')).toBe(true);
+  expect(zipCode('902101')).toBe(false);
 });

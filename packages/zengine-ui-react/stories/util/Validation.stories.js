@@ -1,7 +1,5 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
 
-import useDefaultPanel from '../../.storybook/useDefaultPanel';
 import useSyntaxHighlighter from '../../.storybook/useSyntaxHighlighter';
 import SectionHeader from '../../src/atoms/SectionHeader';
 
@@ -254,6 +252,26 @@ export const Numeric = () => {
     <>
       <SectionHeader><code>numeric()</code></SectionHeader>
       <p>Checks whether a string contains only numeric characters.</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
+
+export const ZipCode = () => {
+  const code = `
+  import { zipCode } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  zipCode('hello 123') // false
+  zipCode('9021') // false
+  zipCode('902101') // false
+  zipCode('90210') // true
+`;
+
+  return (
+    <>
+      <SectionHeader><code>zipCode()</code></SectionHeader>
+      <p>Checks whether a string is a valid US area/zip code.</p>
 
       { useSyntaxHighlighter(code) }
     </>

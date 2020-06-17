@@ -93,3 +93,10 @@ export const alphaNumeric = (str: string, allowSpaces: boolean = false): boolean
 export const numeric = (str: string): boolean => {
   return isString(str) && matchesRegex(str, /^[-+]?([0-9]*\.[0-9]+|[0-9]+)$/);
 };
+
+/**
+ * Validates whether a string is a valid US area/zip code.
+ */
+export const zipCode = (str: string): boolean => {
+  return isString(str) && matchesRegex(str, /(^\d{5}$)|(^\d{5}-\d{4}$)/);
+};
