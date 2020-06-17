@@ -49,9 +49,24 @@ export const isEmail = (string: string): boolean => {
 export const maxLength = (str: string, max: number): boolean => {
   return isString(str) && str.length <= max;
 };
+
 /**
  * Validates whether a string adheres to a minimum length.
  */
 export const minLength = (str: string, min: number): boolean => {
   return isString(str) && str.length >= min;
 };
+
+/**
+ * Validates whether a string adheres to a maximum word count.
+ */
+export const maxWordCount = (str: string, max: number): boolean => {
+  return isString(str) && str.split(' ').length <= max;
+}
+
+/**
+ * Validates whether a string adheres to a minimum word count.
+ */
+export const minWordCount = (str: string, min: number): boolean => {
+  return isString(str) && str.split(' ').length >= min;
+}

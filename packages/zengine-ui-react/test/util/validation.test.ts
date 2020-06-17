@@ -6,6 +6,8 @@ import {
   isEmail,
   maxLength,
   minLength,
+  maxWordCount,
+  minWordCount,
 } from '../../src/util/validation';
 
 test('exists() correctly determines whether a value exists', () => {
@@ -83,4 +85,14 @@ test('minLength() correctly determines whether a string adheres to a maximum len
   expect(minLength('oi', 3)).toBe(false);
   expect(minLength('oi', 2)).toBe(true);
   expect(minLength('hello', 5)).toBe(true);
+});
+
+test('maxWordCount() correctly determines whether a string adheres to a maximum length', () => {
+  expect(maxWordCount('hello there foo bar', 3)).toBe(false);
+  expect(maxWordCount('hello there foo', 3)).toBe(true);
+});
+
+test('minWordCount() correctly determines whether a string adheres to a maximum length', () => {
+  expect(minWordCount('hello there', 3)).toBe(false);
+  expect(minWordCount('hello there foo', 3)).toBe(true);
 });

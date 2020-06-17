@@ -162,3 +162,39 @@ export const MinLength = () => {
     </>
   );
 };
+
+export const MaxWordCount = () => {
+  const code = `
+  import { maxWordCount } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  maxWordCount('hello there foo bar', 3) // false
+  maxWordCount('hello there foo', 3) // true
+`;
+
+  return (
+    <>
+      <SectionHeader><code>maxWordCount()</code></SectionHeader>
+      <p>Checks whether a string adheres to a maximum word count restriction.</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
+
+export const MinWordCount = () => {
+  const code = `
+  import { minWordCount } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  minWordCount('hello there', 3) // false
+  minWordCount('hello there foo', 3) // true
+`;
+
+  return (
+    <>
+      <SectionHeader><code>minWordCount()</code></SectionHeader>
+      <p>Checks whether a string adheres to a minimum word count restriction.</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
