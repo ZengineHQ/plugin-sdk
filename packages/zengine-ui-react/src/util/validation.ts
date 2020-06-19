@@ -90,7 +90,7 @@ export const alphaNumeric = (str: string, allowSpaces: boolean = false): boolean
 /**
  * Validate whether a value is a number.
  */
-export const isNumber = (val:any): boolean => typeof val === 'number';
+export const isNumber = (val: any): boolean => typeof val === 'number';
 
 /**
  * Validates whether a value is a number or a string containing only numeric characters.
@@ -109,13 +109,13 @@ export const zipCode = (str: string): boolean => {
 /**
  * Validates whether a numeric value adheres to a maximum number restriction.
  */
-export const maxNumber = (num: number|string, max: number|string) => {
+export const maxNumber = (num: number|string, max: number|string): boolean => {
   return numeric(num) && numeric(max) && parseFloat(num as string) <= parseFloat(max as string);
 };
 
 /**
  * Validates whether a numeric value adheres to a minimum number restriction.
  */
-export const minNumber = (num: number|string, min: number|string) => {
+export const minNumber = (num: number|string, min: number|string): boolean => {
   return numeric(num) && numeric(min) && parseFloat(num as string) >= parseFloat(min as string);
 };

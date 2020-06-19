@@ -45,7 +45,7 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
     }
   };
 
-  const [field, meta, { setTouched, setValue }] = useField({ name: props.name, validate });
+  const [field, meta] = useField({ name: props.name, validate });
 
   const id = props.id ?? `number-${props.name}`;
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
@@ -54,8 +54,8 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
     const target = e.currentTarget as HTMLInputElement;
     let val = target.value;
 
-    if (props.decimals && isNumber(props.decimals)) {
-      val = parseFloat(val as string).toFixed(props.decimals);
+    if (isNumber(props.decimals)) {
+      val = parseFloat(val).toFixed(props.decimals);
     }
 
     const evt = { currentTarget: { value: val, name: field.name } };
