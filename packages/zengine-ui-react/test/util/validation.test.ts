@@ -12,6 +12,9 @@ import {
   alphaNumeric,
   numeric,
   zipCode,
+  isNumber,
+  maxNumber,
+  minNumber,
 } from '../../src/util/validation';
 
 test('exists() correctly determines whether a value exists', () => {
@@ -144,4 +147,31 @@ test('zipCode() correctly determines whether a string is a valid US zip code', (
   expect(zipCode('9021')).toBe(false);
   expect(zipCode('90210')).toBe(true);
   expect(zipCode('902101')).toBe(false);
+});
+
+test('isNumber() correctly determines whether a value is a number', () => {
+  expect(isNumber(123)).toBe(true);
+  expect(isNumber(123.456)).toBe(true);
+  expect(isNumber('123')).toBe(false);
+});
+
+test('maxNumber() correctly determines whether a numeric value adheres to a maximum number restriction', () => {
+  expect(maxNumber(123, 124)).toBe(true);
+  expect(maxNumber(123, 122)).toBe(false);
+  expect(maxNumber('123', 124)).toBe(true);
+  expect(maxNumber('123', 122)).toBe(false);
+  expect(maxNumber('1.5', 4.0)).toBe(true);
+  expect(maxNumber('1.5', '4.0')).toBe(true);
+  expect(maxNumber('-1.5', '4.0')).toBe(true);
+  expect(maxNumber(3.8, '3.7')).toBe(false);
+});
+
+test('minNumber() correctly determines whether a numeric value adheres to a minimum number restriction', () => {
+  expect(minNumber(123, 122)).toBe(true);
+  expect(minNumber(123, 124)).toBe(false);
+  expect(minNumber('123', 122)).toBe(true);
+  expect(minNumber('123', 124)).toBe(false);
+  expect(minNumber('0.9', 0.0)).toBe(true);
+  expect(minNumber('-0.9', 0.0)).toBe(false);
+  expect(minNumber('-0.9', -2.2)).toBe(true);
 });

@@ -88,10 +88,15 @@ export const alphaNumeric = (str: string, allowSpaces: boolean = false): boolean
 };
 
 /**
+ * Validate whether a value is a number.
+ */
+export const isNumber = (val:any): boolean => typeof val === 'number';
+
+/**
  * Validates whether a value is a number or a string containing only numeric characters.
  */
 export const numeric = (val: any): boolean => {
-  return typeof val === 'number' || (isString(val) && matchesRegex(val, /^[-+]?([0-9]*\.[0-9]+|[0-9]+)$/));
+  return isNumber(val) || (isString(val) && matchesRegex(val, /^[-+]?([0-9]*\.[0-9]+|[0-9]+)$/));
 };
 
 /**
@@ -99,4 +104,18 @@ export const numeric = (val: any): boolean => {
  */
 export const zipCode = (str: string): boolean => {
   return isString(str) && matchesRegex(str, /(^\d{5}$)|(^\d{5}-\d{4}$)/);
+};
+
+/**
+ * Validates whether a numeric value adheres to a maximum number restriction.
+ */
+export const maxNumber = (num: number|string, max: number|string) => {
+  return numeric(num) && numeric(max) && parseFloat(num as string) <= parseFloat(max as string);
+};
+
+/**
+ * Validates whether a numeric value adheres to a minimum number restriction.
+ */
+export const minNumber = (num: number|string, min: number|string) => {
+  return numeric(num) && numeric(min) && parseFloat(num as string) >= parseFloat(min as string);
 };

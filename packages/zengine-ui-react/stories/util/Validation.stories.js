@@ -70,7 +70,7 @@ export const IsString = () => {
   const code = `
   import { isString } from '@zenginehq/zengine-ui-react/lib/util/validation';
   
-  isEmpty('') // true
+  isString('') // true
   isString([]) // false
   isString({}) // false
   isString(1) // false
@@ -242,6 +242,8 @@ export const Numeric = () => {
   const code = `
   import { numeric } from '@zenginehq/zengine-ui-react/lib/util/validation';
   
+  numeric(123) // true
+  numeric(123.456) // true
   numeric('123') // true
   numeric('123 456') // false
   numeric('123.456') // true
@@ -251,7 +253,7 @@ export const Numeric = () => {
   return (
     <>
       <SectionHeader><code>numeric()</code></SectionHeader>
-      <p>Checks whether a string contains only numeric characters.</p>
+      <p>Checks whether a value is a number or a string containing only numeric characters.</p>
 
       { useSyntaxHighlighter(code) }
     </>
@@ -272,6 +274,63 @@ export const ZipCode = () => {
     <>
       <SectionHeader><code>zipCode()</code></SectionHeader>
       <p>Checks whether a string is a valid US area/zip code.</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
+
+export const IsNumber = () => {
+  const code = `
+  import { isNumber } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  isNumber(123) // true
+  isNumber(123.456) // false
+  isNumber('123') // false
+`;
+
+  return (
+    <>
+      <SectionHeader><code>isNumber()</code></SectionHeader>
+      <p>Checks whether a value is an actual number. To check whether it's a numeric string use <code>numeric()</code></p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
+
+export const MaxNumber = () => {
+  const code = `
+  import { maxNumber } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  maxNumber(123, 124) // true
+  maxNumber(123, '122') // false
+  maxNumber('0.24', 0.3) // true
+`;
+
+  return (
+    <>
+      <SectionHeader><code>maxNumber()</code></SectionHeader>
+      <p>Checks whether a numeric value adheres to a maximum number restriction</p>
+
+      { useSyntaxHighlighter(code) }
+    </>
+  );
+};
+
+export const MinNumber = () => {
+  const code = `
+  import { minNumber } from '@zenginehq/zengine-ui-react/lib/util/validation';
+  
+  minNumber(123, 122) // true
+  minNumber(123, '124') // false
+  minNumber('0.1', 0.0) // false
+`;
+
+  return (
+    <>
+      <SectionHeader><code>minNumber()</code></SectionHeader>
+      <p>Checks whether a numeric value adheres to a minimum number restriction</p>
 
       { useSyntaxHighlighter(code) }
     </>
