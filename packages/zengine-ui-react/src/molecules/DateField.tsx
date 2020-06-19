@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -20,8 +20,12 @@ export interface DateFieldProps {
   classes?: string
   placeholder?: string
   labelClasses?: string
+  prefix?: string | ReactElement
+  suffix?: string | ReactElement
   label?: string
   help?: string
+  showYearDropdown?: boolean
+  showMonthDropdown?: boolean
 }
 
 const DateField: React.FC<DateFieldProps> = (props) => {
@@ -58,23 +62,41 @@ const DateField: React.FC<DateFieldProps> = (props) => {
   const id = props.id ?? `date-${props.name}`;
   const helpId = props.help !== undefined ? `${id}-help` : undefined;
 
+  const input = (
+    <div>
+      <DatePicker
+        selected={field.value}
+        onChange={onChangeHelper}
+        placeholderText={props.placeholder}
+        className={getFieldClasses(meta, props.classes)}
+        onBlur={onBlurHelper}
+        disabled={props.disabled}
+        name={props.name}
+        showYearDropdown={props.showYearDropdown}
+        showMonthDropdown={props.showMonthDropdown}
+      />
+    </div>
+  );
+
   return (
     <div className="form-group">
       {!isEmpty(props.label) ? (
         <Label required={props.required} for={id} classes={props.labelClasses}>{props.label}</Label>
       ) : undefined}
 
-      <div>
-        <DatePicker
-          selected={field.value}
-          onChange={onChangeHelper}
-          placeholderText={props.placeholder}
-          className={getFieldClasses(meta, props.classes)}
-          onBlur={onBlurHelper}
-          disabled={props.disabled}
-          name={props.name}
-        />
-      </div>
+      {(!isEmpty(props.prefix) || !isEmpty(props.suffix)) ? (
+        <div className="input-group">
+          {!isEmpty(props.prefix) ? (
+            <div className="input-group-append"><span className="input-group-text">{props.prefix}</span></div>
+          ) : undefined}
+
+          {input}
+
+          {!isEmpty(props.suffix) ? (
+            <div className="input-group-prepend"><span className="input-group-text">{props.suffix}</span></div>
+          ) : undefined}
+        </div>
+      ) : input}
 
       {!isEmpty(props.help) ? <small id={helpId} className="form-text text-muted">{props.help}</small> : undefined}
 
@@ -89,7 +111,9 @@ DateField.defaultProps = {
   required: false,
   readonly: false,
   classes: '',
-  placeholder: ''
+  placeholder: '',
+  showYearDropdown: true,
+  showMonthDropdown: true
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

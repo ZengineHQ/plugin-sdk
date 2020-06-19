@@ -12,7 +12,7 @@ export default {
   },
 };
 
-const exampleImage = 'sample-image.jpg';
+const exampleImage = '/sample-image.jpg';
 
 export const Default = () => <Image src={ exampleImage } alt="Alt Text" />;
 

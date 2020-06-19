@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.14.0...@zenginehq/zengine-ui-react@0.15.0) (2020-06-17)
+
+
+### Features
+
+* extra validators and tests ([1eff025](https://github.com/ZengineHQ/plugin-sdk/commit/1eff025d5c36f9a34da541dc15562480a1b22e78))
+* max/min word count validation, tests and stories ([3012c75](https://github.com/ZengineHQ/plugin-sdk/commit/3012c7517819848b09a87ba833bccbfee4a800f7))
+* string max/min length validation + tests ([75b5dbc](https://github.com/ZengineHQ/plugin-sdk/commit/75b5dbcfaaa13c11dc5d986619580a1ae12fc996))
+* utils and tests for currencies ([dd16200](https://github.com/ZengineHQ/plugin-sdk/commit/dd162004428981b2ee48588e7b68a84ca01fc5ed))
+* zipcode validation, tests, stories ([9242b89](https://github.com/ZengineHQ/plugin-sdk/commit/9242b896d611053c6b861332c3d476574785c650))
+
+
+
+
+
+# [0.14.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.13.1...@zenginehq/zengine-ui-react@0.14.0) (2020-06-17)
+
+
+### Features
+
+* markdown atom + stories ([098a16f](https://github.com/ZengineHQ/plugin-sdk/commit/098a16f0d6789b14a0ae2adc40e3a0ce9506759b))
+
+
+
+
+
+## [0.13.1](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.13.0...@zenginehq/zengine-ui-react@0.13.1) (2020-06-09)
+
+**Note:** Version bump only for package @zenginehq/zengine-ui-react
+
+
+
+
+
+# [0.13.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.12.0...@zenginehq/zengine-ui-react@0.13.0) (2020-06-09)
+
+
+### Features
+
+* scroll to and focus first form error ([183a09b](https://github.com/ZengineHQ/plugin-sdk/commit/183a09bbd4f3e01f8b67f882dc1571eadd60da7c))
+* support generic js errors in form submit ([b3c18dc](https://github.com/ZengineHQ/plugin-sdk/commit/b3c18dca565a957492f979762f9580e2b00acb1b))
+
+
+
+
+
+# [0.12.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.11.0...@zenginehq/zengine-ui-react@0.12.0) (2020-06-08)
+
+
+### Features
+
+* add prefix and suffix to date field ([94cc235](https://github.com/ZengineHQ/plugin-sdk/commit/94cc235649933d76d0eb5485fdd7f38d218c14cd))
+* expose year/month dropdown options in date picker, enable by default ([b045902](https://github.com/ZengineHQ/plugin-sdk/commit/b04590264a30ae1ef93bf501fe8a8c54ba4e6b4d))
+* form-level errors + make submit errors saner by requiring the promise to be rejected ([e384cef](https://github.com/ZengineHQ/plugin-sdk/commit/e384cef78eb09c6757b8e600daf924d8f5bbd1e5))
+
+
+
+
+
 # [0.11.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.9.1...@zenginehq/zengine-ui-react@0.11.0) (2020-06-08)
 
 

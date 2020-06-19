@@ -13,9 +13,21 @@ export default {
 };
 
 export const Default = () => (
-  <MockForm><StateField label="StateField" name="state" /></MockForm>
+  <MockForm>
+    <p>
+      This is a <em>SelectField</em> with custom, unchangeable options. All other SelectField props work here.
+      <br />Data is pulled from the Zengine API.
+    </p>
+    <StateField label="StateField" name="state" />
+  </MockForm>
 );
 
 export const IncludeCanada = () => (
-  <MockForm><StateField label="StateFieldCanada" name="state" includeCanada={true}/></MockForm>
+  <MockForm>
+    <p>
+      Use this option to include Canadian provinces/territories.
+      <br />Data is pulled from the Zengine API.
+    </p>
+    <StateField label="StateFieldCanada" name="state" includeCanada={ true } />
+  </MockForm>
 );
