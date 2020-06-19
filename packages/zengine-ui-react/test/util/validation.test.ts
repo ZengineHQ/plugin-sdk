@@ -126,6 +126,11 @@ test('alphaNumeric() optionally allows spaces', () => {
   expect(alphaNumeric('hello 123 there', true)).toBe(true);
 });
 
+test('numeric() correctly determines whether a number is, well, numeric', () => {
+  expect(numeric(123)).toBe(true);
+  expect(numeric(123.45)).toBe(true);
+});
+
 test('numeric() correctly determines whether a string only contains numeric characters', () => {
   expect(numeric('hello 123 there')).toBe(false);
   expect(numeric('123')).toBe(true);

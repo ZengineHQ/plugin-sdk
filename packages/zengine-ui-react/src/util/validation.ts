@@ -88,10 +88,10 @@ export const alphaNumeric = (str: string, allowSpaces: boolean = false): boolean
 };
 
 /**
- * Validates whether a string contains only numeric characters.
+ * Validates whether a value is a number or a string containing only numeric characters.
  */
-export const numeric = (str: string): boolean => {
-  return isString(str) && matchesRegex(str, /^[-+]?([0-9]*\.[0-9]+|[0-9]+)$/);
+export const numeric = (val: any): boolean => {
+  return typeof val === 'number' || (isString(val) && matchesRegex(val, /^[-+]?([0-9]*\.[0-9]+|[0-9]+)$/));
 };
 
 /**
