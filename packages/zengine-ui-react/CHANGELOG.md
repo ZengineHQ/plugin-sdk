@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.15.0...@zenginehq/zengine-ui-react@0.16.0) (2020-06-19)
+
+
+### Features
+
+* extra number validations ([f044af4](https://github.com/ZengineHQ/plugin-sdk/commit/f044af437828d9b5e3f59a6c6f63caeca272ea35))
+* support specifying decimal places in number input ([cef920a](https://github.com/ZengineHQ/plugin-sdk/commit/cef920ab5080031fa32841797c432ca1fde130fd))
+
+
+
+
+
 # [0.15.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.14.0...@zenginehq/zengine-ui-react@0.15.0) (2020-06-17)
 
 
