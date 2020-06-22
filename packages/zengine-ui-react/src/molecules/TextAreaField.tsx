@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useField } from 'formik';
 
-import { isEmpty } from '../util/validation';
+import { isEmpty, wordCount } from '../util/validation';
 import Label from '../atoms/Label';
 import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
@@ -55,7 +55,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
     const target = e.currentTarget as HTMLInputElement;
 
     if (props.wordCounter) {
-      setWords(target.value.trim().split(' ').length);
+      setWords(wordCount(target.value));
     }
 
     // Call custom callback.

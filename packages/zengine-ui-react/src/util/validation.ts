@@ -58,17 +58,26 @@ export const minLength = (str: string, min: number): boolean => {
 };
 
 /**
+ * Counts how many words are in a string.
+ * This is a utility function used by maxWordCount() and minWordCount()
+ */
+export const wordCount = (str: string): number => {
+  const matches = str.match(/(\S+)/g);
+  return matches ? matches.length : 0;
+};
+
+/**
  * Validates whether a string adheres to a maximum word count.
  */
 export const maxWordCount = (str: string, max: number): boolean => {
-  return isString(str) && str.split(' ').length <= max;
+  return isString(str) && wordCount(str) <= max;
 }
 
 /**
  * Validates whether a string adheres to a minimum word count.
  */
 export const minWordCount = (str: string, min: number): boolean => {
-  return isString(str) && str.split(' ').length >= min;
+  return isString(str) && wordCount(str) >= min;
 }
 
 /**
