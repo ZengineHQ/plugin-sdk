@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useField } from 'formik';
 
 import { isEmpty } from '../util/validation';
@@ -24,6 +24,7 @@ export interface TextAreaFieldProps {
   innerRef?: any
   resizable?: boolean
   requiredMessage?: string
+  wordCounter?: boolean
 }
 
 /**
@@ -34,6 +35,8 @@ export interface TextAreaFieldProps {
  * Use it to collect long-form textual data from users.
  */
 const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
+  const [words, setWords] = useState(0);
+
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
       return props.requiredMessage;
@@ -49,6 +52,12 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
 
   const onChangeHelper = (e: React.ChangeEvent): void => {
+    const target = e.currentTarget as HTMLInputElement;
+
+    if (props.wordCounter) {
+      setWords(target.value.trim().split(' ').length);
+    }
+
     // Call custom callback.
     props?.onChange?.(e);
     // Now delegate back to Formik to keep things working.
@@ -80,6 +89,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
       />
 
       { !isEmpty(props.help) ? <small id={ helpId } className="form-text text-muted">{ props.help }</small> : undefined }
+      { props.wordCounter && <small className="form-text text-muted">Word Count: { words }</small>}
 
       <ErrorMessage meta={ meta }/>
     </div>
@@ -93,7 +103,8 @@ TextAreaField.defaultProps = {
   required: false,
   classes: '',
   resizable: true,
-  requiredMessage: 'Required'
+  requiredMessage: 'Required',
+  wordCounter: false
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
