@@ -13,7 +13,7 @@ test('Renders a textarea', () => {
 
 test('Sets label when specified', () => {
   const { container, getByText } = render(<MockForm><TextAreaField label="foo" name="foo" /></MockForm>);
-  expect(getByText('foo')).toBeTruthy();
+  expect(getByText('foo')).toBeInTheDocument();
 
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(1);
@@ -120,7 +120,7 @@ test('Validates field "required" correctly', async () => {
 
   expect(input.value).toEqual('');
   expect(input).toHaveClass('form-control is-invalid');
-  expect(getByText('Required')).toBeTruthy();
+  expect(getByText('Required')).toBeInTheDocument();
 });
 
 test('Fires custom onChange handler if specified', async () => {
@@ -202,7 +202,7 @@ test('Performs custom validation correctly when specified', async () => {
 
   expect(textarea.value).toEqual('foo@bar');
   expect(textarea).toHaveClass('form-control is-invalid');
-  expect(getByText('Invalid email address')).toBeTruthy();
+  expect(getByText('Invalid email address')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.change(textarea, { target: { value: 'foo@bar.com' } });

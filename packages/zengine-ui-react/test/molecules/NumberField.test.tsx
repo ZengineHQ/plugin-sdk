@@ -223,7 +223,7 @@ test('Performs custom validation correctly when specified', async () => {
   });
 
   expect(input).toHaveClass('form-control is-invalid');
-  expect(getByText('Must be larger than 10')).toBeTruthy();
+  expect(getByText('Must be larger than 10')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.change(input, { target: { value: '11' } });

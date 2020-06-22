@@ -17,7 +17,7 @@ test('Sets label when specified', () => {
   const { container, getByText } = render(
     <MockForm><CheckboxGroupField label="foo" name="foo" options={opts} /></MockForm>
   );
-  expect(getByText('foo')).toBeTruthy();
+  expect(getByText('foo')).toBeInTheDocument();
 
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(4);
@@ -134,7 +134,7 @@ test('Sets values and Validates field "required" correctly', async () => {
   });
 
   expect(firstInput).toHaveClass('form-check-input is-invalid');
-  expect(getByText('Required')).toBeTruthy();
+  expect(getByText('Required')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.click(firstInput);
@@ -219,7 +219,7 @@ test('Performs custom validation correctly when specified', async () => {
 
   expect(inputs[0].checked).toEqual(true);
   expect(inputs[0]).toHaveClass('form-check-input is-invalid');
-  expect(getByText(`Must pick ${opts[1]}`)).toBeTruthy();
+  expect(getByText(`Must pick ${opts[1]}`)).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.click(inputs[1]);

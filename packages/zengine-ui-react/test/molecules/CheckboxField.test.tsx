@@ -12,7 +12,7 @@ test('Renders a checkbox input', () => {
 
 test('Sets label when specified', () => {
   const { container, getByText } = render(<MockForm><CheckboxField label="foo" name="foo" /></MockForm>);
-  expect(getByText('foo')).toBeTruthy();
+  expect(getByText('foo')).toBeInTheDocument();
 
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(1);
@@ -102,7 +102,7 @@ test('Validates field "required" correctly', async () => {
 
   expect(input.checked).toEqual(false);
   expect(input).toHaveClass('form-check-input is-invalid');
-  expect(getByText('Required')).toBeTruthy();
+  expect(getByText('Required')).toBeInTheDocument();
 });
 
 test('Fires custom onChange handler if specified', async () => {
@@ -167,7 +167,7 @@ test('Performs custom validation correctly when specified', async () => {
 
   expect(input.checked).toEqual(true);
   expect(input).toHaveClass('form-check-input is-invalid');
-  expect(getByText('Say yes again emeffer')).toBeTruthy();
+  expect(getByText('Say yes again emeffer')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.click(input);
