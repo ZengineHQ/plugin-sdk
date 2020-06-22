@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.17.0...@zenginehq/zengine-ui-react@0.18.0) (2020-06-22)
+
+
+### Features
+
+* async validation ([852374d](https://github.com/ZengineHQ/plugin-sdk/commit/852374d1b277e96bf1a08e842756f01ff5503711))
+* first stab at text area word count ([c5bf970](https://github.com/ZengineHQ/plugin-sdk/commit/c5bf970653493895a8e8819fdd7f24ab7b5ac060))
+
+
+
+
+
 # [0.17.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.16.0...@zenginehq/zengine-ui-react@0.17.0) (2020-06-22)
 
 
