@@ -25,6 +25,7 @@ export interface SelectFieldProps {
   placeholder?: string
   defaultValue?: any
   innerRef?: any
+  requiredMessage?: string
 }
 
 /**
@@ -37,7 +38,7 @@ export interface SelectFieldProps {
 const SelectField: React.FC<SelectFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
-      return 'Required';
+      return props.requiredMessage;
     }
     if (props.validate !== undefined && typeof props.validate === 'function') {
       return props.validate(value);
@@ -96,7 +97,8 @@ SelectField.defaultProps = {
   required: false,
   classes: '',
   multiple: false,
-  placeholder: '-Select-'
+  placeholder: '-Select-',
+  requiredMessage: 'Required'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

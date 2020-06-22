@@ -130,6 +130,42 @@ test('Validates field "required" correctly', async () => {
   expect(getByText('Required')).toBeTruthy();
 });
 
+test('Changes field "required" error message correctly', async () => {
+  const { container, getByText } = render(
+    <MockForm>
+      <NumberField
+        name="foo"
+        required={true}
+        requiredMessage="Reqmsg"
+      />
+    </MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  expect(input.value).toEqual('');
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: 123 } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('123');
+  expect(input).toHaveClass('form-control is-valid');
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: null } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('');
+  expect(input).toHaveClass('form-control is-invalid');
+  expect(getByText('Reqmsg')).toBeTruthy();
+});
+
 test('Fires custom onChange handler if specified', async () => {
   const mock = jest.fn();
   const { container } = render(<MockForm><NumberField name="foo" onChange={mock} /></MockForm>);
@@ -223,7 +259,7 @@ test('Performs custom validation correctly when specified', async () => {
   });
 
   expect(input).toHaveClass('form-control is-invalid');
-  expect(getByText('Must be larger than 10')).toBeTruthy();
+  expect(getByText('Must be larger than 10')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.change(input, { target: { value: '11' } });

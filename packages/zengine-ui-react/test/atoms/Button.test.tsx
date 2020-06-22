@@ -11,7 +11,7 @@ test('Renders a button HTML tag', () => {
 
 test('Renders with specified text', () => {
   const { getByText } = render(<Button>Hello</Button>);
-  expect(getByText('Hello')).toBeTruthy();
+  expect(getByText('Hello')).toBeInTheDocument();
 });
 
 test('Adds type attribute by default', () => {

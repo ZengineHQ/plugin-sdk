@@ -21,9 +21,9 @@ test('Adds all content if specified', () => {
   expect(div[1]).toHaveClass('card-header');
   expect(div[2]).toHaveClass('card-body');
   expect(div[3]).toHaveClass('card-footer');
-  expect(getByText('WidgetHeader')).toBeTruthy();
-  expect(getByText('WidgetBody')).toBeTruthy();
-  expect(getByText('WidgetFooter')).toBeTruthy();
+  expect(getByText('WidgetHeader')).toBeInTheDocument();
+  expect(getByText('WidgetBody')).toBeInTheDocument();
+  expect(getByText('WidgetFooter')).toBeInTheDocument();
 });
 
 test('Omits footer altogether if left blank', () => {
@@ -38,7 +38,7 @@ test('Renders React components in header, body and footer', () => {
     footer={<Button>FooterButton</Button>}
   />);
   expect(container.getElementsByTagName('button')).toHaveProperty('length', 3);
-  expect(getByText('HeaderButton')).toBeTruthy();
-  expect(getByText('BodyButton')).toBeTruthy();
-  expect(getByText('FooterButton')).toBeTruthy();
+  expect(getByText('HeaderButton')).toBeInTheDocument();
+  expect(getByText('BodyButton')).toBeInTheDocument();
+  expect(getByText('FooterButton')).toBeInTheDocument();
 });

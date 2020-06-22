@@ -10,7 +10,7 @@ test('Renders the h2 HTML tag', () => {
 
 test('Renders with specified text', () => {
   const { getByText } = render(<SectionHeader>Sup</SectionHeader>);
-  expect(getByText('Sup')).toBeTruthy();
+  expect(getByText('Sup')).toBeInTheDocument();
 });
 
 test('Adds no default classes', () => {

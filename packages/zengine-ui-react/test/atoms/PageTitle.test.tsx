@@ -10,7 +10,7 @@ test('Renders the h1 HTML tag', () => {
 
 test('Renders with specified text', () => {
   const { getByText } = render(<PageTitle>Hello</PageTitle>);
-  expect(getByText('Hello')).toBeTruthy();
+  expect(getByText('Hello')).toBeInTheDocument();
 });
 
 test('Adds no default class', () => {

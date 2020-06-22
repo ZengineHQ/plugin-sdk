@@ -22,7 +22,7 @@ test('Renders CounterLabeled elements', () => {
   const { container, getByText } = render(<KPI items={items} />);
 
   expect(container.getElementsByTagName('article')).toHaveProperty('length', 3);
-  expect(getByText('Submissions')).toBeTruthy();
-  expect(getByText('Ready for Review')).toBeTruthy();
-  expect(getByText('Reviewed')).toBeTruthy();
+  expect(getByText('Submissions')).toBeInTheDocument();
+  expect(getByText('Ready for Review')).toBeInTheDocument();
+  expect(getByText('Reviewed')).toBeInTheDocument();
 });

@@ -27,6 +27,18 @@ export const Required = () => (
   </MockForm>
 );
 
+export const RequiredMessage = () => (
+  <MockForm>
+    <CheckboxGroupField
+      label="Required Checkbox Group"
+      required={ true }
+      requiredMessage="You absolutely must pick an option"
+      name="required"
+      options={ opts }
+    />
+  </MockForm>
+);
+
 export const HelpText = () => (
   <MockForm>
     <CheckboxGroupField label="Pick One!" help="This is some help text" name="help" options={ opts }/>

@@ -26,6 +26,7 @@ export interface TextFieldProps {
   prefix?: string | ReactElement
   suffix?: string | ReactElement
   type?: string
+  requiredMessage?: string
 }
 
 /**
@@ -38,7 +39,7 @@ export interface TextFieldProps {
 const TextField: React.FC<TextFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
-      return 'Required';
+      return props.requiredMessage;
     }
     if (typeof props.validate === 'function') {
       return props.validate(value);
@@ -113,6 +114,7 @@ TextField.defaultProps = {
   readonly: false,
   classes: '',
   type: 'text',
+  requiredMessage: 'Required'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

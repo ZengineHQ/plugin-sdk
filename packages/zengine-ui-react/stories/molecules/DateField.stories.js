@@ -21,6 +21,17 @@ export const Required = () => (
   <MockForm><DateField label="Required Date Input" required={ true } name="date" /></MockForm>
 );
 
+export const RequiredMessage = () => (
+  <MockForm>
+    <DateField
+      label="Required Date Input"
+      required={ true }
+      requiredMessage="Dates are very required"
+      name="date"
+    />
+  </MockForm>
+);
+
 export const Disabled = () => (
   <MockForm><DateField label="Disabled Date Input" disabled={ true } name="date" /></MockForm>
 );

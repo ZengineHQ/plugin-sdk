@@ -32,9 +32,9 @@ test('Generates correct table markup', () => {
 test('Renders table headers', () => {
   const { container, getByText } = render(<Table headers={headers} />);
   expect(container.getElementsByTagName('th')).toHaveProperty('length', 3);
-  expect(getByText('HeaderOne')).toBeTruthy();
-  expect(getByText('HeaderTwo')).toBeTruthy();
-  expect(getByText('HeaderThree')).toBeTruthy();
+  expect(getByText('HeaderOne')).toBeInTheDocument();
+  expect(getByText('HeaderTwo')).toBeInTheDocument();
+  expect(getByText('HeaderThree')).toBeInTheDocument();
 });
 
 test('Renders table rows', () => {
@@ -42,12 +42,12 @@ test('Renders table rows', () => {
   const { container, getByText } = render(<Table headers={headers} rows={rows} />);
   expect(container.getElementsByTagName('tr')).toHaveProperty('length', 3);
   expect(container.getElementsByTagName('td')).toHaveProperty('length', 6);
-  expect(getByText('Column1')).toBeTruthy();
-  expect(getByText('Column2')).toBeTruthy();
-  expect(getByText('Column3')).toBeTruthy();
-  expect(getByText('Column4')).toBeTruthy();
-  expect(getByText('Column5')).toBeTruthy();
-  expect(getByText('Column6')).toBeTruthy();
+  expect(getByText('Column1')).toBeInTheDocument();
+  expect(getByText('Column2')).toBeInTheDocument();
+  expect(getByText('Column3')).toBeInTheDocument();
+  expect(getByText('Column4')).toBeInTheDocument();
+  expect(getByText('Column5')).toBeInTheDocument();
+  expect(getByText('Column6')).toBeInTheDocument();
 });
 
 test('Renders React components in table columns', () => {
@@ -55,7 +55,7 @@ test('Renders React components in table columns', () => {
   const { container, getByText } = render(<Table headers={headers} rows={rows} />);
   expect(container.getElementsByTagName('tr')).toHaveProperty('length', 2);
   expect(container.getElementsByTagName('td')).toHaveProperty('length', 2);
-  expect(getByText('Column1')).toBeTruthy();
+  expect(getByText('Column1')).toBeInTheDocument();
   expect(container.getElementsByTagName('button')).toHaveProperty('length', 1);
-  expect(getByText('ButtonComponent')).toBeTruthy();
+  expect(getByText('ButtonComponent')).toBeInTheDocument();
 });

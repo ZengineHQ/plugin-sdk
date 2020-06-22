@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import TextAreaField from '../../src/molecules/TextAreaField';
+import { TextAreaField } from '../../src/molecules/TextAreaField';
 import { MockForm } from '../MockForm';
 import { isEmail } from '../../src/util/validation';
 
@@ -13,7 +13,7 @@ test('Renders a textarea', () => {
 
 test('Sets label when specified', () => {
   const { container, getByText } = render(<MockForm><TextAreaField label="foo" name="foo" /></MockForm>);
-  expect(getByText('foo')).toBeTruthy();
+  expect(getByText('foo')).toBeInTheDocument();
 
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(1);
@@ -120,7 +120,43 @@ test('Validates field "required" correctly', async () => {
 
   expect(input.value).toEqual('');
   expect(input).toHaveClass('form-control is-invalid');
-  expect(getByText('Required')).toBeTruthy();
+  expect(getByText('Required')).toBeInTheDocument();
+});
+
+test('Changes field "required" error message correctly', async () => {
+  const { container, getByText } = render(
+    <MockForm>
+      <TextAreaField
+        name="foo"
+        required={true}
+        requiredMessage="Reqmsg"
+      />
+    </MockForm>
+  );
+  const input = container.getElementsByTagName('textarea')[0];
+
+  expect(input.value).toEqual('');
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: 'Test' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('Test');
+  expect(input).toHaveClass('form-control is-valid');
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: '' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('');
+  expect(input).toHaveClass('form-control is-invalid');
+  expect(getByText('Reqmsg')).toBeInTheDocument();
 });
 
 test('Fires custom onChange handler if specified', async () => {
@@ -202,7 +238,7 @@ test('Performs custom validation correctly when specified', async () => {
 
   expect(textarea.value).toEqual('foo@bar');
   expect(textarea).toHaveClass('form-control is-invalid');
-  expect(getByText('Invalid email address')).toBeTruthy();
+  expect(getByText('Invalid email address')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.change(textarea, { target: { value: 'foo@bar.com' } });

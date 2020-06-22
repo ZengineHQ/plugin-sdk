@@ -19,6 +19,17 @@ export const Required = () => (
   <MockForm><TextAreaField label="Required TextArea Input" required={ true } name="text" /></MockForm>
 );
 
+export const RequiredMessage = () => (
+  <MockForm>
+    <TextAreaField
+      label="Required TextArea Input"
+      required={ true }
+      requiredMessage="This is totally required"
+      name="text"
+    />
+  </MockForm>
+);
+
 export const HelpText = () => (
   <MockForm><TextAreaField label="Text" help="This is some help text" name="text" /></MockForm>
 );

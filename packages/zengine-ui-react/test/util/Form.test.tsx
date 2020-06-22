@@ -125,6 +125,7 @@ test('Performs custom validation when specified', async () => {
         value: 'Still testing',
       },
     });
+    fireEvent.blur(input);
   });
 
   expect(mock).toBeCalled();

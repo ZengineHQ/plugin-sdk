@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import CheckboxField from '../../src/molecules/CheckboxField';
+import { CheckboxField } from '../../src/molecules/CheckboxField';
 import { MockForm } from '../MockForm';
 
 test('Renders a checkbox input', () => {
@@ -12,7 +12,7 @@ test('Renders a checkbox input', () => {
 
 test('Sets label when specified', () => {
   const { container, getByText } = render(<MockForm><CheckboxField label="foo" name="foo" /></MockForm>);
-  expect(getByText('foo')).toBeTruthy();
+  expect(getByText('foo')).toBeInTheDocument();
 
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(1);
@@ -99,10 +99,50 @@ test('Validates field "required" correctly', async () => {
   await act(async () => {
     fireEvent.click(input);
   });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
 
   expect(input.checked).toEqual(false);
   expect(input).toHaveClass('form-check-input is-invalid');
-  expect(getByText('Required')).toBeTruthy();
+  expect(getByText('Required')).toBeInTheDocument();
+});
+
+test('Changes field "required" error message correctly', async () => {
+  const { container, getByText } = render(
+    <MockForm>
+      <CheckboxField
+        label="Foo"
+        name="foo"
+        required={true}
+        requiredMessage="Reqmsg"
+      />
+    </MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  expect(input.checked).toEqual(false);
+
+  await act(async () => {
+    fireEvent.click(input);
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.checked).toEqual(true);
+  expect(input).toHaveClass('form-check-input is-valid');
+
+  await act(async () => {
+    fireEvent.click(input);
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.checked).toEqual(false);
+  expect(input).toHaveClass('form-check-input is-invalid');
+  expect(getByText('Reqmsg')).toBeInTheDocument();
 });
 
 test('Fires custom onChange handler if specified', async () => {
@@ -167,7 +207,7 @@ test('Performs custom validation correctly when specified', async () => {
 
   expect(input.checked).toEqual(true);
   expect(input).toHaveClass('form-check-input is-invalid');
-  expect(getByText('Say yes again emeffer')).toBeTruthy();
+  expect(getByText('Say yes again emeffer')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.click(input);

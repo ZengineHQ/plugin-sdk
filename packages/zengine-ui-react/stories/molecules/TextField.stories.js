@@ -20,6 +20,17 @@ export const Required = () => (
   <MockForm><TextField label="Required Text Input" required={ true } name="text" /></MockForm>
 );
 
+export const RequiredMesssage = () => (
+  <MockForm>
+    <TextField
+      label="Required Text Input"
+      required={ true }
+      requiredMessage="THIS FIELD IS TOTALLY REQUIRED"
+      name="text"
+    />
+  </MockForm>
+);
+
 export const Disabled = () => (
   <MockForm><TextField label="Disabled Text Input" disabled={ true } name="text" /></MockForm>
 );

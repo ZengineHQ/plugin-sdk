@@ -20,6 +20,7 @@ export interface StateFieldProps {
   defaultValue?: any
   innerRef?: any
   includeCanada?: boolean
+  requiredMessage?: string
 }
 
 /**
@@ -43,6 +44,7 @@ const StateField: React.FC<StateFieldProps> = (props) => {
       placeholder={props.placeholder}
       defaultValue={props.defaultValue}
       options={stateOptions}
+      requiredMessage={props.requiredMessage}
     />
   );
 }
@@ -54,7 +56,8 @@ StateField.defaultProps = {
   classes: '',
   multiple: false,
   placeholder: '-Select-',
-  includeCanada: false
+  includeCanada: false,
+  requiredMessage: 'Required'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

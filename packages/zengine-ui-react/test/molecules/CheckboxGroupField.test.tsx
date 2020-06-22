@@ -17,7 +17,7 @@ test('Sets label when specified', () => {
   const { container, getByText } = render(
     <MockForm><CheckboxGroupField label="foo" name="foo" options={opts} /></MockForm>
   );
-  expect(getByText('foo')).toBeTruthy();
+  expect(getByText('foo')).toBeInTheDocument();
 
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(4);
@@ -134,10 +134,13 @@ test('Sets values and Validates field "required" correctly', async () => {
   });
 
   expect(firstInput).toHaveClass('form-check-input is-invalid');
-  expect(getByText('Required')).toBeTruthy();
+  expect(getByText('Required')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.click(firstInput);
+  });
+  await act(async () => {
+    fireEvent.blur(firstInput);
   });
 
   expect(firstInput.checked).toEqual(true);
@@ -151,10 +154,39 @@ test('Sets values and Validates field "required" correctly', async () => {
   const secondInput = container.getElementsByTagName('input')[1];
   await act(async () => {
     fireEvent.click(secondInput);
+    fireEvent.blur(secondInput);
   });
 
   expect(secondInput.checked).toEqual(true);
   expect(secondInput).toHaveClass('form-check-input is-valid');
+});
+
+
+test('Changes field "required" error message correctly', async () => {
+  const { container, getByText } = render(
+    <MockForm>
+      <CheckboxGroupField
+        label="Foo"
+        name="foo"
+        required={true}
+        requiredMessage="Reqmsg"
+        options={opts}
+      />
+    </MockForm>
+  );
+
+  let checkedInput = container.querySelector('input[name="foo"]:checked');
+  expect(checkedInput).toEqual(null);
+
+  const firstInput = container.getElementsByTagName('input')[0];
+  expect(firstInput).toHaveClass('form-check-input');
+
+  await act(async () => {
+    fireEvent.blur(firstInput);
+  });
+
+  expect(firstInput).toHaveClass('form-check-input is-invalid');
+  expect(getByText('Reqmsg')).toBeInTheDocument();
 });
 
 test('Fires custom onChange handler if specified', async () => {
@@ -219,7 +251,7 @@ test('Performs custom validation correctly when specified', async () => {
 
   expect(inputs[0].checked).toEqual(true);
   expect(inputs[0]).toHaveClass('form-check-input is-invalid');
-  expect(getByText(`Must pick ${opts[1]}`)).toBeTruthy();
+  expect(getByText(`Must pick ${opts[1]}`)).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.click(inputs[1]);

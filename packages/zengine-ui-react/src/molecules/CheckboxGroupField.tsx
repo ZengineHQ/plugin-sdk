@@ -25,6 +25,7 @@ export interface CheckboxGroupFieldProps {
   help?: string
   children?: React.ReactNode
   options?: Array<SelectOption | string>
+  requiredMessage?: string
 }
 
 /**
@@ -38,7 +39,7 @@ export interface CheckboxGroupFieldProps {
 const CheckboxGroupField: React.FC<CheckboxGroupFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && value === undefined) {
-      return 'Required';
+      return props.requiredMessage;
     }
     if (props.validate !== undefined) {
       return props.validate(value);
@@ -112,6 +113,7 @@ CheckboxGroupField.defaultProps = {
   disabled: false,
   required: false,
   readonly: false,
+  requiredMessage: 'Required'
 };
 
 export default CheckboxGroupField;
