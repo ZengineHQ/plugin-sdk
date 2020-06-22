@@ -2,7 +2,7 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import TextField from '../../src/molecules/TextField';
-import { isEmail } from '../../src/util/validation';
+import { isEmail, maxLength } from '../../src/util/validation';
 import MockForm from '../../test/MockForm';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
 
@@ -60,6 +60,24 @@ export const CustomValidation = () => {
   };
   return (
     <MockForm><TextField label="Email" help="Enter your email address" name="text" validate={ validate } /></MockForm>
+  );
+};
+
+export const AsyncValidation = () => {
+  const validate = value => {
+    return new Promise((resolve, reject) => {
+      if (maxLength(value, 3)) {
+        resolve();
+      } else {
+        reject('The value is is too long');
+      }
+    });
+  };
+
+  return (
+    <MockForm initialValues={{text: ''}}>
+      <TextField label="MaxLength" help="Max length is 3" name="text" validate={ validate } />
+    </MockForm>
   );
 };
 

@@ -5,7 +5,7 @@ import Label from '../atoms/Label';
 import Select, { SelectOption } from '../atoms/Select';
 import withForwardRef from '../util/withForwardRef';
 import getFieldClasses from '../util/getFieldClasses';
-import { isEmpty } from '../util/validation';
+import { fieldValidationHelper, isEmpty } from '../util/validation';
 import ErrorMessage from '../util/ErrorMessage';
 
 export interface SelectFieldProps {
@@ -40,9 +40,7 @@ const SelectField: React.FC<SelectFieldProps> = (props) => {
     if (props.required === true && isEmpty(value)) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined && typeof props.validate === 'function') {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta] = useField({ name: props.name, validate });

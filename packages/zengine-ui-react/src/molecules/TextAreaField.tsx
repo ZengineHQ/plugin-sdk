@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useField } from 'formik';
 
-import { isEmpty, wordCount } from '../util/validation';
+import { fieldValidationHelper, isEmpty, wordCount } from '../util/validation';
 import Label from '../atoms/Label';
 import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
@@ -41,9 +41,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
     if (props.required === true && isEmpty(value)) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined && typeof props.validate === 'function') {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta] = useField({ name: props.name, validate });

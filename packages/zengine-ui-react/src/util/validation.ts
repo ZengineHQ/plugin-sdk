@@ -128,3 +128,24 @@ export const maxNumber = (num: number|string, max: number|string): boolean => {
 export const minNumber = (num: number|string, min: number|string): boolean => {
   return numeric(num) && numeric(min) && parseFloat(num as string) >= parseFloat(min as string);
 };
+
+/**
+ * Helper to perform async custom field validation.
+ */
+export const fieldValidationHelper = async (validate: Function|undefined, value: any): Promise<any> => {
+  if (typeof validate === 'function') {
+    let ret;
+
+    try {
+      ret = await validate(value);
+    } catch (err) {
+      if (err instanceof Error) {
+        ret = err.message;
+      } else {
+        ret = err;
+      }
+    }
+
+    return ret;
+  }
+};

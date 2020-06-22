@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import { isEmpty } from '../util/validation';
+import { fieldValidationHelper, isEmpty } from '../util/validation';
 import { useField } from 'formik';
 import Label from '../atoms/Label';
 import ErrorMessage from '../util/ErrorMessage';
@@ -34,9 +34,7 @@ const DateField: React.FC<DateFieldProps> = (props) => {
     if (props.required === true && (value === null || value === '' || value === undefined)) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined) {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta, { setTouched, setValue }] = useField({ name: (props.name ?? ''), validate });

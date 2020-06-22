@@ -5,7 +5,7 @@ import Input from '../atoms/Input';
 import Label from '../atoms/Label';
 import withForwardRef from '../util/withForwardRef';
 import getFieldClasses from '../util/getFieldClasses';
-import { isEmpty, isNumber } from '../util/validation';
+import { fieldValidationHelper, isEmpty, isNumber } from '../util/validation';
 import ErrorMessage from '../util/ErrorMessage';
 
 export interface NumberFieldProps {
@@ -41,9 +41,7 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
     if (props.required === true && isEmpty(value)) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined) {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta] = useField({ name: props.name, validate });
