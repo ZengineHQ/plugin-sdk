@@ -88,8 +88,10 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
         onBlur={ onBlurHelper }
       />
 
-      { !isEmpty(props.help) ? <small id={ helpId } className="form-text text-muted">{ props.help }</small> : undefined }
-      { props.wordCounter && <small className="form-text text-muted">Word Count: { words }</small>}
+      <div className="d-flex">
+        { !isEmpty(props.help) ? <small id={ helpId } className="form-text text-muted flex-grow-1">{ props.help }</small> : undefined }
+        { props.wordCounter && <small className="form-text text-muted">Word Count: { words }</small>}
+      </div>
 
       <ErrorMessage meta={ meta }/>
     </div>
