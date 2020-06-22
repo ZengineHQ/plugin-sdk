@@ -24,6 +24,7 @@ export interface CheckboxFieldProps {
   innerRef?: string
   help?: string
   children?: React.ReactNode
+  requiredMessage?: string
 }
 
 /**
@@ -36,7 +37,7 @@ export interface CheckboxFieldProps {
 const CheckboxField: React.FC<CheckboxFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && value !== true) {
-      return 'Required';
+      return props.requiredMessage;
     }
     if (props.validate !== undefined) {
       return props.validate(value);
@@ -108,6 +109,7 @@ CheckboxField.defaultProps = {
   disabled: false,
   required: false,
   readonly: false,
+  requiredMessage: 'Required'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

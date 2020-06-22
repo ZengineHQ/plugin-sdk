@@ -23,6 +23,7 @@ export interface RadioGroupFieldProps {
   readonly?: boolean
   classes?: string
   options: Array<SelectOption | string>
+  requiredMessage?: string
 }
 
 /**
@@ -36,7 +37,7 @@ export interface RadioGroupFieldProps {
 const RadioGroupField: React.FC<RadioGroupFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && value === undefined) {
-      return 'Required';
+      return props.requiredMessage;
     }
     if (props.validate !== undefined && typeof props.validate === 'function') {
       return props.validate(value);
@@ -110,6 +111,7 @@ RadioGroupField.defaultProps = {
   disabled: false,
   required: false,
   readonly: false,
+  requiredMessage: 'Required'
 };
 
 export default RadioGroupField;

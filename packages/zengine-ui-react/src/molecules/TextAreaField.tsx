@@ -23,6 +23,7 @@ export interface TextAreaFieldProps {
   placeholder?: string
   innerRef?: any
   resizable?: boolean
+  requiredMessage?: string
 }
 
 /**
@@ -35,7 +36,7 @@ export interface TextAreaFieldProps {
 const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
-      return 'Required';
+      return props.requiredMessage;
     }
     if (props.validate !== undefined && typeof props.validate === 'function') {
       return props.validate(value);
@@ -92,6 +93,7 @@ TextAreaField.defaultProps = {
   required: false,
   classes: '',
   resizable: true,
+  requiredMessage: 'Required'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

@@ -19,6 +19,7 @@ export interface YearFieldProps {
   placeholder?: string
   defaultValue?: any
   innerRef?: any
+  requiredMessage?: string
 }
 
 /**
@@ -43,6 +44,7 @@ const YearField: React.FC<YearFieldProps> = (props) => {
       placeholder={props.placeholder}
       defaultValue={props.defaultValue}
       options={yearOptions}
+      requiredMessage={props.requiredMessage}
     />
   );
 }
@@ -53,7 +55,8 @@ YearField.defaultProps = {
   required: false,
   classes: '',
   multiple: false,
-  placeholder: '-Select-'
+  placeholder: '-Select-',
+  requiredMessage: 'Required'
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.
