@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 // import userEvent from '@testing-library/user-event';
 
 import { MockForm } from '../MockForm';
-import SelectField from '../../src/molecules/SelectField';
+import { SelectField } from '../../src/molecules/SelectField';
 
 // Dummy options to be re-used across tests.
 const opts = ['optionOne', 'optionTwo', 'optionThree', 'optionFour'];
@@ -172,6 +172,43 @@ test('Validates field "required" correctly', async () => {
   expect(select.value).toEqual('');
   expect(select).toHaveClass('form-control is-invalid');
   expect(getByText('Required')).toBeInTheDocument();
+});
+
+test('Changes field "required" error message correctly', async () => {
+  const { container, getByText } = render(
+    <MockForm>
+      <SelectField
+        options={opts}
+        name="foo"
+        required={true}
+        requiredMessage="Reqmsg"
+      />
+    </MockForm>
+  );
+  const select = container.getElementsByTagName('select')[0];
+
+  expect(select.value).toEqual('');
+
+  await act(async () => {
+    fireEvent.change(select, { target: { value: opts[2] } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual(opts[2]);
+  expect(select).toHaveClass('form-control is-valid');
+
+  await act(async () => {
+    fireEvent.change(select, { target: { value: '' } });
+  });
+  await act(async () => {
+    fireEvent.blur(select);
+  });
+
+  expect(select.value).toEqual('');
+  expect(select).toHaveClass('form-control is-invalid');
+  expect(getByText('Reqmsg')).toBeInTheDocument();
 });
 
 test('Adds a default value when specified', () => {

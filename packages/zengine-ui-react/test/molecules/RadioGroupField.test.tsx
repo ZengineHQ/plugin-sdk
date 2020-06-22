@@ -156,6 +156,33 @@ test('Sets values and Validates field "required" correctly', async () => {
   expect(secondInput).toHaveClass('form-check-input is-valid');
 });
 
+test('Changes field "required" error message correctly', async () => {
+  const { container, getByText } = render(
+    <MockForm>
+      <RadioGroupField
+        label="Foo"
+        name="foo"
+        required={true}
+        requiredMessage="Reqmsg"
+        options={opts}
+      />
+    </MockForm>
+  );
+
+  let checkedInput = container.querySelector('input[name="foo"]:checked');
+  expect(checkedInput).toEqual(null);
+
+  const firstInput = container.getElementsByTagName('input')[0];
+
+  expect(firstInput).toHaveClass('form-check-input');
+  await act(async () => {
+    fireEvent.blur(firstInput);
+  });
+
+  expect(firstInput).toHaveClass('form-check-input is-invalid');
+  expect(getByText('Reqmsg')).toBeInTheDocument();
+});
+
 test('Fires custom onChange handler if specified', async () => {
   const mock = jest.fn();
   const { container } = render(<MockForm><RadioGroupField name="foo" onChange={mock} options={opts} /></MockForm>);
