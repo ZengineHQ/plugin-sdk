@@ -54,7 +54,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
   const onChangeHelper = (e: React.ChangeEvent): void => {
     const target = e.currentTarget as HTMLInputElement;
 
-    if (props.wordCounter) {
+    if (props.wordCounter === true) {
       setWords(wordCount(target.value));
     }
 
@@ -90,7 +90,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
 
       <div className="d-flex">
         { !isEmpty(props.help) ? <small id={ helpId } className="form-text text-muted flex-grow-1">{ props.help }</small> : undefined }
-        { props.wordCounter && <small className="form-text text-muted">Word Count: { words }</small>}
+        { props.wordCounter === true && <small className="form-text text-muted">Word Count: { words }</small>}
       </div>
 
       <ErrorMessage meta={ meta }/>

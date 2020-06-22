@@ -63,7 +63,7 @@ export const minLength = (str: string, min: number): boolean => {
  */
 export const wordCount = (str: string): number => {
   const matches = str.match(/(\S+)/g);
-  return matches ? matches.length : 0;
+  return matches !== null ? matches.length : 0;
 };
 
 /**
