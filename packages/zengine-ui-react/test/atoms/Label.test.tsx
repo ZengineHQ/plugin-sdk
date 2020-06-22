@@ -5,12 +5,12 @@ import Label from '../../src/atoms/Label';
 
 test('Renders with specified text', () => {
   const { getByText } = render(<Label>Hello</Label>);
-  expect(getByText('Hello')).toBeTruthy();
+  expect(getByText('Hello')).toBeInTheDocument();
 });
 
 test('Adds an asterisk when required', () => {
   const { getByText } = render(<Label required={true}>Hello</Label>);
-  expect(getByText('*')).toBeTruthy();
+  expect(getByText('*')).toBeInTheDocument();
 });
 
 test('Adds custom classes when specified', () => {

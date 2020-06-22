@@ -11,7 +11,7 @@ test('Renders a div HTML tag', () => {
 
 test('Renders with specified text', () => {
   const { getByText } = render(<ErrorMessage meta={{ touched: true, error: 'Hello' }} />);
-  expect(getByText('Hello')).toBeTruthy();
+  expect(getByText('Hello')).toBeInTheDocument();
 });
 
 test('Renders only if meta touched passed', () => {
