@@ -99,6 +99,9 @@ test('Validates field "required" correctly', async () => {
   await act(async () => {
     fireEvent.click(input);
   });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
 
   expect(input.checked).toEqual(false);
   expect(input).toHaveClass('form-check-input is-invalid');
@@ -123,12 +126,18 @@ test('Changes field "required" error message correctly', async () => {
   await act(async () => {
     fireEvent.click(input);
   });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
 
   expect(input.checked).toEqual(true);
   expect(input).toHaveClass('form-check-input is-valid');
 
   await act(async () => {
     fireEvent.click(input);
+  });
+  await act(async () => {
+    fireEvent.blur(input);
   });
 
   expect(input.checked).toEqual(false);

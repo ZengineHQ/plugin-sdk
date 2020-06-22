@@ -139,6 +139,9 @@ test('Sets values and Validates field "required" correctly', async () => {
   await act(async () => {
     fireEvent.click(firstInput);
   });
+  await act(async () => {
+    fireEvent.blur(firstInput);
+  });
 
   expect(firstInput.checked).toEqual(true);
   expect(firstInput).toHaveClass('form-check-input is-valid');
@@ -151,6 +154,7 @@ test('Sets values and Validates field "required" correctly', async () => {
   const secondInput = container.getElementsByTagName('input')[1];
   await act(async () => {
     fireEvent.click(secondInput);
+    fireEvent.blur(secondInput);
   });
 
   expect(secondInput.checked).toEqual(true);
