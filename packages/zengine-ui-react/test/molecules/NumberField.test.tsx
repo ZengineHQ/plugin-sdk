@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import NumberField from '../../src/molecules/NumberField';
+import { NumberField } from '../../src/molecules/NumberField';
 import { MockForm } from '../MockForm';
 
 test('Renders a number input', () => {
@@ -145,6 +145,23 @@ test('Fires custom onChange handler if specified', async () => {
 
   expect(input.value).toEqual('123');
   expect(mock).toBeCalled();
+});
+
+test('Sets fixed decimal places if specified', async () => {
+  const { container } = render(
+    <MockForm><NumberField name="foo" decimals={4} /></MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: '123',
+      },
+    });
+  });
+
+  expect(input.value).toEqual('123.0000');
 });
 
 test('Fires custom onBlur handler if specified', async () => {

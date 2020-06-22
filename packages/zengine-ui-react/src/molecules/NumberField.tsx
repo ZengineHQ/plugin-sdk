@@ -5,7 +5,7 @@ import Input from '../atoms/Input';
 import Label from '../atoms/Label';
 import withForwardRef from '../util/withForwardRef';
 import getFieldClasses from '../util/getFieldClasses';
-import { isEmpty } from '../util/validation';
+import { isEmpty, isNumber } from '../util/validation';
 import ErrorMessage from '../util/ErrorMessage';
 
 export interface NumberFieldProps {
@@ -14,7 +14,7 @@ export interface NumberFieldProps {
   name: string
   help?: string
   id?: string
-  onChange?: (event: React.ChangeEvent) => void
+  onChange?: (event: React.ChangeEvent| any) => void
   onBlur?: (event: React.FocusEvent) => void
   disabled?: boolean
   readonly?: boolean
@@ -25,6 +25,7 @@ export interface NumberFieldProps {
   suffix?: string | ReactElement
   label?: string
   labelClasses?: string
+  decimals?: number
 }
 
 /**
@@ -49,11 +50,20 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
   const id = props.id ?? `number-${props.name}`;
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
 
-  const onChangeHelper = (e: React.ChangeEvent): void => {
+  const onChangeHelper = (e: React.ChangeEvent): any => {
+    const target = e.currentTarget as HTMLInputElement;
+    let val = target.value;
+
+    if (isNumber(props.decimals)) {
+      val = parseFloat(val).toFixed(props.decimals);
+    }
+
+    const evt = { currentTarget: { value: val, name: field.name } };
+
     // Call custom callback.
-    props?.onChange?.(e);
+    props?.onChange?.(evt);
     // Now delegate back to Formik to keep things working.
-    return field.onChange(e);
+    return field.onChange(evt);
   };
   const onBlurHelper = (e: React.FocusEvent): void => {
     props?.onBlur?.(e);

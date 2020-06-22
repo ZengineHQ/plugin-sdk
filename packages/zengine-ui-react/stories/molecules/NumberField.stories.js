@@ -31,6 +31,10 @@ export const Placeholder = () => (
   <MockForm><NumberField label="Placeholder Number Input" placeholder="placeholder number" name="number" /></MockForm>
 );
 
+export const Decimals = () => (
+  <MockForm><NumberField label="Fixed Decimal Places Number Input" decimals={4} name="number" /></MockForm>
+);
+
 export const PrefixAndSuffix = () => (
   <MockForm>
     <NumberField
