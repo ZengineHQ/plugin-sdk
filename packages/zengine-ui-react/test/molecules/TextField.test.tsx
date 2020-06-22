@@ -131,6 +131,38 @@ test('Validates field "required" correctly', async () => {
   expect(getByText('Required')).toBeInTheDocument();
 });
 
+test('Changes field "required" error message correctly', async () => {
+  const { container, getByText } = render(
+    <MockForm>
+      <TextField name="foo" required={true} requiredMessage="Blablabla required"/>
+    </MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  expect(input.value).toEqual('');
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: 'Testing' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('Testing');
+  expect(input).toHaveClass('form-control is-valid');
+
+  await act(async () => {
+    fireEvent.change(input, { target: { value: '' } });
+  });
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('');
+  expect(input).toHaveClass('form-control is-invalid');
+  expect(getByText('Blablabla required')).toBeInTheDocument();
+});
+
 test('Fires custom onChange handler if specified', async () => {
   const mock = jest.fn();
   const { container } = render(<MockForm><TextField name="foo" onChange={mock} /></MockForm>);
