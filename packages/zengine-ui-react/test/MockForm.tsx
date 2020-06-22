@@ -9,7 +9,7 @@ export function MockForm (props: any): ReactElement {
       onSubmit={props.onSubmit}
       validateOnBlur={true}
       validateOnMount={false}
-      validateOnChange={true}
+      validateOnChange={false}
     >
       <Form noValidate>
         {props.children}
