@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import TextField from '../../src/molecules/TextField';
+import { TextField } from '../../src/molecules/TextField';
 import { MockForm } from '../MockForm';
 import { isEmail } from '../../src/util/validation';
 
@@ -13,7 +13,7 @@ test('Renders a text input', () => {
 
 test('Sets label when specified', () => {
   const { container, getByText } = render(<MockForm><TextField label="foo" name="foo" /></MockForm>);
-  expect(getByText('foo')).toBeTruthy();
+  expect(getByText('foo')).toBeInTheDocument();
 
   const labels = container.getElementsByTagName('label');
   expect(labels.length).toEqual(1);
@@ -99,8 +99,8 @@ test('Sets prefix and suffix when specified', () => {
   const { getByText } = render(
     <MockForm><TextField label="Foo" name="foo" prefix="fooprefix" suffix="barsuffix" /></MockForm>
   );
-  expect(getByText('fooprefix')).toBeTruthy();
-  expect(getByText('barsuffix')).toBeTruthy();
+  expect(getByText('fooprefix')).toBeInTheDocument();
+  expect(getByText('barsuffix')).toBeInTheDocument();
 });
 
 test('Validates field "required" correctly', async () => {
@@ -128,7 +128,7 @@ test('Validates field "required" correctly', async () => {
 
   expect(input.value).toEqual('');
   expect(input).toHaveClass('form-control is-invalid');
-  expect(getByText('Required')).toBeTruthy();
+  expect(getByText('Required')).toBeInTheDocument();
 });
 
 test('Fires custom onChange handler if specified', async () => {
@@ -210,7 +210,7 @@ test('Performs custom validation correctly when specified', async () => {
 
   expect(input.value).toEqual('foo@bar');
   expect(input).toHaveClass('form-control is-invalid');
-  expect(getByText('Invalid email address')).toBeTruthy();
+  expect(getByText('Invalid email address')).toBeInTheDocument();
 
   await act(async () => {
     fireEvent.change(input, { target: { value: 'foo@bar.com' } });
