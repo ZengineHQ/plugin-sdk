@@ -32,6 +32,18 @@ export const Required = () => (
   </MockForm>
 );
 
+export const RequiredMessage = () => (
+  <MockForm>
+    <RadioGroupField
+      label="Required Radio Group"
+      required={ true }
+      requiredMessage="Select one or else..."
+      name="required"
+      options={ opts }
+    />
+  </MockForm>
+);
+
 export const HelpText = () => (
   <MockForm>
     <RadioGroupField label="Pick One!" help="This is some help text" name="help" options={ opts } />

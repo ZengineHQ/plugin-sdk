@@ -19,6 +19,17 @@ export const Required = () => (
   <MockForm><CheckboxField label="Required Checkbox Input" required={ true } name="text" /></MockForm>
 );
 
+export const RequiredMessage = () => (
+  <MockForm>
+    <CheckboxField
+      label="Required Checkbox Input"
+      required={ true }
+      requiredMessage="This field is VERY required"
+      name="text"
+    />
+  </MockForm>
+);
+
 export const HelpText = () => (
   <MockForm><CheckboxField label="Yes or No?" help="This is some help text" name="text" /></MockForm>
 );

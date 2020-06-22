@@ -26,6 +26,19 @@ export const Required = () => (
   <MockForm><SelectField label="Required SelectField" name="select" options={ opts } required /></MockForm>
 );
 
+
+export const RequiredMessage = () => (
+  <MockForm>
+    <SelectField
+      label="Required SelectField"
+      name="select"
+      options={ opts }
+      required={true}
+      requiredMessage="Very important can't ignore"
+    />
+  </MockForm>
+);
+
 export const Disabled = () => (
   <MockForm><SelectField label="Disabled SelectField" name="select" options={ opts } disabled /></MockForm>
 );

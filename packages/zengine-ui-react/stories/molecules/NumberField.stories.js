@@ -19,6 +19,17 @@ export const Required = () => (
   <MockForm><NumberField label="Required Number Input" required={ true } name="number" /></MockForm>
 );
 
+export const RequiredMessage = () => (
+  <MockForm>
+    <NumberField
+      label="Required Number Input"
+      required={ true }
+      requiredMessage="This is crucial and can't be left out"
+      name="number"
+    />
+  </MockForm>
+);
+
 export const Disabled = () => (
   <MockForm><NumberField label="Disabled Number Input" disabled={ true } name="number" /></MockForm>
 );
