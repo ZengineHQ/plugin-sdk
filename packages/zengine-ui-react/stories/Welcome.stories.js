@@ -75,7 +75,7 @@ export const Introduction = () => (
 
     <hr />
 
-    <Button onClick={ linkTo('Atoms/Button') }>Check out the first Atom</Button>
+    <Button onClick={ linkTo('Components/Atoms/Button') }>Check out the first Atom</Button>
   </article>
 );
 
