@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useField } from 'formik';
+import throttle from 'lodash/throttle';
 
 import Input from '../atoms/Input';
 import Label from '../atoms/Label';
@@ -45,8 +46,9 @@ const TextField: React.FC<TextFieldProps> = (props) => {
       return props.validate(value);
     }
   };
+  const throttledValidate = throttle(validate, 500, { leading: false });
 
-  const [field, meta] = useField({ name: props.name, validate });
+  const [field, meta] = useField({ name: props.name, validate: throttledValidate });
 
   const id = props.id ?? `text-${props.name}`;
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
