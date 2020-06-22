@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.16.0...@zenginehq/zengine-ui-react@0.17.0) (2020-06-22)
+
+
+### Features
+
+* add required message to all input molecules ([2f0f519](https://github.com/ZengineHQ/plugin-sdk/commit/2f0f5195140b8e2d0cd0e624379d8b9aa4b50da5))
+* allow changing text field required error message ([02d0d8b](https://github.com/ZengineHQ/plugin-sdk/commit/02d0d8bacd82ce6150294efd00937350987ee15a))
+
+
+### Reverts
+
+* Revert "chore: tentatively throttle field level validation" ([fc1133e](https://github.com/ZengineHQ/plugin-sdk/commit/fc1133e32f921eb524d60fce666ea9d46f33f5f5))
+
+
+
+
+
 # [0.16.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.15.0...@zenginehq/zengine-ui-react@0.16.0) (2020-06-19)
 
 
