@@ -27,6 +27,10 @@
   },
   "homepage": "https://github.com/ZengineHQ/zengine-sdk#readme",
   "devDependencies": {
+    "jest": "^26.1.0",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "jest-resolve": "^26.1.0",
+    "jest-watch-typeahead": "^0.6.0",
     "tslint": "^5.20.1",
     "tslint-config-standard": "^9.0.0",
     "typescript": "^3.8.3"
