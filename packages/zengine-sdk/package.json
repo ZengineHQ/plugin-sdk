@@ -7,7 +7,9 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "echo 'ben is lazy!'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cover": "CI=true npm test -- --collect-coverage",
     "lint": "tslint src/**/*.ts --project tsconfig.json --fix -q",
     "prepublishOnly": "npm run build"
   },
@@ -27,6 +29,11 @@
   },
   "homepage": "https://github.com/ZengineHQ/zengine-sdk#readme",
   "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
     "babel-jest": "^26.1.0",
     "jest": "^26.1.0",
     "jest-environment-jsdom-fourteen": "^1.0.1",

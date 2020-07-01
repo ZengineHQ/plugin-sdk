@@ -25,6 +25,7 @@ module.exports = {
   moduleNameMapper: {
   },
   moduleFileExtensions: [
+    'js',
     'ts',
     'json'
   ],
