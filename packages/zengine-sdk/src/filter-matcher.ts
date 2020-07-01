@@ -25,11 +25,7 @@ export interface FieldRule {
   attribute: string
   prefix: string
   value: any
-  filter?: FieldRuleFilter
-}
-
-export interface FieldRuleFilter {
-  [key: string]: FieldRule[]
+  filter?: any
 }
 
 export const parseNumber = (input: string = ''): string => {
@@ -202,7 +198,7 @@ export const getRecordValue = function (record: ZengineRecord, rule: FieldRule) 
   return recordValue
 }
 
-export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRuleFilter, options: RuleOptions = {}) {
+export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRule, options: RuleOptions = {}) {
   const operators = ['and', 'or']
 
   if (operators.indexOf(Object.keys(rule)[0]) !== -1) {
@@ -240,15 +236,18 @@ export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRul
   return false
 }
 
-export const recordMatchesFilter = function (record: ZengineRecord, filter: FieldRuleFilter, options: RuleOptions = {}) {
+export const recordMatchesFilter = function (record: ZengineRecord, filter: FieldRule, options: RuleOptions = {}) {
   const currentOperator: string = Object.keys(filter)[0]
 
+  // @ts-ignore
   if (filter[currentOperator].length === 0) {
     // Empty filter / no rules - considered a "match all"
     return true
   }
 
+  // @ts-ignore
   for (let i in filter[currentOperator]) {
+    // @ts-ignore
     const match = recordMatchesRule(record, filter[currentOperator][i], options)
     if (currentOperator === 'or' && match) {
       return true
