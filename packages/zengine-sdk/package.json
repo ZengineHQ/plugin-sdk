@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/ZengineHQ/zengine-sdk#readme",
   "devDependencies": {
+    "babel-jest": "^26.1.0",
     "jest": "^26.1.0",
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "jest-resolve": "^26.1.0",
