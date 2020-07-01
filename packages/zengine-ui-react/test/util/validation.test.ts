@@ -6,6 +6,7 @@ import {
   isEmail,
   maxLength,
   minLength,
+  wordCount,
   maxWordCount,
   minWordCount,
   alpha,
@@ -94,14 +95,25 @@ test('minLength() correctly determines whether a string adheres to a maximum len
   expect(minLength('hello', 5)).toBe(true);
 });
 
+test('wordCount() correctly handles spaces', () => {
+  expect(wordCount('one two three')).toBe(3);
+  expect(wordCount('one two three ')).toBe(3);
+  expect(wordCount('one two three  ')).toBe(3);
+  expect(wordCount('    one two three    ')).toBe(3);
+  expect(wordCount('    ')).toBe(0);
+});
+
 test('maxWordCount() correctly determines whether a string adheres to a maximum length', () => {
   expect(maxWordCount('hello there foo bar', 3)).toBe(false);
   expect(maxWordCount('hello there foo', 3)).toBe(true);
+  expect(maxWordCount('hello there foo ', 3)).toBe(true);
 });
 
 test('minWordCount() correctly determines whether a string adheres to a maximum length', () => {
   expect(minWordCount('hello there', 3)).toBe(false);
   expect(minWordCount('hello there foo', 3)).toBe(true);
+  expect(minWordCount('hello there foo ', 3)).toBe(true);
+  expect(minWordCount('   ', 1)).toBe(false);
 });
 
 test('alpha() correctly determines whether a string only contains alphabetic characters', () => {

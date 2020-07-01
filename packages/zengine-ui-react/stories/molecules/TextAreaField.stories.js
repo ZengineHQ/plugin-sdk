@@ -34,6 +34,12 @@ export const HelpText = () => (
   <MockForm><TextAreaField label="Text" help="This is some help text" name="text" /></MockForm>
 );
 
+export const WordCount = () => (
+  <MockForm>
+    <TextAreaField label="Text" help="This one counts words" name="text" wordCounter={true} />
+  </MockForm>
+);
+
 export const Disabled = () => (
   <MockForm><TextAreaField label="Disabled TextArea Input" disabled={ true } name="text" /></MockForm>
 );

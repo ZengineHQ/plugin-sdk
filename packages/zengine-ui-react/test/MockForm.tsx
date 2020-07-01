@@ -5,7 +5,7 @@ import { Formik, Form } from 'formik';
 export function MockForm (props: any): ReactElement {
   return (
     <Formik
-      initialValues={{}}
+      initialValues={props.initialValues}
       onSubmit={props.onSubmit}
       validateOnBlur={true}
       validateOnMount={false}
@@ -20,10 +20,12 @@ export function MockForm (props: any): ReactElement {
 
 MockForm.propTypes = {
   onSubmit: PropTypes.func,
+  initialValues: PropTypes.object,
 };
 
 MockForm.defaultProps = {
   onSubmit: () => null,
+  initialValues: {},
 };
 
 export default MockForm;

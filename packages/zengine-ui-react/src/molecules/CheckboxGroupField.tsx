@@ -6,7 +6,7 @@ import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import Checkbox from '../atoms/Checkbox';
 import extractOptions from '../util/extractOptions';
-import { isEmpty } from '../util/validation';
+import { fieldValidationHelper, isEmpty } from '../util/validation';
 import { SelectOption } from '../atoms/Select';
 
 export interface CheckboxGroupFieldProps {
@@ -41,9 +41,7 @@ const CheckboxGroupField: React.FC<CheckboxGroupFieldProps> = (props) => {
     if (props.required === true && value === undefined) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined) {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });

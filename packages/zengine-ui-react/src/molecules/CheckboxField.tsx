@@ -6,7 +6,7 @@ import Label from '../atoms/Label';
 import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import withForwardRef from '../util/withForwardRef';
-import { isEmpty } from '../util/validation';
+import { fieldValidationHelper, isEmpty } from '../util/validation';
 import Checkbox from '../atoms/Checkbox';
 
 export interface CheckboxFieldProps {
@@ -39,9 +39,7 @@ const CheckboxField: React.FC<CheckboxFieldProps> = (props) => {
     if (props.required === true && value !== true) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined) {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta, { setTouched }] = useField({ name: (props.name ?? ''), validate });

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useField } from 'formik';
 
-import { isEmpty } from '../util/validation';
+import { fieldValidationHelper, isEmpty, wordCount } from '../util/validation';
 import Label from '../atoms/Label';
 import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
@@ -24,6 +24,7 @@ export interface TextAreaFieldProps {
   innerRef?: any
   resizable?: boolean
   requiredMessage?: string
+  wordCounter?: boolean
 }
 
 /**
@@ -34,13 +35,13 @@ export interface TextAreaFieldProps {
  * Use it to collect long-form textual data from users.
  */
 const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
+  const [words, setWords] = useState(0);
+
   const validate = (value: any): any => {
     if (props.required === true && isEmpty(value)) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined && typeof props.validate === 'function') {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta] = useField({ name: props.name, validate });
@@ -49,6 +50,12 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
 
   const onChangeHelper = (e: React.ChangeEvent): void => {
+    const target = e.currentTarget as HTMLInputElement;
+
+    if (props.wordCounter === true) {
+      setWords(wordCount(target.value));
+    }
+
     // Call custom callback.
     props?.onChange?.(e);
     // Now delegate back to Formik to keep things working.
@@ -79,7 +86,10 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
         onBlur={ onBlurHelper }
       />
 
-      { !isEmpty(props.help) ? <small id={ helpId } className="form-text text-muted">{ props.help }</small> : undefined }
+      <div className="d-flex">
+        { !isEmpty(props.help) ? <small id={ helpId } className="form-text text-muted flex-grow-1">{ props.help }</small> : undefined }
+        { props.wordCounter === true && <small className="form-text text-muted">Word Count: { words }</small>}
+      </div>
 
       <ErrorMessage meta={ meta }/>
     </div>
@@ -93,7 +103,8 @@ TextAreaField.defaultProps = {
   required: false,
   classes: '',
   resizable: true,
-  requiredMessage: 'Required'
+  requiredMessage: 'Required',
+  wordCounter: false
 };
 
 // Exported as a workaround due to Storybook Docs addon not processing wrapped components properly for generated Docs.

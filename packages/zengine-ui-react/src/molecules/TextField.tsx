@@ -5,7 +5,7 @@ import Input from '../atoms/Input';
 import Label from '../atoms/Label';
 import withForwardRef from '../util/withForwardRef';
 import getFieldClasses from '../util/getFieldClasses';
-import { isEmpty } from '../util/validation';
+import { fieldValidationHelper, isEmpty } from '../util/validation';
 import ErrorMessage from '../util/ErrorMessage';
 
 export interface TextFieldProps {
@@ -41,9 +41,7 @@ const TextField: React.FC<TextFieldProps> = (props) => {
     if (props.required === true && isEmpty(value)) {
       return props.requiredMessage;
     }
-    if (typeof props.validate === 'function') {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta] = useField({ name: props.name, validate });

@@ -6,7 +6,7 @@ import getFieldClasses from '../util/getFieldClasses';
 import ErrorMessage from '../util/ErrorMessage';
 import Radio from '../atoms/Radio';
 import { SelectOption } from '../atoms/Select';
-import { isEmpty } from '../util/validation';
+import { fieldValidationHelper, isEmpty } from '../util/validation';
 import extractOptions from '../util/extractOptions';
 
 export interface RadioGroupFieldProps {
@@ -39,9 +39,7 @@ const RadioGroupField: React.FC<RadioGroupFieldProps> = (props) => {
     if (props.required === true && value === undefined) {
       return props.requiredMessage;
     }
-    if (props.validate !== undefined && typeof props.validate === 'function') {
-      return props.validate(value);
-    }
+    return fieldValidationHelper(props.validate, value);
   };
 
   const [field, meta, { setTouched }] = useField({ name: props.name, validate });
