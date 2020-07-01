@@ -146,7 +146,7 @@ export const matchers = {
 }
 
 export const getRuleValues = function (rule: object) {
-  if (typeof rule.value == 'string' && rule.value.indexOf('|') !== -1) {
+  if (typeof rule.value === 'string' && rule.value.indexOf('|') !== -1) {
     return rule.value.split('|')
   }
   if (rule.value === 'null' || rule.value === null) {
@@ -155,11 +155,11 @@ export const getRuleValues = function (rule: object) {
   return [rule.value]
 }
 
-export const getRecordValue = function (record: object|null, rule: object) {
+export const getRecordValue = function (record: object | null | undefined, rule: object) {
   const attributePieces = rule.attribute.split('.')
   // Parse current record value of this rule's attribute, including dotted names (e.g. "folder.id")
   let recordValue = record
-  attributePieces.forEach(function(attributePiece) {
+  attributePieces.forEach(function (attributePiece) {
     recordValue = recordValue && recordValue[attributePiece]
   })
 
