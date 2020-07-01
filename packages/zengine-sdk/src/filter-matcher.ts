@@ -1,4 +1,4 @@
-import { ZengineRecord } from "./zengine.types";
+import { ZengineRecord } from './zengine.types'
 
 interface RuleFunctionMapInterface {
   [key: string]: string
@@ -37,7 +37,6 @@ export const parseNumber = (input: string = ''): string => {
 interface RuleMatcherInterface {
   [key: string]: Function
 }
-
 
 export const matchers: RuleMatcherInterface = {
   ruleEquals: function (recordValue: any, ruleValue: any): boolean {
@@ -225,7 +224,7 @@ export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRul
 
   // Run actual match logic based on rule prefix
   const matchFunctionName: string = ruleFunctionMap[rule.prefix]
-  const matchFunction: Function = matchers[matchFunctionName] as Function;
+  const matchFunction: Function = matchers[matchFunctionName]
 
   for (let i in ruleValues) {
     if (matchFunction(recordValue, ruleValues[i])) {
