@@ -43,13 +43,13 @@ export const matchers: RuleMatcherInterface = {
     if (Array.isArray(recordValue)) {
       return recordValue.length === 0
     }
-    return ruleValue.toString().toLowerCase() === recordValue.toString().toLowerCase()
+    return String(ruleValue).toLowerCase() === String(recordValue).toLowerCase()
   },
   ruleDoesNotEqual: function (recordValue: any, ruleValue: any): boolean {
     if (Array.isArray(recordValue)) {
       return recordValue.length > 0
     }
-    return ruleValue.toString().toLowerCase() !== recordValue.toString().toLowerCase()
+    return String(ruleValue).toLowerCase() !== String(recordValue).toLowerCase()
   },
   ruleMinimum: function (recordValue: any, ruleValue: any) {
     if (Array.isArray(recordValue)) {
@@ -104,7 +104,6 @@ export const matchers: RuleMatcherInterface = {
   },
   ruleContains: function (recordValue: any, ruleValue: any) {
     if (Array.isArray(recordValue)) {
-
       // Normalize Value as Array
       if (!Array.isArray(ruleValue)) {
         ruleValue = [ruleValue]
@@ -116,9 +115,9 @@ export const matchers: RuleMatcherInterface = {
         }
       }
       return true
-    } else {
-      return recordValue.toString().indexOf(ruleValue.toString()) !== -1
     }
+    return String(recordValue).indexOf(String(ruleValue)) !== -1;
+
   },
   ruleDoesNotContain: function (recordValue: any, ruleValue: any) {
     return !matchers.ruleContains(recordValue, ruleValue)
@@ -127,13 +126,13 @@ export const matchers: RuleMatcherInterface = {
     if (Array.isArray(recordValue)) {
       return false
     }
-    return recordValue.toString().startsWith(ruleValue.toString())
+    return String(recordValue).startsWith(String(ruleValue))
   },
   ruleEndsWith: function (recordValue: any, ruleValue: any) {
     if (Array.isArray(recordValue)) {
       return false
     }
-    return recordValue.toString().endsWith(ruleValue.toString())
+    return String(recordValue).endsWith(String(ruleValue))
   },
   ruleIn: function (recordValue: any, ruleValue: any) {
     if (!Array.isArray(ruleValue)) {
@@ -147,9 +146,9 @@ export const matchers: RuleMatcherInterface = {
       }
       return false
     } else {
-      const iRecordValue = recordValue.toString().toLowerCase()
+      const iRecordValue = String(recordValue).toLowerCase()
       const iRuleValues = ruleValue.map(function (value) {
-        return value.toString().toLowerCase()
+        return String(value).toLowerCase()
       })
       return iRuleValues.indexOf(iRecordValue) !== -1
     }
