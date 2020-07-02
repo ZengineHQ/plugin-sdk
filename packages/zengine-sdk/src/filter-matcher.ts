@@ -1,4 +1,5 @@
 import { ZengineRecord } from './zengine.types'
+import './polyfills.js'
 
 interface RuleFunctionMapInterface {
   [key: string]: string
