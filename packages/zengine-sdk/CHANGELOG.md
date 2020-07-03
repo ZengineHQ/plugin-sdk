@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.2.0...@zenginehq/zengine-sdk@0.3.0) (2020-07-02)
+
+
+### Features
+
+* initial port of filter matcher lib from anglerfish ([dfd17ec](https://github.com/ZengineHQ/zengine-sdk/commit/dfd17ec197575c7f31aed58d3490bf26f567083d))
+
+
+
+
+
 # [0.2.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.1.1...@zenginehq/zengine-sdk@0.2.0) (2020-04-10)
 
 

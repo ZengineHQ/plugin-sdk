@@ -1,8 +1,12 @@
-import { ZengineRecord } from './zengine.types'
+import { ZengineFilter, ZengineRecord } from './zengine.types'
 import './polyfills.js'
 
 interface RuleFunctionMapInterface {
   [key: string]: string
+}
+
+export interface RuleOptions {
+  subfiltering?: boolean
 }
 
 export const ruleFunctionMap: RuleFunctionMapInterface = {
@@ -16,17 +20,6 @@ export const ruleFunctionMap: RuleFunctionMapInterface = {
   'ends-with': 'ruleEndsWith',
   'in': 'ruleIn',
   'not-in': 'ruleNotIn'
-}
-
-export interface RuleOptions {
-  subfiltering?: boolean
-}
-
-export interface FieldRule {
-  attribute: string
-  prefix: string
-  value: any
-  filter?: any
 }
 
 export const parseNumber = (input: string = ''): string => {
@@ -117,7 +110,7 @@ export const matchers: RuleMatcherInterface = {
       }
       return true
     }
-    return String(recordValue).indexOf(String(ruleValue)) !== -1;
+    return String(recordValue).indexOf(String(ruleValue)) !== -1
 
   },
   ruleDoesNotContain: function (recordValue: any, ruleValue: any) {
@@ -162,18 +155,18 @@ export const matchers: RuleMatcherInterface = {
   }
 }
 
-export const getRuleValues = function (rule: FieldRule) {
-  if (typeof rule.value === 'string' && rule.value.indexOf('|') !== -1) {
-    return rule.value.split('|')
+export const getRuleValues = function (filter: ZengineFilter) {
+  if (typeof filter.value === 'string' && filter.value.indexOf('|') !== -1) {
+    return filter.value.split('|')
   }
-  if (rule.value === 'null' || rule.value === null) {
+  if (filter.value === 'null' || filter.value === null) {
     return ['']
   }
-  return [rule.value]
+  return [filter.value]
 }
 
-export const getRecordValue = function (record: ZengineRecord, rule: FieldRule) {
-  const attributePieces: string[] = rule.attribute.split('.')
+export const getRecordValue = function (record: ZengineRecord, filter: ZengineFilter) {
+  const attributePieces: string[] = String(filter.attribute).split('.')
   // Parse current record value of this rule's attribute, including dotted names (e.g. "folder.id")
   let recordValue: any = record
 
@@ -181,7 +174,7 @@ export const getRecordValue = function (record: ZengineRecord, rule: FieldRule) 
     recordValue = recordValue && recordValue[attributePiece]
   })
 
-  // Parse subobject properties to use for check - e.g. field123.value for upload, field456.id for linked/member
+  // Parse sub-object properties to use for check - e.g. field123.value for upload, field456.id for linked/member
   if (recordValue) {
     if (recordValue.value !== undefined) {
       recordValue = recordValue.value
@@ -197,7 +190,7 @@ export const getRecordValue = function (record: ZengineRecord, rule: FieldRule) 
   return recordValue
 }
 
-export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRule, options: RuleOptions = {}) {
+export const recordMatchesRule = function (record: ZengineRecord, rule: ZengineFilter, options: RuleOptions = {}) {
   const operators = ['and', 'or']
 
   if (operators.indexOf(Object.keys(rule)[0]) !== -1) {
@@ -207,7 +200,7 @@ export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRul
 
   if (rule.filter !== undefined) {
     if (options.subfiltering) {
-      const subRecord: any = record[rule.attribute]
+      const subRecord: any = record[rule.attribute as string]
       return recordMatchesFilter(subRecord, rule.filter, options)
     } else {
       throw new Error('Subfilter matching is not supported')
@@ -223,7 +216,7 @@ export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRul
   const ruleValues = getRuleValues(rule)
 
   // Run actual match logic based on rule prefix
-  const matchFunctionName: string = ruleFunctionMap[rule.prefix]
+  const matchFunctionName: string = ruleFunctionMap[rule.prefix as string]
   const matchFunction: Function = matchers[matchFunctionName]
 
   for (let i in ruleValues) {
@@ -235,7 +228,7 @@ export const recordMatchesRule = function (record: ZengineRecord, rule: FieldRul
   return false
 }
 
-export const recordMatchesFilter = function (record: ZengineRecord, filter: FieldRule, options: RuleOptions = {}) {
+export const recordMatchesFilter = function (record: ZengineRecord, filter: ZengineFilter, options: RuleOptions = {}) {
   const currentOperator: string = Object.keys(filter)[0]
 
   // @ts-ignore
