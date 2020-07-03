@@ -200,7 +200,7 @@ export const recordMatchesRule = function (record: ZengineRecord, rule: ZengineF
 
   if (rule.filter !== undefined) {
     if (options.subfiltering) {
-      const subRecord: any = record[rule.attribute]
+      const subRecord: any = record[rule.attribute as string]
       return recordMatchesFilter(subRecord, rule.filter, options)
     } else {
       throw new Error('Subfilter matching is not supported')
@@ -216,7 +216,7 @@ export const recordMatchesRule = function (record: ZengineRecord, rule: ZengineF
   const ruleValues = getRuleValues(rule)
 
   // Run actual match logic based on rule prefix
-  const matchFunctionName: string = ruleFunctionMap[rule.prefix]
+  const matchFunctionName: string = ruleFunctionMap[rule.prefix as string]
   const matchFunction: Function = matchers[matchFunctionName]
 
   for (let i in ruleValues) {
