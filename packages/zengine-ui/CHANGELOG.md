@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.5](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.4.3...@zenginehq/zengine-ui@0.4.5) (2020-07-08)
+
+
+### Reverts
+
+* Revert "chore: tentatively remove padding for link buttons" ([ef502f2](https://github.com/ZengineHQ/plugin-sdk/commit/ef502f2d9fbdeda87193ee72a8fb053c95d87b34))
+
+
+
+
+
 ## [0.4.3](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.4.2...@zenginehq/zengine-ui@0.4.3) (2020-06-22)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui
