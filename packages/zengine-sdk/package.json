@@ -47,5 +47,6 @@
     "@zenginehq/post-rpc-client": "^0.9.0",
     "content-sizer": "github:ZengineHQ/content-sizer",
     "tslib": "^1.11.1"
-  }
+  },
+  "gitHead": "59b5ee755490140fa8a42a82b70fd069e77e0d80"
 }
