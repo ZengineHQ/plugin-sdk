@@ -54,7 +54,8 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
     let val = target.value;
 
     if (isNumber(props.decimals)) {
-      val = parseFloat(val).toFixed(props.decimals);
+      const temp = parseFloat(val);
+      val = isNaN(temp) ? '' : temp.toFixed(props.decimals);
     }
 
     const evt = { currentTarget: { value: val, name: field.name } };
