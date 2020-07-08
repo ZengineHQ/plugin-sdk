@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/react-sdk",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Zengine Plugins 2.0 ReactJS SDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
