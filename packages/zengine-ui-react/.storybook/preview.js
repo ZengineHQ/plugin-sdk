@@ -1,4 +1,5 @@
 import { addDecorator, addParameters } from '@storybook/react';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withTests } from '@storybook/addon-jest';
 
@@ -12,7 +13,12 @@ try {
 }
 
 addDecorator(withKnobs);
+
 addParameters({
   options: { showPanel: true },
   viewMode: 'story',
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
 });
