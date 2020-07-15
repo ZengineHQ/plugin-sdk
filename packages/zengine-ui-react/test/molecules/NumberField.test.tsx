@@ -197,6 +197,10 @@ test('Sets fixed decimal places if specified', async () => {
     });
   });
 
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
   expect(input.value).toEqual('123.0000');
 });
 
