@@ -22,8 +22,8 @@ export const ruleFunctionMap: RuleFunctionMapInterface = {
   'not-in': 'ruleNotIn'
 }
 
-export const parseNumber = (input: string = ''): string => {
-  return input
+export const parseNumber = (input: string): string => {
+  return String(input)
     .replace('$', '')
     .replace(',', '')
 }
