@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/zengine-ui-react",
-  "version": "0.18.6",
+  "version": "0.18.7",
   "description": "Zengine UI React",
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
@@ -99,7 +99,7 @@
     "@types/showdown": "^1.9.3",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
-    "@zenginehq/zengine-ui": "^0.4.8",
+    "@zenginehq/zengine-ui": "^0.4.9",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
