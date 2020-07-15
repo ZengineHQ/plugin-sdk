@@ -15,7 +15,7 @@ export interface NumberFieldProps {
   help?: string
   id?: string
   onChange?: (event: React.ChangeEvent| any) => void
-  onBlur?: (event: React.FocusEvent) => void
+  onBlur?: (event: React.FocusEvent | any) => void
   disabled?: boolean
   readonly?: boolean
   placeholder?: string
@@ -44,12 +44,20 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
     return fieldValidationHelper(props.validate, value);
   };
 
-  const [field, meta] = useField({ name: props.name, validate });
+  const [field, meta, { setValue}] = useField({ name: props.name, validate });
 
   const id = props.id ?? `number-${props.name}`;
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
 
   const onChangeHelper = (e: React.ChangeEvent): any => {
+    // Call custom callback.
+    props?.onChange?.(e);
+
+    // Now delegate back to Formik to keep things working.
+    return field.onChange(e);
+  };
+
+  const onBlurHelper = (e: React.FocusEvent): void => {
     const target = e.currentTarget as HTMLInputElement;
     let val = target.value;
 
@@ -58,16 +66,10 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
       val = isNaN(temp) ? '' : temp.toFixed(props.decimals);
     }
 
-    const evt = { currentTarget: { value: val, name: field.name } };
-
-    // Call custom callback.
-    props?.onChange?.(evt);
-    // Now delegate back to Formik to keep things working.
-    return field.onChange(evt);
-  };
-  const onBlurHelper = (e: React.FocusEvent): void => {
-    props?.onBlur?.(e);
-    return field.onBlur(e);
+    setValue(val);
+    const evt = { target: { value: val, name: field.name } };
+    props?.onBlur?.(evt);
+    return field.onBlur(evt);
   };
 
   const input = (
