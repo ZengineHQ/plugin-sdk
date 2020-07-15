@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.4](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.3...@zenginehq/zengine-ui-react@0.18.4) (2020-07-15)
+
+
+### Bug Fixes
+
+* number field decimal formatting issue ([29294ac](https://github.com/ZengineHQ/plugin-sdk/commit/29294ac8571adf5f649ed09bab7c73c8f8285cba))
+
+
+
+
+
 ## [0.18.3](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.1...@zenginehq/zengine-ui-react@0.18.3) (2020-07-08)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui-react
