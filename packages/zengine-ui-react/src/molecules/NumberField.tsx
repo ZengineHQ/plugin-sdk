@@ -14,7 +14,7 @@ export interface NumberFieldProps {
   name: string
   help?: string
   id?: string
-  onChange?: (event: React.ChangeEvent| any) => void
+  onChange?: (event: React.ChangeEvent | any) => void
   onBlur?: (event: React.FocusEvent | any) => void
   disabled?: boolean
   readonly?: boolean
@@ -44,7 +44,7 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
     return fieldValidationHelper(props.validate, value);
   };
 
-  const [field, meta, { setValue}] = useField({ name: props.name, validate });
+  const [field, meta, { setValue }] = useField({ name: props.name, validate });
 
   const id = props.id ?? `number-${props.name}`;
   const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
