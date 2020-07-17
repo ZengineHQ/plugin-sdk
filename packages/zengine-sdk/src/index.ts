@@ -275,11 +275,105 @@ export function znOpenDropdown (options: ZengineDropdownOptions) {
 // export closeTooltip', [], 'undefined', RPC.closeTooltipHandler, 'Open a Tooltip');
 
 export const znLocation = {
-  searchParams: (query: string, value: string | number) => rpcClient.call({
+  /**
+   * Get protocol of zengine admin site url
+   */
+  protocol: () => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'protocol',
+      args: []
+    }
+  }),
+  /**
+   * Get host of zengine admin site url
+   */
+  host: () => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'host',
+      args: []
+    }
+  }),
+  /**
+   * Get port of zengine admin site url
+   */
+  port: () => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'port',
+      args: []
+    }
+  }),
+  /**
+   * Get pathParams of zengine admin site url
+   */
+  pathParams: () => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'pathParams',
+      args: []
+    }
+  }),
+  /**
+   * Get pathname of zengine admin site url
+   */
+  pathname: () => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'pathname',
+      args: []
+    }
+  }),
+  /**
+   * trigger a reload of zengine admin site
+   */
+  reload: () => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'reload',
+      args: []
+    }
+  }),
+  /**
+   * get/set hash of zengine admin site url
+   */
+  hash: (hash?: string) => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'hash',
+      args: hash ? [hash] : []
+    }
+  }),
+  /**
+   * get/set href of zengine admin site url
+   * (setting href will also cause the browser to reload)
+   */
+  href: (href?: string) => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'href',
+      args: href ? [href] : []
+    }
+  }),
+  /**
+   * get/set searchParams of zengine admin site url
+   */
+  searchParams: (query?: string, value?: string | number) => rpcClient.call({
     method: 'location',
     args: {
       method: 'searchParams',
-      args: [query, value]
+      args: query !== undefined && value !== undefined ? [query, value] : []
+    }
+  }),
+  /**
+   * declare a path to navigate the zengine admin site to without reloading the page
+   */
+  navigate: (path: string) => rpcClient.call({
+    method: 'location',
+    args: {
+      method: 'navigate',
+      args: [path]
     }
   })
 }
@@ -291,7 +385,7 @@ const znNumberWithCommas = (amount: string, decimalCount: number) => {
     decimalCount = Math.abs(decimalCount)
     decimalCount = isNaN(decimalCount) ? 2 : decimalCount
     // get the integer part of the number (without decimals) as a String
-    const integerPart = parseInt(Math.abs(Number(amount) || 0).toFixed(decimalCount),10).toString(10)
+    const integerPart = parseInt(Math.abs(Number(amount) || 0).toFixed(decimalCount), 10).toString(10)
     /**
      * [digitsToBeRemoved] is the module of 3 of the length of integerPart or 0. If higher than 0 this will be number
      * of digits to be removed from the beginning of the integerPart string to get a number of digits divisible by 3
