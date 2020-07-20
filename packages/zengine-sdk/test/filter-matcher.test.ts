@@ -433,10 +433,6 @@ test('AND - MIN String Dollar - Display field based on two  previous fields', ()
   const match = recordMatchesFilter(record2Fields_1000_2000_StringDollar, andMinFilterString)
   expect(match).toEqual(true)
 })
-test('AND - MIN Number - Throws TypeError exception - Min filter doesn\'t support invalid numbers on input', () => {
-  const methodCall = () => recordMatchesFilter(record2Fields_1000_2000_Number, andMinFilterString)
-  expect(methodCall).toThrow(TypeError)
-})
 test('OR - MIN String - Display field based on two  previous fields', () => {
   const match = recordMatchesFilter(record2Fields_1000_2000_String, orMinFilterString)
   expect(match).toEqual(true)
@@ -450,10 +446,6 @@ test('AND - MAX String - Display field based on two  previous fields', () => {
 test('AND - MAX String Dollar - Display field based on two  previous fields', () => {
   const match = recordMatchesFilter(record2Fields_1000_2000_StringDollar, andMaxFilterString)
   expect(match).toEqual(true)
-})
-test('AND - MAX Number - Throws TypeError exception - Max filter doesn\'t support invalid numbers on input', () => {
-  const methodCall = () => recordMatchesFilter(record2Fields_1000_2000_Number, andMaxFilterString)
-  expect(methodCall).toThrow(TypeError)
 })
 test('OR - MAX String - Display field based on two  previous fields', () => {
   const match = recordMatchesFilter(record2Fields_1000_2000_String, orMaxFilterString)
