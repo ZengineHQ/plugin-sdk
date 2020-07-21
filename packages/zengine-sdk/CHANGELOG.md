@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.3.6...@zenginehq/zengine-sdk@0.4.0) (2020-07-20)
+
+
+### Features
+
+* **zengine-sdk:** znLocation methods ([c7dfecd](https://github.com/ZengineHQ/zengine-sdk/commit/c7dfecd3352b4ad9d1f467a8a4a9bfcd9feb8a80))
+
+
+
+
+
 ## [0.3.6](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.3.5...@zenginehq/zengine-sdk@0.3.6) (2020-07-15)
 
 **Note:** Version bump only for package @zenginehq/zengine-sdk
