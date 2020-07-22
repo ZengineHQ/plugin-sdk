@@ -12,9 +12,6 @@ export default {
     options: {
       showPanel: false,
     },
-    docs: {
-      disable: true,
-    },
   }
 };
 
