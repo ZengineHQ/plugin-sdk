@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.5.0...@zenginehq/zengine-sdk@0.5.1) (2020-07-28)
+
+
+### Bug Fixes
+
+* missing polyfills.js in built dir ([363c4ab](https://github.com/ZengineHQ/zengine-sdk/commit/363c4ab6a169063c5650c45917f06702c04347fa))
+
+
+
+
+
 # [0.5.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.4.0...@zenginehq/zengine-sdk@0.5.0) (2020-07-28)
 
 
