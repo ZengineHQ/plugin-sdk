@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.4.0...@zenginehq/zengine-sdk@0.5.0) (2020-07-28)
+
+
+### Features
+
+* new types for program, advancedChoices ([b20fb71](https://github.com/ZengineHQ/zengine-sdk/commit/b20fb713444454790bd6e2ed0407dd47b9231ac7))
+
+
+
+
+
 # [0.4.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.3.6...@zenginehq/zengine-sdk@0.4.0) (2020-07-20)
 
 
