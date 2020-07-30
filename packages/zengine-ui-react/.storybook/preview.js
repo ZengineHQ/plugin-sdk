@@ -1,5 +1,5 @@
-import { addDecorator, addParameters } from '@storybook/react';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { addDecorator } from '@storybook/react';
+// import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { withTests } from '@storybook/addon-jest';
 
 import '@zenginehq/zengine-ui/style.css';
@@ -11,16 +11,14 @@ try {
   // It's all good, just don't display test results.
 }
 
-addParameters({
+export const parameters = {
   options: {
     showPanel: true
   },
-  // viewMode: 'story',
-  docs: {
-    container: DocsContainer,
-    page: DocsPage,
-  },
-  viewport: {
-    defaultViewport: 'responsive',
-  }
-});
+};
+
+// // viewMode: 'story',
+// docs: {
+//   container: DocsContainer,
+//     page: DocsPage,
+// },
