@@ -1,6 +1,7 @@
 # ides
 .idea
 .vscode
+*.code-*
 
 # logs
 lerna-debug.log
@@ -8,3 +9,6 @@ npm-debug.log
 
 # vendor
 node_modules
+
+.DS_Store
+
