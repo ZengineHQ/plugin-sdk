@@ -70,6 +70,11 @@ const withInputProps = <P extends {}> (
       inputProps.defaultValue = defaultValue;
     }
 
+    // Sanity.
+    if (props.multiple === true && !Array.isArray(inputProps.value)) {
+      inputProps.value = [inputProps.value];
+    }
+
     const newProps = omit(props, 'readonly', 'classes', 'value', 'defaultValue', 'onBlur', 'onChange');
     return <Component {...newProps as P} {...inputProps} />;
   }
