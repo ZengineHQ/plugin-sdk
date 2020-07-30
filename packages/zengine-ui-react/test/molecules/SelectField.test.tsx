@@ -1,5 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import '@testing-library/jest-dom'
 import { act } from 'react-dom/test-utils';
 // import userEvent from '@testing-library/user-event';
 
@@ -9,9 +10,103 @@ import { SelectField } from '../../src/molecules/SelectField';
 // Dummy options to be re-used across tests.
 const opts = ['optionOne', 'optionTwo', 'optionThree', 'optionFour'];
 
-test('Renders a select element', () => {
+const options = [
+  {
+      "value": "optionOne",
+      "key": "1"
+  },
+  {
+      "value": "optionTwo",
+      "key": "2"
+  },
+  {
+      "value": "optionThree",
+      "key": "3"
+  },
+  {
+      "value": "optionFour",
+      "key": "4"
+  }
+]
+
+test('Renders a select element - same value and label', () => {
   const { container } = render(<MockForm><SelectField name="foo" options={opts} /></MockForm>);
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('name', 'foo');
+  const elements = container.getElementsByTagName('option');
+
+  expect(elements.length).toBe(5);
+
+  expect(elements[1]).toHaveAttribute('value', 'optionOne');
+  expect(elements[1]).toHaveTextContent('optionOne');
+
+  expect(elements[2]).toHaveAttribute('value', 'optionTwo');
+  expect(elements[2]).toHaveTextContent('optionTwo');
+
+  expect(elements[3]).toHaveAttribute('value', 'optionThree');
+  expect(elements[3]).toHaveTextContent('optionThree');
+
+  expect(elements[4]).toHaveAttribute('value', 'optionFour');
+  expect(elements[4]).toHaveTextContent('optionFour');
+});
+
+test('Renders a select element - different value and label', () => {
+  const { container } = render(<MockForm><SelectField name="foo" options={options} /></MockForm>);
+  const elements = container.getElementsByTagName('option');
+
+  expect(elements.length).toBe(5);
+
+  expect(elements[1]).toHaveAttribute('value', '1');
+  expect(elements[1]).toHaveTextContent('optionOne');
+
+  expect(elements[2]).toHaveAttribute('value', '2');
+  expect(elements[2]).toHaveTextContent('optionTwo');
+
+  expect(elements[3]).toHaveAttribute('value', '3');
+  expect(elements[3]).toHaveTextContent('optionThree');
+
+  expect(elements[4]).toHaveAttribute('value', '4');
+  expect(elements[4]).toHaveTextContent('optionFour');
+
+});
+
+test('Renders a select element - multiple', () => {
+  const { container } = render(<MockForm><SelectField name="foo" options={opts} multiple={true} /></MockForm>);
+  expect(container.getElementsByTagName('select')[0]).toHaveAttribute('name', 'foo');
+  const elements = container.getElementsByTagName('option');
+
+  expect(elements.length).toBe(4);
+
+  expect(elements[0]).toHaveAttribute('value', 'optionOne');
+  expect(elements[0]).toHaveTextContent('optionOne');
+
+  expect(elements[1]).toHaveAttribute('value', 'optionTwo');
+  expect(elements[1]).toHaveTextContent('optionTwo');
+
+  expect(elements[2]).toHaveAttribute('value', 'optionThree');
+  expect(elements[2]).toHaveTextContent('optionThree');
+
+  expect(elements[3]).toHaveAttribute('value', 'optionFour');
+  expect(elements[3]).toHaveTextContent('optionFour');
+});
+
+test('Renders a select element - required', () => {
+  const { container } = render(<MockForm><SelectField name="foo" options={opts} required={true} /></MockForm>);
+  expect(container.getElementsByTagName('select')[0]).toHaveAttribute('name', 'foo');
+  const elements = container.getElementsByTagName('option');
+
+  expect(elements.length).toBe(4);
+
+  expect(elements[0]).toHaveAttribute('value', 'optionOne');
+  expect(elements[0]).toHaveTextContent('optionOne');
+
+  expect(elements[1]).toHaveAttribute('value', 'optionTwo');
+  expect(elements[1]).toHaveTextContent('optionTwo');
+
+  expect(elements[2]).toHaveAttribute('value', 'optionThree');
+  expect(elements[2]).toHaveTextContent('optionThree');
+
+  expect(elements[3]).toHaveAttribute('value', 'optionFour');
+  expect(elements[3]).toHaveTextContent('optionFour');
 });
 
 test('Sets label when specified', () => {
