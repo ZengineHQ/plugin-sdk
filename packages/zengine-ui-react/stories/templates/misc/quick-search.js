@@ -1,19 +1,10 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Form from '../../src/util/Form';
-import TextField from '../../src/molecules/TextField';
+import Form from '../../../src/util/Form';
+import TextField from '../../../src/molecules/TextField';
 
-export default {
-  title: 'Templates',
-  parameters: {
-    options: {
-      showPanel: false
-    }
-  }
-};
-
-export const QuickSearch = () => (
+const QuickSearch = () => (
   <Form
     onSubmit={ action('Search form submitted') }
     showReset={ false }
@@ -23,3 +14,5 @@ export const QuickSearch = () => (
     <TextField label="Search" name="search" placeholder="Type here...." />
   </Form>
 );
+
+export default QuickSearch;

@@ -2,23 +2,11 @@ import React, { useRef } from 'react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import Button from '../../src/atoms/Button';
-import SectionHeader from '../../src/atoms/SectionHeader';
-import Table from '../../src/organisms/Table';
-import Widget from '../../src/organisms/Widget';
-import useSyntaxHighlighter from '../../.storybook/useSyntaxHighlighter';
-
-export default {
-  title: 'Templates/ProgramManager',
-  parameters: {
-    options: {
-      showPanel: false,
-    },
-    docs: {
-      disable: true,
-    }
-  }
-};
+import Button from '../../../src/atoms/Button';
+import SectionHeader from '../../../src/atoms/SectionHeader';
+import Table from '../../../src/organisms/Table';
+import Widget from '../../../src/organisms/Widget';
+import useSyntaxHighlighter from '../../../.storybook/useSyntaxHighlighter';
 
 const DemoData = ({ row }) => (
   <>
@@ -32,7 +20,7 @@ const DemoData = ({ row }) => (
   </>
 );
 
-export const Portals = () => {
+const ProgramPortals = () => {
   // In order to attach the slideOut to the table we must grab a ref for the table and pass it along.
   const ref = useRef(null);
 
@@ -109,3 +97,5 @@ export const Portals = () => {
     </>
   );
 };
+
+export default ProgramPortals;

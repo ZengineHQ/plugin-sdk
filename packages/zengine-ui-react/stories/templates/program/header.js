@@ -1,27 +1,15 @@
 import React from 'react';
 import { linkTo } from '@storybook/addon-links';
 
-import Button from '../../src/atoms/Button';
-import Image from '../../src/atoms/Image';
-import KPI from '../../src/organisms/KPI';
-import Label from '../../src/atoms/Label';
-import PageTitle from '../../src/atoms/PageTitle';
-import Select from '../../src/atoms/Select';
-import useSyntaxHighlighter from '../../.storybook/useSyntaxHighlighter';
+import Button from '../../../src/atoms/Button';
+import Image from '../../../src/atoms/Image';
+import KPI from '../../../src/organisms/KPI';
+import Label from '../../../src/atoms/Label';
+import PageTitle from '../../../src/atoms/PageTitle';
+import Select from '../../../src/atoms/Select';
+import useSyntaxHighlighter from '../../../.storybook/useSyntaxHighlighter';
 
-export default {
-  title: 'Templates/ProgramManager',
-  parameters: {
-    options: {
-      showPanel: false,
-    },
-    docs: {
-      disable: true,
-    }
-  }
-};
-
-export const Header = () => {
+const ProgramHeader = () => {
   const items = [
     {
       count: 1358,
@@ -99,3 +87,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default ProgramHeader;

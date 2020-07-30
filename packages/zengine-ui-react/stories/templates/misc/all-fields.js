@@ -1,27 +1,18 @@
 import React, { useState } from 'react';
 
-import CheckboxField from '../../src/molecules/CheckboxField';
-import CheckboxGroupField from '../../src/molecules/CheckboxGroupField';
-import Form from '../../src/util/Form';
-import NumberField from '../../src/molecules/NumberField';
-import PageTitle from '../../src/atoms/PageTitle';
-import RadioGroupField from '../../src/molecules/RadioGroupField';
-import SectionHeader from '../../src/atoms/SectionHeader';
-import SelectField from '../../src/molecules/SelectField';
-import TextAreaField from '../../src/molecules/TextAreaField';
-import TextField from '../../src/molecules/TextField';
-import useSyntaxHighlighter from '../../.storybook/useSyntaxHighlighter';
+import CheckboxField from '../../../src/molecules/CheckboxField';
+import CheckboxGroupField from '../../../src/molecules/CheckboxGroupField';
+import Form from '../../../src/util/Form';
+import NumberField from '../../../src/molecules/NumberField';
+import PageTitle from '../../../src/atoms/PageTitle';
+import RadioGroupField from '../../../src/molecules/RadioGroupField';
+import SectionHeader from '../../../src/atoms/SectionHeader';
+import SelectField from '../../../src/molecules/SelectField';
+import TextAreaField from '../../../src/molecules/TextAreaField';
+import TextField from '../../../src/molecules/TextField';
+import useSyntaxHighlighter from '../../../.storybook/useSyntaxHighlighter';
 
-export default {
-  title: 'Templates',
-  parameters: {
-    options: {
-      showPanel: false
-    }
-  }
-};
-
-export const AllFormFields = () => {
+const AllFormFields = () => {
   const organOpts = ['Heart', 'Kidneys', 'Liver', 'Spleen'];
   const sportOpts = ['Baseball', 'Basketball', 'Football', 'Hockey', 'Soccer'];
   const dinoOpts = ['Triceratops', 'Tyrannosaurus Rex', 'Ankylosaurus', 'Velociraptor', 'Parasaurolophus'];
@@ -103,7 +94,6 @@ export const AllFormFields = () => {
           name="turtle"
           multiple
           required
-          placeholder=""
           options={ turtleOpts }
           help="This is a multiple-value select field. Splinter isn't a turtle, stop insisting."
         />
@@ -120,3 +110,5 @@ export const AllFormFields = () => {
     </>
   );
 }
+
+export default AllFormFields;
