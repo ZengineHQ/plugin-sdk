@@ -29,9 +29,17 @@ export interface SelectProps extends InputProps, AriaProps {
  */
 const Select: React.FC<SelectProps> = (props) => {
   const { placeholder, ...passProps } = props;
+
+  const showEmptyOpt = placeholder !== undefined &&
+    placeholder !== null &&
+    passProps.multiple !== true &&
+    (passProps.value === '' || passProps.required !== true)
+
   return (
     <select {...passProps}>
-      {placeholder !== undefined && placeholder !== null ? (<option value="">{placeholder}</option>) : null}
+      {
+        showEmptyOpt ? (<option value="">{placeholder}</option>) : null
+      }
 
       {extractOptions(props.options).map((opt, i) => (
         <option key={i} value={opt.key}>{opt.value}</option>

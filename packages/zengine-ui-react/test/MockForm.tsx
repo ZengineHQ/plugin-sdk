@@ -8,8 +8,8 @@ export function MockForm (props: any): ReactElement {
       initialValues={props.initialValues}
       onSubmit={props.onSubmit}
       validateOnBlur={true}
-      validateOnMount={false}
-      validateOnChange={false}
+      validateOnMount={true}
+      validateOnChange={true}
     >
       <Form noValidate>
         {props.children}
@@ -24,7 +24,7 @@ MockForm.propTypes = {
 };
 
 MockForm.defaultProps = {
-  onSubmit: () => null,
+  onSubmit: (values) => null,
   initialValues: {},
 };
 
