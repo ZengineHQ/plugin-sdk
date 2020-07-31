@@ -90,7 +90,13 @@ test('Renders a select element - multiple', () => {
 });
 
 test('Renders a select element - required', () => {
-  const { container } = render(<MockForm><SelectField name="foo" options={opts} required={true} /></MockForm>);
+  const { container } = render(
+    <MockForm
+      initialValues={{ foo: 'value' }}
+    >
+      <SelectField name="foo" options={opts} required={true} />
+    </MockForm>
+  );
   expect(container.getElementsByTagName('select')[0]).toHaveAttribute('name', 'foo');
   const elements = container.getElementsByTagName('option');
 
@@ -241,11 +247,12 @@ test('Fires custom onBlur handler if specified', async () => {
 
 test('Validates field "required" correctly', async () => {
   const { container, getByText } = render(
-    <MockForm><SelectField options={opts} name="foo" required={true} /></MockForm>
+    <MockForm><SelectField options={opts} name="bar" required={true} /></MockForm>
   );
   const select = container.getElementsByTagName('select')[0];
 
   expect(select.value).toEqual('');
+  expect(container.getElementsByTagName('option').length).toBe(5);
 
   await act(async () => {
     fireEvent.change(select, { target: { value: opts[2] } });
@@ -254,22 +261,15 @@ test('Validates field "required" correctly', async () => {
     fireEvent.blur(select);
   });
 
+  // removes empty option after selection
   expect(select.value).toEqual(opts[2]);
   expect(select).toHaveClass('form-control is-valid');
+  expect(container.getElementsByTagName('option').length).toBe(4);
 
-  await act(async () => {
-    fireEvent.change(select, { target: { value: '' } });
-  });
-  await act(async () => {
-    fireEvent.blur(select);
-  });
-
-  expect(select.value).toEqual('');
-  expect(select).toHaveClass('form-control is-invalid');
-  expect(getByText('Required')).toBeInTheDocument();
 });
 
 test('Changes field "required" error message correctly', async () => {
+
   const { container, getByText } = render(
     <MockForm>
       <SelectField
@@ -285,25 +285,17 @@ test('Changes field "required" error message correctly', async () => {
   expect(select.value).toEqual('');
 
   await act(async () => {
-    fireEvent.change(select, { target: { value: opts[2] } });
+    fireEvent.click(select);
   });
+
   await act(async () => {
     fireEvent.blur(select);
   });
 
-  expect(select.value).toEqual(opts[2]);
-  expect(select).toHaveClass('form-control is-valid');
-
-  await act(async () => {
-    fireEvent.change(select, { target: { value: '' } });
-  });
-  await act(async () => {
-    fireEvent.blur(select);
-  });
-
-  expect(select.value).toEqual('');
   expect(select).toHaveClass('form-control is-invalid');
   expect(getByText('Reqmsg')).toBeInTheDocument();
+
+
 });
 
 test('Adds a default value when specified', () => {
@@ -416,6 +408,7 @@ test('Performs custom validation correctly when specified', async () => {
   });
 
   expect(select).toHaveClass('form-control is-invalid');
+
   expect(getByText(`Must pick ${opts[1]}`)).toBeInTheDocument();
 
   await act(async () => {
