@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.11](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.10...@zenginehq/zengine-ui-react@0.18.11) (2020-07-30)
+
+**Note:** Version bump only for package @zenginehq/zengine-ui-react
+
+
+
+
+
+## [0.18.10](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.9...@zenginehq/zengine-ui-react@0.18.10) (2020-07-28)
+
+**Note:** Version bump only for package @zenginehq/zengine-ui-react
+
+
+
+
+
 ## [0.18.9](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.8...@zenginehq/zengine-ui-react@0.18.9) (2020-07-20)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui-react

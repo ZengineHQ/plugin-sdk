@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.4.9...@zenginehq/zengine-ui@0.5.0) (2020-07-30)
+
+
+### Features
+
+* Use Flatley theme ([d79b272](https://github.com/ZengineHQ/plugin-sdk/commit/d79b2720ab2f154cc646097e4599bfaecd6f014b))
+
+
+
+
+
 ## [0.4.9](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.4.8...@zenginehq/zengine-ui@0.4.9) (2020-07-15)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui
