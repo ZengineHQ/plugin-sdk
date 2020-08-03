@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.5.1...@zenginehq/zengine-sdk@0.5.2) (2020-08-03)
+
+
+### Bug Fixes
+
+* no empty select option if multiple/required ([e7c0323](https://github.com/ZengineHQ/zengine-sdk/commit/e7c032366728ca7db75cb33607a06319691a4ca2))
+
+
+
+
+
 ## [0.5.1](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.5.0...@zenginehq/zengine-sdk@0.5.1) (2020-07-28)
 
 

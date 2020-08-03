@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.12](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.11...@zenginehq/zengine-ui-react@0.18.12) (2020-08-03)
+
+
+### Bug Fixes
+
+* no empty select option if multiple/required ([e7c0323](https://github.com/ZengineHQ/plugin-sdk/commit/e7c032366728ca7db75cb33607a06319691a4ca2))
+
+
+
+
+
 ## [0.18.11](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.10...@zenginehq/zengine-ui-react@0.18.11) (2020-07-30)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui-react
