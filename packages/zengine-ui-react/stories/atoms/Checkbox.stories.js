@@ -2,8 +2,7 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 // Workaround for storybook docs not processing wrapped components.
-import Checkbox from '../../src/atoms/Checkbox';
-import { Checkbox as CheckboxProps } from '../../src/atoms/Checkbox';
+import { default as Checkbox, Checkbox as CheckboxProps } from '../../src/atoms/Checkbox';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
 
 export default {

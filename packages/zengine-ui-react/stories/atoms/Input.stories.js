@@ -1,12 +1,12 @@
 import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-import Input from '../../src/atoms/Input';
+import { default as Input, Input as InputProps } from '../../src/atoms/Input';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
 
 export default {
   title: 'Components/Atoms/Input',
-  component: Input,
+  component: InputProps,
   parameters: {
     jest: ['Input.test.js'],
   },

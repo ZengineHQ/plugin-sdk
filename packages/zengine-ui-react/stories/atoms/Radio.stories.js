@@ -1,12 +1,12 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
-import Radio from '../../src/atoms/Radio';
+import { default as Radio, Radio as RadioProps } from '../../src/atoms/Radio';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
 
 export default {
   title: 'Components/Atoms/Radio',
-  component: Radio,
+  component: RadioProps,
   parameters: {
     jest: ['Radio.test.js'],
   },
