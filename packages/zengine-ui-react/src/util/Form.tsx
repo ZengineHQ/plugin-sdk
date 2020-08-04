@@ -62,9 +62,10 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
   // Make sure all child fields are initialized with at least an empty value.
   const initialValues = Object.assign(props.initialValues ?? {});
   React.Children.forEach(props.children as ReactChild[], (c: any) => {
-    const name = c.props.name;
-    if (!(name in initialValues)) {
-      initialValues[name] = '';
+    if (c && c.props && c.props.name) {
+      if (!(c.props.name in initialValues)) {
+        initialValues[c.props.name] = '';
+      }
     }
   });
 
