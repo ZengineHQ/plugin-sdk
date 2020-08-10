@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.13...@zenginehq/zengine-ui-react@0.19.0) (2020-08-10)
+
+
+### Features
+
+* add a new formattednumber field molecule ([29ceec7](https://github.com/ZengineHQ/plugin-sdk/commit/29ceec73e09f361fa88e524c3dc085657a718dfa))
+
+
+
+
+
 ## [0.18.13](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.12...@zenginehq/zengine-ui-react@0.18.13) (2020-08-04)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui-react
