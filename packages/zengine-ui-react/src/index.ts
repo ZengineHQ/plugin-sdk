@@ -16,6 +16,7 @@ export { default as CheckboxField } from './molecules/CheckboxField';
 export { default as CheckboxGroupField } from './molecules/CheckboxGroupField';
 export { default as CounterLabeled } from './molecules/CounterLabeled';
 export { default as NumberField } from './molecules/NumberField';
+export { default as FormattedNumberField } from './molecules/FormattedNumberField';
 export { default as RadioGroupField } from './molecules/RadioGroupField';
 export { default as SelectField } from './molecules/SelectField';
 export { default as TextAreaField } from './molecules/TextAreaField';
