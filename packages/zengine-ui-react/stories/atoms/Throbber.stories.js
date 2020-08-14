@@ -1,5 +1,5 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
 import Throbber from '../../src/atoms/Throbber';
@@ -19,17 +19,42 @@ export const Default = () => (
   <Throbber />
 );
 
+export const ZengineStyle = () => (
+  <Throbber theme="zengine"/>
+);
+
+export const BootstrapStyles = () => (
+  <>
+    <Throbber theme="secondary"/>
+    <Throbber theme="success"/>
+    <Throbber theme="error"/>
+    <Throbber theme="info"/>
+  </>
+);
+
 export const CustomClasses = () => (
   <>
     <small className="form-text text-muted">This throbber has a custom class!</small>
-    <Throbber className="foo" />
+    <Throbber wrapperClass="foo" />
   </>
 );
 
 export const PlayGround = () => {
   useDefaultPanel('Knobs');
 
+  const themeOpts = [
+    'primary',
+    'zengine',
+    'secondary',
+    'success',
+    'error',
+    'info',
+  ];
+
   return (
-    <Throbber className={ text('Classname', 'foo') } />
+    <Throbber
+      wrapperClass={ text('Classname', 'foo') }
+      theme={select('Theme', themeOpts, 'success')}
+    />
   );
 };
