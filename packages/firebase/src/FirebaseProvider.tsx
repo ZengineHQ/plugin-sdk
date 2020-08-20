@@ -11,7 +11,7 @@ interface FirebaseSnapshot {
 
 interface FirebaseProviderProps {
   children?: ReactChild | ReactChild[]
-  LoadingStateComponent: React.Component
+  loader: ReactElement
 }
 
 interface PluginDefinition {
@@ -63,7 +63,7 @@ export const FirebaseProvider = (props: FirebaseProviderProps): ReactElement => 
 
   return <FirebaseContext.Provider value={[context, firebaseRef]}>
     {context !== null ? props.children
-      : props.LoadingStateComponent !== null ? props.LoadingStateComponent : (
+      : props.loader !== null ? props.loader : (
         <h3 className='text-yellow-500 text-center'>Loading Firebase Data...</h3>)
     }
   </FirebaseContext.Provider>;
