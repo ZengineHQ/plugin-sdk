@@ -52,7 +52,7 @@ const PluginConfig: React.FC<PluginConfigProps> = (props) => {
   };
 
   return (
-    <FirebaseProvider LoadingStateComponent={<Throbber />}>
+    <FirebaseProvider loader={<Throbber />}>
       <main className="p-3">
         <h2>
           {props.icon !== undefined && <i className={`icon-${props.icon}`} />}
