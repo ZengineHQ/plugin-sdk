@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/firebase",
-  "version": "0.1.1-alpha.1",
+  "version": "0.1.1-alpha.2",
   "description": "Firebase wrapper for Zengine Plugins",
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",

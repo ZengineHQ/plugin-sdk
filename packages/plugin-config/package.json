@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/plugin-config",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.1-alpha.1",
   "description": "React port of Frontend Config",
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "scripts": {
@@ -64,10 +64,10 @@
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.9.0",
     "@typescript-eslint/parser": "^3.9.0",
-    "@zenginehq/firebase": "^0.1.1-alpha.0",
+    "@zenginehq/firebase": "^0.1.1-alpha.2",
     "@zenginehq/react-sdk": "^0.1.11",
     "@zenginehq/zengine-ui": "^0.5.1",
-    "@zenginehq/zengine-ui-react": "^0.19.1-alpha.0",
+    "@zenginehq/zengine-ui-react": "^0.19.1-alpha.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
