@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button } from '@zenginehq/zengine-ui-react/lib';
-
+import React from "react";
+import { Button, Throbber } from "@zenginehq/zengine-ui-react";
+import { FirebaseProvider } from "@zenginehq/firebase";
 
 interface PluginConfigField {
   id: string
@@ -45,43 +45,45 @@ interface PluginConfigProps {
 // @TODO figure out how to render icons
 
 const PluginConfig: React.FC<PluginConfigProps> = (props) => {
-  console.log('prop', props);
+  console.log("prop", props);
 
-  const createConfig = () => {
+  const createConfig = (): void => {
 
   };
 
   return (
-    <main className="p-3">
-      <h2>
-        {props.icon && <i className={`icon-${props.icon}`} />}
-        {props.title}
-      </h2>
+    <FirebaseProvider LoadingStateComponent={<Throbber />}>
+      <main className="p-3">
+        <h2>
+          {props.icon !== undefined && <i className={`icon-${props.icon}`} />}
+          {props.title}
+        </h2>
 
-      {props.help && (
-        <small className="form-text text-muted">{props.help}</small>
-      )}
+        {props.help !== undefined && (
+          <small className="form-text text-muted">{props.help}</small>
+        )}
 
-      {props.multi && <Button theme="success" onClick={createConfig}>Create Configuration</Button>}
+        {props.multi === true && <Button theme="success" onClick={createConfig}>Create Configuration</Button>}
 
-      {props.multi ? (<div className="p-2 border mt-2">
-        <p>
-          You don't have any configurations yet.
-          <Button theme="link" onClick={createConfig}>Let's create one!</Button>
-        </p>
-      </div>) : (
-        <div>@TODO display config page directly</div>
-      )}
-    </main>
+        {props.multi === true ? (<div className="p-2 border mt-2">
+          <p>
+            You don&apos;t have any configurations yet.
+            <Button theme="link" onClick={createConfig}>Let&apos;s create one!</Button>
+          </p>
+        </div>) : (
+          <div>@TODO display config page directly</div>
+        )}
+      </main>
+    </FirebaseProvider>
   );
-}
+};
 
 PluginConfig.defaultProps = {
-  title: 'Plugin Settings',
+  title: "Plugin Settings",
   multi: false,
   toggle: true,
   help: undefined,
-  icon: 'emo-sunglasses'
-}
+  icon: undefined
+};
 
 export default PluginConfig;
