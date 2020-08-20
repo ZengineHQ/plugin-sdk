@@ -5,7 +5,7 @@
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
   "scripts": {
-    "watch": "rimraf lib; concurrently \"npm run build:js -- --watch\" \"tsc --emitDeclarationOnly -w\"",
+    "watch": "rimraf lib; npm run copyjson; concurrently \"npm run build:js -- --watch\" \"tsc --emitDeclarationOnly -w\"",
     "storybook": "start-storybook -p 9009 -s public",
     "test": "jest",
     "test:watch": "jest --watch",
