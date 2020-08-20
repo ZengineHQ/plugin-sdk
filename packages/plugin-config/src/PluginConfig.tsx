@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@zenginehq/zengine-ui-react/lib';
 
+
 interface PluginConfigField {
   id: string
   name: string
@@ -56,6 +57,10 @@ const PluginConfig: React.FC<PluginConfigProps> = (props) => {
         {props.icon && <i className={`icon-${props.icon}`} />}
         {props.title}
       </h2>
+
+      {props.help && (
+        <small className="form-text text-muted">{props.help}</small>
+      )}
 
       {props.multi && <Button theme="success" onClick={createConfig}>Create Configuration</Button>}
 
