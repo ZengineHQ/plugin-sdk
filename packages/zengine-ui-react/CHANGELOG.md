@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1-alpha.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.19.0...@zenginehq/zengine-ui-react@0.19.1-alpha.0) (2020-08-20)
+
+
+### Features
+
+* add a simple throbber component for reuse ([82ecc00](https://github.com/ZengineHQ/plugin-sdk/commit/82ecc00da58095f260aecf087e965b30f095583e))
+
+
+
+
+
 # [0.19.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.18.13...@zenginehq/zengine-ui-react@0.19.0) (2020-08-10)
 
 

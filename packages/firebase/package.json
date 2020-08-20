@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/firebase",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "description": "Firebase wrapper for Zengine Plugins",
   "author": "Alex Weber <alex.weber@wizehive.com>",
   "homepage": "https://github.com/ZengineHQ/plugin-sdk#readme",
@@ -23,8 +23,8 @@
   "main": "lib/index.js",
   "sideEffects": false,
   "peerDependencies": {
-    "react": "^16.13.1",
-    "@zenginehq/react-sdk": "^0.1.11"
+    "@zenginehq/react-sdk": "^0.1.11",
+    "react": "^16.13.1"
   },
   "keywords": [
     "zengine",
