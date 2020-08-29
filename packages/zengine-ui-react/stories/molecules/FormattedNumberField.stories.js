@@ -1,9 +1,10 @@
 import React from 'react';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean, text, number } from '@storybook/addon-knobs';
 
 import FormattedNumberField from '../../src/molecules/FormattedNumberField';
 import MockForm from '../../test/MockForm';
 import useDefaultPanel from '../../.storybook/useDefaultPanel';
+import { useFormikContext } from 'formik';
 
 export default {
   title: 'Components/Molecules/FormattedNumberField',
@@ -56,7 +57,6 @@ export const ThousandSeparator = () => (
   <MockForm>
     <FormattedNumberField
       label="Thousand Separator Number Input"
-      decimals={2}
       separator={true}
       name="thousands"
       help="This input displays commas to separate thousands"
@@ -70,6 +70,7 @@ export const PrefixAndSuffix = () => (
       label="Desired grant amount"
       placeholder="All the benjamins"
       name="number"
+      separator
       help="This some crucial information and shows amongst other things how greedy you are"
       prefix="$"
       suffix=".00"
@@ -102,12 +103,13 @@ export const Playground = () => {
   return (
     <MockForm>
       <FormattedNumberField
-        name="foo"
-        label={ text('Label', 'Input Label') }
-        help={ text('Help Text', 'Follow these instructions wisely') }
-        disabled={ boolean('Disabled', false) }
-        required={ boolean('Required', false) }
-        placeholder={ text('Placeholder', 'placeholder') }
+        name="playgroundFormattedNumberField"
+        label={text('Label', 'Input Label')}
+        help={text('Help Text', 'Follow these instructions wisely')}
+        disabled={boolean('Disabled', false)}
+        decimals={number('Decimals', 2)}
+        required={boolean('Required', false)}
+        placeholder={text('Placeholder', 'placeholder')}
       />
     </MockForm>
   );
