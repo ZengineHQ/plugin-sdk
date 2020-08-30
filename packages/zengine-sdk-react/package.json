@@ -1,6 +1,6 @@
 {
   "name": "@zenginehq/react-sdk",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Zengine Plugins 2.0 ReactJS SDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -36,7 +36,7 @@
   "dependencies": {
     "@types/react": "^16.9.48",
     "@types/react-dom": "^16.9.8",
-    "@zenginehq/zengine-sdk": "^0.5.2",
+    "@zenginehq/zengine-sdk": "^0.5.3",
     "tslib": "^1.13.0"
   },
   "peerDependencies": {
