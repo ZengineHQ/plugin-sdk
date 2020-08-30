@@ -20,3 +20,9 @@
 // Finally add our own custom styles.
 // These are additional styles for our atomic design elements that are not covered by Bootstrap.
 @import "custom";
+
+.btn.btn-outline-secondary.delete:hover {
+	color: #fff;
+	background-color: $red;
+	border-color: $red;
+}

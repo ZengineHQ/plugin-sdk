@@ -5,11 +5,6 @@ import { act } from 'react-dom/test-utils';
 import { FormattedNumberField } from '../../src/molecules/FormattedNumberField';
 import { MockForm } from '../MockForm';
 
-test('Renders a text input instead of a number input', () => {
-  const { container } = render(<MockForm><FormattedNumberField name="test" /></MockForm>);
-  expect(container.getElementsByTagName('input')[0]).toHaveAttribute('type', 'text');
-});
-
 test('Sets label when specified', () => {
   const { container, getByText } = render(<MockForm><FormattedNumberField label="foo" name="foo" /></MockForm>);
   expect(getByText('foo')).toBeTruthy();
@@ -192,7 +187,7 @@ test('Sets fixed decimal places if specified', async () => {
   await act(async () => {
     fireEvent.change(input, {
       target: {
-        value: '123',
+        value: '123.12345',
       },
     });
   });
@@ -201,12 +196,12 @@ test('Sets fixed decimal places if specified', async () => {
     fireEvent.blur(input);
   });
 
-  expect(input.value).toEqual('123.0000');
+  expect(input.value).toEqual('123.1234');
 });
 
-test('Adds thousand separator if specified', async () => {
+test('Adds thousand separator by default', async () => {
   const { container } = render(
-    <MockForm><FormattedNumberField name="foo" decimals={4} separator={true} /></MockForm>
+    <MockForm><FormattedNumberField name="foo" /></MockForm>
   );
   const input = container.getElementsByTagName('input')[0];
 
@@ -222,7 +217,28 @@ test('Adds thousand separator if specified', async () => {
     fireEvent.blur(input);
   });
 
-  expect(input.value).toEqual('123,456,789.0000');
+  expect(input.value).toEqual('123,456,789');
+});
+
+test('Adds no separator when specified as `false`', async () => {
+  const { container } = render(
+    <MockForm><FormattedNumberField name="foo" separator={false} /></MockForm>
+  );
+  const input = container.getElementsByTagName('input')[0];
+
+  await act(async () => {
+    fireEvent.change(input, {
+      target: {
+        value: '123456789',
+      },
+    });
+  });
+
+  await act(async () => {
+    fireEvent.blur(input);
+  });
+
+  expect(input.value).toEqual('123456789');
 });
 
 test('Fires custom onBlur handler if specified', async () => {

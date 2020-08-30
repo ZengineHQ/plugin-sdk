@@ -118,21 +118,21 @@ export const zipCode = (str: string): boolean => {
 /**
  * Validates whether a numeric value adheres to a maximum number restriction.
  */
-export const maxNumber = (num: number|string, max: number|string): boolean => {
+export const maxNumber = (num: number | string, max: number | string): boolean => {
   return numeric(num) && numeric(max) && parseFloat(num as string) <= parseFloat(max as string);
 };
 
 /**
  * Validates whether a numeric value adheres to a minimum number restriction.
  */
-export const minNumber = (num: number|string, min: number|string): boolean => {
+export const minNumber = (num: number | string, min: number | string): boolean => {
   return numeric(num) && numeric(min) && parseFloat(num as string) >= parseFloat(min as string);
 };
 
 /**
  * Helper to perform async custom field validation.
  */
-export const fieldValidationHelper = async (validate: Function|undefined, value: any): Promise<any> => {
+export const fieldValidationHelper = async (validate: Function | undefined, value: any): Promise<any> => {
   if (typeof validate === 'function') {
     let ret;
 
@@ -142,7 +142,7 @@ export const fieldValidationHelper = async (validate: Function|undefined, value:
       if (err instanceof Error) {
         ret = err.message;
       } else {
-        ret = err;
+        ret = JSON.stringify(err);
       }
     }
 

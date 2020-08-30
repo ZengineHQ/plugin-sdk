@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "echo 'passing!'",
-    "lint": "tslint src/**/*.ts --project tsconfig.json --fix -q",
+    "lint": "tslint src/**/*.ts --project tsconfig.json -q",
+    "lint:fix": "tslint src/**/*.ts --project tsconfig.json --fix -q",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -30,13 +31,13 @@
   "devDependencies": {
     "tslint": "^5.20.1",
     "tslint-config-standard": "^9.0.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@types/react": "^16.9.33",
-    "@types/react-dom": "^16.9.6",
+    "@types/react": "^16.9.48",
+    "@types/react-dom": "^16.9.8",
     "@zenginehq/zengine-sdk": "^0.5.2",
-    "tslib": "^1.11.1"
+    "tslib": "^1.13.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",
