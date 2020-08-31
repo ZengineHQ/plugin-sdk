@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { boolean, text, number } from '@storybook/addon-knobs';
 
 import FormattedNumberField from '../../src/molecules/FormattedNumberField';
@@ -15,6 +15,24 @@ export default {
 };
 
 export const Default = () => <MockForm><FormattedNumberField label="Number Input" name="number" /></MockForm>;
+
+export const DisplayOnly = () => <MockForm initialValues={{ number: 4567.667, inputNumber: 4567.667 }}>
+  <FormattedNumberField
+    label="Display Only"
+    disabled // observe that this will cause the <span /> to appear disabled, too.
+    name="number"
+    displayType='text'
+    help='this will round 4567.667 2 decimals: 4567.67'
+    decimals={2}
+  />
+  <FormattedNumberField
+    label="Disabled Input"
+    name="inputNumber"
+    displayType='input'
+    help='this will round 2 decimals initially, but truncate any further inputs'
+    decimals={2}
+  />
+</MockForm>;
 
 export const Required = () => (
   <MockForm><FormattedNumberField label="Required Number Input" required={ true } name="number" /></MockForm>
