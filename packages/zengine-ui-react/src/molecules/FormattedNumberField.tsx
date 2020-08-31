@@ -15,6 +15,7 @@ export interface FormattedNumberFieldProps extends NumberFieldProps {
   /**
    *  Props allowed to be passed to 'react-format-number'
    */
+  decimalSeparator?: boolean | string;
   fixedDecimalScale?: boolean;
   displayType?: 'input' | 'text';
   format?: string | FormatInputValueFunction;
@@ -27,6 +28,8 @@ export interface FormattedNumberFieldProps extends NumberFieldProps {
   type?: 'text' | 'tel' | 'password';
   isAllowed?: (values: NumberFormatValues) => boolean;
   renderText?: (formattedValue: string) => React.ReactNode;
+  thousandsGroupStyle?: 'thousand' | 'lakh' | 'wan';
+  defaultValue?: number | string;
 }
 
 /**
