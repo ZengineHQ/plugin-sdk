@@ -26,3 +26,8 @@
 	background-color: $red;
 	border-color: $red;
 }
+
+.form-control[disabled] {
+  opacity: 1;
+  background-color: $gray-200;
+}
