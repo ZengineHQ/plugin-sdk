@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.19.1...@zenginehq/zengine-ui-react@0.19.2) (2020-08-31)
+
+
+### Bug Fixes
+
+* leverage "full" api of react-number-format ([c0dc0b1](https://github.com/ZengineHQ/plugin-sdk/commit/c0dc0b1bb10684e954de54fcf8960696ca6033d8))
+
+
+
+
+
 ## [0.19.1](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.19.0...@zenginehq/zengine-ui-react@0.19.1) (2020-08-30)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui-react
