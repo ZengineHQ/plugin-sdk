@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactChildren } from 'react';
+import React from 'react';
 import { useField } from 'formik';
 
 import Input from '../atoms/Input';
@@ -15,21 +15,21 @@ export interface FormattedNumberFieldProps extends NumberFieldProps {
   /**
    *  Props allowed to be passed to 'react-format-number'
    */
-  decimalSeparator?: boolean | string;
-  fixedDecimalScale?: boolean;
-  displayType?: 'input' | 'text';
-  format?: string | FormatInputValueFunction;
-  removeFormatting?: (formattedValue: string) => string;
-  mask?: string | string[];
-  isNumericString?: boolean;
-  allowNegative?: boolean;
-  allowEmptyFormatting?: boolean;
-  allowLeadingZeros?: boolean;
-  type?: 'text' | 'tel' | 'password';
-  isAllowed?: (values: NumberFormatValues) => boolean;
-  renderText?: (formattedValue: string) => React.ReactNode;
-  thousandsGroupStyle?: 'thousand' | 'lakh' | 'wan';
-  defaultValue?: number | string;
+  decimalSeparator?: boolean | string
+  fixedDecimalScale?: boolean
+  displayType?: 'input' | 'text'
+  format?: string | FormatInputValueFunction
+  removeFormatting?: (formattedValue: string) => string
+  mask?: string | string[]
+  isNumericString?: boolean
+  allowNegative?: boolean
+  allowEmptyFormatting?: boolean
+  allowLeadingZeros?: boolean
+  type?: 'text' | 'tel' | 'password'
+  isAllowed?: (values: NumberFormatValues) => boolean
+  renderText?: (formattedValue: string) => React.ReactNode
+  thousandsGroupStyle?: 'thousand' | 'lakh' | 'wan'
+  defaultValue?: number | string
 }
 
 /**
