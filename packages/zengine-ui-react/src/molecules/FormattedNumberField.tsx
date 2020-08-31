@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChild, ReactChildren } from 'react';
 import { useField } from 'formik';
 
 import Input from '../atoms/Input';
@@ -8,10 +8,25 @@ import getFieldClasses from '../util/getFieldClasses';
 import { fieldValidationHelper, isEmpty } from '../util/validation';
 import ErrorMessage from '../util/ErrorMessage';
 import { NumberFieldProps } from './NumberField';
-import FormattedNumber from 'react-number-format';
+import FormattedNumber, { FormatInputValueFunction, NumberFormatValues } from 'react-number-format';
 
 export interface FormattedNumberFieldProps extends NumberFieldProps {
   separator?: boolean
+  /**
+   *  Props allowed to be passed to 'react-format-number'
+   */
+  fixedDecimalScale?: boolean;
+  displayType?: 'input' | 'text';
+  format?: string | FormatInputValueFunction;
+  removeFormatting?: (formattedValue: string) => string;
+  mask?: string | string[];
+  isNumericString?: boolean;
+  allowNegative?: boolean;
+  allowEmptyFormatting?: boolean;
+  allowLeadingZeros?: boolean;
+  type?: 'text' | 'tel' | 'password';
+  isAllowed?: (values: NumberFormatValues) => boolean;
+  renderText?: (formattedValue: string) => React.ReactNode;
 }
 
 /**
@@ -24,64 +39,87 @@ export interface FormattedNumberFieldProps extends NumberFieldProps {
  *
  * Use it to collect formatted numeric data from users.
  */
-const FormattedNumberField: React.FC<FormattedNumberFieldProps> = (props) => {
-  const validate = async (value: any,): Promise<any> => {
-    if (props.required === true && isEmpty(value)) {
-      return props.requiredMessage;
+const FormattedNumberField: React.FC<FormattedNumberFieldProps> = ({
+  name,
+  id = `number-${name}`,
+  innerRef,
+  decimals,
+  disabled,
+  required,
+  requiredMessage,
+  separator,
+  classes,
+  placeholder,
+  prefix,
+  suffix,
+  label,
+  labelClasses,
+  help,
+  onBlur: customOnBlur,
+  onChange: customOnChange,
+  validate: customValidate,
+  ...props
+}) => {
+  const validate = async (value: any): Promise<any> => {
+    if (required === true && isEmpty(value)) {
+      return requiredMessage;
     }
-    return await fieldValidationHelper(props.validate, value);
+    return await fieldValidationHelper(customValidate, value);
   };
 
-  const [{ onChange, onBlur, ...field }, meta] = useField({ name: props.name, validate });
+  const [{ onChange, onBlur, ...field }, meta] = useField({ name, validate });
 
-  const id = props.id ?? `number-${props.name}`;
-  const helpId = !isEmpty(props.help) && !isEmpty(id) ? `${id}-help` : undefined;
+  const helpId = !isEmpty(help) && !isEmpty(id) ? `${id}-help` : undefined;
+
+  const className = getFieldClasses(meta, (classes ?? ''))
 
   const input = (
     <FormattedNumber
+      {...props}
       onValueChange={({ value, floatValue, formattedValue }) => {
-        props.onChange?.({ value, floatValue, formattedValue })
-        onChange({ target: { name: props.name, value: floatValue } })
+        customOnChange?.({ value, floatValue, formattedValue })
+        onChange({ target: { name: name, value: floatValue } })
       }}
       {...field}
       onBlur={e => {
-        props.onBlur?.(e)
+        customOnBlur?.(e)
         onBlur(e)
       }}
       id={id}
       customInput={Input}
-      getInputRef={props.innerRef}
-      disabled={props.disabled}
-      decimalScale={props.decimals}
-      required={props.required}
-      thousandSeparator={props.separator === true ? true : undefined}
-      placeholder={props.placeholder}
-      classes={getFieldClasses(meta, (props.classes ?? ''))}
+      getInputRef={innerRef}
+      disabled={disabled}
+      decimalScale={decimals}
+      required={required}
+      thousandSeparator={separator === true ? true : undefined}
+      placeholder={placeholder}
+      className={className}
+      classes={className}
       describedby={helpId}
     />
   );
 
   return (
     <div className="form-group">
-      {!isEmpty(props.label) ? (
-        <Label required={props.required} for={id} classes={props.labelClasses}>{props.label}</Label>
+      {!isEmpty(label) ? (
+        <Label required={required} for={id} classes={labelClasses}>{label}</Label>
       ) : undefined}
 
-      {(!isEmpty(props.prefix) || !isEmpty(props.suffix)) ? (
+      {(!isEmpty(prefix) || !isEmpty(suffix)) ? (
         <div className="input-group">
-          {!isEmpty(props.prefix) ? (
-            <div className="input-group-append"><span className="input-group-text">{props.prefix}</span></div>
+          {!isEmpty(prefix) ? (
+            <div className="input-group-append"><span className="input-group-text">{prefix}</span></div>
           ) : undefined}
 
           {input}
 
-          {!isEmpty(props.suffix) ? (
-            <div className="input-group-prepend"><span className="input-group-text">{props.suffix}</span></div>
+          {!isEmpty(suffix) ? (
+            <div className="input-group-prepend"><span className="input-group-text">{suffix}</span></div>
           ) : undefined}
         </div>
       ) : input}
 
-      {!isEmpty(props.help) ? <small id={helpId} className="form-text text-muted">{props.help}</small> : undefined}
+      {!isEmpty(help) ? <small id={helpId} className="form-text text-muted">{help}</small> : undefined}
 
       <ErrorMessage meta={meta} />
     </div>
