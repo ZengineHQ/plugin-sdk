@@ -109,10 +109,10 @@ export function stopAutoSizing () {
 /**
  * Make a call to the Zengine API
  */
-export function znHttp (request: ZengineAPIRequestOptions): Promise<ZengineHTTPResponse>
-export function znHttp (request: ZengineAPIRequestOptions, callback: (err: Error, resp: ZengineHTTPResponse) => void): null
+export function znHttp<T = any> (request: ZengineAPIRequestOptions): Promise<ZengineHTTPResponse<T>>
+export function znHttp<T = any> (request: ZengineAPIRequestOptions, callback: (err: Error, resp: ZengineHTTPResponse<T>) => void): null
 
-export function znHttp (request: ZengineAPIRequestOptions, callback?: (err: Error, resp: ZengineHTTPResponse) => void): Promise<ZengineHTTPResponse> | null {
+export function znHttp<T = any> (request: ZengineAPIRequestOptions, callback?: (err: Error, resp: ZengineHTTPResponse<T>) => void): Promise<ZengineHTTPResponse<T>> | null {
   return rpcClient.call({
     method: 'znHttp',
     args: {
@@ -222,10 +222,10 @@ async function listenForAbortSignalOrCompletion (signal: AbortSignal | undefined
 /**
  * Make a call to a backend service directly
  */
-export function znPluginData (options: ZenginePluginDataCallOptions, callback: (err: Error, resp: ZengineHTTPResponse) => void): null
-export function znPluginData (options: ZenginePluginDataCallOptions): Promise<ZengineHTTPResponse>
+export function znPluginData<T = any> (options: ZenginePluginDataCallOptions, callback: (err: Error, resp: ZengineHTTPResponse<T>) => void): null
+export function znPluginData<T = any> (options: ZenginePluginDataCallOptions): Promise<ZengineHTTPResponse<T>>
 
-export function znPluginData (options: ZenginePluginDataCallOptions, callback?: (err: Error, resp: ZengineHTTPResponse) => void): Promise<ZengineHTTPResponse> | null {
+export function znPluginData<T = any> (options: ZenginePluginDataCallOptions, callback?: (err: Error, resp: ZengineHTTPResponse<T>) => void): Promise<ZengineHTTPResponse<T>> | null {
   return rpcClient.call({ method: 'znPluginData', args: options, callback })
 }
 
