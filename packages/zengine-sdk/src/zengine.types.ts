@@ -1,7 +1,7 @@
-export interface ZengineHTTPResponse {
+export interface ZengineHTTPResponse<T> {
   data: {
     code: number
-    data: any | any[]
+    data: T
     limit: number
     offset: number
     status: number
@@ -215,6 +215,10 @@ export interface ZengineUser {
     isTourViewed: boolean
     recentlyVisitedWorkspaceIds: string
   }
+  /**
+   * Available when `?related=workspaceRoles` is queried on a `/users` request
+   */
+  workspaceRoles?: ZengineWorkspaceRole[]
 }
 
 export interface ZengineFormGroup {
@@ -256,6 +260,20 @@ export interface ZengineMember {
     id: number
     username: string
   }
+}
+
+export interface ZengineWorkspaceRole {
+  id: number
+  email: string
+  workspace: {
+    id: number
+  },
+  workspaceRole: {
+    id: number
+    name: string
+  },
+  created: string
+  modified: string
 }
 
 export interface ZengineProgram {
@@ -631,7 +649,13 @@ export type ZengineLinkedFieldValue = {
   name: string | null
 }
 
-export type ZengineFieldValue = string | number | boolean | null | ZengineLinkedFieldValue
+export type ZengineUserFieldValue = {
+  id: number | null
+  name: string | null
+  email: string | null
+}
+
+export type ZengineFieldValue = string | number | boolean | null | ZengineLinkedFieldValue | ZengineUserFieldValue
 
 export interface ZengineRecordMetadata {
   activities: ZengineActivity[]
@@ -644,7 +668,6 @@ export interface ZengineRecordMetadata {
   }
   createdByUser: ZengineUser
   events: any | null
-  // [key: string]: ZengineFieldValue
   folder: ZengineFolder
   form: ZengineForm
   id: number
@@ -667,7 +690,7 @@ export interface ZengineRecordFields {
   [key: string]: ZengineFieldValue
 }
 
-export type ZengineRecord = ZengineRecordFields & ZengineRecordMetadata
+export type ZengineRecord = ZengineRecordMetadata & ZengineRecordFields
 
 export interface ZengineContextData {
   constants: {
