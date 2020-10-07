@@ -136,6 +136,18 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
             {/* If we're showing either a submit or a reset button add a "form-actions" wrapper for them */}
             {(showSubmit === true || showReset === true) && (
               <div className="form-actions d-flex align-items-center">
+                {showSubmit === true && (
+                  <Button
+                    type="submit"
+                    theme="primary"
+                    aria-label={labelSubmit}
+                    disabled={isSubmitting}
+                    classes="mr-2"
+                  >
+                    {labelSubmit !== undefined ? labelSubmit : ''}
+                  </Button>
+                )}
+
                 {showSecondary === true && (
                   <Button
                     type="button"
@@ -146,18 +158,6 @@ function ZengineUIForm (props: FormProps): React.ReactElement {
                     onClick={onSecondaryHelper}
                   >
                     {labelSecondary !== undefined ? labelSecondary : ''}
-                  </Button>
-                )}
-
-                {showSubmit === true && (
-                  <Button
-                    type="submit"
-                    theme="primary"
-                    aria-label={labelSubmit}
-                    disabled={isSubmitting}
-                    classes="mr-2"
-                  >
-                    {labelSubmit !== undefined ? labelSubmit : ''}
                   </Button>
                 )}
 
