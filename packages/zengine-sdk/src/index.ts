@@ -416,3 +416,5 @@ export const znNumericValue = (amount: number, field: ZengineField) => {
   const result = isNegative + symbol + formattedValue
   return result
 }
+
+export const znRefreshToken = (): Promise<void> => rpcClient.call({ method: 'refreshToken' })
