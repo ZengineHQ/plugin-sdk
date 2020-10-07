@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.5.5...@zenginehq/zengine-sdk@0.6.0) (2020-10-07)
+
+
+### Features
+
+* refresh token ZEN-2999 ZEN-3122 ([24bbd21](https://github.com/ZengineHQ/zengine-sdk/commit/24bbd21ca0c6cb7ba446627ca2a36714636159a2))
+
+
+
+
+
 ## [0.5.5](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.5.4...@zenginehq/zengine-sdk@0.5.5) (2020-09-10)
 
 **Note:** Version bump only for package @zenginehq/zengine-sdk
