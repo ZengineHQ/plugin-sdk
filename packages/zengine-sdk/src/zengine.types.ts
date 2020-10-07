@@ -175,6 +175,7 @@ export interface ZengineUser {
   displayName: string
   created: string
   modified: string
+  isConfirmed: boolean
   authProvider?: {
     id: number
   }
@@ -218,7 +219,7 @@ export interface ZengineUser {
   /**
    * Available when `?related=workspaceRoles` is queried on a `/users` request
    */
-  workspaceRoles?: ZengineWorkspaceRole[]
+  workspaceRoles?: ZengineUserWorkspaceRole[]
 }
 
 export interface ZengineFormGroup {
@@ -264,14 +265,16 @@ export interface ZengineMember {
 
 export interface ZengineWorkspaceRole {
   id: number
+  name: string
+}
+
+export interface ZengineUserWorkspaceRole {
+  id: number
   email: string
   workspace: {
     id: number
   },
-  workspaceRole: {
-    id: number
-    name: string
-  },
+  workspaceRole: ZengineWorkspaceRole,
   created: string
   modified: string
 }
@@ -538,6 +541,9 @@ export interface ZengineFolder {
   modified: string
   name: string
   order: number
+  form?: {
+    id: number
+  }
 }
 
 export interface ZengineChoice {
@@ -669,7 +675,7 @@ export interface ZengineRecordMetadata {
   createdByUser: ZengineUser
   events: any | null
   folder: ZengineFolder
-  form: ZengineForm
+  form?: ZengineForm
   id: number
   isComplete: boolean
   isValid: boolean
