@@ -166,20 +166,20 @@ export interface ZenginePermissions {
 
 export interface ZengineUser {
   id: number
-  resource: any | null
-  resourceId: any | null
-  role: { id: number } | null
+  resource?: any | null
+  resourceId?: any | null
+  role?: { id: number } | null
   permissions?: ZenginePermissions
-  username: string
+  username?: string
   email: string
-  displayName: string
-  created: string
-  modified: string
-  isConfirmed: boolean
+  displayName?: string
+  created?: string
+  modified?: string
+  isConfirmed?: boolean
   authProvider?: {
     id: number
   }
-  profile: {
+  profile?: {
     firstName: string | null
     lastName: string | null
     publicName: string | null
@@ -203,7 +203,7 @@ export interface ZengineUser {
     expirationDate: string
     status: any
   }
-  settings: {
+  settings?: {
     avatarUrl: string
     timezone: string
     dateFormat: string
@@ -211,7 +211,7 @@ export interface ZengineUser {
     isTourOff: boolean
     isNewRecordNoticeDisabled: boolean
   }
-  metadata: {
+  metadata?: {
     lastLogin: string
     isTourViewed: boolean
     recentlyVisitedWorkspaceIds: string
@@ -223,35 +223,40 @@ export interface ZengineUser {
 }
 
 export interface ZengineFormGroup {
-  created: string
-  createdByUser: ZengineUser
-  description: string | null
+  created?: string
+  createdByUser?: ZengineUser
+  description?: string | null
   /**
    * List of Form IDs
    * access property `fullForms` for complete form data
    */
   forms: { id: number }[]
   fullForms: ZengineForm[]
-  id: 1
-  isDefault: boolean
-  modified: string
-  name: string
-  workspace: {
+  id: number
+  isDefault?: boolean
+  modified?: string
+  name?: string
+  workspace?: {
     id: number
   }
 }
 
-export interface ZengineRole {
-  created: string
+export interface ZengineClient {
   id: number
-  modified: string
+  appName: string
+}
+
+export interface ZengineRole {
+  created?: string
+  id: number
+  modified?: string
   name: string
 }
 
 export interface ZengineMember {
-  created: string
+  created?: string
   id: number
-  modified: string
+  modified?: string
   role: {
     id: number
   }
@@ -275,38 +280,36 @@ export interface ZengineUserWorkspaceRole {
     id: number
   },
   workspaceRole: ZengineWorkspaceRole,
-  created: string
-  modified: string
+  created?: string
+  modified?: string
 }
 
 export interface ZengineProgram {
   id: number
   name: string
   slug: string
-  description: string
-  created: string
-  modified: string
+  description?: string
+  created?: string
+  modified?: string
+  workspace?: {
+    id: number
+  }
 }
 
 export interface ZengineWorkspace {
-  reated: string
-  description: string | null
-  formGroups: ZengineFormGroup[] | null
-  forms: ZengineForm[]
+  created?: string
+  description?: string | null
+  formGroups?: ZengineFormGroup[] | null
+  forms?: ZengineForm[]
   id: number
-  isAdmin: boolean
-  isCustomRole: boolean
-  isOwner: boolean
-  logoPath: string
-  memberId: number
-  members: ZengineMember[]
-  metadata: {
+  members?: ZengineMember[]
+  metadata?: {
     lastActivity: string
   },
-  programs: ZengineProgram[]
+  programs?: ZengineProgram[]
   name: string
-  roles: ZengineRole[]
-  settings: {
+  roles?: ZengineRole[]
+  settings?: {
     logoUrl: string | null
   }
   taskLists?: {
@@ -319,7 +322,6 @@ export interface ZengineWorkspace {
     name: string
     order: number
   }[]
-  _formGroupsFullyPopulated: boolean
 }
 
 export interface ZengineState {
@@ -335,22 +337,22 @@ export interface ZengineCountry {
 }
 
 export interface ZengineDataView {
-  columnWidths: {
+  columnWidths?: {
     [key: string]: number
   }
-  created: string
-  createdByUser: {
+  created?: string
+  createdByUser?: {
     id: number
   }
   fields: string[]
   filter: ZengineFilter
-  groupByFields: any
+  groupByFields?: any
   id: number
-  isDefault: boolean
-  modified: string
+  isDefault?: boolean
+  modified?: string
   name: string
-  order: number
-  sortByFields: string[]
+  order?: number
+  sortByFields?: string[]
 }
 
 export type ZengineFilterPrefix = '' | 'not' | 'min' | 'max' | 'not-contains' | 'contains' | 'starts-with' | 'ends-with' | 'not-validates'
@@ -402,16 +404,14 @@ export interface ZengineFiltersPanelOptions {
 export type ZengineFieldType = 'calculated-field' | 'checkbox' | 'country-select' | 'date-picker' | 'dropdown' | 'file-upload' | 'heading' | 'hidden-field' | 'html' | 'link-counter' | 'linked' | 'member' | 'numeric' | 'page-break' | 'radio' | 'spacer' | 'state-select' | 'summary' | 'text' | 'text-area' | 'text-input' | 'year'
 
 export interface ZengineForm {
-  canCreateRecords: boolean
-  created: string
-  createdByUser: ZengineUser
-  dataViews: ZengineDataView[]
-  end: string
-  fields: ZengineField[]
-  folders: ZengineFolder[]
+  created?: string
+  createdByUser?: ZengineUser
+  dataViews?: ZengineDataView[]
+  fields?: ZengineField[]
+  folders?: ZengineFolder[]
   id: number
-  isPublic: boolean
-  linkedForms: {
+  isPublic?: boolean
+  linkedForms?: {
     form: {
       id: number
     }
@@ -420,14 +420,13 @@ export interface ZengineForm {
     }
     type: 'hasMany' | 'hasOne' | 'belongsTo'
   }[]
-  modified: string
-  name: string
-  objectVersion: string
-  order: number
-  permissions: ZenginePermissions
-  previewSlug: string
-  purpose: string | null
-  settings: {
+  modified?: string
+  name?: string
+  objectVersion?: string
+  order?: number
+  permissions?: ZenginePermissions
+  purpose?: string | null
+  settings?: {
     captcha: boolean
     confirmation: {
       emailAddress: string | null
@@ -487,7 +486,7 @@ export interface ZengineForm {
         underline: boolean
       }
     }
-    terminology: {
+    terminology?: {
       closedError: string
       confirmReplaceFile: string
       continue: string
@@ -527,20 +526,18 @@ export interface ZengineForm {
       uploadError: string
     }
   }
-  singularName: string
-  slug: string
-  start: string
-  workspace: {
-    id: string | number
+  singularName?: string
+  workspace?: {
+    id: number
   }
 }
 
 export interface ZengineFolder {
-  created: string
+  created?: string
   id: number
-  modified: string
+  modified?: string
   name: string
-  order: number
+  order?: number
   form?: {
     id: number
   }
@@ -552,16 +549,16 @@ export interface ZengineChoice {
 }
 
 export interface ZengineField {
-  control: boolean
-  description: string | null
+  control?: boolean
+  description?: string | null
   id: number
   label: string
-  locked: boolean
-  name: string | null
-  order: number
-  purpose: string | null
-  rules: ZengineFieldRule[] | null
-  settings: {
+  locked?: boolean
+  name?: string | null
+  order?: number
+  purpose?: string | null
+  rules?: ZengineFieldRule[] | null
+  settings?: {
     properties: {
       aggregation: null
       calculation: null
@@ -607,7 +604,7 @@ export interface ZengineField {
       zipCode: boolean
     }
   }
-  type: ZengineFieldType
+  type?: ZengineFieldType
 }
 
 export interface ZengineFieldRule {
@@ -617,8 +614,8 @@ export interface ZengineFieldRule {
 }
 
 export interface ZengineActivity {
-  action: 'create' | 'read' | 'update' | 'delete'
-  changes: {
+  action?: 'create' | 'read' | 'update' | 'delete'
+  changes?: {
     from: {
       /**
        * A field ID and it's value
@@ -634,20 +631,16 @@ export interface ZengineActivity {
       [key: string]: any
     }
   } | null
-  created: string
-  createdByClient: {
-    id: number
-  }
-  createdByUser: {
-    id: number
-  }
+  created?: string
+  createdByClient?: ZengineClient
+  createdByUser?: ZengineUser
   id: number
-  modified: string
-  record: {
+  modified?: string
+  record?: {
     id: number
   }
-  resource: 'files' | 'tasks' | 'events' | 'records' | 'notes' | 'replies' | 'invitees' | 'members' | 'jobs' | 'binary_export_jobs' | 'record_import_jobs' | 'record_export_jobs'
-  resourceId: number
+  resource?: 'files' | 'tasks' | 'events' | 'records' | 'notes' | 'replies' | 'invitees' | 'members' | 'jobs' | 'binary_export_jobs' | 'record_import_jobs' | 'record_export_jobs'
+  resourceId?: number
 }
 
 export type ZengineLinkedFieldValue = {
@@ -664,30 +657,24 @@ export type ZengineUserFieldValue = {
 export type ZengineFieldValue = string | number | boolean | null | ZengineLinkedFieldValue | ZengineUserFieldValue
 
 export interface ZengineRecordMetadata {
-  activities: ZengineActivity[]
-  canDelete: boolean
-  canUpdate: boolean
-  created: string
-  createdByClient: {
-    id: number
-    appName: string
-  }
-  createdByUser: ZengineUser
-  events: any | null
-  folder: ZengineFolder
+  activities?: ZengineActivity[]
+  created?: string
+  createdByClient?: ZengineClient
+  createdByUser?: ZengineUser
+  events?: any | null
+  folder?: ZengineFolder
   form?: ZengineForm
   id: number
-  isComplete: boolean
-  isValid: boolean
-  metadata: {
+  isComplete?: boolean
+  metadata?: {
     ipAddress: string | null
   }
-  modified: string
-  name: string
-  notes: any | null
-  objectVersion: string
-  tasks: any | null
-  workspace: {
+  modified?: string
+  name?: string
+  notes?: any | null
+  objectVersion?: string
+  tasks?: any | null
+  workspace?: {
     id: number
   }
 }
