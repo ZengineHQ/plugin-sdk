@@ -216,6 +216,15 @@ export interface ZengineUser {
     isTourViewed: boolean
     recentlyVisitedWorkspaceIds: string
   }
+  organization?: {
+    id: number
+    name: string
+    slug: string
+    description: string
+    created: string
+    modified: string
+  }
+  organizationRole?: string
   /**
    * Available when `?related=workspaceRoles` is queried on a `/users` request
    */
@@ -401,7 +410,7 @@ export interface ZengineFiltersPanelOptions {
   fieldTypeBlacklist?: ZengineFieldType[]
 }
 
-export type ZengineFieldType = 'calculated-field' | 'checkbox' | 'country-select' | 'date-picker' | 'dropdown' | 'file-upload' | 'heading' | 'hidden-field' | 'html' | 'link-counter' | 'linked' | 'member' | 'numeric' | 'page-break' | 'radio' | 'spacer' | 'state-select' | 'summary' | 'text' | 'text-area' | 'text-input' | 'year'
+export type ZengineFieldType = 'calculated-field' | 'checkbox' | 'country-select' | 'date-picker' | 'dropdown' | 'file-upload' | 'heading' | 'hidden-field' | 'html' | 'link-counter' | 'linked' | 'member' | 'numeric' | 'page-break' | 'radio' | 'spacer' | 'state-select' | 'summary' | 'text' | 'text-area' | 'text-input' | 'user' | 'year'
 
 export interface ZengineForm {
   created?: string

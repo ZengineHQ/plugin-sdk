@@ -9,7 +9,7 @@ export interface SelectOption {
   value: string | number
 }
 
-export interface SelectProps extends InputProps, AriaProps {
+export interface SelectProps extends InputProps<HTMLSelectElement>, AriaProps {
   name?: string
   placeholder?: string
   options?: Array<SelectOption | string>

@@ -5,9 +5,9 @@ import { ZengineContextData, ZengineField, ZengineForm, ZengineFieldType, Zengin
 type ZengineContext = {
   context?: ZengineContextData
   helpers?: {
-    getFieldLabel: (id: number) => string
-    getFieldType: (id: number) => ZengineFieldType
-    getFormName: (id: number) => string
+    getFieldLabel: (id: number) => string | undefined
+    getFieldType: (id: number) => ZengineFieldType | undefined
+    getFormName: (id: number) => string | undefined
     getForm: (id: number) => ZengineForm
     isFieldType: (id: number, type: ZengineFieldType) => boolean
     isDatePicker: (id: number) => boolean
@@ -45,7 +45,7 @@ export const ZnContextProvider: FunctionComponent<ZnContextProviderProps> = ({ c
 
     return context.workspace.forms.reduce((map, form) => ({
       ...map,
-      ...form.fields.reduce((fMap, field) => ({ ...fMap, [field.id]: { ...field, form } }), {})
+      ...form.fields?.reduce((fMap, field) => ({ ...fMap, [field.id]: { ...field, form } }), {})
     }), {})
   }, [context])
 
@@ -77,7 +77,7 @@ export const ZnContextProvider: FunctionComponent<ZnContextProviderProps> = ({ c
     if (!form) return form
 
     if (dataFieldsOnly) {
-      return form.fields.filter(field => [
+      return form.fields?.filter(field => [
         'calculated-field',
         'checkbox',
         'country-select',
@@ -94,7 +94,7 @@ export const ZnContextProvider: FunctionComponent<ZnContextProviderProps> = ({ c
         'text-area',
         'text-input',
         'year'
-      ].includes(field.type))
+      ].includes(field.type ?? ''))
     }
 
     return form.fields

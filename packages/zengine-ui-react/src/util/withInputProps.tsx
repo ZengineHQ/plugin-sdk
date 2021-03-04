@@ -1,25 +1,25 @@
 import React from 'react';
 import omit from 'lodash/omit';
 
-export interface TransformedInputProps {
+export interface TransformedInputProps<InputElement = HTMLInputElement> {
   className?: string
   readOnly?: boolean
-  onChange?: (event: React.ChangeEvent) => void
-  onBlur?: (event: React.FocusEvent) => void
+  onChange?: (event: React.ChangeEvent<InputElement>) => void
+  onBlur?: (event: React.FocusEvent<InputElement>) => void
   value?: any
   defaultValue?: any
   multiple?: boolean
   children?: React.ReactNode
 }
 
-export interface InputProps {
+export interface InputProps<InputElement = HTMLInputElement> {
   disabled?: boolean
   required?: boolean
   name?: string
   classes?: string
   readonly?: boolean
-  onChange?: (event: React.ChangeEvent) => void
-  onBlur?: (event: React.FocusEvent) => void
+  onChange?: (event: React.ChangeEvent<InputElement>) => void
+  onBlur?: (event: React.FocusEvent<InputElement>) => void
   value?: any
   defaultValue?: any
   multiple?: boolean

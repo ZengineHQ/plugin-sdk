@@ -5,8 +5,8 @@
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "react": "^16.13.1",
@@ -21,6 +21,5 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "dependencies": {}
+  }
 }

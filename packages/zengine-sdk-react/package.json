@@ -34,10 +34,10 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@types/react": "^16.9.48",
-    "@types/react-dom": "^16.9.8",
+    "@types/react": "^16.14.2",
+    "@types/react-dom": "^16.9.10",
     "@zenginehq/zengine-sdk": "^0.6.1",
-    "tslib": "^1.13.0"
+    "tslib": "^1.14.1"
   },
   "peerDependencies": {
     "react": "^16.13.1",

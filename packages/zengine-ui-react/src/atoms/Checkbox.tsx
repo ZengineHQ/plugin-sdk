@@ -6,8 +6,8 @@ import withAriaAttributes, { AriaProps } from '../util/withAriaAttributes';
 export interface CheckedProps extends AriaProps, InputProps {
   checked?: boolean
   defaultChecked?: boolean
-  onChange?: (event: React.ChangeEvent) => void
-  onBlur?: (event: React.FocusEvent) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
   value?: any
   id?: string
   ref?: any
@@ -39,7 +39,7 @@ const Checkbox: React.FC<CheckedProps> = (props) => {
       type="checkbox"
       {...props}
       // These are specific to checkboxes.
-      { ...checkedProp }
+      {...checkedProp}
       aria-checked={props.onChange !== undefined && checked === true}
       value={props.value !== undefined ? props.value : true}
     />

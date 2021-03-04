@@ -3,7 +3,7 @@ import React from 'react';
 import withAriaAttributes from '../util/withAriaAttributes';
 import withInputProps, { InputProps } from '../util/withInputProps';
 
-export interface TextareaProps extends InputProps {
+export interface TextareaProps extends InputProps<HTMLTextAreaElement> {
   resizable?: boolean
   placeholder?: string
   name?: string
@@ -24,9 +24,9 @@ const Textarea: React.FC<TextareaProps> = (props) => {
   const { resizable, ...passProps } = props;
   return (
     <textarea
-      { ...passProps }
+      {...passProps}
       // This inline style hacky thing allows us to control whether the textarea should be resizable via props.
-      style={ props.resizable === true ? {} : { resize: 'none' } }
+      style={props.resizable === true ? {} : { resize: 'none' }}
     />
   );
 }
