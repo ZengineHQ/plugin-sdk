@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.5.3...@zenginehq/zengine-ui@0.6.0) (2021-09-23)
+
+
+### Features
+
+* resolve typescript errors, fix tests, resolved issues [#60](https://github.com/ZengineHQ/plugin-sdk/issues/60) [#67](https://github.com/ZengineHQ/plugin-sdk/issues/67) ([889d47c](https://github.com/ZengineHQ/plugin-sdk/commit/889d47ce4b6de4b4de1a0c2e9dc4cca2b8454435))
+
+
+
+
+
 ## [0.5.3](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.5.2...@zenginehq/zengine-ui@0.5.3) (2020-08-31)
 
 **Note:** Version bump only for package @zenginehq/zengine-ui

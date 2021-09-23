@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.6.1...@zenginehq/zengine-sdk@0.7.0) (2021-09-23)
+
+
+### Features
+
+* resolve typescript errors, fix tests, resolved issues [#60](https://github.com/ZengineHQ/zengine-sdk/issues/60) [#67](https://github.com/ZengineHQ/zengine-sdk/issues/67) ([889d47c](https://github.com/ZengineHQ/zengine-sdk/commit/889d47ce4b6de4b4de1a0c2e9dc4cca2b8454435))
+
+
+
+
+
 ## [0.6.1](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/zengine-sdk@0.6.0...@zenginehq/zengine-sdk@0.6.1) (2020-10-21)
 
 **Note:** Version bump only for package @zenginehq/zengine-sdk
