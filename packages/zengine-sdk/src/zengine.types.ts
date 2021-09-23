@@ -401,7 +401,7 @@ export interface ZengineFiltersPanelOptions {
   fieldTypeBlacklist?: ZengineFieldType[]
 }
 
-export type ZengineFieldType = 'calculated-field' | 'checkbox' | 'country-select' | 'date-picker' | 'dropdown' | 'file-upload' | 'heading' | 'hidden-field' | 'html' | 'link-counter' | 'linked' | 'member' | 'numeric' | 'page-break' | 'radio' | 'spacer' | 'state-select' | 'summary' | 'text' | 'text-area' | 'text-input' | 'year'
+export type ZengineFieldType = 'calculated-field' | 'checkbox' | 'country-select' | 'date-picker' | 'dropdown' | 'file-upload' | 'heading' | 'hidden-field' | 'html' | 'link-counter' | 'linked' | 'member' | 'numeric' | 'page-break' | 'radio' | 'spacer' | 'state-select' | 'summary' | 'text' | 'text-area' | 'text-input' | 'user' | 'year'
 
 export interface ZengineForm {
   created?: string
@@ -561,12 +561,12 @@ export interface ZengineField {
   settings?: {
     properties: {
       aggregation: null
-      calculation: null
+      calculation: string | null
       choices: null
       advancedChoices: ZengineChoice[] | null
       class: null
       cols: null
-      currency: null
+      currency: string | null
       decimal: number | null
       displayFields: null
       extensions: null
@@ -690,6 +690,9 @@ export interface ZengineContextData {
     apiUrl: string
     serviceUrl: string
     supportUrl: string
+    translateUrl: string
+    renderingUrl: string
+    formgraphUrl: string
     zenQLUrl: string
   },
   plugin: {
@@ -727,4 +730,10 @@ export interface ZengineContextData {
     searchParams: { [key: string]: string | number }
     pathParams: { [key: string]: string }
   }
+}
+export interface ZengineCurrency {
+  id: string
+  currency: string
+  symbol: string,
+  decimals: number
 }

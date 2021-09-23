@@ -27,6 +27,8 @@ export interface DateFieldProps {
   showYearDropdown?: boolean
   showMonthDropdown?: boolean
   requiredMessage?: string
+  minDate?: Date
+  maxDate?: Date
 }
 
 const DateField: React.FC<DateFieldProps> = (props) => {
@@ -73,6 +75,8 @@ const DateField: React.FC<DateFieldProps> = (props) => {
         name={props.name}
         showYearDropdown={props.showYearDropdown}
         showMonthDropdown={props.showMonthDropdown}
+        minDate={props.minDate}
+        maxDate={props.maxDate}
       />
     </div>
   );
