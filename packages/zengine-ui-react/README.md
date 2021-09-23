@@ -8,6 +8,16 @@
 npm i @zenginehq/zengine-ui @zenginehq/zengine-ui-react
 ```
 
+## Running Storybook
+
+```
+npm run storybook 
+```
+## Publishing Changes
+```
+npm postpublish
+```
+
 ## Usage
 
 #### Add Font Awesome Icons
@@ -45,19 +55,16 @@ For more information see the Storybook.
 
 ## Explanation of NPM scripts
 
-- `start`: starts the local dev version of the Storybook
+- `storybook`: starts the local dev version of the Storybook
 - `test`: starts the Jest interactive test runner
 - `test:save`: runs tests in CI mode (non-interactive just run all tests once) and logs output to a file
 - `test:cover`: runs tests in CI mode (see test:save) and generates code a coverage report (only considers `api` folder)
-- `build-storybook`: runs tests to generate the log output and builds the Storybook
-- `deploy-storybook`: deploys the Storybook to Github Pages
-- `sass`: compiles SCSS from the `style` folder
-- `sass:watch`: watches the `style` folder and recompiles SCSS when files change
+- `storybook:build`: runs tests to generate the log output and builds the Storybook
+- `storybook:publish`: deploys the Storybook to Github Pages
 - `build`: builds the redistributable output for Zengine UI React; this is what people will get when they `npm install` this in their projects
-- `release`: tags a new release and updates the CHANGELOG
 - `build:js`: helper script to build JS artifacts, gets called by `npm run build`
 - `build:css`: helper script to build CSS artifacts, gets called by `npm run build`
-- `build:cssmin`: helper script to build minified CSS artifacts, gets called by `npm run build`
+- 'postpublish': 'test build and publish all in one command'
 
 ## Directory Structure Guide
 

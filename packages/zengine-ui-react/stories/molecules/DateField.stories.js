@@ -20,6 +20,20 @@ export const Default = () => (
 export const Required = () => (
   <MockForm><DateField label="Required Date Input" required={ true } name="date" /></MockForm>
 );
+export const MinMaxDate = () => {
+
+  const twoMonthsAgo = new Date();
+  twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2);
+
+  const twoMonthsFromNow = new Date();
+  twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+
+  return (
+
+    <MockForm><DateField label="Min Max Date Input" minDate={twoMonthsAgo} maxDate={twoMonthsFromNow} name="date" /></MockForm>
+  );
+}
 
 export const RequiredMessage = () => (
   <MockForm>

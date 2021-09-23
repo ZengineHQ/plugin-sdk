@@ -23,7 +23,7 @@ test('Form adds a secondary button when specified', () => {
   const { container } = render(
     <Form onSubmit={() => null} showSecondary={true} labelSecondary="Secondary" />
   );
-  const button = container.getElementsByTagName('button')[0];
+  const button = container.getElementsByTagName('button')[1];
   expect(button).toHaveAttribute('type', 'button');
   expect(button).toHaveTextContent('Secondary');
 });
@@ -237,7 +237,7 @@ test('Calls secondary submit handler with proper values', async () => {
   );
   const input = container.getElementsByTagName('input')[0];
   const otherInput = container.getElementsByTagName('input')[1];
-  const button = container.getElementsByTagName('button')[0];
+  const button = container.getElementsByTagName('button')[1];
 
   await act(async () => {
     fireEvent.change(input, {
