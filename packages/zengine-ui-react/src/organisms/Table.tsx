@@ -8,7 +8,7 @@ export type TableRow = TableRowCell[];
 export interface TableProps {
   innerRef?: any
   classes?: string
-  headers?: string[]
+  headers?: Array<string | React.ReactElement>
   rows?: TableRow[]
 }
 
