@@ -59,3 +59,14 @@ test('Renders React components in table columns', () => {
   expect(container.getElementsByTagName('button')).toHaveProperty('length', 1);
   expect(getByText('ButtonComponent')).toBeInTheDocument();
 });
+
+test('Renders React components in table columns', () => {
+  const headers = ['Header1', <Button>ButtonComponent</Button>];
+  const rows = [['Column1', 'Column2', 'Column3'], ['Column4', 'Column5', 'Column6']];
+  const { container, getByText } = render(<Table headers={headers} rows={rows} />);
+  expect(container.getElementsByTagName('th')).toHaveProperty('length', 2);
+  expect(container.getElementsByTagName('td')).toHaveProperty('length', 2);
+  expect(getByText('Header1')).toBeInTheDocument();
+  expect(container.getElementsByTagName('button')).toHaveProperty('length', 1);
+  expect(getByText('ButtonComponent')).toBeInTheDocument();
+});

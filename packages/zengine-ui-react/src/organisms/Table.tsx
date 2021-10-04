@@ -2,13 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 import withForwardRef from '../util/withForwardRef';
 
-export type TableRowCell = string | React.ReactElement;
+export type TableRowCell = string | JSX.Element;
 export type TableRow = TableRowCell[];
 
 export interface TableProps {
   innerRef?: any
   classes?: string
-  headers?: string[]
+  headers?: Array<string | JSX.Element>
   rows?: TableRow[]
 }
 

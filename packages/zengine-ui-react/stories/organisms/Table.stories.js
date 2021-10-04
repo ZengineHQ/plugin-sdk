@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 import Button from '../../src/atoms/Button';
 import Table from '../../src/organisms/Table';
+import {Checkbox} from "../../lib";
 
 export default {
   title: 'Components/Organisms/Table',
@@ -69,6 +70,18 @@ export const MoreCustomClasses = () => {
         ['John Smith', 'john@smith.com', '25'],
         ['Jane Doe', 'janedoe@hotmail.com', '25'],
         ['Highlander', 'one@therecanonlybe.com', 'Infinte']]
+      }
+    />
+  );
+};
+export const CheckboxInHeader = () => {
+  return (
+    <Table
+      headers={ [<Checkbox/>, 'Email ', 'Age'] }
+      rows={ [
+        ['John Smith', 'john@smith.com', '25'],
+        ['Jane Doe', 'janedoe@hotmail.com', '25'],
+        ['Highlander', 'one@therecanonlybe.com', 'Infinite']]
       }
     />
   );
