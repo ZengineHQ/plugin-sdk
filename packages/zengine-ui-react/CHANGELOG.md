@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.20.0...@zenginehq/zengine-ui-react@0.21.0) (2021-10-04)
+
+
+### Features
+
+* added react elements to headers [#20](https://github.com/ZengineHQ/plugin-sdk/issues/20) ([d472f89](https://github.com/ZengineHQ/plugin-sdk/commit/d472f899a29428f66d4aa8d1a925c6131334b2e1))
+
+
+
+
+
 # [0.20.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.19.3...@zenginehq/zengine-ui-react@0.20.0) (2021-09-23)
 
 
