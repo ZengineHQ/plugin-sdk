@@ -31,6 +31,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       className={classNames([`btn btn-${theme}`, props.classes])}
       disabled={props.disabled}
       aria-disabled={props.disabled === true ? true : undefined}
+      aria-label={props['aria-label']}
     >
       {props.children}
     </button>
