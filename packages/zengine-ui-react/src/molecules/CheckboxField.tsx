@@ -62,7 +62,9 @@ const CheckboxField: React.FC<CheckboxFieldProps> = (props) => {
   useEffect(() => {
     if (meta?.value !== meta.initialValue) {
       if (!meta.touched) {
-        setTouched(true);
+        setTouched(true).catch(evt => {
+          console.error(evt);
+        });
       }
     }
   }, [meta, setTouched]);

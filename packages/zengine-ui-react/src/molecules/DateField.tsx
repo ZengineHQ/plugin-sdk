@@ -42,8 +42,12 @@ const DateField: React.FC<DateFieldProps> = (props) => {
   const [field, meta, { setTouched, setValue }] = useField({ name: (props.name ?? ''), validate });
 
   const onChangeHelper = (date: Date): any => {
-    setValue(date);
-    setTouched(true);
+    setValue(date).catch(r => {
+      console.error(r);
+    });
+    setTouched(true).catch(r => {
+      console.error(r);
+    });
 
     // Call custom callback.
     // const evt = new CustomEvent('date-change', { detail: date });
@@ -55,7 +59,9 @@ const DateField: React.FC<DateFieldProps> = (props) => {
   };
 
   const onBlurHelper = (e: React.FocusEvent): void => {
-    setTouched(true);
+    setTouched(true).catch(evt => {
+      console.error(evt);
+    });
     props?.onBlur?.(e);
     return field.onBlur(e);
   };

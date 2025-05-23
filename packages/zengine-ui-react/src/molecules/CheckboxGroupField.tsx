@@ -67,7 +67,9 @@ const CheckboxGroupField: React.FC<CheckboxGroupFieldProps> = (props) => {
   useEffect(() => {
     if (meta?.value !== meta.initialValue) {
       if (!meta.touched) {
-        setTouched(true);
+        setTouched(true).catch(r => {
+          console.error(r);
+        });
       }
     }
   }, [meta, setTouched]);

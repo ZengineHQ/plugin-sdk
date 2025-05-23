@@ -66,7 +66,9 @@ const NumberField: React.FC<NumberFieldProps> = (props) => {
       val = isNaN(temp) ? '' : temp.toFixed(props.decimals);
     }
 
-    setValue(val);
+    setValue(val).catch(r => {
+      console.error(r);
+    });
     const evt = { target: { value: val, name: field.name } };
     props?.onBlur?.(evt);
     return field.onBlur(evt);
