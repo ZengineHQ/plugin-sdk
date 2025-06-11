@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.6.0...@zenginehq/zengine-ui@0.8.0) (2025-06-11)
+
+
+### Features
+
+* updated to node 20 ([7cbb2cc](https://github.com/ZengineHQ/plugin-sdk/commit/7cbb2ccb287406eaa52b4795056ed33889f6a8db))
+
+
+
+
+
 # [0.7.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui@0.6.0...@zenginehq/zengine-ui@0.7.0) (2025-06-11)
 
 

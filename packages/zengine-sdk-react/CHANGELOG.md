@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/react-sdk@0.2.0...@zenginehq/react-sdk@0.4.0) (2025-06-11)
+
+
+### Features
+
+* updated to node 20 ([7cbb2cc](https://github.com/ZengineHQ/zengine-sdk/commit/7cbb2ccb287406eaa52b4795056ed33889f6a8db))
+
+
+
+
+
 # [0.3.0](https://github.com/ZengineHQ/zengine-sdk/compare/@zenginehq/react-sdk@0.2.0...@zenginehq/react-sdk@0.3.0) (2025-06-11)
 
 
