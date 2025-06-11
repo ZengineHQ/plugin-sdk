@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.21.0...@zenginehq/zengine-ui-react@0.23.0) (2025-06-11)
+
+
+### Features
+
+* added aria-label to bulk actions button ([1403bdd](https://github.com/ZengineHQ/plugin-sdk/commit/1403bdd11cc3a2c13e9740909bcb6cab8ff0c331))
+* added countries ([45c9c57](https://github.com/ZengineHQ/plugin-sdk/commit/45c9c57ac24285f647cc1fef43516e16378642b2))
+* refactored aria-label to bulk action button ([a88abb6](https://github.com/ZengineHQ/plugin-sdk/commit/a88abb64452d3b8e16c35068c4434b4abd5a8dda))
+* updated to node 20 ([7cbb2cc](https://github.com/ZengineHQ/plugin-sdk/commit/7cbb2ccb287406eaa52b4795056ed33889f6a8db))
+
+
+
+
+
+# [0.22.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.21.0...@zenginehq/zengine-ui-react@0.22.0) (2025-06-11)
+
+
+### Features
+
+* added aria-label to bulk actions button ([1403bdd](https://github.com/ZengineHQ/plugin-sdk/commit/1403bdd11cc3a2c13e9740909bcb6cab8ff0c331))
+* added countries ([45c9c57](https://github.com/ZengineHQ/plugin-sdk/commit/45c9c57ac24285f647cc1fef43516e16378642b2))
+* refactored aria-label to bulk action button ([a88abb6](https://github.com/ZengineHQ/plugin-sdk/commit/a88abb64452d3b8e16c35068c4434b4abd5a8dda))
+* updated to node 20 ([7cbb2cc](https://github.com/ZengineHQ/plugin-sdk/commit/7cbb2ccb287406eaa52b4795056ed33889f6a8db))
+
+
+
+
+
 # [0.21.0](https://github.com/ZengineHQ/plugin-sdk/compare/@zenginehq/zengine-ui-react@0.20.0...@zenginehq/zengine-ui-react@0.21.0) (2021-10-04)
 
 
