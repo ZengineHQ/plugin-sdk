@@ -30,7 +30,7 @@
     "url": "git+https://github.com/ZengineHQ/plugin-sdk.git"
   },
   "devDependencies": {
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^5.0.0",
     "sass": "^1.26.10"
   },
   "publishConfig": {
