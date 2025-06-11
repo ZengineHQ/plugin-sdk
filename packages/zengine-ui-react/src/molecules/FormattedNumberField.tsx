@@ -84,7 +84,7 @@ const FormattedNumberField: React.FC<FormattedNumberFieldProps> = ({
         onChange({ target: { name: name, value: floatValue } })
       }}
       {...field}
-      onBlur={e => {
+      onBlur={(e: any) => {
         customOnBlur?.(e)
         onBlur(e)
       }}

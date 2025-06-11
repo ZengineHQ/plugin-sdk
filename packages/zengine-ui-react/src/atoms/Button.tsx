@@ -14,6 +14,8 @@ export interface ButtonProps {
   disabled?: boolean
   /** The button's contents */
   children: ReactChildren | ReactChild
+  /** Whether the button should have aria-label */
+  ariaLabel?: string
 }
 
 /**
@@ -31,6 +33,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       className={classNames([`btn btn-${theme}`, props.classes])}
       disabled={props.disabled}
       aria-disabled={props.disabled === true ? true : undefined}
+      aria-label={props.ariaLabel}
     >
       {props.children}
     </button>
