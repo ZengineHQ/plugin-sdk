@@ -5,7 +5,7 @@
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
+    "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^8.3.4",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
